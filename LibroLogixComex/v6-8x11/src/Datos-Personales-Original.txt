@@ -1,0 +1,23 @@
+Nombre: 
+Jaime Armando Pérez
+
+Dirección   : 
+
+Teléfono   : 
+
+Código Postal: 
+524060
+
+Fecha Nacimiento: 
+
+
+Banco para recibir regalias libro:
+
+
+Tipo de Cuenta: (Ahorro/Corriente)
+
+
+Código BIC (SWIFT): (Si es Bancolombia es COLOCOBMXXX)
+
+
+Nombre del Titular de la Cuenta:
