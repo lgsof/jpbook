@@ -22,11 +22,16 @@
 
 % Microtype subtly adjusts word spacing and justification to eliminate awkward white gaps on the screen, making the PDF incredibly easy to read.
 \usepackage{microtype}
+
+% PDF Navigation Bar 
+\usepackage{tocbibind}
 \end_preamble
 \options openright
 \use_default_options true
 \maintain_unincluded_children no
 \begin_local_layout
+Format 99
+
 Style Fuente_de_figura
     CopyStyle Standard
     LatexType Paragraph
@@ -34,6 +39,39 @@ Style Fuente_de_figura
         Size Small
         Shape Italic
     EndFont
+End
+
+Preamble
+  \usepackage{xcolor}
+  \definecolor{slateNavy}{HTML}{2B4C7E}
+  
+  % Forces the LaTeX description environment to render labels in slateNavy
+  \let\olddescription\description
+  \let\endolddescription\enddescription
+  \renewenvironment{description}
+    {\begin{olddescription}\let\olditem\item\renewcommand{\item}[1][]{\olditem[\textcolor{slateNavy}{##1}]}}
+    {\end{olddescription}}
+EndPreamble
+
+Style Description
+    LatexType             Item_Environ
+    LatexName             description
+    LabelFont
+      Color               Blue
+    EndFont
+End
+
+
+Style Subsubsection
+    Font
+        Shape  Italic
+		Series Bold
+		Size   Normal
+    EndFont
+    Preamble
+        \usepackage{sectsty}
+        \subsubsectionfont{\normalfont\bfseries\itshape}
+    EndPreamble
 End
 \end_local_layout
 \language spanish
@@ -63,7 +101,16 @@ End
 \float_alignment class
 \paperfontsize 12
 \spacing single
-\use_hyperref false
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
 \papersize custom
 \use_geometry true
 \use_package amsmath 1
@@ -1086,7 +1133,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/image01-HistoriaComercio.png
-	width 24cm
+	width 100theight%
 
 \end_inset
 
@@ -1097,9 +1144,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\series bold
-Breve Historia del Comercio Exterior Global.
+Breve Historia del Comercio Exterior Global
 \end_layout
 
 \end_inset
@@ -1375,7 +1420,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename imagenes/image02-HistoriaComercioColombia.png
-	width 24cm
+	width 100theight%
 
 \end_inset
 
@@ -1386,11 +1431,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\series bold
 Breve Historia del Comercio Exterior Colombiano
-\series default
-.
 \end_layout
 
 \end_inset
@@ -1415,14 +1456,14 @@ placement p
 alignment document
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/image02-HistoriaComercioColombia-300dpi.png
 	lyxscale 30
-	width 24cm
+	width 100theight%
 
 \end_inset
 
@@ -1433,11 +1474,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\series bold
 Breve Historia del Comercio Exterior Colombiano
-\series default
-.
 \end_layout
 
 \end_inset
@@ -1701,7 +1738,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/image04-SectoresProductivos.png
-	width 24cm
+	width 100theight%
 
 \end_inset
 
@@ -2609,13 +2646,13 @@ placement p
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/image05-AreasAfines.png
-	width 24cm
+	width 100theight%
 
 \end_inset
 
@@ -2825,13 +2862,14 @@ placement b
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/image06-TeoriasComercio.png
-	width 100col%
+	lyxscale 50
+	width 100text%
 
 \end_inset
 
@@ -3558,7 +3596,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img07-IntroEconomiaInternacional.png
-	width 24cm
+	width 100theight%
 
 \end_inset
 
@@ -3570,6 +3608,1012 @@ status open
 
 \begin_layout Plain Layout
 Introducción a la Economía Internacional
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Economía y Comercio Exterior
+\end_layout
+
+\begin_layout Standard
+La economía y el comercio exterior están intrínsecamente relacionados y se influyen mutuamente de diversas maneras.
+ Fundamental tener en cuenta ciertas conexiones entre los dos escenarios.
+\end_layout
+
+\begin_layout Section
+Crecimiento Económico
+\end_layout
+
+\begin_layout Standard
+El comercio exterior puede ser un motor significativo del crecimiento económico.
+ La exportación de bienes y servicios genera ingresos para el país,
+ mientras que la importación permite el acceso a bienes y tecnologías que pueden mejorar la productividad y la calidad de vida.
+\end_layout
+
+\begin_layout Subsection
+Especialización y Ventajas Comparativas
+\end_layout
+
+\begin_layout Standard
+Según la teoría de la ventaja comparativa,
+ los países se benefician al especializarse en la producción de bienes y servicios en los que son más eficientes y luego comerciar con otros países.
+ Esto puede aumentar la eficiencia global y el bienestar económico.
+\end_layout
+
+\begin_layout Subsection
+Diversificación del Riesgo
+\end_layout
+
+\begin_layout Standard
+Participar en el comercio exterior permite a las economías diversificar sus fuentes de ingresos y recursos,
+ reduciendo la dependencia de un solo mercado interno y disminuyendo el riesgo económico asociado a fluctuaciones internas.
+\end_layout
+
+\begin_layout Subsection
+Competitividad y Eficiencia
+\end_layout
+
+\begin_layout Standard
+La competencia internacional obliga a las empresas locales a mejorar su eficiencia y calidad para poder competir en los mercados globales.
+ Esto puede llevar a innovaciones y mejoras en la producción y gestión empresarial.
+\end_layout
+
+\begin_layout Subsection
+Inversiones Extranjeras
+\end_layout
+
+\begin_layout Standard
+El comercio exterior está frecuentemente vinculado a la inversión extranjera directa (IED).
+ Las empresas multinacionales pueden establecer operaciones en países extranjeros,
+ trayendo capital,
+ tecnología y conocimientos que pueden impulsar el desarrollo económico.
+\end_layout
+
+\begin_layout Section
+Política Económica
+\end_layout
+
+\begin_layout Standard
+Las políticas gubernamentales sobre aranceles,
+ cuotas,
+ subsidios y acuerdos comerciales tienen un impacto directo en el comercio exterior.
+ Estas políticas pueden promover o restringir el comercio,
+ afectando a la economía de manera significativa.
+\end_layout
+
+\begin_layout Section
+Balanza de Pagos
+\end_layout
+
+\begin_layout Standard
+El comercio exterior influye en la balanza de pagos de un país,
+ que es un registro de todas las transacciones económicas con el resto del mundo.
+ Un superávit comercial (exportaciones mayores que las importaciones) puede fortalecer la posición económica de un país,
+ mientras que un déficit puede indicar problemas económicos.
+\end_layout
+
+\begin_layout Section
+Tipos de Cambio
+\end_layout
+
+\begin_layout Standard
+El comercio exterior afecta y es afectado por los tipos de cambio.
+ Un tipo de cambio fuerte puede hacer que las exportaciones de un país sean más caras y menos competitivas,
+ mientras que un tipo de cambio débil puede impulsar las exportaciones al hacerlas más baratas para los compradores extranjeros.
+\end_layout
+
+\begin_layout Section
+Desarrollo Sostenible
+\end_layout
+
+\begin_layout Standard
+El comercio exterior también puede contribuir al desarrollo sostenible al facilitar el intercambio de tecnologías verdes y prácticas ambientales responsables,
+ promoviendo un crecimiento económico que tenga en cuenta la sostenibilidad.
+\end_layout
+
+\begin_layout Section
+Integración Económica Regional y Global
+\end_layout
+
+\begin_layout Standard
+La participación en acuerdos comerciales y organizaciones económicas internacionales (como la OMC,
+ UE,
+ T-MEC) puede fomentar la integración económica y política,
+ aumentando la cooperación y estabilidad regional y global.
+\end_layout
+
+\begin_layout Standard
+En resumen,
+ el comercio exterior no solo es un componente vital de la economía global,
+ sino que también desempeña un papel crucial en el desarrollo económico,
+ la competitividad,
+ y la estabilidad de las naciones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img08-EconomiaComercioExt.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Economía y Comercio Exterior
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Política Comercial
+\end_layout
+
+\begin_layout Standard
+A pesar de los argumentos teóricos persuasivos que señalan las ventajas netas para el bienestar que genera el comercio internacional sin barreras,
+ los individuos y las organizaciones ejercen una presión constante sobre las políticas del gobierno para restringir las importaciones y aumentar el nivel de las exportaciones del país.
+ Debido a que la expansión o la contracción del comercio internacional tiene efectos en la distribución del ingreso,
+ para estimar las ventajas políticas y económicas de los programas comerciales alternativos,
+ es importante captar bien quien “gana” y quien “pierde” con la interferencia en el comercio.
+ Como el impacto de las restricciones varía según los instrumentos comerciales que se apliquen,
+ la política económica de los programas comerciales puede ser muy compleja.
+ Esto ocurre,
+ en particular,
+ cuando se consideran los efectos dinámicos de la política comercial,
+ en combinación con las estrategias y programas que aplican los gobiernos.
+\end_layout
+
+\begin_layout Standard
+La política comercial es el conjunto de estrategias,
+ medidas e instrumentos que un gobierno implementa para regular el comercio de bienes y servicios con otros países.
+ Su objetivo principal es influir en la balanza comercial,
+ proteger la industria nacional,
+ fomentar el empleo y,
+ en general,
+ promover el desarrollo económico.
+ 
+\end_layout
+
+\begin_layout Subsection
+Enfoques de la Política Comercial
+\end_layout
+
+\begin_layout Description
+Proteccionismo.
+ Este enfoque se basa en la protección de la industria nacional mediante barreras al comercio exterior,
+ como aranceles,
+ cuotas,
+ y barreras no arancelarias.
+ El proteccionismo busca reducir la competencia extranjera,
+ fomentar el crecimiento de las industrias locales y preservar empleos nacionales.
+\end_layout
+
+\begin_layout Description
+Liberalismo
+\begin_inset space ~
+\end_inset
+
+Comercial.
+ Propone la reducción o eliminación de barreras al comercio internacional,
+ promoviendo el libre comercio.
+ La liberalización del comercio está respaldada por la teoría de las ventajas comparativas,
+ que sugiere que los países deben especializarse en la producción de bienes donde son más eficientes y comerciar con otros países para obtener los bienes que producen menos eficientemente.
+\end_layout
+
+\begin_layout Subsection
+Objetivos de la Política Comercial
+\end_layout
+
+\begin_layout Description
+Protección
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+la
+\begin_inset space ~
+\end_inset
+
+Industria
+\begin_inset space ~
+\end_inset
+
+Nacional.
+ Reducir la competencia extranjera para proteger industrias nacientes o estratégicas.
+\end_layout
+
+\begin_layout Description
+Generación
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Empleo.
+ Apoyar industrias locales para mantener y crear empleos.
+\end_layout
+
+\begin_layout Description
+Promoción
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Exportaciones.
+ Fomentar las ventas al exterior para mejorar la balanza de pagos.
+\end_layout
+
+\begin_layout Description
+Seguridad
+\begin_inset space ~
+\end_inset
+
+Nacional.
+ Proteger sectores clave que son vitales para la seguridad y el bienestar del país.
+\end_layout
+
+\begin_layout Standard
+Al ser la política comercial una herramienta fundamental de la política económica,
+ busca equilibrar intereses nacionales en un contexto globalizado,
+ a través de la regulación de los flujos de comercio internacional.
+\end_layout
+
+\begin_layout Subsection
+Instrumentos de la Política Comercial
+\end_layout
+
+\begin_layout Standard
+Los gobiernos utilizan varios instrumentos para implementar la política comercial,
+ tales como:
+\end_layout
+
+\begin_layout Subsubsection
+Aranceles.
+\end_layout
+
+\begin_layout Standard
+Impuestos o tarifas que se aplican a bienes y servicios que son importados o exportados.
+ Hay varios tipos de aranceles,
+ y a continuación,
+ te proporcionaré una breve descripción de algunos de los más comunes:
+\end_layout
+
+\begin_layout Description
+Ad
+\begin_inset space ~
+\end_inset
+
+Valorem.
+ Este tipo de arancel se calcula como un porcentaje del valor del bien importado.
+ Por ejemplo,
+ si un país aplica un arancel ad valorem del 10% sobre ciertos productos,
+ el importador debe pagar el 10% del valor de esos productos como arancel.
+\end_layout
+
+\begin_layout Description
+Específico.
+ Se establece una cantidad fija de dinero por unidad de medida (como peso,
+ volumen o cantidad) para el bien importado.
+ Independientemente del valor del bien,
+ se cobra una cantidad específica por unidad.
+\end_layout
+
+\begin_layout Description
+Mixto
+\begin_inset space ~
+\end_inset
+
+o
+\begin_inset space ~
+\end_inset
+
+Compuesto.
+ Es una combinación de los aranceles ad valorem y específicos.
+ Se establece un porcentaje del valor del bien y una cantidad fija por unidad.
+\end_layout
+
+\begin_layout Description
+Arancel
+\begin_inset space ~
+\end_inset
+
+Escalonado.
+ Se aplica un porcentaje mayor a medida que aumenta el valor del bien importado.
+ Este tipo de arancel puede diseñarse para proteger la producción nacional de bienes de menor valor agregado.
+\end_layout
+
+\begin_layout Description
+Arancel
+\begin_inset space ~
+\end_inset
+
+Compensatorio.
+ Se aplica para contrarrestar prácticas comerciales desleales,
+ como subsidios o dumping (venta de productos por debajo de su costo de producción).
+ El objetivo es proteger a los productores nacionales de competencia desleal.
+\end_layout
+
+\begin_layout Description
+Arancel
+\begin_inset space ~
+\end_inset
+
+Preferencial.
+ Se aplica a bienes provenientes de ciertos países con los cuales se tiene un acuerdo comercial preferencial,
+ como un tratado de libre comercio.
+\end_layout
+
+\begin_layout Description
+Arancel
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Contingente.
+ Se establece un límite máximo de importación para ciertos bienes.
+ Si se supera ese límite,
+ se aplican aranceles más altos o se prohíbe la importación.
+\end_layout
+
+\begin_layout Description
+Arancel
+\begin_inset space ~
+\end_inset
+
+Verde.
+ Se aplica a productos importados que cumplen con ciertos estándares ambientales o de sostenibilidad.
+\end_layout
+
+\begin_layout Subsubsection
+Cuotas de Importación.
+\end_layout
+
+\begin_layout Standard
+Limitaciones cuantitativas establecidas por un país para restringir la cantidad de ciertos bienes que pueden ser importados durante un período de tiempo específico.
+ Estas cuotas buscan regular el flujo de productos extranjeros en el mercado nacional y pueden tomar diferentes formas.
+ Las siguientes son los tipos de cuotas:
+\end_layout
+
+\begin_layout Description
+Globales.
+ Establecen un límite total para la cantidad de un producto que puede ser importado en un período determinado.
+ Una vez que se alcanza este límite,
+ ya no se permite la importación adicional.
+\end_layout
+
+\begin_layout Description
+Por
+\begin_inset space ~
+\end_inset
+
+País.
+ Limitan la cantidad de un producto que puede ser importado desde un país específico.
+ Este tipo de cuota se utiliza para equilibrar las relaciones comerciales y proteger la industria nacional.
+\end_layout
+
+\begin_layout Description
+Por
+\begin_inset space ~
+\end_inset
+
+Producto.
+ Establecen límites específicos para cada tipo de producto.
+ Por ejemplo,
+ un país puede tener una cuota para la importación de automóviles,
+ otra para textiles,
+ etc.
+\end_layout
+
+\begin_layout Description
+Temporales.
+ Se aplican durante un período específico de tiempo.
+ Pueden ser utilizadas para abordar problemas temporales en la industria nacional o para gestionar situaciones comerciales particulares.
+\end_layout
+
+\begin_layout Description
+Licencias.
+ Requieren que los importadores obtengan una licencia o permiso antes de importar una cantidad específica de un producto.
+ Este proceso permite al gobierno controlar y supervisar las importaciones.
+\end_layout
+
+\begin_layout Description
+Por
+\begin_inset space ~
+\end_inset
+
+Valor.
+ Establecen límites basados en el valor monetario de los bienes importados en lugar de la cantidad física.
+ Este enfoque se utiliza a veces para productos de alto valor.
+\end_layout
+
+\begin_layout Standard
+Es importante destacar que las cuotas de importación son una forma de intervención en el comercio internacional y pueden tener implicaciones económicas y políticas significativas.
+ Su objetivo principal es proteger la producción nacional y corregir desequilibrios comerciales,
+ aunque su efectividad y justificación pueden ser objeto de debate.
+\end_layout
+
+\begin_layout Subsubsection
+Subsidios
+\end_layout
+
+\begin_layout Standard
+Apoyo financiero para promover las exportaciones,
+ éstos juegan un papel importante en la política comercial de los países.
+ En términos generales,
+ un subsidio es una ayuda económica que los gobiernos otorgan a determinadas industrias o sectores para reducir costos de producción,
+ mejorar la competitividad o incentivar ciertos comportamientos económicos.
+ Los subsidios pueden ser directos (como pagos en efectivo) o indirectos (como exenciones fiscales).
+\end_layout
+
+\begin_layout Standard
+Los gobiernos utilizan subsidios para ayudar a las industrias nacionales a competir en el mercado global.
+ Al reducir los costos de producción,
+ los productos pueden ser vendidos a precios más bajos en mercados extranjeros,
+ lo que aumenta las exportaciones.
+\end_layout
+
+\begin_layout Standard
+De igual manera,
+ los subsidios son utilizados para proteger a las industrias nacientes (infant industries) que aún no han alcanzado el nivel de competitividad necesario para competir a nivel internacional.
+ Esto permite que estas industrias se desarrollen y ganen eficiencia
+\end_layout
+
+\begin_layout Subsubsection
+Acuerdos Comerciales
+\end_layout
+
+\begin_layout Standard
+Tratados que establecen condiciones preferenciales de comercio entre países,
+ son fundamentales en la política comercial de los países,
+ ya que establecen las reglas y normas que regulan el comercio de bienes y servicios entre naciones.
+ Algunos de los principales roles que desempeñan los acuerdos comerciales en la política comercial
+\end_layout
+
+\begin_layout Description
+Facilitación
+\begin_inset space ~
+\end_inset
+
+del
+\begin_inset space ~
+\end_inset
+
+Comercio.
+ Los acuerdos comerciales reducen o eliminan barreras arancelarias y no arancelarias,
+ lo que facilita el intercambio de bienes y servicios entre los países miembros.
+ Esto reduce los costos de transacción y promueve el comercio.
+\end_layout
+
+\begin_layout Description
+Acceso
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+Mercados.
+ Permiten a los países obtener acceso preferencial a los mercados de sus socios comerciales,
+ lo que puede resultar en un umento de las exportaciones.
+ Al reducir los aranceles y otras restricciones,
+ los exportadores encuentran un entorno más favorable para sus productos.
+\end_layout
+
+\begin_layout Description
+Promoción
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Inversiones.
+ Los acuerdos comerciales también suelen incluir disposiciones sobre la protección de inversiones y la resolución de disputas,
+ lo que proporciona un marco jurídico más seguro para los inversores.
+ Esto fomenta la inversión extranjera directa (IED) y la cooperación económica.
+\end_layout
+
+\begin_layout Description
+Aumento
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+la
+\begin_inset space ~
+\end_inset
+
+Competitividad.
+ Al abrir sus mercados a la competencia extranjera,
+ los países se ven obligados a mejorar la eficiencia y competitividad de sus industrias nacionales.
+ Esto puede llevar a una reestructuración económica,
+ fomentando la innovación y la adopción de nuevas tecnologías.
+\end_layout
+
+\begin_layout Description
+Desarrollo
+\begin_inset space ~
+\end_inset
+
+Económico.
+ En el caso de los países en desarrollo,
+ los acuerdos comerciales pueden ser una herramienta importante para integrarse en la economía global.
+ A través del comercio,
+ pueden diversificar sus economías,
+ generar empleo y mejorar el nivel de vida de su población.
+\end_layout
+
+\begin_layout Description
+Fortalecimiento
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Relaciones Diplomáticas.
+ Los acuerdos comerciales no solo son instrumentos económicos,
+ sino también políticos.
+ Ayudan a fortalecer las relaciones bilaterales o multilaterales entre los países,
+ promoviendo la cooperación y la estabilidad regional.
+\end_layout
+
+\begin_layout Description
+Normas
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+Estándares
+\begin_inset space ~
+\end_inset
+
+Comunes.
+ Los acuerdos comerciales establecen reglas sobre diversas áreas,
+ como los derechos de propiedad intelectual,
+ el comercio de servicios,
+ la competencia,
+ y las políticas laborales y ambientales.
+ Esto ayuda a crear un entorno comercial más predecible y transparente.
+\end_layout
+
+\begin_layout Description
+Resolución
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Disputas
+\begin_inset space ~
+\end_inset
+
+Comerciales.
+ Establecen mecanismos para la resolución de disputas,
+ que son esenciales para asegurar que las reglas del comercio se apliquen de manera justa y equitativa.
+ Esto proporciona a los países una forma de resolver conflictos sin recurrir a medidas unilaterales o confrontaciones.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+En resumen:
+\end_layout
+
+\begin_layout Standard
+Los acuerdos comerciales son una herramienta clave en la política comercial de cualquier país.
+ No solo facilitan el comercio,
+ sino que también ayudan a promover la estabilidad económica y política,
+ aumentar la competitividad y fomentar el desarrollo económico.
+\end_layout
+
+\begin_layout Subsubsection
+Regulaciones no arancelarias
+\end_layout
+
+\begin_layout Standard
+Las regulaciones no arancelarias (NTMs,
+ por sus siglas en inglés,
+ "Non-Tariff Measures") son medidas utilizadas en la política comercial que no implican la imposición de aranceles o impuestos directos sobre los productos importados o exportados.
+ Estas regulaciones juegan un papel crucial en la política comercial de los países,
+ ya que pueden influir en el comercio internacional,
+ proteger industrias locales,
+ garantizar la seguridad de los productos,
+ y promover estándares ambientales y de salud.
+\end_layout
+
+\begin_layout Description
+Protección
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Industrias
+\begin_inset space ~
+\end_inset
+
+Nacionales.
+ Las regulaciones no arancelarias pueden limitar la cantidad de productos extranjeros en el mercado nacional,
+ protegiendo a las industrias locales de la competencia externa.
+ Ejemplos incluyen cuotas de importación,
+ licencias de importación o controles de precios.
+\end_layout
+
+\begin_layout Description
+Garantía
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Calidad
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+Seguridad.
+ Estas regulaciones también se utilizan para asegurar que los productos importados cumplan con los estándares de seguridad,
+ salud y calidad de un país.
+ Ejemplos incluyen normas sanitarias y fitosanitarias (SPS) que protegen la salud pública,
+ animal y vegetal.
+\end_layout
+
+\begin_layout Description
+Promoción
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Estándares
+\begin_inset space ~
+\end_inset
+
+Ambientales
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+Laborales.
+ Las medidas no arancelarias pueden ser utilizadas para promover estándares ambientales y laborales más estrictos.
+ Esto incluye requisitos para la producción sostenible,
+ la prohibición de sustancias tóxicas,
+ o normas sobre el trabajo infantil o el trabajo forzoso en la producción de bienes.
+\end_layout
+
+\begin_layout Description
+Política
+\begin_inset space ~
+\end_inset
+
+Comercial
+\begin_inset space ~
+\end_inset
+
+Estratégica.
+ Los países a menudo usan regulaciones no arancelarias como herramientas de política comercial estratégica.
+ Por ejemplo,
+ regulaciones técnicas como etiquetado específico,
+ requisitos de embalaje o estándares técnicos se utilizan para restringir el acceso de productos extranjeros que no cumplan con las especificaciones locales.
+\end_layout
+
+\begin_layout Description
+Sanciones
+\begin_inset space ~
+\end_inset
+
+Económicas
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+Retaliación
+\begin_inset space ~
+\end_inset
+
+Comercial.
+ Las regulaciones no arancelarias también pueden ser utilizadas como herramientas de sanción económica o retaliación comercial.
+ Los países pueden establecer barreras no arancelarias para presionar políticamente a otros países.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Ejemplos:
+\end_layout
+
+\begin_layout Standard
+Cuotas de Importación como límites específicos a la cantidad de un producto que se puede importar;
+ licencias de importación,
+ requisitos administrativos para la importación de ciertos productos;
+ Normas Sanitarias y Fitosanitarias (SPS),
+ requisitos que buscan proteger la vida y la salud humana,
+ animal o vegetal;
+ barreras técnicas al comercio,
+ normas,
+ regulaciones y procedimientos de evaluación de la conformidad que los productos deben cumplir;
+ requisitos de contenido local,
+ exigencias de que una proporción específica de un producto se produzca localmente.
+\end_layout
+
+\begin_layout Standard
+En conjunto,
+ las regulaciones no arancelarias son herramientas poderosas y a menudo más sutiles que los aranceles para influir en el comercio internacional y la política económica de un país.
+\end_layout
+
+\begin_layout Section
+Balanza Comercial.
+\end_layout
+
+\begin_layout Standard
+Registro financiero que resume todas las transacciones económicas realizadas entre los residentes de un país y el resto del mundo durante un período determinado.
+ Está compuesta por la balanza comercial (exportaciones e importaciones de bienes y servicios),
+ la balanza de capital (movimiento de inversiones y préstamos),
+ y la balanza de cuenta corriente (ingresos netos de inversiones y transferencias).
+ La balanza de pagos juega un papel clave como instrumento de la política comercial de un país,
+ ya que refleja su posición económica frente al mundo y guía las decisiones de política económica.
+ Su papel es muy importante en el desarrollo de la Política Comercial de un país como:
+\end_layout
+
+\begin_layout Description
+Indicador
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Sostenibilidad
+\begin_inset space ~
+\end_inset
+
+Económica.
+ La balanza de pagos sirve como un indicador clave de la sostenibilidad económica de un país.
+ Un déficit persistente en la balanza de pagos puede indicar que el país está gastando más en bienes,
+ servicios e inversiones de lo que está ganando,
+ lo que puede llevar a una acumulación de deuda externa y problemas de financiamiento.
+\end_layout
+
+\begin_layout Description
+Determinación
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Políticas
+\begin_inset space ~
+\end_inset
+
+Comerciales
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Intervención.
+ Los desequilibrios en la balanza de pagos pueden llevar a los gobiernos a implementar políticas comerciales específicas para corregir estos desequilibrios.
+ Por ejemplo,
+ si un país enfrenta un déficit comercial significativo,
+ puede optar por políticas de sustitución de importaciones (fomentar la producción interna de bienes que normalmente se importarían) o promoción de exportaciones incentivar la producción de bienes para exportación).
+\end_layout
+
+\begin_layout Description
+Control
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+la
+\begin_inset space ~
+\end_inset
+
+Oferta
+\begin_inset space ~
+\end_inset
+
+Monetaria
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+Tipo
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Cambio.
+ La balanza de pagos influye en la política monetaria de un país.
+ Un déficit en la balanza de pagos puede llevar a una disminución en las reservas de divisas,
+ lo que puede presionar al banco central a intervenir en el mercado de divisas para estabilizar la moneda nacional.
+ Por el contrario,
+ un superávit puede llevar a una apreciación de la moneda,
+ afectando la competitividad de las exportaciones.
+\end_layout
+
+\begin_layout Description
+Regulación
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Flujos
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Capita.
+ Las políticas relacionadas con la balanza de pagos también incluyen medidas para regular los flujos de capital.
+ En caso de un déficit en la cuenta de capital,
+ un país podría implementar controles de capital para evitar la fuga de capitales y estabilizar su economía.
+ Por otro lado,
+ los países con superávit pueden alentar la inversión en el extranjero para diversificar sus reservas.
+\end_layout
+
+\begin_layout Description
+Herramienta
+\begin_inset space ~
+\end_inset
+
+para
+\begin_inset space ~
+\end_inset
+
+Negociaciones
+\begin_inset space ~
+\end_inset
+
+Internacionales.
+ La balanza de pagos puede ser utilizada como una herramienta en las negociaciones comerciales internacionales.
+ Por ejemplo,
+ un país con un gran superávit en su balanza de pagos puede ser presionado por sus socios comerciales para reducir las barreras comerciales o aumentar sus importaciones.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+En resumen
+\series default
+:
+ 
+\end_layout
+
+\begin_layout Standard
+La balanza de pagos es un instrumento crucial en la política comercial porque refleja la posición económica de un país en relación con el resto del mundo.
+ A través de su análisis,
+ los gobiernos pueden diseñar políticas comerciales y económicas que promuevan la estabilidad económica,
+ fomenten el crecimiento,
+ y gestionen de manera efectiva los flujos de comercio y capitales.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement p
+alignment document
+wide false
+sideways true
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img09-PoliticaComercial.png
+	width 100theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Política Comercial
 \end_layout
 
 \end_inset
