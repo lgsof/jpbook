@@ -25,6 +25,9 @@
 
 % PDF Navigation Bar 
 \usepackage{tocbibind}
+
+% This tells the entire book engine to stop forcing text lines to touch the bottom line of the page.
+\raggedbottom
 \end_preamble
 \options openright
 \use_default_options true
@@ -73,6 +76,9 @@ Preamble
     \usepackage{sectsty}
     \usepackage{chngcntr}
     
+    % Prevents vertical page stretching and awkward gaps before sections
+    \raggedbottom
+    
     % Define custom color for your manual branding
     \definecolor{slateNavy}{HTML}{2B4C7E}
     
@@ -84,7 +90,7 @@ Preamble
         {\vspace{0.3em}\par\small\itshape}
         {\par}
         
-    % Custom environment to force Description list labels to print in slateNavy
+    % FIXED VALUE: Restores proper [1] parameter mapping so LyX passes colors cleanly again
     \let\olddescription\description
     \let\endolddescription\enddescription
     \renewenvironment{description}
@@ -9653,6 +9659,10 @@ Actualidad:
 
 \begin_layout Standard
 La valoración aduanera sigue evolucionando con la implementación de nuevas tecnologías y prácticas para mejorar la precisión y eficiencia en la determinación del valor de las mercancías. Las administraciones aduaneras de todo el mundo continúan adaptándose a los cambios en el comercio global.
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -9661,7 +9671,7 @@ placement H
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -9889,7 +9899,7 @@ placement h
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -10014,7 +10024,7 @@ placement h
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -10562,7 +10572,7 @@ placement H
 alignment document
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -10617,6 +10627,1385 @@ El incumplimiento de las normas y requisitos establecidos para la declaración d
 \begin_layout Standard
 Es importante destacar que las regulaciones y procedimientos aduaneros pueden estar sujetos a cambios,
  por lo que es fundamental mantenerse actualizado con la normativa vigente en materia de importación en Colombia.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img31-FormularioDeclaracionImportacion.png
+	lyxscale 30
+	height 95theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Formulario Declaración de Importación.
+ DIM
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ DIAN (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Tributos Aduaneros
+\end_layout
+
+\begin_layout Standard
+En un sentido global,
+ la expresión “tributos aduaneros” se utiliza para nombrar en su conjunto todas las erogaciones de naturaleza tributaria a favor del Estado que se perciben con ocasión y por causa del ingreso o salida de mercancías del territorio aduanero.
+\end_layout
+
+\begin_layout Standard
+Este concepto en la literatura del derecho aduanero puede también recibir otras denominaciones como las de “derechos de aduana”,
+ “Impuestos de aduana” o incluso “derechos e impuestos a la importación”
+\end_layout
+
+\begin_layout Standard
+El régimen de aduanas colombiano establece dos expresiones como derechos de aduana y tributos aduaneros,
+ asimismo,
+ define la expresión derechos de aduana como:
+ “Los derechos establecidos en el arancel de aduanas,
+ a los cuales se encuentran sometidas las mercancías,
+ tanto a la entrada como a la salida del Territorio Aduanero Nacional,
+ cuando haya lugar a ello.”
+\end_layout
+
+\begin_layout Standard
+De igual manera establece una definición sobre los tributos aduaneros:
+ “Los derechos de aduana y todos los otros derechos,
+ impuestos o recargos percibidos en la importación o con motivo de la importación de mercancías.
+\end_layout
+
+\begin_layout Standard
+El impuesto a las ventas causado por la importación de las mercancías al Territorio Aduanero Nacional está comprendido dentro esta definición.
+ No se consideran tributos aduaneros las sanciones,
+ multas y los recargos al precio de los servicios prestados.”
+\end_layout
+
+\begin_layout Standard
+Se constituye hecho generador de los tributos aduaneros,
+ los siguientes:
+\end_layout
+
+\begin_layout Enumerate
+La introducción de las mercancías al territorio aduanero nacional y la introducción de mercancías en el área demarcada del país vecino donde se cumplan los trámites y controles aduaneros en virtud de acuerdos binacionales fronterizos.
+\end_layout
+
+\begin_layout Enumerate
+Respecto de los impuestos (IVA) que se generen con ocasión de la importación,
+ será el que establezca la respectiva ley que lo consagre.
+\end_layout
+
+\begin_layout Standard
+El sujeto activo de la obligación de pagos de tributos aduaneros es la Dirección de Impuestos y Aduanas Nacionales (DIAN) y el sujeto pasivo es el importador o el declarante cuando haya lugar a ello,
+ o el adquirente de mercancías que salen del departamento de San Andrés,
+ Providencia y Santa Catalina y de las zonas de régimen aduanero especial con destino al resto del territorio aduanero nacional.
+\end_layout
+
+\begin_layout Subsection
+Obligación de pago de los tributos aduaneros
+\end_layout
+
+\begin_layout Standard
+Los tributos aduaneros son los derechos de aduana y todos los otros derechos,
+ impuestos o recargos percibidos en la importación o con motivo de la importación de mercancías,
+ salvo los recargos cuyo monto se limite al costo aproximado de los servicios prestados o percibidos por la aduana por cuenta de otra autoridad nacional.
+\end_layout
+
+\begin_layout Standard
+Se constituye hecho generador de los tributos aduaneros,
+ los siguientes:
+\end_layout
+
+\begin_layout Enumerate
+La introducción de las mercancías al territorio aduanero nacional y la introducción de mercancías en el área demarcada del país vecino donde se cumplan los trámites y controles aduaneros en virtud de acuerdos binacionales fronterizos.
+\end_layout
+
+\begin_layout Enumerate
+Respecto de los impuestos (IVA,
+ consumo,
+ gasolina,
+ carbono,
+ etc.) que se generen con ocasión de la importación,
+ será el que establezca en respectiva ley que lo consagre.
+\end_layout
+
+\begin_layout Standard
+El sujeto activo de la obligación de pagos de tributos aduaneros es la Dirección de Impuestos y Aduanas Nacionales (DIAN) y el sujeto pasivo es el importador o el declarante cuando haya lugar a ello,
+ o el adquirente de mercancías que salen del departamento de San Andrés,
+ Providencia y Santa Catalina y de las zonas de régimen aduanero especial con destino al resto del territorio aduanero nacional.
+\end_layout
+
+\begin_layout Standard
+La transacción de pago de los tributos aduaneros y sanciones exigibles en una declaración de importación se podrá realizar a través de canales electrónicos utilizando recibos oficiales de pago diligenciados a través de los servicios informáticos electrónicos que para tal efecto disponga la Unidad Administrativa Especial Dirección de Impuestos y Aduanas Nacionales (DIAN).
+ 
+\end_layout
+
+\begin_layout Subsection
+Base gravable Para Pago de los tributos aduaneros
+\end_layout
+
+\begin_layout Standard
+La base gravable sobre la cual se liquidan los tributos aduaneros (derechos de aduana e impuestos como IVA,
+ gasolina,
+ carbono,
+ etc.) es el valor en aduana.
+\end_layout
+
+\begin_layout Standard
+Para liquidar los derechos de aduana (gravamen arancelario) se toma como base gravable el valor en aduana de la mercancía importada,
+ determinado conforme lo establecen las disposiciones que rigen la valoración aduanera.
+\end_layout
+
+\begin_layout Standard
+La base gravable es el valor en aduana determinado por las condiciones y requisitos del acuerdo sobre valoración de la OMC,
+ la normativa emitida por la Comunidad Andina de Naciones y la legislación nacional vigente.
+\end_layout
+
+\begin_layout Standard
+La valoración aduanera es un proceso técnico mediante el cual se determina la base gravable de las mercancías importadas para la liquidación de los derechos de aduanas y los demás impuestos a la importación.
+\end_layout
+
+\begin_layout Standard
+Al momento de determinar el valor en aduana,
+ tenga en cuenta los Términos de Comercio Internacional (Incoterms) conjunto de reglas internacionales,
+ regidos por la Cámara de Comercio Internacional,
+ que determinan el alcance de las cláusulas comerciales incluidas en el contrato de compraventa internacional
+\end_layout
+
+\begin_layout Subsection
+Liquidación de los tributos aduaneros
+\end_layout
+
+\begin_layout Standard
+Una vez se conozca la subpartida arancelaria,
+ el declarante tomará las tarifas que,
+ de acuerdo con el arancel de aduanas,
+ correspondan a tal subpartida,
+ y las aplica al valor en aduanas de las mercancías así:
+\end_layout
+
+\begin_layout Itemize
+Valor en aduanas = Valor FOB + Fletes + Seguros + otros gastos (Valor CIF).
+\end_layout
+
+\begin_layout Itemize
+Gravamen arancelario = Valor CIF * % de la Tarifa Arancelaria establecida para la Subpartida (arancel de aduanas)
+\end_layout
+
+\begin_layout Itemize
+IVA = (Valor CIF + Gravamen Arancelario) * Tarifa del IVA establecida para la Subpartida.
+\end_layout
+
+\begin_layout Itemize
+Tributos aduaneros = Gravamen Arancelario + IVA.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Ejemplo:
+\end_layout
+
+\begin_layout Itemize
+Se realiza una compra en EE.
+ UU.
+ por valor FOB: US 774.000 (casilla 78 Declaración de Importación (DIM)). 
+\end_layout
+
+\begin_layout Itemize
+Fletes,
+ seguro y otros gastos: US 45.000 (casillas 82 DIM). 
+\end_layout
+
+\begin_layout Itemize
+Valor CIF (valor en aduana): US 819.000 (casilla 84 DIM) x tasa de cambio:
+ $3.040.947.000 (casilla 93 DIM). 
+\end_layout
+
+\begin_layout Itemize
+$3.040.947.000 x 5% arancel (152.047.000) $3.192.994.000 (cas.
+ 94 y 95 DIM).
+\end_layout
+
+\begin_layout Itemize
+$3.192.994.000 x19% IVA:
+ (606.669.000) (casilla 99 y 100 DIM). 
+\end_layout
+
+\begin_layout Itemize
+Valor tributos aduaneros: $152.047.000 más 606.669.000= $758.716.000 (casilla 125 DIM).
+\end_layout
+
+\begin_layout Section
+Conversiones monetarias
+\end_layout
+
+\begin_layout Standard
+El valor en aduana de las mercancías importadas se determinará en dólares de los Estados Unidos de América si la negociación se hizo en una moneda diferente,
+ se convertirá en dólares de los Estados Unidos aplicando el tipo de cambio vigente el último día hábil de la semana anterior a la fecha de presentación y aceptación de la declaración aduanera de las mercancías importadas,
+ excepto los casos en los que el contrato de venta de las mercancías importadas estipula un tipo de cambio fijo.
+\end_layout
+
+\begin_layout Itemize
+El tipo de cambio será el publicado por el Banco de la República o el que diga la DIAN,
+ vigente para el último día hábil de la semana anterior a la fecha de presentación y aceptación de la declaración aduanera de las mercancías importadas.
+\end_layout
+
+\begin_layout Itemize
+El valor en aduana expresado en dólares se convertirá a pesos colombianos,
+ teniendo en cuenta la tasa de cambio representativa de mercado que informe la Superintendencia Financiera o la entidad que haga sus veces,
+ para el último día hábil de la semana anterior a la fecha de presentación y aceptación de la declaración aduanera.
+\end_layout
+
+\begin_layout Itemize
+Para la modalidad de tráfico postal y envíos urgentes,
+ serán los vigentes en la fecha de llegada de la mercancía.
+\end_layout
+
+\begin_layout Itemize
+En la modalidad de viajeros,
+ la tasa y el tipo de cambio serán los vigentes a la fecha de llegada del viajero conforme con lo indicado en el pasaporte.
+\end_layout
+
+\begin_layout Itemize
+Cuando la DIAN imponga una sanción con base en valor FOB de la mercancía,
+ la tasa de cambio aplicable será la vigente a la fecha de expedición del requerimiento especial aduanero.
+\end_layout
+
+\begin_layout Section
+Formas de pago
+\end_layout
+
+\begin_layout Description
+En
+\begin_inset space ~
+\end_inset
+
+forma
+\begin_inset space ~
+\end_inset
+
+presencial:
+ El pago se realiza en efectivo o mediante cheque de gerencia o cheque girado sobre la misma plaza de la oficina que lo recibe y únicamente a la orden de la entidad financiera receptora (según políticas de la entidad financiera),
+ en las entidades autorizadas por la DIAN para recaudar impuestos nacionales.
+\end_layout
+
+\begin_layout Description
+Por
+\begin_inset space ~
+\end_inset
+
+medios
+\begin_inset space ~
+\end_inset
+
+electrónicos:
+ Si se dispone de firma electrónica,
+ se podrá ingresar al botón de pagos y realizar el pago por este canal con cargo a su cuenta débito de su banco (ahorros o corriente).
+\end_layout
+
+\begin_layout Section
+Vigencia de los Tributos Aduaneros
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img33-VigenciaTributosAduaneros.png
+	lyxscale 30
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Vigencia de los Tributos Aduaneros
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img34-FormularioReciboPago.png
+	lyxscale 30
+	height 95theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Formulario Recibo Oficial de Pago.
+ ROP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ DIAN (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Modalidades del Régimen de Importación
+\end_layout
+
+\begin_layout Subsection
+Importación ordinaria
+\end_layout
+
+\begin_layout Standard
+Es la introducción de mercancías de procedencia extranjera al territorio aduanero nacional,
+ con el fin de permanecer en él de manera indefinida,
+ en libre disposición,
+ con el pago de los tributos aduaneros a que hubiere lugar.
+ 
+\end_layout
+
+\begin_layout Subsection
+Importación con franquicia
+\end_layout
+
+\begin_layout Standard
+Es aquella importación que,
+ en virtud de Tratado,
+ Convenio o ley,
+ goza de exención total o parcial de tributos aduaneros y con base en la cual la mercancía queda en disposición restringida,
+ salvo lo dispuesto en la norma que consagra el beneficio.
+ 
+\end_layout
+
+\begin_layout Subsection
+Importación en cumplimiento de garantía
+\end_layout
+
+\begin_layout Standard
+Se podrá importar sin el pago de tributos aduaneros,
+ la mercancía que,
+ en cumplimiento de una garantía del fabricante o proveedor,
+ se haya reparado en el exterior,
+ o reemplace otra previamente exportada,
+ que haya resultado averiada,
+ defectuosa o impropia para el fin para el cual fue importada.
+ La mercancía así importada quedará en libre disposición.
+ 
+\end_layout
+
+\begin_layout Subsection
+Importación temporal para reexportación en el mismo estado
+\end_layout
+
+\begin_layout Standard
+Es la importación al territorio aduanero nacional,
+ con suspensión de tributos aduaneros,
+ de determinadas mercancías destinadas a la reexportación en un plazo señalado,
+ sin haber experimentado modificación alguna,
+ con excepción de la depreciación normal originada en el uso que de ellas se haga,
+ y con base en la cual su disposición quedará restringida.
+ 
+\end_layout
+
+\begin_layout Description
+Corto
+\begin_inset space ~
+\end_inset
+
+plazo.
+ Cuando la mercancía se importa para atender una finalidad específica que determine su corta permanencia en el país.
+ El plazo máximo de la importación será de seis (6) meses contados a partir del levante de la mercancía,
+ prorrogables por la autoridad aduanera por tres (3) meses más.
+\end_layout
+
+\begin_layout Description
+Largo
+\begin_inset space ~
+\end_inset
+
+plazo.
+ cuando se trate de bienes de capital,
+ sus piezas y accesorios necesarios para su normal funcionamiento,
+ que vengan en el mismo embarque.
+ El plazo máximo de esta importación será de cinco (5) años contados a partir del levante de la mercancía.
+\end_layout
+
+\begin_layout Subsection
+Importación temporal para perfeccionamiento activo
+\end_layout
+
+\begin_layout Description
+Importación
+\begin_inset space ~
+\end_inset
+
+temporal
+\begin_inset space ~
+\end_inset
+
+para
+\begin_inset space ~
+\end_inset
+
+perfeccionamiento
+\begin_inset space ~
+\end_inset
+
+activo
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+bienes
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+capital.
+ Es la modalidad que permite la importación temporal de bienes de capital,
+ así como de sus partes y repuestos,
+ con suspensión de tributos aduaneros,
+ destinados a ser reexportados después de haber sido sometidos a reparación o acondicionamiento,
+ en un plazo no superior a 6 meses y con base en su disposición queda restringida.
+ En casos debidamente justificados,
+ la autoridad aduanera podrá autorizar plazos superiores a los previstos en este artículo,
+ hasta por un término igual al otorgado inicialmente.
+\end_layout
+
+\begin_layout Description
+Importación
+\begin_inset space ~
+\end_inset
+
+temporal
+\begin_inset space ~
+\end_inset
+
+en
+\begin_inset space ~
+\end_inset
+
+desarrollo
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Sistemas
+\begin_inset space ~
+\end_inset
+
+Especiales
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Importación.
+ Exportación.
+ Se entiende por importación temporal en desarrollo de Sistemas Especiales de Importación-Exportación,
+ la modalidad que permite recibir dentro del territorio aduanero nacional,
+ con suspensión total o parcial de tributos aduaneros,
+ mercancías destinadas a ser exportadas total o parcialmente en un plazo determinado,
+ después de haber sufrido transformación,
+ elaboración o reparación;
+ así como los insumos necesarios para estas operaciones.
+\end_layout
+
+\begin_layout Description
+Importación
+\begin_inset space ~
+\end_inset
+
+temporal
+\begin_inset space ~
+\end_inset
+
+para
+\begin_inset space ~
+\end_inset
+
+procesamiento
+\begin_inset space ~
+\end_inset
+
+industrial.
+ Es la modalidad bajo la cual se importan temporalmente materias primas e insumos que van a ser sometidos a transformación,
+ procesamiento o manufactura industrial,
+ por parte de los Operadores Económicos Autorizados tipo importador o tipo exportador y de los beneficiarios de la condición de usuario aduanero con trámite simplificado,
+ con base en la cual su disposición quedará restringida.
+\end_layout
+
+\begin_layout Subsection
+Reimportación por perfeccionamiento pasivo
+\end_layout
+
+\begin_layout Standard
+La reimportación de mercancía exportada temporalmente para elaboración,
+ reparación o transformación causará tributos aduaneros sobre el valor agregado en el exterior,
+ incluidos los gastos complementarios a dichas operaciones,
+ para lo cual se aplicarán las tarifas correspondientes a la subpartida arancelaria del producto terminado que se importa.
+ La mercancía así importada quedará en libre disposición.
+ 
+\end_layout
+
+\begin_layout Subsection
+Reimportación en el mismo estado
+\end_layout
+
+\begin_layout Standard
+Se podrá importar sin el pago de los tributos aduaneros,
+ la mercancía exportada temporal o definitivamente que se encuentre en libre disposición,
+ siempre que no haya sufrido modificación en el extranjero y se establezca plenamente que la mercancía que se reimporta es la misma que fue exportada y que se hayan cancelado los impuestos internos exonerados y reintegrado los beneficios obtenidos con la exportación.
+ La mercancía así importada quedará en libre disposición.
+ 
+\end_layout
+
+\begin_layout Subsection
+Importación para transformación y/o ensamble
+\end_layout
+
+\begin_layout Standard
+Es la modalidad bajo la cual se importan mercancías que van a ser sometidas a procesos de transformación y/o ensamble,
+ por parte de industrias reconocidas por el Ministerio de Comercio,
+ Industria y Turismo,
+ y autorizadas para el efecto por la DIAN,
+ y con base en la cual su disposición quedará restringida.
+ 
+\end_layout
+
+\begin_layout Subsection
+Importación por tráfico postal y envíos urgentes
+\end_layout
+
+\begin_layout Standard
+Podrán ser objeto de importación por esta modalidad los envíos de correspondencia,
+ los envíos que lleguen al territorio aduanero nacional por la red oficial de correos y los envíos urgentes siempre que su valor FOB no exceda de dos mil dólares de los Estados Unidos de América (US$2.000) y requieran ágil entrega a su destinatario.
+ La mercancía importada según lo establecido para esta modalidad queda en libre disposición.
+ 
+\end_layout
+
+\begin_layout Section
+Entregas urgentes
+\end_layout
+
+\begin_layout Standard
+La DIAN podrá autorizar sin trámite previo alguno,
+ la entrega directa al importador,
+ de determinadas mercancías que así lo requieran,
+ bien sea porque ingresen como auxilio para damnificados de catástrofes o siniestros,
+ por su especial naturaleza o porque respondan a la satisfacción de una necesidad apremiante.
+ 
+\end_layout
+
+\begin_layout Standard
+En los dos últimos casos,
+ se causarán los tributos aduaneros a que haya lugar y la Aduana,
+ si lo considera conveniente,
+ exigirá garantía para afianzar la finalización de los trámites de la respectiva importación.
+ 
+\end_layout
+
+\begin_layout Section
+Viajeros.
+\end_layout
+
+\begin_layout Standard
+La modalidad de importación de viajeros solo es aplicable a las mercancías que no constituyan expedición comercial (hasta 10 unidades de la misma clase) y sean introducidas por los viajeros en forma ocasional y consistan en bienes reservados al uso personal o familiar,
+ o bienes que estén destinados a ser ofrecidos como regalo,
+ sin que por su naturaleza o su cantidad reflejen intención alguna de carácter comercial.
+ 
+\end_layout
+
+\begin_layout Section
+Muestra sin valor comercial
+\end_layout
+
+\begin_layout Standard
+Se considera muestras sin valor comercial a cualquier mercancía importada cuyo valor FOB no supere los cinco mil dólares de los Estados Unidos de América (US$5.000),
+ siempre que no supere las 10 unidades por ítem,
+ tomando en cuenta la unidad de medida de la subpartida específica del Arancel de Aduanas que corresponda,
+ que no estén destinadas a la venta y que cumplan con las siguientes condiciones:
+\end_layout
+
+\begin_layout Itemize
+Que estén claramente identificadas como muestras sin valor comercial o que se demuestre que la mercancía no será destinada para la venta,
+ y  
+\end_layout
+
+\begin_layout Itemize
+Que sea importada con el objeto de ser utilizada en estudios de mercado,
+ investigación,
+ desarrollo,
+ pruebas de laboratorio,
+ ensayos,
+ u obtención de documentos de control previo u otros requisitos similares.  
+\end_layout
+
+\begin_layout Standard
+Igualmente,
+ se considera muestra sin valor comercial,
+ el material publicitario que ingresa al país de manera ocasional para participar en ferias,
+ exposiciones y/o promocionar mercancías,
+ siempre que su presentación lo descalifique para la venta,
+ su cantidad no refleje intención alguna de carácter comercial y su valor FOB no exceda de cinco mil dólares de los Estados Unidos de América (US$5.000). 
+\end_layout
+
+\begin_layout Section
+Menaje doméstico
+\end_layout
+
+\begin_layout Standard
+Conjunto de muebles,
+ aparatos y demás accesorios de utilización normal en una vivienda.
+ Son los residentes en el exterior,
+ es decir,
+ las persona que habitan en el exterior durante por lo menos 24 meses continuos o discontinuos,
+ dentro de los tres 3 años inmediatamente anteriores a su llegada al país y que ingresen al territorio aduanero nacional para fijar en Colombia su residencia.
+ Estas personas tendrán derecho a introducir el menaje doméstico correspondiente a su unidad familiar,
+ sin que para ello se requiera Registro o Licencia de Importación,
+ realizando el pago de un tributo único de 15% ad-Valorem.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img35-ModalidadesRegimenImportacion.png
+	width 100theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Modalidades en el Régimen de Importación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Tipos de declaración
+\end_layout
+
+\begin_layout Standard
+En Colombia existen diferentes tipos de declaraciones de importación.
+ La elección del tipo de declaración dependerá de diversos factores y razones.
+\end_layout
+
+\begin_layout Subsection
+Declaración Inicial
+\end_layout
+
+\begin_layout Standard
+Es aquella que no está precedida de una declaración anterior la cual se debe presentar dentro del término de permanencia en un depósito autorizado para su nacionalización y con autorización de levante
+\end_layout
+
+\begin_layout Subsection
+Declaración Anticipada
+\end_layout
+
+\begin_layout Standard
+Es aquella que se presenta con una antelación antes de la llegada de la mercancía al territorio aduanero nacional (TAN).
+ Procede para cualquier modalidad del régimen de importación
+\end_layout
+
+\begin_layout Subsection
+Declaración de Corrección
+\end_layout
+
+\begin_layout Standard
+Se utiliza para subsanar errores contemplados por la legislación aduanera y que se hayan cometido al momento de diligenciar la declaración inicial.
+\end_layout
+
+\begin_layout Subsection
+Declaración de Legalización
+\end_layout
+
+\begin_layout Standard
+Es aquella declaración que se presenta ante la autoridad aduanera para legalizar el ingreso de una mercancía al TAN cuando su arribo no cumpla con todos los requisitos exigidos.
+\end_layout
+
+\begin_layout Subsection
+Declaración de Modificación
+\end_layout
+
+\begin_layout Standard
+Es aquella declaración que se presenta para terminar la modalidad de transformación o ensamble o una modalidad de importación temporal.
+ 
+\end_layout
+
+\begin_layout Section
+Presentación de la declaración
+\end_layout
+
+\begin_layout Standard
+La declaración de importación deberá presentarse ante la Dirección Seccional de Aduanas,
+ Impuestos y Aduanas o delegadas de Impuestos y Aduanas con jurisdicción en el lugar donde se encuentre la mercancía,
+ a través de los servicios informáticos electrónicos,
+ salvo cuando se trate de modificación de una declaración que implique la modificación de la garantía,
+ ésta deberá presentarse en la Dirección Seccional donde se presentó la declaración inicial.
+ 
+\end_layout
+
+\begin_layout Standard
+En aquellas Direcciones Seccionales de Aduanas,
+ Impuestos y Aduanas o delegadas de Impuestos y Aduanas en las cuales no se cuente con el sistema informático electrónico,
+ la declaración de importación se diligenciará en el formulario preimpreso y la presentación deberá realizarse ante la División de la Operación Aduanera,
+ acorde con el procedimiento establecido en el artículo 208 de la Resolución 46 de 2019.
+ Así mismo se deberá presentar el formato FT-COA-2134 que corresponde a la solicitud del trámite manual,
+ el cual puede ser consultado en la dependencia mencionada.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img36-TiposDeclaracion.png
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tipo de Declaraciones
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ DIAN (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para importar a Colombia,
+ debes cumplir varios requisitos previos ante la DIAN,
+ como tener el Registro Único Tributario (RUT) vigente,
+ estar registrado en el sistema informático aduanero,
+ y obtener las licencias y registros específicos del producto ante la Ventanilla Única de Comercio Exterior (VUCE) y otras entidades. Además,
+ se requieren documentos como la factura comercial y el certificado de origen,
+ y se debe estar preparado para el pago de impuestos y aranceles al momento del despacho aduanero. 
+\end_layout
+
+\begin_layout Subsection
+Guía de requisitos previos para importar a Colombia
+\end_layout
+
+\begin_layout Standard
+Antes de realizar una importación en Colombia,
+ el empresario o persona natural debe asegurarse de cumplir con una serie de requisitos legales,
+ técnicos y logísticos.
+ Estos se dividen en requisitos generales y requisitos específicos según el tipo de mercancía.
+\end_layout
+
+\begin_layout Enumerate
+Registro del Importador
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Inscripción en el RUT (DIAN) con responsabilidad aduanera como importador.
+\end_layout
+
+\begin_layout Itemize
+Estar al día en obligaciones tributarias y aduaneras.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Clasificación Arancelaria
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Identificar la subpartida arancelaria de la mercancía en el Arancel de Aduanas.
+\end_layout
+
+\begin_layout Itemize
+Conocer los aranceles,
+ IVA y tributos aplicables.
+\end_layout
+
+\begin_layout Itemize
+Revisar si el producto tiene restricciones o prohibiciones.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Requisitos de Entidades Públicas
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Registro o licencia de importación (VUCE),
+ cuando sea exigida.
+\end_layout
+
+\begin_layout Itemize
+Permisos o vistos buenos de entidades competentes:
+\end_layout
+
+\begin_layout Itemize
+ICA :
+ productos agropecuarios,
+ animales,
+ vegetales.
+\end_layout
+
+\begin_layout Itemize
+INVIMA :
+ alimentos,
+ medicamentos,
+ cosméticos.
+\end_layout
+
+\begin_layout Itemize
+MinTIC :
+ equipos de telecomunicaciones.
+\end_layout
+
+\begin_layout Itemize
+MinAmbiente / ANLA :
+ químicos,
+ plásticos,
+ residuos peligrosos.
+\end_layout
+
+\begin_layout Itemize
+MinDefensa :
+ armas,
+ explosivos,
+ equipos militares.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Requisitos de Origen y Comercio Internacional
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Verificar si el producto puede acogerse a un Tratado de Libre Comercio (TLC).
+\end_layout
+
+\begin_layout Itemize
+Gestionar el certificado de origen en el país exportador.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Documentación Comercial y Logística
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Factura comercial con requisitos mínimos (descripción,
+ incoterm,
+ valor FOB/CIF,
+ datos de exportador e importador).
+\end_layout
+
+\begin_layout Itemize
+Lista de empaque (Packing list).
+\end_layout
+
+\begin_layout Itemize
+Documento de transporte (BL,
+ guía aérea o carta de porte).
+\end_layout
+
+\begin_layout Itemize
+Seguro de transporte internacional (recomendado,
+ aunque no siempre obligatorio).
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Requisitos Cambiarios y Financieros
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Manejo de divisas a través de bancos autorizados.
+\end_layout
+
+\begin_layout Itemize
+Presentar la declaración de cambio (Formulario 1 o 2 del Banco de la República).
+\end_layout
+
+\begin_layout Itemize
+Contar con un mecanismo de pago internacional (transferencia,
+ carta de crédito,
+ cobranza).
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Requisitos técnicos y de calidad
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Cumplimiento de reglamentos técnicos colombianos (RETIE,
+ RETILAP,
+ etiquetado nutricional,
+ seguridad de productos).
+\end_layout
+
+\begin_layout Itemize
+Obtener certificados de conformidad emitidos por organismos acreditados (cuando aplique).
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Planeación logística
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Seleccionar un agente de aduanas (cuando la importación supere los USD 1.000 FOB).
+\end_layout
+
+\begin_layout Itemize
+Definir el puerto,
+ aeropuerto o paso de frontera de ingreso.
+\end_layout
+
+\begin_layout Itemize
+Contratar transporte interno hasta el lugar de destino.
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Lista de Chequeo Previa (Check list):
+\end_layout
+
+\begin_layout Itemize
+Estar registrado como importador en la DIAN.
+\end_layout
+
+\begin_layout Itemize
+Identificar subpartida arancelaria y tributos.
+\end_layout
+
+\begin_layout Itemize
+Verificar si se requiere registro o licencia de importación en VUCE.
+\end_layout
+
+\begin_layout Itemize
+Gestionar vistos buenos de entidades competentes.
+\end_layout
+
+\begin_layout Itemize
+Revisar si el producto tiene requisitos sanitarios,
+ fitosanitarios o ambientales.
+\end_layout
+
+\begin_layout Itemize
+Conseguir factura comercial,
+ lista de empaque y documento de transporte.
+\end_layout
+
+\begin_layout Itemize
+Definir medio de pago y realizar trámite cambiario.
+\end_layout
+
+\begin_layout Itemize
+Cumplir con reglamentos técnicos y certificaciones de calidad.
+\end_layout
+
+\begin_layout Itemize
+Contratar seguro y planear la logística de nacionalización.
+\end_layout
+
+\begin_layout Itemize
+Tener claros los plazos para la presentación de la declaración de importación.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways true
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img37-RequisitosPreviosImportar.png
+	width 100theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Requisitos Previos para Importar a Colombia
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Pasos para una Importación Ordinaria
+\end_layout
+
+\begin_layout Standard
+Los trámites generales para surtir en el proceso de ingreso de mercancías al territorio aduanero nacional y su despacho corresponden a los consagrados en los artículos 140 a 297 del Decreto 1165 de 2019 y artículos 185 a 303 de la Resolución 46 de 2019 y sus modificaciones o adiciones.
+ 
+\end_layout
+
+\begin_layout Section
+Registro ante la Cámara de Comercio y la DIAN
+\end_layout
+
+\begin_layout Standard
+El importador debe pertenecer al régimen común y estar inscrito ante la Cámara de Comercio y la DIAN para obtener el Registro Único Tributario (RUT),
+ mecanismo para identificar,
+ ubicar y clasificar a los sujetos de obligaciones administradas y controladas por la entidad.
+\end_layout
+
+\begin_layout Standard
+Se debe tramitar el registro,
+ gestionando y especificando:
+ casilla 53 código 10 obligados aduaneros y casilla 54 códigos 22 exportaciones y código 23 importaciones.
+ En las diferentes ciudades donde exista oficinas de la Cámara de Comercio y por ende de la DIAN.
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename imagenes/_img01-QuieroImportar.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Clasificación arancelaria
+\end_layout
+
+\begin_layout Standard
+Cada producto que se vaya a importar debe contar con la respectiva partida arancelaria que lo individualice.
+ Es aconsejable obtener una clasificación arancelaria oficial,
+ la cual debe solicitarse y tramitarse ante la División de Arancel de la Subdirección Técnica,
+ de la Dirección de Aduanas (único ente autorizado para determinar la clasificación arancelaria,
+ según el Decreto 1165 de 2019,
+ artículo 298 y ss.
+ y la Resolución 46 de 2019 artículo 305 y ss.
+ de la DIAN - División de Arancel.
+ Tel.
+ 6-079999 Ext.
+ 2128/2129) o a través del Arancel de Aduanas.
+  
+\end_layout
+
+\begin_layout Standard
+La clasificación arancelaria se realiza con anterioridad,
+ con el objetivo de que el importador pueda diligenciar los documentos respectivos y estar preparado.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename imagenes/_img02-RealiceClasificacionArancelaria.png
+	width 75text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Estudio de Mercado y Factibilidad Económica
+\end_layout
+
+\begin_layout Standard
+Una vez establecida la necesidad de un producto en el mercado nacional,
+ por factores tales como la escasez o inexistencia,
+ el precio elevado,
+ por un requerimiento específico de calidad,
+ porque se desea introducir algún bien o producto o por cualquier otro factor.
+ En este estudio se debe considerar los siguientes costos:
+\end_layout
+
+\begin_layout Subsection
+Precio Externo del Producto
+\end_layout
+
+\begin_layout Standard
+Este precio podrá obtenerse por medio de la solicitud de cotización al proveedor.
+ Los costos de fletes,
+ seguros,
+ otros gastos inclusive los tributos aduaneros,
+ están condicionados al término de negociación internacional (INCOTERMS) pactado entre las dos partes (exportador – importador).
+ Igualmente,
+ en la cotización debemos establecer la forma y el plazo de pago,
+ elementos de gran importancia para determinar la viabilidad de la importación.
+\end_layout
+
+\begin_layout Subsection
+Costos de Nacionalización
+\end_layout
+
+\begin_layout Standard
+La determinación se hace con base en la clasificación arancelaria del producto “subpartida arancelaria” que se puede consultar en el arancel de Aduanas,
+ vigente en Colombia.
+ De una correcta clasificación arancelaria del producto o mercancía depende los tributos aduaneros (gravamen arancelario,
+ impuestos a las ventas-IVA),
+ sean liquidados con exactitud.
+\end_layout
+
+\begin_layout Subsection
+Costos Administrativos de la Importación
+\end_layout
+
+\begin_layout Standard
+Se incurre en ellos cuando para el trámite de la importación se contrata una Agencia de Aduanas,
+ costos relacionados con el cumplimiento de requisitos especiales con entidades del orden público o privado.
+\end_layout
+
+\begin_layout Subsection
+Costos Financieros
+\end_layout
+
+\begin_layout Standard
+Pueden hacer relación a dos clases:
+ A las comisiones bancarias por concepto de la apertura de la carta de crédito o de los giros y a los costos de financiación cuando no se cuente con recursos propios.
+ En el estudio de estos costos se deberá contar con la investigación acerca del valor de las divisas (TRM) del mercado cambiario,
+ negociada por las partes.
+\end_layout
+
+\begin_layout Subsection
+Costos de Manejo Portuario de la Mercancía,
+ Bodegaje y Fletes Internos
+\end_layout
+
+\begin_layout Standard
+Son costos relacionados con la manipulación de la mercancía (descargue,
+ cargue,
+ movilización,
+ etc.),
+ almacenamiento y el valor de los fletes del lugar de ingreso y nacionalización del producto hasta su destino final.
+ 
+\end_layout
+
+\begin_layout Standard
+El Estudio de Mercado y Factibilidad Económica,
+ se realiza para conocer el comportamiento de un sector o producto específico en algún país del mundo.
+ Para saber si hay oportunidades de mercado en el destino seleccionado o si se puede convertir en un proveedor potencial.
+ 
+\end_layout
+
+\begin_layout Standard
+La información se puede obtener de fuentes oficiales como los ministerios de comercio,
+ centros de estadística y las entidades de promoción (Procolombia,
+ DIAN,
+ Proméxico,
+ Procomer,
+ Proecuador) 
+\end_layout
+
+\begin_layout Subsection
+Detalles sobre el estudio de mercado
+\end_layout
+
+\begin_layout Standard
+Luego de seleccionar el sector y clasificar arancelariamente dependiendo del país al cual se está dirigiendo el estudio usted debe describir el sector,
+ es decir, analizarlo en el ámbito mundial y local,
+ incluyendo hábitos de consumo,
+ participación en el mercado,
+ empresas que participan en la cadena logística,
+ etc.
+\end_layout
+
+\begin_layout Standard
+Luego,
+ analice la producción del país exportador junto con las importaciones de los últimos 5 años,
+ principales destinos,
+ los principales importadores y determine la balanza comercial para conocer si es deficitaria o superavitaria. 
+\end_layout
+
+\begin_layout Standard
+Al tener esta información,
+ proceda analizando los hábitos y tendencias de consumo y el acceso al mercado,
+ es decir,
+ las medidas arancelarias y no arancelarias convenidas.
+\end_layout
+
+\begin_layout Standard
+Las preferencias arancelarias son listas de concesiones que representan el compromiso de no cobrar derechos arancelarios superiores a los consignados y las no arancelarias son regulaciones impuestas por los gobiernos para frenar la importación y favorecer a los productores locales tales como las normas de origen,
+ reglamentos técnicos,
+ normas sanitarias,
+ etc.
+\end_layout
+
+\begin_layout Standard
+Por último,
+ conozca los canales de comercialización del producto en el país,
+ así como las marcas más reconocidas con la lista de precios para conocer el rango del costo de los productos.
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \end_body
