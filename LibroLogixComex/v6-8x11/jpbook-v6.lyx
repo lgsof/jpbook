@@ -32,26 +32,17 @@
 \begin_local_layout
 Format 99
 
+# 1. VISUAL LAYOUT DEFINITIONS FOR THE LYX EDITOR SCREEN
+
 Style Fuente_de_figura
     CopyStyle Standard
-    LatexType Paragraph
+    LatexType Environment
+    LatexName fuentedefigura
     Font
         Size Small
         Shape Italic
     EndFont
 End
-
-Preamble
-  \usepackage{xcolor}
-  \definecolor{slateNavy}{HTML}{2B4C7E}
-  
-  % Forces the LaTeX description environment to render labels in slateNavy
-  \let\olddescription\description
-  \let\endolddescription\enddescription
-  \renewenvironment{description}
-    {\begin{olddescription}\let\olditem\item\renewcommand{\item}[1][]{\olditem[\textcolor{slateNavy}{##1}]}}
-    {\end{olddescription}}
-EndPreamble
 
 Style Description
     LatexType             Item_Environ
@@ -61,18 +52,53 @@ Style Description
     EndFont
 End
 
-
 Style Subsubsection
     Font
         Shape  Italic
-		Series Bold
-		Size   Normal
+        Series Bold
+        Size   Normal
     EndFont
-    Preamble
-        \usepackage{sectsty}
-        \subsubsectionfont{\normalfont\bfseries\itshape}
-    EndPreamble
 End
+
+Counter figure
+    Within ""
+End
+
+
+# 2. UNIFIED LATEX ENGINE INSTRUCTIONS FOR THE PDF OUTPUT
+
+Preamble
+    % Global Packages
+    \usepackage[table,x11names]{xcolor}
+    \usepackage{sectsty}
+    \usepackage{chngcntr}
+    
+    % Define custom color for your manual branding
+    \definecolor{slateNavy}{HTML}{2B4C7E}
+    
+    % Apply slateNavy color to Subsubsections along with Bold and Italic
+    \subsubsectionfont{\normalfont\normalsize\bfseries\itshape\color{slateNavy}}
+    
+    % Custom environment for Figure Source lines
+    \newenvironment{fuentedefigura}
+        {\vspace{0.3em}\par\small\itshape}
+        {\par}
+        
+    % Custom environment to force Description list labels to print in slateNavy
+    \let\olddescription\description
+    \let\endolddescription\enddescription
+    \renewenvironment{description}
+        {\begin{olddescription}\let\olditem\item\renewcommand{\item}[1][]{\olditem[\textcolor{slateNavy}{##1}]}}
+        {\end{olddescription}}
+        
+    % Flat sequential figure numbering (removes chapter/section resets)
+    \counterwithout{figure}{chapter}
+    \counterwithout{figure}{section}
+    
+    % Formatting rules for Tables (Alternating rows and row heights)
+    \rowcolors{2}{white}{gray!12}
+    \renewcommand{\arraystretch}{1.3}
+EndPreamble
 \end_local_layout
 \language spanish
 \language_package default
@@ -1406,48 +1432,6 @@ En resumen,
  el comercio exterior de Colombia en el siglo XXI ha sido dinámico,
  enfrentando desafíos,
  pero también aprovechando oportunidades para diversificar y expandir su presencia en el mercado global.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement p
-alignment document
-wide false
-sideways true
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename imagenes/image02-HistoriaComercioColombia.png
-	width 100theight%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Breve Historia del Comercio Exterior Colombiano
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Fuente de figura
-\align center
-Fuente:
- Elaboración propia (2025)
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2862,7 +2846,7 @@ placement b
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4546,7 +4530,7 @@ de
 \begin_inset space ~
 \end_inset
 
-Capita.
+Capital.
  Las políticas relacionadas con la balanza de pagos también incluyen medidas para regular los flujos de capital.
  En caso de un déficit en la cuenta de capital,
  un país podría implementar controles de capital para evitar la fuga de capitales y estabilizar su economía.
@@ -4630,6 +4614,6009 @@ Fuente:
 \end_inset
 
 
+\end_layout
+
+\begin_layout Chapter
+Política Comercial de Colombia
+\end_layout
+
+\begin_layout Standard
+La política comercial de Colombia se centra en la integración económica internacional,
+ la diversificación de mercados,
+ el fortalecimiento de las exportaciones y la atracción de inversión extranjera.
+ El país busca mejorar su competitividad en el mercado global a través de tratados de libre comercio (TLC),
+ acuerdos bilaterales y participación en organizaciones multilaterales.
+\end_layout
+
+\begin_layout Section
+Tratados de Libre Comercio y Acuerdos Comerciales
+\end_layout
+
+\begin_layout Standard
+Colombia ha firmado varios TLC con países y bloques económicos como Estados Unidos,
+ la Unión Europea,
+ Canadá,
+ la Asociación Europea de Libre Comercio (EFTA),
+ el Mercosur,
+ la Alianza del Pacífico,
+ y otros países de América Latina.
+ Estos acuerdos buscan eliminar barreras arancelarias y no arancelarias,
+ mejorar el acceso a mercados y atraer inversión extranjera.
+\end_layout
+
+\begin_layout Section
+Diversificación de Mercados y Exportaciones
+\end_layout
+
+\begin_layout Standard
+La política comercial de Colombia se ha enfocado en diversificar su oferta exportadora,
+ más allá de los tradicionales productos básicos como el petróleo,
+ el carbón,
+ el café y las flores.
+ El país busca promover sectores no tradicionales como el turismo,
+ el software,
+ los servicios de salud,
+ la agroindustria,
+ y las industrias creativas.
+\end_layout
+
+\begin_layout Section
+Fortalecimiento de la Alianza del Pacífico
+\end_layout
+
+\begin_layout Standard
+Colombia es miembro de la Alianza del Pacífico,
+ una iniciativa regional con Chile,
+ México y Perú,
+ que busca la integración comercial y económica en la región Asia-Pacífico.
+ Esta alianza facilita el comercio intrarregional,
+ la movilidad de capitales,
+ personas y servicios,
+ y fomenta la cooperación en educación y turismo.
+\end_layout
+
+\begin_layout Section
+Promoción de la IED
+\end_layout
+
+\begin_layout Standard
+Una parte importante de la política comercial colombiana es la atracción de inversión extranjera directa.
+ El gobierno ofrece incentivos fiscales,
+ estabilidad jurídica,
+ y zonas francas para atraer inversión en sectores estratégicos como infraestructura,
+ energías renovables,
+ tecnología,
+ y agroindustria.
+\end_layout
+
+\begin_layout Section
+Política de Sustitución de Importaciones y Competitividad Interna
+\end_layout
+
+\begin_layout Standard
+Aunque Colombia ha apostado por la liberalización del comercio,
+ también ha desarrollado políticas de sustitución de importaciones para proteger industrias locales estratégicas.
+ Esto incluye medidas para fortalecer la competitividad interna mediante incentivos a la producción nacional,
+ mejoras en infraestructura y programas de capacitación laboral.
+\end_layout
+
+\begin_layout Section
+Participación en Organizaciones Multilaterales
+\end_layout
+
+\begin_layout Standard
+Colombia participa activamente en la Organización Mundial del Comercio (OMC) y otros foros internacionales como la Comunidad Andina (CAN) y el Foro de Cooperación Económica Asia-Pacífico (APEC).
+ A través de estos foros,
+ busca influir en la formulación de normas comerciales globales y defender sus intereses comerciales.
+\end_layout
+
+\begin_layout Section
+Política de Facilitación del Comercio
+\end_layout
+
+\begin_layout Standard
+En los últimos años,
+ Colombia ha implementado políticas para facilitar el comercio,
+ como la simplificación de trámites aduaneros,
+ la digitalización de procesos y la mejora en la infraestructura logística y portuaria.
+ Estas medidas buscan reducir costos,
+ tiempos de exportación e importación,
+ y mejorar el ambiente de negocios.
+\end_layout
+
+\begin_layout Section
+Promoción de Normas de Comercio Justo y Sostenible
+\end_layout
+
+\begin_layout Standard
+Colombia también ha adoptado políticas para fomentar el comercio justo y sostenible.
+ Esto incluye acuerdos que incorporan cláusulas de derechos laborales,
+ protección ambiental y responsabilidad social empresarial,
+ en línea con los estándares internacionales.
+\end_layout
+
+\begin_layout Section
+Desafíos actuales
+\end_layout
+
+\begin_layout Description
+Diversificación
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+exportaciones.
+ Aunque hay esfuerzos por diversificar las exportaciones,
+ Colombia sigue dependiendo en gran medida de los productos básicos como petróleo y carbón.
+\end_layout
+
+\begin_layout Description
+Fortalecimiento
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+infraestructura.
+ La falta de infraestructura adecuada y eficiente sigue siendo un desafío para la competitividad del comercio exterior.
+\end_layout
+
+\begin_layout Description
+Mejorar
+\begin_inset space ~
+\end_inset
+
+la
+\begin_inset space ~
+\end_inset
+
+competitividad.
+ La política comercial también enfrenta el reto de mejorar la competitividad interna,
+ enfrentando barreras como la corrupción,
+ la informalidad laboral y las cargas tributarias.
+\end_layout
+
+\begin_layout Standard
+La política comercial actual de Colombia busca equilibrar la apertura al comercio global con el fortalecimiento de la economía interna y la atracción de inversiones.
+ A través de acuerdos comerciales,
+ la participación en alianzas regionales,
+ la diversificación de exportaciones y la modernización de la infraestructura,
+ Colombia pretende posicionarse como un actor relevante en el comercio internacional.
+\end_layout
+
+\begin_layout Standard
+Las cifras fundamentales dentro del contexto de la interpretación de los resultados generados en el comportamiento de la balanza comercial,
+ encontramos que para para efectos del establecimiento de aranceles y otras medidas de comercio exterior,
+ Colombia utiliza la Nomenclatura Arancelaria del Sistema Armonizado de Designación y Codificación de Mercancías aprobado por la Organización Mundial de Aduanas,
+ hoy compilado en el Decreto 1881 de 2021.
+\end_layout
+
+\begin_layout Standard
+En materia de aranceles,
+ las tarifas oscilan,
+ de forma general,
+ entre 0%,
+ 5%,
+ 10% y 15%.
+ En algunos casos específicos,
+ como,
+ por ejemplo,
+ productos agrícolas,
+ vehículos o confecciones estas tarifas pueden ser mayores.
+\end_layout
+
+\begin_layout Standard
+Las importaciones están también gravadas con el impuesto al valor agregado,
+ IVA,
+ cuya tarifa actual general es del 19%,
+ aunque existen tarifas del 5%,
+ 0% (exentas) y otras que no causan el impuesto (excluidas).
+\end_layout
+
+\begin_layout Standard
+Además de los tributos aduaneros (arancel e IVA),
+ la importación de algunos bienes causa otros impuestos como el impuesto al consumo de cervezas,
+ licores y cigarrillos,
+ el impuesto nacional al consumo para ciertos vehículos automotores,
+ el impuesto a la gasolina,
+ el impuesto al carbono para combustibles fósiles,
+ el impuesto a las bolsas plásticas para un solo uso y los impuestos a los productos comestibles ultra - procesados y bebidas azucaradas.
+\end_layout
+
+\begin_layout Standard
+Colombia cuenta con un sistema especial de importación y exportación (conocido como Plan Vallejo),
+ que permite importar temporalmente con exención total de derechos e impuestos a la importación (arancel e IVA) materias primas e insumos para producir bienes con destino al mercado internacional.
+ Adicionalmente,
+ para el sector agrícola y el de servicios permite la importación exenta de arancel y diferimiento del IVA de bienes de capital y repuestos para producir bienes o servicios destinados al mercado internacional.
+\end_layout
+
+\begin_layout Standard
+Colombia cuenta con diferentes modalidades aduaneras de importación y exportación para atender las necesidades de todas las empresas instaladas en el país.
+\end_layout
+
+\begin_layout Standard
+El país ha desarrollado un régimen de zonas francas que permite a las compañías que allí se instalen,
+ contar con una normatividad especial en materia tributaria,
+ aduanera y de comercio exterior.
+\end_layout
+
+\begin_layout Standard
+Colombia goza de una ubicación geográfica estratégica y privilegiada para acceder a los mercados internacionales a través de Acuerdos Comerciales que otorgan preferencias arancelarias y garantizan las mejores condiciones para la comercialización de productos en mercados externos.
+ Adicionalmente,
+ cuenta con trámites de aduana ágiles,
+ eficientes y modernos controlados por la Dirección de Impuestos y Aduanas Nacionales (DIAN)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement p
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img10-PoliticaComercialColombiana.png
+	width 100theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Política Comercia Colombiana
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Balanza Comercial de Colombia 2024
+\end_layout
+
+\begin_layout Standard
+En 2024,
+ la balanza comercial de Colombia cerró con un déficit de US$10.811 millones FOB de acuerdo con las cifras publicadas por el Departamento Administrativo Nacional de Estadística,
+ DANE,
+ lo que representó un aumento de 11,7% frente al año anterior.
+\end_layout
+
+\begin_layout Standard
+Este resultado obedeció al desempeño combinado de exportaciones e importaciones,
+ donde las ventas externas registraron una leve contracción,
+ mientras que las compras al exterior continuaron en ascenso.
+ La dinámica comercial estuvo marcada por una reducción en los envíos de productos de las industrias extractivas,
+ contrastada con el crecimiento de sectores como el agropecuario y el manufacturero.
+\end_layout
+
+\begin_layout Standard
+Las exportaciones colombianas alcanzaron un total de US$49.522 millones FOB en 2024,
+ reflejando una disminución de 0,4% en comparación con el cierre de 2023,
+ lo que equivale a US$217,1 millones FOB menos en ventas hacia el exterior.
+ Este resultado se debió principalmente al desempeño de los combustibles y productos de las industrias extractivas,
+ que representan 47,2% de la canasta exportadora del país.
+\end_layout
+
+\begin_layout Standard
+Este grupo registró una variación negativa de 10,6%,
+ con una contribución de -5,6 puntos porcentuales (pp) a la caída total de las exportaciones.
+ Las ventas externas de los productos agropecuarios,
+ alimentos y bebidas contrarrestaron esa caída con un aumento de 14,0% (contribución de 2,8pp),
+ jalonado por el excelente comportamiento del café (21,8%,
+ contribución de 1,2pp) cuyo precio por carga en los mercados internacionales ha alcanzado máximos históricos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img11-BalanzaComercial.png
+	lyxscale 50
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Balanza Comercial
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el último año,
+ Estados Unidos se mantuvo como el principal destino de las exportaciones colombianas (28,9% del valor FOB),
+ seguido de Panamá (8,7%) e India (5,4%).
+ Así,
+ Estados Unidos aportó 2,1 pp al crecimiento anual,
+ impulsado por un aumento de 5,7% en las exportaciones de petróleo crudo.
+ La caída general de las ventas al exterior se debió principalmente a la disminución de las exportaciones hacia Polonia y Países Bajos,
+ que en conjunto restaron 2,3 pp a la variación total.
+\end_layout
+
+\begin_layout Standard
+Por su parte,
+ las importaciones ascendieron a US$64.104 millones CIF y registraron un crecimiento de 2,1% frente al 2023.
+ Los productos manufactureros explicaron el aumento dado un crecimiento de 3,9% (contribución de 2,8 pp),
+ como resultado de las mayores compras de productos químicos y productos conexos (6,9%,
+ contribución de 2,0pp a la variación del grupo).
+\end_layout
+
+\begin_layout Standard
+Por su parte,
+ los productos agropecuarios,
+ incluidos los alimentos y bebidas,
+ registraron US$9.336 millones CIF y una disminución de 2,5% (contribución de -4,2%),
+ dada la menor entrada al país de productos alimenticios y animales vivos.
+\end_layout
+
+\begin_layout Standard
+En cuanto al país de origen,
+ las compras de los bienes y servicios provenientes de Estados Unidos participaron con 25,7% del valor total CIF en el periodo,
+ seguido por China (24,9%) y Brasil (5,2%).
+ Las compras externas originarias de China contribuyeron con 3,8 pp a la variación anual,
+ seguido por Estados Unidos con 0,7pp.
+\end_layout
+
+\begin_layout Standard
+El comportamiento del país asiático se explicó principalmente por las mayores importaciones de computadores portátiles (28,0%) y de vehículos automotores para el transporte de personas (101,4%).
+\end_layout
+
+\begin_layout Chapter
+Integración Comercial
+\end_layout
+
+\begin_layout Standard
+Se refiere al conjunto de estrategias,
+ medidas,
+ acuerdos,
+ y normativas que un país implementa para fomentar su inserción en los mercados internacionales y regionales,
+ promoviendo el comercio de bienes y servicios,
+ la inversión extranjera,
+ y la cooperación económica con otros países o bloques de países.
+\end_layout
+
+\begin_layout Section
+Niveles de Integración Comercial
+\end_layout
+
+\begin_layout Standard
+Los niveles de integración comercial se refieren a las diferentes etapas en las que los países pueden colaborar económicamente,
+ desde una cooperación mínima hasta una integración total.
+ Aquí tienes una descripción de los niveles de integración comercial,
+ ordenados de menor a mayor:
+\end_layout
+
+\begin_layout Subsection
+Acuerdo Preferencial de Comercio (APC)
+\end_layout
+
+\begin_layout Standard
+Es el nivel más básico de integración.
+ Los países reducen algunos aranceles para ciertos productos,
+ pero no eliminan todas las barreras comerciales.
+ Ejemplo:
+ Algunos acuerdos entre países en desarrollo para promover ciertos productos.
+\end_layout
+
+\begin_layout Subsection
+Área de Libre Comercio (ALC)
+\end_layout
+
+\begin_layout Standard
+Los países miembros eliminan los aranceles y restricciones al comercio de bienes y servicios entre ellos,
+ pero mantienen sus propios aranceles frente a terceros países.
+ Ejemplo:
+ Tratado de Libre Comercio de América del Norte (TLCAN),
+ hoy USMCA (T-MEC).
+\end_layout
+
+\begin_layout Subsection
+Unión Aduanera
+\end_layout
+
+\begin_layout Standard
+Además de eliminar los aranceles entre los países miembros,
+ estos adoptan un arancel externo común frente a terceros países.
+ Ejemplo:
+ Mercosur (Mercado Común del Sur).
+\end_layout
+
+\begin_layout Subsection
+Mercado Común
+\end_layout
+
+\begin_layout Standard
+Además de los elementos de una unión aduanera,
+ se permite la libre circulación de factores de producción (trabajo y capital) entre los países miembros.
+ Ejemplo:
+ Mercado Común Centroamericano (MCCA).
+\end_layout
+
+\begin_layout Subsection
+Unión Económica
+\end_layout
+
+\begin_layout Standard
+Combina las características de un mercado común con la coordinación de políticas económicas y fiscales entre los países miembros.
+ Ejemplo:
+ La Unión Europea antes de la creación del euro.
+\end_layout
+
+\begin_layout Subsection
+Unión Monetaria
+\end_layout
+
+\begin_layout Standard
+Los países miembros adoptan una moneda común y establecen una política monetaria unificada.
+ Ejemplo:
+ La Eurozona,
+ donde los países utilizan el euro como moneda común.
+\end_layout
+
+\begin_layout Subsection
+Integración Económica Completa
+\end_layout
+
+\begin_layout Standard
+Es el nivel más alto de integración,
+ en el que los países miembros integran plenamente sus economías,
+ con una política económica,
+ fiscal,
+ monetaria y social unificada.
+ Ejemplo:
+ No existe un ejemplo completo de integración económica completa,
+ pero la Unión Europea es la que más se acerca.
+\end_layout
+
+\begin_layout Standard
+Estos niveles reflejan cómo los países pueden avanzar progresivamente en la integración económica,
+ con cada nivel requiriendo un mayor grado de cooperación y coordinación.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement p
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img12-PoliticaIntegracionComercial.png
+	width 100theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Política de Integración Comercial
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Integración Comercial de Colombia
+\end_layout
+
+\begin_layout Standard
+La política de integración comercial de Colombia está orientada a promover el acceso a nuevos mercados,
+ fortalecer las exportaciones,
+ atraer inversión extranjera directa (IED) y mejorar la competitividad del país en el contexto global.
+ Esta política está articulada a través de una estrategia de apertura económica que busca consolidar la inserción de Colombia en los mercados internacionales mediante diversos acuerdos comerciales,
+ mejoras en la infraestructura logística,
+ y la diversificación de productos y servicios.
+\end_layout
+
+\begin_layout Standard
+A continuación,
+ se presenta un resumen de los pilares fundamentales de la política de integración comercial de Colombia.
+\end_layout
+
+\begin_layout Subsection
+Firma de Acuerdos Comerciales y TLC
+\end_layout
+
+\begin_layout Standard
+Diversificación de Mercados.
+ Colombia ha firmado numerosos tratados de libre comercio (TLC) para asegurar el acceso preferencial a productos colombianos en mercados internacionales.
+ Entre los más destacados están los TLC con Estados Unidos,
+ la Unión Europea,
+ Canadá,
+ Corea del Sur,
+ la Alianza del Pacífico,
+ Israel,
+ y más.
+\end_layout
+
+\begin_layout Standard
+Fortalecimiento de Relaciones Comerciales Regionales.
+ Colombia es un miembro activo de la Comunidad Andina de Naciones (CAN) y de la Alianza del Pacífico,
+ lo que facilita el comercio con otros países de la región mediante la eliminación de barreras arancelarias y la coordinación de políticas comerciales.
+\end_layout
+
+\begin_layout Subsection
+Fomento de Exportaciones y Atracción a la IED
+\end_layout
+
+\begin_layout Description
+ProColombia.
+ Esta agencia gubernamental es clave en la promoción de exportaciones y la atracción de IED.
+ ProColombia se encarga de la promoción de bienes y servicios colombianos en el exterior y de facilitar la inversión extranjera mediante incentivos fiscales,
+ asesorías,
+ y otros apoyos.
+\end_layout
+
+\begin_layout Description
+Zonas
+\begin_inset space ~
+\end_inset
+
+Francas
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+Beneficios
+\begin_inset space ~
+\end_inset
+
+Fiscales.
+ La política de integración comercial incluye la creación de zonas francas que ofrecen incentivos fiscales y aduaneros para fomentar la inversión en sectores estratégicos como la manufactura,
+ tecnología,
+ infraestructura,
+ y servicios.
+\end_layout
+
+\begin_layout Subsection
+Facilitación del Comercio y Modernización de Infraestructura
+\end_layout
+
+\begin_layout Description
+Proyectos
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Infraestructura
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+Logística.
+ El desarrollo de infraestructura es fundamental para mejorar la competitividad de Colombia.
+ Proyectos como el programa de Cuarta Generación de Concesiones Viales (4G) y mejoras en los puertos y aeropuertos son vitales para facilitar el comercio.
+\end_layout
+
+\begin_layout Description
+Digitalización
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Trámites
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+Facilitación
+\begin_inset space ~
+\end_inset
+
+Aduanera.
+ Se están implementando sistemas digitales para simplificar los trámites de exportación e importación,
+ mejorar la eficiencia aduanera,
+ y reducir costos y tiempos para los comerciantes.
+\end_layout
+
+\begin_layout Description
+Negociaciones
+\begin_inset space ~
+\end_inset
+
+Comerciales
+\begin_inset space ~
+\end_inset
+
+Multilaterales.
+ Además de la OMC,
+ Colombia está en proceso de explorar acuerdos comerciales con nuevos socios,
+ como la posible adhesión al Acuerdo Transpacífico de Cooperación Económica (TPP11),
+ lo que facilitaría la integración en la región Asia-Pacífico.
+\end_layout
+
+\begin_layout Subsection
+Desarrollo de Sectores Productivos y Competitividad
+\end_layout
+
+\begin_layout Description
+Políticas
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Innovación
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+Productividad.
+ Colombia está promoviendo la innovación y el desarrollo de sectores de alto valor agregado.
+ Esto incluye sectores tradicionales como el café,
+ flores y banano,
+ así como nuevos sectores como tecnología,
+ servicios financieros,
+ energía renovable,
+ y manufactura avanzada.
+\end_layout
+
+\begin_layout Description
+Fortalecimiento
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Pequeñas
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+Medianas
+\begin_inset space ~
+\end_inset
+
+Empresas
+\begin_inset space ~
+\end_inset
+
+(PYMEs).
+ A través de programas de capacitación,
+ financiamiento y apoyo técnico,
+ el gobierno busca integrar a las PYMEs en las cadenas globales de valor.
+\end_layout
+
+\begin_layout Subsection
+Sostenibilidad y Comercio Responsable
+\end_layout
+
+\begin_layout Description
+Incorporación
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Prácticas
+\begin_inset space ~
+\end_inset
+
+Sostenibles.
+ La política comercial colombiana también se alinea con prácticas sostenibles,
+ fomentando la exportación de productos que cumplan con estándares ambientales y sociales.
+ Esto es clave para ingresar a mercados exigentes,
+ como la Unión Europea.
+\end_layout
+
+\begin_layout Subsection
+Turismo como Instrumento de Integración Comercial
+\end_layout
+
+\begin_layout Description
+Turismo
+\begin_inset space ~
+\end_inset
+
+como
+\begin_inset space ~
+\end_inset
+
+Estrategia
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Integración.
+ Colombia ha potenciado su sector turístico como parte de su política de integración,
+ atrayendo turistas internacionales y promoviendo el país como un destino de inversión y negocios.
+\end_layout
+
+\begin_layout Description
+Integración
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+través
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+la
+\begin_inset space ~
+\end_inset
+
+Inversión
+\begin_inset space ~
+\end_inset
+
+Extranjera.
+ Colombia fomenta la integración no solo mediante el comercio de bienes y servicios,
+ sino también a través de la inversión extranjera directa (IED).
+ Se han establecido marcos normativos favorables y tratados bilaterales de inversión (TBI) con varios países.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+En conclusión:
+\end_layout
+
+\begin_layout Standard
+Colombia ha avanzado en diversos niveles de integración comercial,
+ desde acuerdos bilaterales y regionales hasta su participación en foros multilaterales.
+ Este enfoque múltiple busca mejorar el acceso a mercados,
+ diversificar la economía y atraer inversiones,
+ posicionando al país como un actor importante en el comercio internacional.
+\end_layout
+
+\begin_layout Subsection
+Participación en Organismos Internacionales
+\end_layout
+
+\begin_layout Standard
+Colombia participa activamente en diversos organismos internacionales de carácter comercial,
+ los cuales buscan promover el comercio internacional,
+ la integración económica y el desarrollo sostenible.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Organización Mundial del Comercio (OMC)
+\end_layout
+
+\begin_layout Itemize
+Colombia es miembro de la OMC desde 1995.
+ En el marco de esta organización,
+ Colombia participa activamente en las negociaciones para la liberalización del comercio internacional,
+ el establecimiento de normas comerciales y la resolución de disputas comerciales entre países miembros.
+\end_layout
+
+\begin_layout Itemize
+La OMC es fundamental para Colombia porque ofrece un marco jurídico internacional para el comercio y asegura que las políticas comerciales del país sean consistentes con las normas internacionales.
+\end_layout
+
+\begin_layout Subsubsection
+Comunidad Andina (CAN)
+\end_layout
+
+\begin_layout Itemize
+Colombia es miembro fundador de la Comunidad Andina,
+ una organización regional que promueve la integración económica y política entre Bolivia,
+ Ecuador,
+ Perú y Colombia.
+\end_layout
+
+\begin_layout Itemize
+La CAN facilita el comercio intrarregional a través de la eliminación de aranceles,
+ la adopción de políticas comerciales comunes y la • cooperación en diversas áreas como transporte,
+ energía,
+ y medio ambiente.
+\end_layout
+
+\begin_layout Subsubsection
+Alianza del Pacífico
+\end_layout
+
+\begin_layout Itemize
+Fundada en 2011,
+ la Alianza del Pacífico es una iniciativa de integración regional conformada por Colombia,
+ Chile,
+ México y Perú.
+\end_layout
+
+\begin_layout Itemize
+Este bloque busca la integración profunda en términos de comercio,
+ inversiones,
+ libre circulación de personas,
+ y cooperación en educación y turismo.
+ A través de la Alianza del Pacífico,
+ Colombia ha buscado diversificar sus mercados de exportación y fortalecer los lazos comerciales con Asia-Pacífico.
+\end_layout
+
+\begin_layout Subsubsection
+Asociación Latinoamericana de Integración (ALADI)
+\end_layout
+
+\begin_layout Itemize
+La ALADI es un organismo que promueve la integración económica en América Latina mediante acuerdos preferenciales entre los países miembros.
+\end_layout
+
+\begin_layout Itemize
+Colombia,
+ como miembro de la ALADI,
+ participa en acuerdos de alcance parcial que permiten la liberalización del comercio de bienes y servicios,
+ el acceso a mercados,
+ y la cooperación económica y técnica.
+\end_layout
+
+\begin_layout Subsubsection
+Organización de Estados Americanos (OEA)
+\end_layout
+
+\begin_layout Itemize
+Aunque la OEA no es un organismo exclusivamente comercial,
+ su Comisión Interamericana de Comercio de la OEA (CIC-OEA) facilita la cooperación y el diálogo sobre políticas comerciales y de inversión entre los países de América.
+\end_layout
+
+\begin_layout Itemize
+A través de la OEA,
+ Colombia participa en discusiones sobre comercio,
+ inversión,
+ y desarrollo económico,
+ así como en iniciativas para la integración comercial en las Américas.
+\end_layout
+
+\begin_layout Subsubsection
+Banco Interamericano de Desarrollo (BID)
+\end_layout
+
+\begin_layout Itemize
+El BID es una institución financiera internacional que apoya el desarrollo económico,
+ social e institucional en América Latina y el Caribe.
+\end_layout
+
+\begin_layout Itemize
+Colombia participa activamente en el BID para obtener financiamiento para proyectos de infraestructura,
+ desarrollo sostenible y modernización del comercio exterior.
+\end_layout
+
+\begin_layout Subsubsection
+Organización para la Cooperación y el Desarrollo Económicos (OCDE)
+\end_layout
+
+\begin_layout Itemize
+Colombia se convirtió en miembro de la OCDE en 2020.
+ La OCDE brinda un foro para que los países compartan experiencias y busquen soluciones a problemas comunes,
+ incluido el comercio.
+\end_layout
+
+\begin_layout Itemize
+La adhesión a la OCDE ha permitido a Colombia alinear sus políticas comerciales y económicas con estándares internacionales,
+ mejorar la competitividad y atraer más inversión extranjera.
+\end_layout
+
+\begin_layout Subsubsection
+Foro de Cooperación Económica Asia-Pacífico (APEC)
+\end_layout
+
+\begin_layout Itemize
+Colombia no es miembro de APEC,
+ pero ha manifestado interés en ingresar al foro debido a la importancia de la región Asia-Pacífico en el comercio mundial.
+\end_layout
+
+\begin_layout Itemize
+Colombia participa en eventos de APEC como invitado y mantiene un diálogo abierto con los países miembros.
+\end_layout
+
+\begin_layout Subsubsection
+Acuerdos de Libre Comercio (TLC s)
+\end_layout
+
+\begin_layout Itemize
+Colombia ha firmado varios tratados de libre comercio con diferentes países y bloques económicos,
+ como Estados Unidos,
+ la Unión Europea,
+ Canadá,
+ Corea del Sur,
+ y otros países latinoamericanos.
+\end_layout
+
+\begin_layout Itemize
+Estos acuerdos permiten a Colombia diversificar sus exportaciones,
+ atraer inversiones y mejorar la competitividad de sus productos y servicios en mercados internacionales.
+\end_layout
+
+\begin_layout Standard
+La participación de Colombia en estos organismos internacionales de carácter comercial demuestra su compromiso con la integración económica,
+ la apertura comercial y el desarrollo sostenible en el ámbito global y regional.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement p
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img13-IntegracionComercial.png
+	width 100theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Integración Comercial de Colombia
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Administración de Organizaciones y Comercio Exterior
+\end_layout
+
+\begin_layout Standard
+El comercio exterior influye significativamente en la administración de las organizaciones,
+ ya que determina cómo las empresas interactúan y compiten en un entorno global.
+\end_layout
+
+\begin_layout Standard
+A continuación,
+ se destacan algunos puntos clave sobre su incidencia
+\end_layout
+
+\begin_layout Section
+Ampliación de Mercados
+\end_layout
+
+\begin_layout Standard
+Permite a las empresas acceder a mercados internacionales,
+ expandiendo su base de clientes y diversificando sus fuentes de ingresos.
+ Esto conlleva a un crecimiento potencial en las ventas y una mayor estabilidad financiera.
+\end_layout
+
+\begin_layout Section
+Competitividad y Eficiencia
+\end_layout
+
+\begin_layout Standard
+La apertura al comercio exterior expone a las empresas a estándares internacionales,
+ lo que impulsa a mejorar la calidad,
+ la eficiencia y la innovación.
+ Las organizaciones se ven obligadas a optimizar sus procesos productivos y operativos para mantenerse competitivas.
+\end_layout
+
+\begin_layout Section
+Diversificación de Proveedores
+\end_layout
+
+\begin_layout Standard
+Facilita el acceso a una gama más amplia de insumos,
+ materias primas y tecnologías.
+ Al diversificar las fuentes de abastecimiento,
+ las empresas pueden reducir costos y mitigar riesgos relacionados con la dependencia de un solo proveedor.
+\end_layout
+
+\begin_layout Section
+Gestión de Riesgos
+\end_layout
+
+\begin_layout Standard
+La participación en el comercio exterior también implica enfrentar riesgos como fluctuaciones cambiarias,
+ regulaciones aduaneras y barreras comerciales.
+ Esto exige a las organizaciones implementar estrategias de gestión de riesgos que aseguren su estabilidad en el mercado global.
+\end_layout
+
+\begin_layout Section
+Cumplimiento Normativo y Adaptación
+\end_layout
+
+\begin_layout Standard
+Las empresas deben adaptarse a diferentes normativas internacionales y aduaneras,
+ lo cual requiere una gestión especializada en comercio exterior.
+ Esto influye en la toma de decisiones y en la estructura organizacional para cumplir con las regulaciones vigentes en cada país de operación.
+\end_layout
+
+\begin_layout Standard
+La administración de organizaciones tiene un impacto significativo en el éxito y la efectividad del comercio exterior,
+ ya que establece las bases para que las empresas puedan desenvolverse con éxito en mercados internacionales.
+ A continuación,
+ se señalan algunas áreas clave en las que la administración influye en el comercio exterior:
+\end_layout
+
+\begin_layout Section
+Planeación Estratégica Internacional
+\end_layout
+
+\begin_layout Standard
+La administración de organizaciones define los objetivos estratégicos relacionados con el comercio exterior,
+ como la selección de mercados,
+ el posicionamiento de productos y la gestión de la expansión internacional.
+ Esto involucra análisis de mercado,
+ estudios de viabilidad y la elaboración de planes de negocio adaptados a diferentes regiones y culturas.
+\end_layout
+
+\begin_layout Section
+Estructura Organizacional y Logística
+\end_layout
+
+\begin_layout Standard
+La administración decide la estructura adecuada para gestionar operaciones internacionales,
+ ya sea mediante la creación de departamentos de comercio exterior,
+ alianzas estratégicas o sucursales en otros países.
+ Además,
+ establece los procesos logísticos y la cadena de suministro global,
+ asegurando el flujo eficiente de bienes y servicios a través de fronteras.
+\end_layout
+
+\begin_layout Section
+Gestión Financiera y Control de Costos
+\end_layout
+
+\begin_layout Standard
+La administración se encarga de la planificación y control financiero en el ámbito del comercio exterior.
+ Esto incluye la gestión de divisas,
+ la evaluación de costos de exportación/importación y la implementación de estrategias para optimizar el uso de recursos.
+ También aborda el financiamiento de proyectos internacionales y la gestión de riesgos financieros.
+\end_layout
+
+\begin_layout Section
+Cumplimiento Normativo y Gestión de Riesgos
+\end_layout
+
+\begin_layout Standard
+La administración de organizaciones establece políticas y procedimientos para asegurar que las operaciones internacionales cumplan con las regulaciones aduaneras,
+ arancelarias y comerciales de cada país.
+ Además,
+ implementa medidas para gestionar riesgos legales y comerciales,
+ como cambios en regulaciones o conflictos comerciales entre naciones.
+\end_layout
+
+\begin_layout Section
+Desarrollo del Talento y Competencias Globales
+\end_layout
+
+\begin_layout Standard
+La administración también influye en la formación y desarrollo de talento con competencias globales.
+ La capacitación en aspectos culturales,
+ lingüísticos y comerciales internacionales es esencial para que el personal pueda manejar las complejidades del comercio exterior.
+\end_layout
+
+\begin_layout Section
+Innovación y Adaptación Tecnológica
+\end_layout
+
+\begin_layout Standard
+La administración impulsa la adopción de tecnologías que facilitan el comercio exterior,
+ como sistemas de gestión de comercio electrónico,
+ plataformas de logística internacional y software de gestión aduanera.
+ La capacidad de adaptarse a las innovaciones tecnológicas determina en gran medida el éxito de la empresa en el comercio internacional.
+\end_layout
+
+\begin_layout Standard
+Existen otros factores que la administración organizacional puede influir en el comercio exterior,
+ los cuales a continuación nos permitimos presentar
+\end_layout
+
+\begin_layout Section
+Cultura Organizacional y Adaptación Cultural
+\end_layout
+
+\begin_layout Standard
+La administración debe promover una cultura organizacional orientada a la internacionalización,
+ donde se fomente la apertura y sensibilidad hacia las diferencias culturales.
+ Esta actitud se traduce en prácticas comerciales más efectivas,
+ respeto a las normas culturales y un mejor entendimiento de los comportamientos de consumo locales.
+ La adaptación cultural mejora las negociaciones internacionales y la gestión de relaciones con clientes,
+ proveedores y socios de negocios.
+\end_layout
+
+\begin_layout Section
+Gestión de Alianzas y Redes Globales
+\end_layout
+
+\begin_layout Standard
+La administración también desempeña un papel crucial en la formación de alianzas estratégicas internacionales,
+ joint ventures,
+ acuerdos de distribución y otros tipos de colaboraciones.
+ Estas alianzas permiten a las empresas acceder a nuevos mercados con menores costos y riesgos,
+ aprovechar las fortalezas de socios locales y adquirir conocimientos específicos del mercado.
+\end_layout
+
+\begin_layout Section
+Innovación en Modelos de Negocio Internacionales
+\end_layout
+
+\begin_layout Standard
+La administración de organizaciones puede fomentar la creación y adaptación de modelos de negocio específicos para cada mercado.
+ La internacionalización implica considerar variables como el comportamiento del consumidor local,
+ las regulaciones específicas de cada país y las prácticas de negocio tradicionales.
+ Un modelo de negocio flexible y adaptado es más efectivo y permite una mayor penetración en mercados extranjeros.
+\end_layout
+
+\begin_layout Section
+Gestión del Conocimiento y Transferencia de Aprendizaje
+\end_layout
+
+\begin_layout Standard
+Las organizaciones que participan en el comercio exterior tienen la oportunidad de aprender y adquirir conocimientos valiosos sobre mercados,
+ tecnologías y procesos.
+ La administración puede fomentar la gestión del conocimiento,
+ garantizando que estas experiencias se compartan internamente y se traduzcan en mejores prácticas organizacionales que se repliquen en diferentes filiales o países.
+\end_layout
+
+\begin_layout Section
+Adaptación de Productos y Estrategias de Marketing Internacional
+\end_layout
+
+\begin_layout Standard
+La administración organiza y lidera los esfuerzos de adaptación de productos y estrategias de marketing según las preferencias y necesidades de los mercados internacionales.
+ Esto incluye modificaciones en el diseño,
+ empaques,
+ tamaños o características de los productos,
+ así como en la comunicación de marca.
+ Una estrategia de marketing global bien ejecutada puede ser determinante para el éxito en el comercio exterior.
+\end_layout
+
+\begin_layout Section
+Sostenibilidad y Responsabilidad Social Empresarial (RSE) Global
+\end_layout
+
+\begin_layout Standard
+En el contexto internacional,
+ la administración debe considerar la sostenibilidad y la RSE no solo como un deber ético,
+ sino como un elemento estratégico.
+ La forma en que una organización gestiona su impacto ambiental y social puede influir en su aceptación y reputación en mercados internacionales.
+ Además,
+ las regulaciones ambientales y sociales varían en cada país,
+ lo que exige a las empresas una adaptación constante y una administración proactiva para cumplir con estas normas.
+\end_layout
+
+\begin_layout Section
+Digitalización y Comercio Electrónico Internacional
+\end_layout
+
+\begin_layout Standard
+La administración también impulsa la adopción de tecnologías y plataformas de comercio electrónico que facilitan la exportación e importación,
+ reducen costos y tiempos de transacción y permiten llegar a consumidores globales de manera directa.
+ La implementación de tecnologías como inteligencia artificial,
+ blockchain para la trazabilidad,
+ y plataformas digitales de comercio pueden transformar las estrategias de comercio exterior de la organización.
+\end_layout
+
+\begin_layout Section
+Liderazgo y Gestión del Cambio
+\end_layout
+
+\begin_layout Standard
+El liderazgo de la administración organizacional es fundamental para guiar a la empresa a través de los cambios que conlleva la internacionalización.
+ La administración debe gestionar adecuadamente las transiciones organizacionales,
+ culturales y estratégicas para asegurar que la empresa pueda adaptarse y prosperar en nuevos entornos comerciales.
+\end_layout
+
+\begin_layout Section
+Desarrollo de Capacidades en Compliance Internacional
+\end_layout
+
+\begin_layout Standard
+El cumplimiento de las normativas internacionales (compliance) es cada vez más relevante en el comercio exterior.
+ La administración debe desarrollar capacidades para gestionar normativas en áreas como lavado de dinero,
+ sanciones internacionales,
+ protección de datos y propiedad intelectual.
+ Esto no solo reduce riesgos legales,
+ sino que también protege la reputación y viabilidad de la empresa en mercados extranjeros.
+\end_layout
+
+\begin_layout Standard
+El comercio exterior impacta de manera integral en la administración de las organizaciones,
+ ya que afecta su estrategia comercial,
+ operativa y financiera,
+ obligándolas a adaptarse continuamente para aprovechar las oportunidades y mitigar los desafíos del entorno global.
+\end_layout
+
+\begin_layout Standard
+La administración de organizaciones define las estrategias,
+ estructuras y procesos que permiten a las empresas operar eficazmente en mercados internacionales.
+ Una administración eficiente se traduce en la capacidad de la organización para identificar oportunidades,
+ reducir riesgos y adaptarse a las dinámicas del comercio exterior,
+ garantizando así su competitividad y sostenibilidad global.
+\end_layout
+
+\begin_layout Standard
+En conclusión,
+ la administración organizacional tiene un impacto multifacético en el comercio exterior,
+ y su capacidad para gestionar estos diversos factores determina el éxito o fracaso de una empresa en su incursión en mercados internacionales.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement p
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img14-AdministracionOrganizaciones.png
+	width 100theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Administración de Organizaciones y Comercio Exterior
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Incidencia de la Administración Pública en el Comercio Exterior de Colombia
+\end_layout
+
+\begin_layout Standard
+La incidencia de la administración pública en el comercio exterior de Colombia es un tema clave para entender cómo las decisiones y acciones del Estado influyen en la manera en que el país se integra a los mercados internacionales.
+\end_layout
+
+\begin_layout Section
+Rol de la Administración Pública en el Comercio Exterior
+\end_layout
+
+\begin_layout Standard
+La administración pública actúa como un ente regulador,
+ facilitador y promotor del comercio exterior.
+ Su objetivo principal es garantizar que las transacciones internacionales se realicen de manera eficiente,
+ legal,
+ transparente y alineadas con los intereses del país.
+\end_layout
+
+\begin_layout Section
+Entidades Clave del Comercio Exterior
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img15-EntidadesClaveComercioExterior.png
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Entidades Clave del Comercio Exterior
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Otras entidades que inciden directamente en el comercio exterior:
+\end_layout
+
+\begin_layout Description
+ProColombia:
+ Promueve las exportaciones no minero-energéticas,
+ el turismo internacional y la inversión extranjera.
+\end_layout
+
+\begin_layout Description
+Cancillería
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+misiones
+\begin_inset space ~
+\end_inset
+
+diplomáticas:
+ Facilitan acuerdos comerciales bilaterales y multilaterales.
+\end_layout
+
+\begin_layout Description
+Ministerio
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Hacienda
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+Crédito
+\begin_inset space ~
+\end_inset
+
+Público:
+ Establece políticas fiscales que afectan directamente los aranceles e impuestos a las importaciones/exportaciones.
+\end_layout
+
+\begin_layout Section
+Políticas Públicas y Acuerdos Comerciales
+\end_layout
+
+\begin_layout Standard
+Colombia ha firmado múltiples tratados de libre comercio (TLC),
+ como con EE.
+ UU.,
+ la Unión Europea,
+ y países de América Latina.
+ La administración pública tiene la responsabilidad de:
+\end_layout
+
+\begin_layout Itemize
+Negociar y aplicar los tratados.
+\end_layout
+
+\begin_layout Itemize
+Crear normas internas que armonicen con los compromisos internacionales.
+\end_layout
+
+\begin_layout Itemize
+Supervisar y controlar el cumplimiento de las reglas comerciales.
+\end_layout
+
+\begin_layout Section
+Facilitación del Comercio
+\end_layout
+
+\begin_layout Standard
+El Estado ha impulsado iniciativas como:
+\end_layout
+
+\begin_layout Itemize
+Ventanilla Única de Comercio Exterior (VUCE):
+ Plataforma que reduce tiempos y trámites para importadores y exportadores.
+\end_layout
+
+\begin_layout Itemize
+Modernización aduanera:
+ Mejora de los procesos en puertos y aeropuertos,
+ digitalización de la documentación.
+\end_layout
+
+\begin_layout Itemize
+Programas de apoyo a MIPYMES exportadoras.
+\end_layout
+
+\begin_layout Section
+Obstáculos y Retos
+\end_layout
+
+\begin_layout Standard
+A pesar de los avances,
+ la administración pública enfrenta desafíos como:
+\end_layout
+
+\begin_layout Itemize
+Burocracia y trámites excesivos.
+\end_layout
+
+\begin_layout Itemize
+Corrupción en procesos aduaneros.
+\end_layout
+
+\begin_layout Itemize
+Infraestructura logística deficiente.
+\end_layout
+
+\begin_layout Itemize
+Débil articulación entre entidades.
+\end_layout
+
+\begin_layout Section
+Impacto Económico y Social
+\end_layout
+
+\begin_layout Standard
+Una administración pública eficiente en el comercio exterior contribuye a:
+\end_layout
+
+\begin_layout Itemize
+Incrementar las exportaciones.
+\end_layout
+
+\begin_layout Itemize
+Diversificar la economía.
+\end_layout
+
+\begin_layout Itemize
+Atraer inversión extranjera.
+\end_layout
+
+\begin_layout Itemize
+Generar empleo y desarrollo regional.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement p
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img16-AdministracionPulbica.png
+	width 100theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+La Administración Pública y Comercio Exterior Colombiano
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Desarrollo Teórico Práctico
+\end_layout
+
+\begin_layout Standard
+El comercio exterior es el tipo de actividades económicas que se encuentran sujetas a diversas normas de control de productos,
+ procedimientos y tributación específicas para tener un control de las operaciones que se realizan entre países.
+\end_layout
+
+\begin_layout Standard
+Cuando los países que van a realizar la entrada o salida de productos tienen monedas distintas,
+ el valor de la vida se refleja en el tipo de cambio y se produce un flujo de divisas.
+ Las fluctuaciones del tipo de cambio pueden afectar a los flujos de comercio exterior de los países con distintas monedas.
+\end_layout
+
+\begin_layout Standard
+La Aduana es el organismo público que se encarga de controlar la entrada y salida de bienes de un país.
+ Su función es controlar los flujos de entrada y salida a través de la frontera y la aplicación de los impuestos que determine la ley.
+\end_layout
+
+\begin_layout Standard
+Sus características son:
+\end_layout
+
+\begin_layout Itemize
+El comercio se realiza fuera de las fronteras del país
+\end_layout
+
+\begin_layout Itemize
+Los países tienen economías abiertas o acuerdos con algún país en particular
+\end_layout
+
+\begin_layout Itemize
+Este tipo de operaciones están sujetas a una normativa especial
+\end_layout
+
+\begin_layout Itemize
+Los países suelen tener acuerdos comerciales
+\end_layout
+
+\begin_layout Section
+Formas Básicas
+\end_layout
+
+\begin_layout Description
+Importación.
+ Conjunto de bienes y servicios comprados por un país en territorio extranjero para utilizarlos en territorio nacional.
+\end_layout
+
+\begin_layout Description
+Exportación.
+ Conjunto de bienes y servicios vendidos por un país a un territorio extranjero.
+\end_layout
+
+\begin_layout Description
+Comercio
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+tránsito.
+ Cuando el individuo que realiza la operación no tiene domicilio social en el país exportador ni importador.
+\end_layout
+
+\begin_layout Standard
+La distribución de las mercancías se puede realizar directamente entre el productor y el comprador o indirectamente a través de empresas dedicadas al comercio exterior.
+\end_layout
+
+\begin_layout Standard
+El comercio exterior se rige por sus propias normas y leyes,
+ por esta razón,
+ es importante que las empresas que quieran mantener relaciones con el extranjero cuenten con profesionales cualificados que lleven a cabo este tipo de operaciones.
+\end_layout
+
+\begin_layout Standard
+El objetivo principal del comercio exterior es satisfacer la demanda de los consumidores y poder aprovechar las ventajas competitivas que tiene cada país.
+\end_layout
+
+\begin_layout Standard
+El comercio exterior permite que las empresas puedan acceder a bienes y servicios de manera más económica,
+ además de poder ofrecer bienes más variados.
+ De esta manera,
+ las personas pueden acceder a bienes que no se producen localmente.
+\end_layout
+
+\begin_layout Standard
+En ocasiones,
+ también sirve para complementar la producción interna del país cuando esta es insuficiente para satisfacer la demanda.
+\end_layout
+
+\begin_layout Standard
+Colombia como todos los países cuentan con una legislación aduanera la cual se refiere al conjunto de normas,
+ leyes y regulaciones que rigen las actividades aduaneras en un país.
+ Estas leyes están diseñadas para regular el flujo de bienes a través de las fronteras,
+ asegurar el cumplimiento de las obligaciones fiscales y aduaneras,
+ y facilitar el comercio internacional.
+\end_layout
+
+\begin_layout Standard
+La legislación aduanera abarca una variedad de temas,
+ incluyendo la clasificación arancelaria de mercancías,
+ la valoración aduanera,
+ los procedimientos de importación y exportación,
+ las sanciones por infracciones aduaneras,
+ entre otros.
+ Su objetivo principal es establecer un marco legal que permita un comercio internacional ordenado,
+ justo y eficiente,
+ al mismo tiempo que protege los intereses fiscales y de seguridad del país.
+\end_layout
+
+\begin_layout Standard
+Los países suelen tener leyes aduaneras específicas que se alinean con los estándares internacionales,
+ como el Acuerdo sobre Valoración en Aduana de la Organización Mundial del Comercio (OMC) y la Convención del Sistema Armonizado de Designación y Codificación de Mercancías.
+ Estas normativas proporcionan pautas para la aplicación uniforme de las reglas aduaneras a nivel global,
+ la Organización Mundial de Aduanas (OMA) organización internacional que brinda soporte a sus Estados miembros en materia aduanera,
+ además la Organización Mundial de Aduanas contribuye a la cooperación y comunicación de los mismos para mejorar la eficiencia en el control aduanero.
+\end_layout
+
+\begin_layout Standard
+Es muy difícil obtener la última actualización e información específica sobre la legislación aduanera actualizada de todo el mundo,
+ ya que las leyes aduaneras son cambiantes y varían según el país.
+ 
+\end_layout
+
+\begin_layout Standard
+Los siguientes son los aspectos generales y comunes que suelen abordar las legislaciones aduaneras a nivel mundial:
+\end_layout
+
+\begin_layout Description
+La
+\begin_inset space ~
+\end_inset
+
+Clasificación
+\begin_inset space ~
+\end_inset
+
+Arancelaria.
+ Se refiere a que las mercancías deben ser clasificadas de acuerdo con un sistema arancelario específico,
+ como el Sistema Armonizado (SA) o el Sistema Armonizado Global (SAG).
+ La clasificación determina la tasa arancelaria aplicable,
+ documentos,
+ requisitos y restricciones de carácter administrativo.
+\end_layout
+
+\begin_layout Description
+Los
+\begin_inset space ~
+\end_inset
+
+aranceles
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+tarifas.
+ En Colombia son herramientas clave para equilibrar el comercio exterior,
+ proteger la producción nacional,
+ cumplir con acuerdos internacionales y promover el desarrollo de sectores estratégicos.
+\end_layout
+
+\begin_layout Description
+Origen
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+las
+\begin_inset space ~
+\end_inset
+
+Mercancías.
+ El origen de las mercancías se refiere al país o territorio donde las mercancías fueron producidas o,
+ en su defecto,
+ el lugar donde se les dio su última transformación sustancial.
+ No siempre es el país de donde se exportan,
+ sino donde adquirieron sus características esenciales.
+ El origen se clasifica en dos tipos:
+\end_layout
+
+\begin_layout Itemize
+Origen Preferencial.
+ Se aplica cuando existen acuerdos o tratados comerciales que reducen o eliminan aranceles entre los países firmantes.
+ Las mercancías deben cumplir con requisitos específicos de origen para gozar de estas preferencias.
+\end_layout
+
+\begin_layout Itemize
+Origen No Preferencial.
+ Aplica cuando no existen tratados comerciales preferenciales y las mercancías están sujetas a los aranceles generales del país importador.
+\end_layout
+
+\begin_layout Description
+Valoración
+\begin_inset space ~
+\end_inset
+
+Aduanera.
+ La legislación aduanera suele establecer cómo se valúan los bienes para efectos aduaneros.
+ Esto puede basarse en el valor de transacción de las mercancías,
+ pero también se pueden considerar otros métodos,
+ como el valor de transacción de bienes similares o el valor de costos de producción.
+\end_layout
+
+\begin_layout Description
+Declaración
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+importación.
+ Para la DIAN (Dirección de Impuestos y Aduanas Nacionales de Colombia) es un documento oficial que detalla las mercancías que se van a ingresar al territorio colombiano.
+ Su principal función es formalizar el proceso de importación y garantizar el cumplimiento de las normativas aduaneras,
+ tributarias y comerciales del país.
+\end_layout
+
+\begin_layout Description
+Prohibiciones
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+Restricciones.
+ Se establecen normativas para prohibir o restringir la importación o exportación de ciertos bienes por razones de seguridad,
+ salud pública,
+ protección del medio ambiente,
+ entre otros.
+\end_layout
+
+\begin_layout Description
+Sanciones
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+Penas.
+ Las leyes aduaneras suelen establecer sanciones y penalidades para el incumplimiento de las normativas.
+ Esto puede incluir multas,
+ confiscación de bienes y en algunos casos,
+ acciones legales.
+\end_layout
+
+\begin_layout Standard
+Las instituciones encargadas de la ejecución y control de las actividades de carácter aduanero establecen sus propios formularios y procedimientos para declarar la importación o exportación de bienes.
+ La información proporcionada en estos formularios incluye detalles sobre la naturaleza de la mercancía,
+ su valor,
+ origen y otros datos relevantes.
+\end_layout
+
+\begin_layout Standard
+Es fundamental tener en cuenta que la legislación aduanera puede cambiar,
+ y la información actualizada debe obtenerse directamente de las autoridades aduaneras de cada país o de fuentes especializadas.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement p
+alignment document
+wide false
+sideways true
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img17-LegislacionAduanera.png
+	width 100theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Legislación Aduanera
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Evolución de la Legislación Aduanera Colombiana
+\end_layout
+
+\begin_layout Standard
+En lo que hace relación al régimen de aduanas,
+ la constitución de 1991 mantuvo,
+ con algunos cambios significativos,
+ la división de competencias entre el Congreso y el ejecutivo que establecía la antigua Carta Política (Reforma constitucional de 1968).
+\end_layout
+
+\begin_layout Standard
+Con el argumento de que ciertos temas requieren una capacidad de reacción rápida,
+ el constituyente de la época decidió que,
+ respecto a ellos,
+ el legislativo se limitaría a dictar “normas generales” y señalar los “objetivos y criterios” que deben orientar la normatividad.
+ Son estas las llamadas “leyes marco” o “leyes cuadro”,
+ provenientes del derecho francés,
+ que no solo existen en lo aduanero,
+ sino que también son el vehículo constitucionalmente apropiado para que el Congreso regule los asuntos tan importantes como los mercados financiero,
+ bursátil y asegurador,
+ el crédito público,
+ el comercio exterior o el régimen salarial y prestacional de los empleados públicos.
+\end_layout
+
+\begin_layout Standard
+Al ejecutivo le corresponde desarrollar las leyes marco,
+ mediante decretos de una clase especial que tiene fuerza material de una ley común,
+ los cuales puede modificar de forma flexible a medida que las necesidades lo requieran,
+ siempre y cuando se conserven dentro de las directrices formuladas en las leyes marco.
+ 
+\end_layout
+
+\begin_layout Standard
+La competencia del Congreso está consagrada en literal c) del numeral 19 del artículo 150 de la Constitución Nacional,
+ que otorga al Congreso la facultad de dictar las normas generales,
+ y señalar en ellas los objetivos y criterios a los cuales debe sujetarse el Gobierno para modificar,
+ por razones de política comercial,
+ los aranceles,
+ tarifas y demás disposiciones concernientes al régimen de aduanas.
+\end_layout
+
+\begin_layout Standard
+El numeral 25 del artículo 189 establece las competencias correlativas del ejecutivo,
+ al decir que le corresponde (\SpecialChar ldots
+) modificar los aranceles,
+ tarifas y demás disposiciones concernientes al régimen de aduanas
+\end_layout
+
+\begin_layout Standard
+En el año de 1931 en la presidencia de Enrique Olaya Herrera,
+ se da la Ley 79 de 1931 por recomendaciones dadas por la misión Kemmerer la cual estructura la regulación aduanera de la época y que últimamente se la llamo ley orgánica dando como resultado Ley de Timbre con la se replanteó el funcionamiento aduanero y se estableció la recaudación de Rentas Nacionales.
+ Aunque este economista norte americano también asesoró en la estructuración de la Contraloría General de la República.
+\end_layout
+
+\begin_layout Standard
+Con la ley 79 de 1931 se creó en Colombia la Dirección General de Aduanas,
+ entidad dependiente del Ministerio de Hacienda y Crédito Público y se reglamentaron los aranceles para la clasificación,
+ reconocimiento,
+ aforo y valoración de mercancías objeto de Importación y Exportación
+\end_layout
+
+\begin_layout Standard
+En 1967 durante el gobierno del doctor Carlos Lleras Restrepo se expidió el Decreto Ley 444 de 1967,
+ llamado Estatuto Cambiario,
+ pero también incluían los sistemas especiales de importación y exportación llamados el Plan Vallejo que fue un gran aporte al desarrollo industrial de nuestro país.
+ 
+\end_layout
+
+\begin_layout Standard
+En el año 1971 durante el gobierno de Misael Pastrana Borrero se expidió la Ley 6 Marco de Aduana de Colombia vigente hasta diciembre de 2012,
+ donde se dan unas facultades al señor presidente el cual pudo expedir decretos para modificar los aranceles,
+ disposiciones relacionadas con el régimen de aduana,
+ fue objeto de amplias criticas durante los últimos años,
+ por parte de la doctrina y de los usuarios aduaneros y del comercio exterior,
+ por considerarse ya una norma bastante desactualizada frente a las exigencias y circunstancias reales del país.
+ 
+\end_layout
+
+\begin_layout Standard
+En el año 1984 durante la presidencia de Belisario Betancourt Cuartas se expide el Decreto 2666 de 1984 como Estatuto Aduanero que reemplazó la Ley Orgánica de Aduanas 79 de 1931,
+ Con este decreto se pretendía lograr obligar a los empresarios a desarrollar y consumir los productos y materias primas nacionales u originarios de los países miembros de la CEPAL.
+\end_layout
+
+\begin_layout Standard
+En 1990 en el gobierno del Sr.
+ Cesar Gaviria Trujillo se expide la nueva constitución de 1991,
+ la cual fija en el artículo 150 numerales 16 y 19 las facultades del congreso en lo tiene que ver con la regulación del comercio exterior,
+ modificar aranceles y las demás disposiciones del régimen aduanero.
+ 
+\end_layout
+
+\begin_layout Standard
+Se revistió al presidente de facultades para dictar normas de regulación de comercio exterior y demás aspectos del régimen aduanero.
+\end_layout
+
+\begin_layout Standard
+También en el año de 1991 se expide por parte del congreso la Ley 7 de 1991 por la cual se dictan normas generales a las cuales debe sujetarse el Gobierno Nacional para regular el comercio exterior del país,
+ se crea el Ministerio de Comercio Exterior,
+ se determina la composición y funciones del Consejo Superior de Comercio Exterior,
+ se crean el Banco de Comercio Exterior y el Fondo de Modernización Económica,
+ se confieren unas autorizaciones y se dictan otras disposiciones
+\end_layout
+
+\begin_layout Standard
+En 1992 el ejecutivo promulgó el decreto 1909 de 1992 el cual modificó el decreto 2666 de 1984,
+ con fines de impulsar un nuevo modelo de desarrollo basado en la internacionalización de la economía y la modernización del Estado,
+ dentro del cual es requisito básico,
+ la readecuación de las distintas entidades públicas,
+ y en especial,
+ las involucradas en el comercio exterior.
+\end_layout
+
+\begin_layout Standard
+En 1999 durante el gobierno del doctor Andrés Pastrana Arango se expide el decreto 2685 de 1999 que expidió el estatuto aduanero y el cual tuvo 150 modificaciones donde se pudo apreciar muchas improvisaciones y falta de técnicas aduaneras recomendadas por organismos internacionales.
+ 
+\end_layout
+
+\begin_layout Standard
+Para efectos de su aplicación,
+ se hizo necesario desarrollar y precisar algunos de los procedimientos,
+ trámites,
+ requisitos y términos establecidos en el citado decreto.
+\end_layout
+
+\begin_layout Standard
+En mérito de lo expuesto,
+ la Dirección General de Impuestos y Aduanas Nacionales,
+ expidió la Resolución 4240 de 2000,
+ la misma que reglamenta el decreto en mención.
+ 
+\end_layout
+
+\begin_layout Standard
+En el mes de enero de 2013 durante el gobierno de Juan Manuel Santos,
+ se aprobó,
+ después de más de cuarenta años de vigencia de Ley 6 de 1971 marco de aduanas,
+ la nueva Ley Marco de Aduanas,
+ la Ley 1609 de 2013.
+\end_layout
+
+\begin_layout Standard
+Esta nueva ley Marco es de gran importancia regula principios,
+ y materias de tributación aduanera pues contiene los criterios y objetivos generales señalados por el legislador,
+ a los cuales debe sujetarse el Gobierno Nacional para modificar los aranceles y las tarifas en las operaciones de ingreso y salida de mercancías al país,
+ respondiendo a una verdadera naturaleza de tributos,
+ y desarrollando las facultades constitucionales del Congreso como representación popular democráticamente elegida por el Pueblo.
+\end_layout
+
+\begin_layout Standard
+Durante el gobierno de Iván Duque Márquez se expide el Decreto 1165 de 2019 el cual compiló y armonizó la legislación aduanera contenida en los decretos 2685 de 1999,
+ 390 de 2016,
+ los títulos II y III del 2147 de 2016 y 349 de 2018,
+ consolidando las normas hasta entonces vigentes en materia aduanera.
+ 
+\end_layout
+
+\begin_layout Standard
+El Decreto 1165 fue reglamentado por la Resolución 46 de 2019 de la DIAN,
+ modificada por la Resolución 39 de 2021,
+ con fin de ajustar y precisar procedimientos,
+ agilizar las operaciones aduaneras e implementar algunas operaciones logísticas que impulsen la competitividad 
+\end_layout
+
+\begin_layout Standard
+Con la expedición de este decreto se logró un avance en seguridad jurídica para los usuarios del comercio exterior que hasta el momento tenían que lidiar con normas dispersas y en ocasiones contradictorias que generaban problemas de interpretación entre la DIAN y los operadores.
+ 
+\end_layout
+
+\begin_layout Standard
+Con el fin de corregir las inexactitudes que quedaron en el Decreto 1165 de 2019,
+ facilitar algunas operaciones de comercio exterior y ajustar normas frente a necesidades originadas por la emergencia sanitaria generada por el covid-19,
+ en abril 07 fue expedido el Decreto 360 de 2021 que introdujo cambios fundamentales a la normatividad aduanera en lo sustantivo,
+ procedimental y sancionatorio.
+\end_layout
+
+\begin_layout Standard
+En lo relativo al tema de garantías de cumplimiento de disposiciones legales,
+ fue necesario expedir otro decreto modificatorio del Decreto 1165 de 2019.
+ En efecto,
+ con el Decreto 572 de 2021 se autorizaron nuevos tipos de garantías para amparar las obligaciones y responsabilidades en las operaciones y/o trámites aduaneros tales como hipotecas sobre inmuebles,
+ naves o aeronaves,
+ fiducia mercantil en garantía,
+ prenda sin tenencia y CDT.
+ 
+\end_layout
+
+\begin_layout Standard
+La expedición del Decreto 572 de 2021 hizo necesario desarrollar y precisar los procedimientos,
+ trámites,
+ requisitos y términos establecidos para las garantías globales y específicas mediante la Resolución 55 de 2021.
+\end_layout
+
+\begin_layout Standard
+En el gobierno de Gustavo Petro Urrego expidió el Decreto 920 de 2023,
+ mediante el cual establece el nuevo régimen sancionatorio,
+ de decomiso y procedimiento en materia aduanera.
+ Esta disposición contiene la normativa aplicable al incumplimiento de obligaciones,
+ responsabilidades,
+ trámites y procedimientos que se encuentran establecidos en el ordenamiento jurídico colombiano relacionado con aduanas.
+ En síntesis,
+ es un nuevo régimen enfocado en el cumplimiento de las garantías y principios constitucionales aplicables a los obligados aduaneros,
+ en el que se desarrollan los distintos estándares internacionales de Auditoría posterior al despacho,
+ procedimiento de aprehensión,
+ decomiso e imposición de sanciones,
+ con el objetivo de incentivar el cumplimiento voluntario de las obligaciones aduaneras.
+\end_layout
+
+\begin_layout Standard
+El 21 de junio de 2023,
+ la DIAN expidió la Resolución No.
+ 000095,
+ “Por medio de la cual se dictan disposiciones que desarrollan el Decreto Ley 920 del 6 de junio de 2023.” 
+\end_layout
+
+\begin_layout Standard
+Para dar cumplimiento a lo previsto en el Decreto Ley 920 de 2023 y precisar algunas temáticas operativas del régimen sancionatorio,
+ de decomiso y procedimiento,
+ El 21 de junio de 2023,
+ la DIAN expidió la Resolución No.
+ 000095,
+ con el fin de garantizar su cumplimiento efectivo y real,
+ brindando certeza y dinamismo en la imposición de sanciones,
+ aprehensiones,
+ decomiso y el procedimiento con base en los principios y criterios previstos en el mencionado Decreto Ley.
+ Que la presente Resolución se estructuró temáticamente en los siguientes capítulos:
+ 1) Fiscalización Aduanera,
+ 2) Auditoría Posterior al Despacho,
+ 3) Medidas Cautelares,
+ 4) Del avalúo de las mercancías,
+ 5) Procedimiento de verificación de origen de mercancías importadas y exportadas,
+ y 6) Recurso de Reconsideración y Revocatoria Directa.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement p
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img18-LegislacionAduanera.png
+	width 100theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Estructura y Evolución de la Legislación Aduanera Colombiana
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Clasificación Arancelaria
+\end_layout
+
+\begin_layout Section
+Clasificación Arancelaria de las Mercancías en Aduanas
+\end_layout
+
+\begin_layout Standard
+La clasificación arancelaria de las mercancías se puede definir como el conjunto de operaciones que se realizan basadas en las Reglas Generales Interpretativas del Sistema Armonizado de Designación y Codificación de Mercancías,
+ en adelante el Sistema Armonizado con el fin de determinar la subpartida arancelaria única para una mercancía en el Arancel de Aduanas.
+ El conocimiento de las mercancías y el adecuado manejo de la Nomenclatura Arancelaria son los principios fundamentales para la correcta clasificación de las mercancías.
+\end_layout
+
+\begin_layout Subsubsection
+Arancel de Aduanas
+\end_layout
+
+\begin_layout Standard
+Para entrar al estudio relativo a la clasificación arancelaria de las mercancías,
+ es necesario previamente conocer que es el arancel de aduanas,
+ el cual se define así:
+\end_layout
+
+\begin_layout Quotation
+Es un instrumento de Política Aduanera,
+ por medio del cual se establece un gravamen aduanero a las mercancías objeto del Comercio Internacional,
+ clasificadas en forma ordenada,
+ científica y sistemática dentro de un sistema de nomenclatura.
+\end_layout
+
+\begin_layout Standard
+Es fundamental tener en cuenta la existencia del desglose del proceso arancelario y la terminología necesaria para comprender de qué manera se efectúa un sistema para trabajar acorde con cualquier tipo de mercancía que ingrese al territorio colombiano.
+ Se recomienda igualmente tener en cuenta la importancia del proceso aduanero dentro de una importación,
+ ya que cualquier falencia por acción u omisión de los intervinientes en la cadena logística lo puede llevar a perder demasiado dinero.
+ En cuanto al proceso de exportación no se puede hablar del mismo grado de responsabilidad,
+ ya que se identifica una partida arancelaria y se facilita más la gestión.
+ La legislación promulgada por el gobierno nacional realiza todo un engranaje asignando responsabilidades a los diferentes entes para empezar a combatir el contrabando y poder presentar a nivel mundial una organización logística que facilita el ingreso de mercancías al territorio nacional.
+ La descripción de los tipos de arancel que existen se inicia desde la premisa que el arancel es un impuesto manejado por la mayoría de los países donde la mano del estado se hace participe activamente para poder obtener un recaudo.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Propósito:
+\end_layout
+
+\begin_layout Standard
+Facilitar el comercio internacional al estandarizar la identificación de los bienes en las transacciones comerciales entre países.
+ Al asignar códigos específicos a los productos,
+ se simplifica el proceso de determinar los aranceles,
+ impuestos y regulaciones que se aplican a cada producto en particular.
+ Esto ayuda a los importadores y exportadores a calcular los costos involucrados en el intercambio de bienes y a cumplir con los requisitos aduaneros de cada país.
+\end_layout
+
+\begin_layout Standard
+Además,
+ la clasificación arancelaria también sirve como base para la recopilación de datos estadísticos sobre el comercio internacional,
+ lo que permite a los gobiernos y organizaciones realizar análisis económicos,
+ monitorear tendencias comerciales y formular políticas comerciales efectivas.
+\end_layout
+
+\begin_layout Subsubsection
+Importancia:
+\end_layout
+
+\begin_layout Standard
+La clasificación arancelaria determina el arancel aplicable a un producto específico al ingresar a un país.
+ Los aranceles son impuestos que los gobiernos imponen a las importaciones y,
+ a veces,
+ a las exportaciones.
+ La tasa arancelaria aplicada puede variar según la clasificación arancelaria del producto,
+ por lo que una clasificación incorrecta puede resultar en el pago de tarifas más altas o incluso en la negativa de entrada al mercado.
+\end_layout
+
+\begin_layout Subsubsection
+Cumplimiento Normativo
+\end_layout
+
+\begin_layout Standard
+Los productos están sujetos a diferentes regulaciones y requisitos clasificación correcta de sus productos para asegurarse de que cumplan con todas las regulaciones aplicables en los países a los que exportan.
+\end_layout
+
+\begin_layout Subsubsection
+Facilitación del Comercio
+\end_layout
+
+\begin_layout Standard
+Una clasificación arancelaria precisa ayuda a facilitar el comercio internacional al proporcionar una base clara y uniforme para la identificación de productos.
+ Esto es fundamental para el despacho aduanero eficiente y la gestión de la cadena de suministro,
+ lo que a su vez reduce los costos y los tiempos de envío.
+\end_layout
+
+\begin_layout Subsubsection
+Determinación de la Competencia
+\end_layout
+
+\begin_layout Standard
+La clasificación arancelaria puede afectar la competitividad de un producto en el mercado internacional.
+ Una clasificación incorrecta puede resultar en un precio final más alto para el producto,
+ lo que puede dificultar su competitividad frente a productos similares que están correctamente clasificados y,
+ por lo tanto,
+ tienen aranceles más bajos.
+\end_layout
+
+\begin_layout Subsubsection
+Resolución de Disputas Comerciales
+\end_layout
+
+\begin_layout Standard
+En caso de disputas comerciales entre países,
+ la clasificación arancelaria puede ser un punto de conflicto.
+ Las discrepancias en la clasificación pueden llevar a disputas sobre el cumplimiento de acuerdos comerciales internacionales o sobre prácticas comerciales desleales.
+\end_layout
+
+\begin_layout Standard
+En resumen,
+ la clasificación arancelaria es esencial para el comercio internacional porque afecta directamente los costos,
+ la conformidad regulatoria,
+ la eficiencia en la gestión de la cadena de suministro y la competitividad de los productos en el mercado global.
+ Una clasificación precisa es fundamental para el éxito de las operaciones comerciales transfronterizas.
+ 
+\end_layout
+
+\begin_layout Section
+Sistema de Clasificación Arancelaria
+\end_layout
+
+\begin_layout Subsection
+El Sistema Armonizado de Designación y Codificación de Mercancías (SA)
+\end_layout
+
+\begin_layout Standard
+El SA es un marco internacionalmente reconocido para la clasificación de mercancías que se utiliza en el comercio internacional.
+ Su importancia y preponderancia se derivan de varios factores:
+\end_layout
+
+\begin_layout Standard
+Proporciona un estándar internacionalmente aceptado para la clasificación de productos.
+ Esto facilita el intercambio de información comercial entre países y promueve la armonización y la coherencia en los procedimientos aduaneros en todo el mundo.
+\end_layout
+
+\begin_layout Standard
+El SA facilita el comercio al proporcionar un sistema uniforme de clasificación de productos,
+ el SA facilita el comercio internacional al reducir la complejidad y la confusión en los procesos de despacho aduanero.
+ Los exportadores e importadores pueden utilizar el SA para determinar fácilmente los aranceles aplicables,
+ los requisitos reglamentarios y otros aspectos relacionados con el comercio.
+\end_layout
+
+\begin_layout Standard
+El SA sirve como base para la negociación de acuerdos comerciales internacionales.
+ Muchos acuerdos comerciales y tratados bilaterales hacen referencia al SA para determinar las tasas arancelarias y establecer reglas de origen,
+ entre otros aspectos.
+ Al adoptar el SA como referencia común,
+ los países pueden simplificar y agilizar las negociaciones comerciales.
+\end_layout
+
+\begin_layout Standard
+El SA proporciona un marco coherente para la aplicación de regulaciones comerciales,
+ aduaneras y estadísticas.
+ Esto ayuda a garantizar que los países apliquen las mismas reglas y procedimientos en relación con la clasificación de productos,
+ lo que reduce la posibilidad de conflictos y malentendidos.
+\end_layout
+
+\begin_layout Standard
+El SA se utiliza ampliamente en la compilación de estadísticas comerciales a nivel mundial.
+ Al estandarizar la clasificación de productos,
+ el SA facilita el seguimiento y análisis del comercio internacional,
+ lo que a su vez permite a los gobiernos,
+ organizaciones internacionales y empresas tomar decisiones informadas sobre políticas comerciales,
+ inversiones y estrategias de mercado.
+\end_layout
+
+\begin_layout Subsection
+Estructura del Sistema Armonizado (SA)
+\end_layout
+
+\begin_layout Description
+Capítulos:
+ La clasificación comienza con capítulos generales que agrupan productos similares.
+\end_layout
+
+\begin_layout Description
+Partidas:
+ Subdivisiones más específicas dentro de cada capítulo.
+\end_layout
+
+\begin_layout Description
+Subpartidas:
+ Detalles aún más específicos que definen un producto con mayor precisión.
+\end_layout
+
+\begin_layout Description
+Notas Explicativas:
+ Guía para la interpretación y aplicación de la clasificación.
+\end_layout
+
+\begin_layout Subsection
+Proceso de Clasificación
+\end_layout
+
+\begin_layout Description
+Identificación
+\begin_inset space ~
+\end_inset
+
+del
+\begin_inset space ~
+\end_inset
+
+Producto:
+ Descripción detallada de la mercancía.
+\end_layout
+
+\begin_layout Description
+Determinación
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+la
+\begin_inset space ~
+\end_inset
+
+Clasificación:
+ Uso de herramientas como la Nomenclatura Arancelaria,
+ consultas con expertos,
+ etc.
+\end_layout
+
+\begin_layout Description
+Asignación
+\begin_inset space ~
+\end_inset
+
+del
+\begin_inset space ~
+\end_inset
+
+Código
+\begin_inset space ~
+\end_inset
+
+Arancelario:
+ Número específico que identifica la clasificación del producto.
+\end_layout
+
+\begin_layout Subsection
+Desafíos y consideraciones
+\end_layout
+
+\begin_layout Description
+Interpretación
+\begin_inset space ~
+\end_inset
+
+Subjetiva:
+ Algunos productos pueden ser difíciles de clasificar debido a su naturaleza o composición.
+\end_layout
+
+\begin_layout Description
+Actualizaciones
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+Cambios
+\begin_inset space ~
+\end_inset
+
+en
+\begin_inset space ~
+\end_inset
+
+la
+\begin_inset space ~
+\end_inset
+
+Legislación:
+ Las clasificaciones pueden cambiar con el tiempo debido a nuevas regulaciones o acuerdos comerciales.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img19-SistemaArancelario.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sistema Armonizado
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement p
+alignment document
+wide false
+sideways true
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img20-ClasificacionArancelaria.png
+	width 100theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Clasificación arancelaria
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Aranceles y tarifas en Colombia
+\end_layout
+
+\begin_layout Standard
+La política arancelaria de Colombia se enfoca en la regulación de los impuestos que se aplican a las importaciones y exportaciones de bienes y servicios.
+ 
+\end_layout
+
+\begin_layout Section
+Aspectos importantes
+\end_layout
+
+\begin_layout Subsection
+Aranceles
+\end_layout
+
+\begin_layout Standard
+Colombia establece aranceles a la importación de productos para proteger la industria nacional y regular el comercio exterior.
+ Estos aranceles varían dependiendo del tipo de producto y su clasificación en el arancel de aduanas,
+ el cual sigue las directrices de la Organización Mundial del Comercio (OMC).
+\end_layout
+
+\begin_layout Subsection
+Clasificación Arancelaria
+\end_layout
+
+\begin_layout Standard
+Los productos se clasifican bajo el Sistema Armonizado de Designación y Codificación de Mercancías (SA),
+ lo que permite determinar el arancel correspondiente para cada tipo de mercancía.
+\end_layout
+
+\begin_layout Subsection
+Acuerdos Comerciales
+\end_layout
+
+\begin_layout Standard
+Colombia participa en varios acuerdos comerciales,
+ como la Alianza del Pacífico,
+ el Tratado de Libre Comercio (TLC) con Estados Unidos y otros países,
+ que influyen en las tarifas arancelarias,
+ reduciendo o eliminando aranceles para ciertos productos provenientes de los países firmantes.
+\end_layout
+
+\begin_layout Subsection
+Política de Protección
+\end_layout
+
+\begin_layout Standard
+La política arancelaria busca proteger a sectores sensibles de la economía colombiana,
+ como la agricultura y la manufactura,
+ imponiendo aranceles más altos a productos que compiten directamente con la producción nacional.
+\end_layout
+
+\begin_layout Subsection
+Facilitación del Comercio
+\end_layout
+
+\begin_layout Standard
+Con el fin de fomentar el comercio exterior,
+ Colombia ha implementado medidas para facilitar el proceso de importación y exportación,
+ como la simplificación de trámites aduaneros y la reducción de costos logísticos.
+\end_layout
+
+\begin_layout Subsection
+Modificaciones y Actualizaciones
+\end_layout
+
+\begin_layout Standard
+La política arancelaria es revisada y modificada periódicamente para adaptarse a cambios en la economía global,
+ las demandas del mercado interno y los compromisos internacionales de Colombia.
+\end_layout
+
+\begin_layout Standard
+En resumen,
+ la política arancelaria de Colombia es una herramienta clave para el manejo de la economía,
+ que busca proteger la producción nacional,
+ promover la competitividad y cumplir con los compromisos internacionales.
+\end_layout
+
+\begin_layout Standard
+Los aranceles son derechos de aduana que impone un Estado a las importaciones recibidas por este,
+ es decir,
+ es una tarifa a pagar por parte de la persona o empresa,
+ sea o no residente,
+ que se encuentra realizando actividades de importación a través de las aduanas de la República para poder ingresar los productos que este comercializa a una jurisdicción distinta.
+\end_layout
+
+\begin_layout Standard
+Los derechos aduaneros son gravámenes externos puesto que recaen sobre actividades de comercio exterior,
+ solo existen en la medida en que una mercancía ingrese a un territorio aduanero,
+ por lo que necesariamente se presenta el fenómeno de la importación.
+\end_layout
+
+\begin_layout Standard
+Los derechos de aduanas tienen las siguientes características:
+\end_layout
+
+\begin_layout Itemize
+Son gravámenes que recaen sobre el tráfico internacional de mercancías.
+\end_layout
+
+\begin_layout Itemize
+Estos gravámenes se encuentran generalizados a nivel global y están bajo la regulación de la Organización Mundial del Comercio (OMC).
+\end_layout
+
+\begin_layout Itemize
+Son de contenido impositivo sobre actos jurídicos de comercio exterior.
+\end_layout
+
+\begin_layout Itemize
+Su modificación se da mediante negociaciones de carácter multilateral.
+\end_layout
+
+\begin_layout Standard
+Los derechos aduaneros cumplen con el principio de protección arancelaria exclusiva,
+ el cual tiene sustento en el artículo XI del GATTM de 1994,
+ consagrando que el comercio de mercancías debía encontrarse protegido mediante arancel aduanero por lo que no se podría recurrir a otro tipo de restricciones económicas,
+ como licencias económicas o monopolios.
+ Es una forma de protección del comercio globalmente.
+\end_layout
+
+\begin_layout Standard
+Las finalidades perseguidas por los aranceles son principalmente dos,
+ la primera consiste en dar una ventaja,
+ en materia de precios,
+ al producto nacional,
+ debido que el producto importado se encontraría sometido a un gravamen adicional,
+ en comparación con el producido localmente,
+ por lo que es posible afirmar que,
+ en materia de competitividad,
+ el arancel busca fortalecer los mercados locales por encima de los mercados extranjeros.
+ En segunda instancia,
+ el arancel,
+ al igual que otros tributos como el impuesto sobre la renta,
+ el impuesto de industria y comercio (ICA) o el impuesto sobre las ventas (IVA),
+ es un gravamen que supone una erogación de dinero por parte de un contribuyente para sufragar los gastos del Estado,
+ es decir,
+ el arancel es un ingreso para el Gobierno que lo cobra,
+ con el sustento que se han ingresado unos productos a una jurisdicción distinta a donde estos han sido producidos.
+\end_layout
+
+\begin_layout Standard
+En temas de comercio exterior,
+ el establecimiento de aranceles es de gran importancia a la hora de entablar relaciones comerciales entre países,
+ por lo que es común que al escuchar hablar de aranceles también se haga mención a los acuerdos comerciales o tratados de libre comercio,
+ así mismo,
+ ese país está estableciendo una tarifa para la entrada de mis productos a la jurisdicción extranjera,
+ por lo que el sistema arancelario,
+ determina en gran medida la amplitud del mercado internacional que tenga un determinado país.
+\end_layout
+
+\begin_layout Section
+Tipo de Aranceles
+\end_layout
+
+\begin_layout Subsection
+Arancel Ad-valorem
+\end_layout
+
+\begin_layout Standard
+Este consiste en un porcentaje del valor que tiene el producto importado,
+ incluyendo el costo,
+ seguro y flete.
+\end_layout
+
+\begin_layout Subsection
+Arancel Específico
+\end_layout
+
+\begin_layout Standard
+Se calcula como una determinada cantidad de unidades monetarias por unidad de volumen de importación.
+\end_layout
+
+\begin_layout Subsection
+Arancel Mixto
+\end_layout
+
+\begin_layout Standard
+Se compone de las dos modalidades anteriormente enunciadas (Arancel Ad-valorem y Arancel Específico).
+\end_layout
+
+\begin_layout Standard
+Por otro lado,
+ las partidas arancelarias son las designaciones numéricas encargadas de describir y codificar cada mercancía,
+ diferenciado cada elemento de la partida que está siendo clasificada.
+ Como se observa,
+ estas se diferencian de los aranceles,
+ ya que los segundos son derechos aduaneros mientras que las partidas son clasificaciones numéricas.
+\end_layout
+
+\begin_layout Standard
+Así las cosas,
+ la determinación de estos derechos aduaneros depende así mismo del producto que se esté pretendiendo ingresar al mercado,
+ es por eso que la tarifa a la que se ven sometidos puede variar entre los distintos bienes,
+ dicha variación,
+ en principio debe corresponder,
+ como se enuncio anteriormente,
+ a la necesidad que tenga el Gobierno de proteger determinado mercado nacional.
+\end_layout
+
+\begin_layout Standard
+Es por lo anterior que,
+ en Colombia,
+ los bienes que pagan más aranceles actualmente son los vehículos para el transporte de mercancías y personas,
+ los medicamentos,
+ el calzado,
+ el maíz duro y los neumáticos,
+ de acuerdo con los listados emitidos en materia por la Dirección de Impuestos y Aduanas Nacionales (DIAN).
+\end_layout
+
+\begin_layout Standard
+Así pues,
+ la política arancelaria es una herramienta mediante la cual el Estado,
+ en este caso el colombiano,
+ define la estructura arancelaria encargada de regir el comercio exterior de mercancías y productos,
+ incidiendo directamente en el comportamiento comercial de un país,
+ tanto nacional como internacionalmente.
+\end_layout
+
+\begin_layout Standard
+En el caso particular de Colombia,
+ desde 1990 se implementó una política de apertura económica la cual produjo la disminución de aranceles a lo largo de una década,
+ por factores tales como Nación Más Favorecida (NMF) y por los acuerdos comerciales con países vecinos cuyas economías eran y son similares.
+\end_layout
+
+\begin_layout Standard
+Frente a esto es pertinente recordar que la Nación Más Favorecida (NMF),
+ es un principio de no discriminación que se encuentra consagrado en el artículo 1 del Acuerdo General sobre Aranceles Aduaneros y Comercio (GATT),
+ en donde cualquier concesión concedida por parte de un contratante a otro,
+ deberá concederse a las demás partes del acuerdo de comercio internacional,
+ sin discriminación alguna,
+ esto con el fin de evitar tratados desiguales entre las economías más fuertes en desmejora de las economías en desarrollo.
+\end_layout
+
+\begin_layout Standard
+Gracias al principio de la Nación Más Favorecida (NMF),
+ el promedio arancelario en Colombia paso de ser en 1989 del 40% para reducirse a aproximadamente un 11% en 1996,
+ generando efectos económicos muy favorables para el comercio interno del país.
+ Actualmente los efectos de esta han logrado reducir el arancel a una tasa de alrededor del 5%,
+ la cual supone un nivel bastante bajo.
+\end_layout
+
+\begin_layout Standard
+Por otro lado,
+ en la Organización Mundial del Comercio (OMC) fue negociada la eliminación de los aranceles-molestia,
+ reconociéndoles un nivel inferior al 2%,
+ arancel que no tiene una mayor relevancia fiscal ni un impacto económico significante.
+\end_layout
+
+\begin_layout Standard
+En materia de política arancelaria,
+ bajar los aranceles,
+ según expertos es una estrategia ideal para mejorar las condiciones del comercio exterior,
+ sin embargo,
+ dicha estrategia puede implementarse únicamente cuando los niveles arancelarios son elevados,
+ caso que actualmente no es el de Colombia,
+ lo que dificulta la implementación de la mencionada política.
+\end_layout
+
+\begin_layout Standard
+Así mismo,
+ cuando los aranceles son insignificantes,
+ otras problemáticas son las que comienzan a surgir al momento de determinar las relaciones de comercio exterior,
+ dificultades de consideración económica tales como los costos de transporte de las importaciones.
+\end_layout
+
+\begin_layout Standard
+Otro factor relevante son las altas imposiciones de tipo tributario como el Impuesto sobre las Ventas,
+ el cual ha sido incrementado de manera progresiva con el paso de los años mediante distintas reformas tributarias,
+ como la reforma de la ley 1819 de 2016 que entro a regir a partir del primero de enero de 2017,
+ situando como tarifa general del impuesto sobre las ventas la del 19%,
+ con sus exclusiones,
+ exenciones y tarifas especiales correspondientes.
+ Actualmente el IVA tiene diez veces mayor incidencia en el mercado colombiano que el que tiene el arancel.
+\end_layout
+
+\begin_layout Standard
+Es posible afirmar que,
+ en materia arancelaria,
+ Colombia se posiciona como un país abierto al comercio exterior debido a la progresiva rebaja arancelaria y el hecho que Colombia no se destaque por la utilización de esta herramienta,
+ por lo que el nivel arancelario en Colombia es depreciable.
+ En consecuencia,
+ la modificación del mismo no produciría cambios relevantes en la productividad,
+ cayendo casi en desuso la política arancelaria según el perfil que tiene el país internacionalmente y haciendo un llamado a que sean atendidas otras circunstancias como las anteriormente descritas,
+ que ponen en duda la apertura de Colombia a nuevos mercados.
+\end_layout
+
+\begin_layout Standard
+En Colombia,
+ la política arancelaria está regulada principalmente por la Dirección de Impuestos y Aduanas Nacionales (DIAN).
+ 
+\end_layout
+
+\begin_layout Section
+Principales Niveles Arancelarios
+\end_layout
+
+\begin_layout Subsection
+Bienes de Capital.
+\end_layout
+
+\begin_layout Standard
+Estos pueden tener aranceles reducidos o exentos para fomentar la inversión en maquinaria y tecnología.
+\end_layout
+
+\begin_layout Subsection
+Materias Primas
+\end_layout
+
+\begin_layout Standard
+En general,
+ tienen aranceles bajos o están exentas para apoyar la producción nacional.
+\end_layout
+
+\begin_layout Subsection
+Productos Intermedios
+\end_layout
+
+\begin_layout Standard
+Tienen aranceles que varían según el grado de procesamiento y la necesidad de proteger la industria nacional.
+\end_layout
+
+\begin_layout Subsection
+Productos Finales
+\end_layout
+
+\begin_layout Standard
+Tienen aranceles más altos para proteger a los productores nacionales de la competencia extranjera.
+\end_layout
+
+\begin_layout Subsection
+Aranceles Preferenciales
+\end_layout
+
+\begin_layout Standard
+En virtud de los acuerdos comerciales mencionados,
+ muchos productos pueden tener aranceles preferenciales o estar exentos,
+ lo que significa que se aplican tasas reducidas o nulas en comparación con los aranceles generales.
+\end_layout
+
+\begin_layout Section
+Medidas de Defensa Comercial
+\end_layout
+
+\begin_layout Standard
+Además de los aranceles convencionales,
+ Colombia también puede aplicar:
+\end_layout
+
+\begin_layout Subsection
+Medidas de Salvaguardias
+\end_layout
+
+\begin_layout Standard
+Medidas temporales para proteger a una industria nacional específica de un aumento en las importaciones.
+\end_layout
+
+\begin_layout Subsection
+Derechos Antidumping
+\end_layout
+
+\begin_layout Standard
+Derechos adicionales sobre productos que se importan a un precio inferior al valor normal,
+ causando daño a la industria nacional.
+\end_layout
+
+\begin_layout Subsection
+Derechos Compensatorios
+\end_layout
+
+\begin_layout Standard
+Derechos adicionales para contrarrestar subsidios otorgados en el país exportador.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement p
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img21-ArancelesTarifas.png
+	width 100theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Aranceles y Tarifas en Colombia
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Origen de las Mercancías en el Comercio Exterior Colombiano
+\end_layout
+
+\begin_layout Standard
+El origen de las mercancías es uno de los factores (junto con la clasificación arancelaria y el valor en aduana – para el caso del arancel ad valorem-) más importantes para determinar la política comercial y,
+ por tanto,
+ el tratamiento aduanero que se va a aplicar a una mercancía en una operación de comercio exterior,
+ principalmente en el momento de la importación.
+\end_layout
+
+\begin_layout Standard
+La normativa aduanera de importación de cualquier país (o acuerdo comercial) aplica diferentes medidas de política comercial (protección arancelaria,
+ restricciones a la importación,
+ controles y requisitos técnicos,
+ etc.) a una misma mercancía según cuál sea su país de origen.
+\end_layout
+
+\begin_layout Standard
+Hay que diferenciar entre origen y procedencia:
+ el origen será el país donde han sido fabricadas o elaboradas unas mercancías (algo equivalente similar a la nacionalidad en el caso de las personas) mientras que la procedencia alude exclusivamente al punto de origen del transporte que ha traído las mercancías a un a país.
+ A efectos aduaneros lo relevante es el país de origen.
+\end_layout
+
+\begin_layout Standard
+En el comercio internacional,
+ el origen de las mercancías es un aspecto fundamental para determinar el tratamiento arancelario,
+ la aplicación de medidas comerciales y el cumplimiento de normas internacionales.
+ En Colombia,
+ el origen de las mercancías cobra especial relevancia debido a su participación en múltiples acuerdos comerciales,
+ tratados de libre comercio (TLC) y su vinculación a organismos como la Comunidad Andina (CAN) y la Organización Mundial del Comercio (OMC).
+\end_layout
+
+\begin_layout Section
+Origen de las Mercancías
+\end_layout
+
+\begin_layout Standard
+El origen de una mercancía se refiere al país en el que ha sido producida o transformada sustancialmente.
+ Este criterio es esencial para:
+\end_layout
+
+\begin_layout Itemize
+Aplicar preferencias arancelarias en el marco de acuerdos comerciales.
+\end_layout
+
+\begin_layout Itemize
+Imponer derechos antidumping o compensatorios.
+\end_layout
+
+\begin_layout Itemize
+Determinar medidas sanitarias o fitosanitarias.
+\end_layout
+
+\begin_layout Itemize
+Aplicar restricciones o prohibiciones comerciales.
+\end_layout
+
+\begin_layout Subsection
+Origen Preferencial
+\end_layout
+
+\begin_layout Standard
+Se aplica cuando una mercancía cumple con los requisitos establecidos en un acuerdo comercial que concede trato arancelario preferencial.
+\end_layout
+
+\begin_layout Standard
+Ejemplo:
+ un producto colombiano que cumple con las reglas de origen del TLC con EE.UU.
+ puede ingresar a ese país con reducción o exención de aranceles.
+\end_layout
+
+\begin_layout Subsection
+Origen No Preferencial
+\end_layout
+
+\begin_layout Standard
+Es el que se utiliza en ausencia de acuerdos comerciales preferenciales.
+ Se basa en criterios generales establecidos por la OMC,
+ como la transformación sustancial o el cambio de clasificación arancelaria.
+\end_layout
+
+\begin_layout Section
+Marco Normativo Colombiano
+\end_layout
+
+\begin_layout Standard
+Colombia ha desarrollado un marco legal y normativo sólido para determinar el origen de las mercancías:
+\end_layout
+
+\begin_layout Itemize
+Decreto 1165 de 2019:
+ regula el régimen aduanero colombiano e incluye disposiciones sobre origen.
+\end_layout
+
+\begin_layout Itemize
+Decreto 285 de 2020:
+ reglamenta específicamente el régimen de origen de las mercancías.
+\end_layout
+
+\begin_layout Itemize
+Resoluciones de la DIAN:
+ detallan procedimientos operativos,
+ certificaciones de origen,
+ controles y sanciones.
+\end_layout
+
+\begin_layout Itemize
+Tratados de Libre Comercio:
+ cada acuerdo comercial contiene un capítulo específico sobre reglas de origen (por ejemplo,
+ el TLC con EE.UU.,
+ UE,
+ Alianza del Pacífico,
+ etc.).
+\end_layout
+
+\begin_layout Section
+Importancia del Origen de las Mercancías
+\end_layout
+
+\begin_layout Standard
+El correcto manejo del origen en el comercio exterior colombiano permite:
+\end_layout
+
+\begin_layout Itemize
+Aprovechar beneficios arancelarios de los acuerdos comerciales.
+\end_layout
+
+\begin_layout Itemize
+Evitar sanciones aduaneras por falsedad o incumplimiento.
+\end_layout
+
+\begin_layout Itemize
+Facilitar el acceso a mercados internacionales bajo condiciones preferenciales.
+\end_layout
+
+\begin_layout Itemize
+Promover la producción nacional con contenido local.
+\end_layout
+
+\begin_layout Itemize
+Prevenir el fraude comercial (triangulación indebida o desvío de comercio).
+\end_layout
+
+\begin_layout Section
+Retos y Desafíos
+\end_layout
+
+\begin_layout Standard
+A pesar de los avances normativos e institucionales,
+ Colombia enfrenta varios desafíos en esta materia:
+\end_layout
+
+\begin_layout Itemize
+Capacitación empresarial insuficiente:
+ muchas pymes desconocen los requisitos de origen.
+\end_layout
+
+\begin_layout Itemize
+Falta de armonización técnica entre acuerdos:
+ cada tratado tiene reglas distintas,
+ lo que complica la operatividad.
+\end_layout
+
+\begin_layout Itemize
+Limitaciones tecnológicas en los sistemas de certificación y trazabilidad.
+\end_layout
+
+\begin_layout Itemize
+Control y verificación del origen:
+ dificultades para la DIAN en verificar el cumplimiento real de las reglas.
+\end_layout
+
+\begin_layout Itemize
+Evasión o fraude:
+ uso indebido de certificados o alteración documental.
+\end_layout
+
+\begin_layout Standard
+El origen de las mercancías es un pilar esencial del comercio exterior colombiano.
+ Su correcta determinación permite a los exportadores e importadores acceder a beneficios,
+ cumplir con la normativa internacional y evitar sanciones.
+ El país ha desarrollado una estructura legal sólida,
+ pero aún enfrenta retos en capacitación,
+ verificación y simplificación normativa.
+\end_layout
+
+\begin_layout Standard
+Los Tratados de Libre Comercio son una herramienta fundamental para buscar mayores tasas de crecimiento económico y fortalecer el posicionamiento de los productos colombianos en el exterior.
+ Colombia tiene acceso a más de 60 mercados internacionales y más de 1500 millones de consumidores,
+ esto es gracias a los Acuerdos Comerciales que se han firmado con el objetivo de incrementar las exportaciones colombianas y facilitar el comercio internacional entre países.
+\end_layout
+
+\begin_layout Section
+Normas o Reglas de Origen
+\end_layout
+
+\begin_layout Standard
+Son un conjunto de disposiciones generales y específicas de los acuerdos comerciales que establecen los criterios que deben ser aplicados por las empresas para determinar si su mercancía califica como original.
+ Son acordadas por los países que suscriben acuerdos y tratados comerciales,
+ con el fin de favorecer el comercio entre estos.
+ El cumplimiento de estas reglas asegura el aprovechamiento de los beneficios arancelarios de productos originarios y procedentes de los países participantes del acuerdo o beneficiarios del esquema comercial.
+\end_layout
+
+\begin_layout Section
+Criterios de Calificación de Origen
+\end_layout
+
+\begin_layout Standard
+El criterio de calificación de origen señalado en una prueba de origen corresponde a un conjunto de consideraciones relativas a las normas de origen cuyo cumplimiento se hace constar,
+ lo que permite que los productos amparados sean elegibles para el trato arancelario preferencial establecido en un acuerdo comercial.
+ En principio,
+ el criterio de calificación de origen puede obedecer a tres consideraciones básica generales 
+\end_layout
+
+\begin_layout Itemize
+Productos
+\begin_inset space ~
+\end_inset
+
+totalmente
+\begin_inset space ~
+\end_inset
+
+producidos
+\begin_inset space ~
+\end_inset
+
+o
+\begin_inset space ~
+\end_inset
+
+íntegramente
+\begin_inset space ~
+\end_inset
+
+producidos
+\begin_inset space ~
+\end_inset
+
+en
+\begin_inset space ~
+\end_inset
+
+las
+\begin_inset space ~
+\end_inset
+
+partes:
+ que incluyen usualmente los productos extraídos (minerales y demás recursos naturales),
+ animales vivos nacidos y/o criados,
+ animales obtenidos de la caza o la pesca,
+ vegetales cultivados o cosechados,
+ desechos y desperdicios generados en la producción industrial o recolectados utilizables como materias primas,
+\end_layout
+
+\begin_layout Itemize
+Productos producidos exclusivamente a partir de los anteriores.
+\end_layout
+
+\begin_layout Itemize
+Productos producidos exclusivamente a partir de materiales originarios de las partes,
+ o productos producidos con la participación parcial o total de materiales no originarios.
+\end_layout
+
+\begin_layout Section
+Criterios Generales – CAN Decisión 416
+\end_layout
+
+\begin_layout Description
+Literal
+\begin_inset space ~
+\end_inset
+
+A
+\begin_inset space ~
+\end_inset
+
+(a).
+ Íntegramente Producidas.
+ De acuerdo con lo establecido en al artículo 1 de la citada Decisión.
+\end_layout
+
+\begin_layout Description
+Literal
+\begin_inset space ~
+\end_inset
+
+B
+\begin_inset space ~
+\end_inset
+
+(b).
+ Elaboradas en su Totalidad con Materiales Originarios del territorio de los Países Miembros.
+\end_layout
+
+\begin_layout Description
+Literal
+\begin_inset space ~
+\end_inset
+
+C
+\begin_inset space ~
+\end_inset
+
+(c).
+ Que Cumplan con los Requisitos Específicos de Origen.
+ Fijados de conformidad con lo establecido en el Artículo 113 del Acuerdo de Cartagena,
+ los que prevalecerán sobre los demás criterios de la mencionada Decisión.
+\end_layout
+
+\begin_layout Description
+Literal
+\begin_inset space ~
+\end_inset
+
+D
+\begin_inset space ~
+\end_inset
+
+(d).
+ Las que no se les han fijado requisitos específicos de origen,
+ cuando resulten de un proceso de ensamblaje o montaje siempre que en su elaboración se utilicen materiales originarios del territorio de los Países Miembros y el valor CIF de los materiales no originarios no exceda el 50 ciento del valor FOB de exportación del producto en el caso de Colombia y Perú,
+ y el 60 por ciento del valor FOB de exportación del producto en el caso de Bolivia y Ecuador.
+\end_layout
+
+\begin_layout Description
+Literal
+\begin_inset space ~
+\end_inset
+
+E
+\begin_inset space ~
+\end_inset
+
+(e).
+ Las no comprendidas en el literal anterior,
+ que no se les han fijado requisitos específicos de origen y en cuya elaboración se utilicen materiales no originarios cuando cumplan con las siguientes condiciones:
+\end_layout
+
+\begin_layout Itemize
+Que resulten de un proceso de producción o transformación realizado en el territorio de un país miembro;
+ y
+\end_layout
+
+\begin_layout Itemize
+Que dicho proceso les confiera una nueva individualidad caracterizada por el hecho de estar clasificadas en la NANDINA en partidas diferentes a la de los materiales no originarios.
+\end_layout
+
+\begin_layout Description
+Literal
+\begin_inset space ~
+\end_inset
+
+F
+\begin_inset space ~
+\end_inset
+
+(f).
+ A las que no se les han fijado requisitos específicos de origen y que no cumplan con lo señalado en el inciso segundo de literal anterior,
+ siempre que en su proceso de producción o transformación se utilicen materiales originarios del territorio de los Países Miembros y el valor CIF de los materiales originarios no exceda el 50 por ciento del valor FOB de exportación del producto en el caso de Colombia y Perú,
+ y el 60 por ciento de exportación del producto de exportación del producto en el caso de Bolivia y Ecuador.
+\end_layout
+
+\begin_layout Description
+Literal
+\begin_inset space ~
+\end_inset
+
+G
+\begin_inset space ~
+\end_inset
+
+(g).
+ Los juegos o surtidos de mercancías,
+ siempre que cada una de las mercancías en ellos contenida,
+ cumplan con las normas establecidas en la citada Decisión.
+\end_layout
+
+\begin_layout Section
+Declaración Juramentada de origen
+\end_layout
+
+\begin_layout Standard
+Declaración bajo juramento emitida por el productor que contiene información del proceso productivo,
+ materiales,
+ costos de producción y en general toda aquella información que permita 
+\end_layout
+
+\begin_layout Section
+Pruebas de Origen Certificado de Origen
+\end_layout
+
+\begin_layout Standard
+Documento físico o electrónico en que se hace constar que la mercancía califica como originaria para acceder a las preferencias arancelarias en el marco de un acuerdo comercial.
+ Para el efecto,
+ se puede considerar como prueba de origen los documentos que para tal fin se encuentren previstos en cada acuerdo comercial.
+\end_layout
+
+\begin_layout Section
+Prueba de Origen Física
+\end_layout
+
+\begin_layout Standard
+Prueba de origen emitida en papel con firma manuscrita del productor,
+ exportador o importador,
+ y si es el caso firma manuscrita del funcionario autorizado de la autoridad delegada o entidad autorizada.
+\end_layout
+
+\begin_layout Section
+Prueba de Origen Digital
+\end_layout
+
+\begin_layout Standard
+Prueba de origen emitida con firma digital del productor,
+ exportador o importador,
+ y,
+ si es el caso,
+ firma digital del funcionario autorizado de la autoridad delegada o entidad autorizada.
+\end_layout
+
+\begin_layout Section
+Entidad Habilitada
+\end_layout
+
+\begin_layout Standard
+Se entiende por Entidad Habilitada la entidad (no gubernamental,
+ usualmente asociaciones gremiales o cámaras de comercio) autorizada por el Gobierno Nacional de un país para cumplir la función de expedición del certificado de origen.
+ 
+\end_layout
+
+\begin_layout Section
+Sistema Armonizado
+\end_layout
+
+\begin_layout Standard
+Nomenclatura internacional establecida por la Organización Mundial de Aduanas,
+ basada en una clasificación de las mercancías conforme a un sistema de códigos de 6 dígitos aceptado por todos los países participantes.
+ Éstos pueden establecer sus propias subclasificaciones de más de 6 dígitos con fines arancelarios o de otra clase.
+\end_layout
+
+\begin_layout Section
+Sistema Generalizado de Preferencias
+\end_layout
+
+\begin_layout Standard
+el Sistema Generalizado de Preferencias (SGP) concede arancel cero o aranceles reducidos a los países beneficiarios.
+ Los países menos desarrollados generalmente reciben tratamiento preferencial para ciertos productos y reducciones arancelarias significativas.
+\end_layout
+
+\begin_layout Standard
+Los objetivos del sistema generalizado de preferencias,
+ sin reciprocidad ni discriminación,
+ en favor de los países en desarrollo,
+ con inclusión de medidas especiales en favor de los países de menor desarrollo relativo,
+ deberían ser:
+\end_layout
+
+\begin_layout Enumerate
+Aumentar los ingresos de exportación de esos países.
+\end_layout
+
+\begin_layout Enumerate
+Promover su industrialización.
+\end_layout
+
+\begin_layout Enumerate
+Acelerar el ritmo de su crecimiento económico.”
+\end_layout
+
+\begin_layout Section
+Servicio Informático Electrónico de Origen
+\end_layout
+
+\begin_layout Standard
+Es el servicio dispuesto por la Dirección de Impuestos y Aduanas Nacionales,
+ para facilitar la elaboración,
+ firma y trasmisión,
+ de los formularios de la declaración Juramentada de origen y de los certificados de origen.
+\end_layout
+
+\begin_layout Section
+Verificación de origen
+\end_layout
+
+\begin_layout Standard
+Procedimiento establecido en los acuerdos comerciales mediante el cual la autoridad competente (para Colombia,
+ la DIAN),
+ determina si un bien importado o exportado califica como originario del país declarado.
+ 
+\end_layout
+
+\begin_layout Standard
+Actualmente Colombia cuenta con varios Tratados Comerciales vigentes,
+ lo cual es una ventaja competitiva y lo convierte en un país atractivo para tener clientes internacionales.
+ Las empresas deben sacar provecho de esto y buscar mercados de exportación con cuales tengamos estos beneficios en temas arancelarios.
+\end_layout
+
+\begin_layout Standard
+\align center
+Cuadro 1.
+ Normas de Origen en los Acuerdos Comerciales
+\begin_inset Newline newline
+\end_inset
+
+
+\size footnotesize
+\emph on
+Fuente:
+ DIAN (2025)
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Tabular
+<lyxtabular version="3" rows="23" columns="3">
+<features islongtable="true" tabularwidth="100text%" longtabularalignment="center">
+<column alignment="center" valignment="top" width="0.5cm">
+<column alignment="center" valignment="top" width="48text%">
+<column alignment="center" valignment="top" width="48text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+No
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Acuerdos de libre comercio en vigor para Colombia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Regimen de origen y criterios
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Acuerdo comercial entre Colombia,
+ Perú y la república del Ecuador por una parte y la Unión Europea y sus estados miembros,
+ por otra
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Anexo II - sección II definición del concepto de «productos originarios».
+ Artículo II requisitos generales
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Acuerdo comercial entre el Reino Unido de Gran Bretaña e Irlanda del Norte por una parte y la república de Colombia,
+ la república del Ecuador y la república del Perú por otra
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Anexo II - sección II definición del concepto de «productos originarios».
+ Artículo II requisitos generales y las modificaciones realizadas al anexo II
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+3A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Acuerdo de complementación económica No.
+ 59 Entre MERCOSUR,
+ la CAN y la República Bolivariana de Venezuela – ALADI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Anexo IV régimen de origen - sección I:
+ criterios para la calificación del origen
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+3B
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Acuerdo de complementación económica No.
+ 72 Entre los estados parte del MERCOSUR y la república de Colombia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Anexo IV régimen de origen - sección I:
+ criterios para la calificación del origen
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Acuerdo de libre comercio entre Canadá y la república de Colombia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Capítulo 3 reglas de origen - artículo 301 - mercancías originarias
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Acuerdo de libre comercio entre la república de Colombia y los estados AELC (Islandia,
+ Liechtenstein,
+ Noruega y Suiza)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Anexo V - título II definición del concepto de 'productos originarios' - artículo 2 - criterios de origen
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Acuerdo de libre comercio entre la república de Colombia LADI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Capítulo 4.
+ Régimen de origen - sección a - reglas de origen - artículo 4.1 Mercancías originarias
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Acuerdo de libre comercio entre la república de Colombia y la República de Corea
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Capítulo tres - reglas de origen y procedimientos de origen - sección a - reglas de origen - artículo 3.1 Mercancías originarias
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Acuerdo de promoción comercial entre la república de Colombia y los Estados Unidos de América
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Capítulo tres - textiles y vestido
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+capítulo cuatro - reglas de origen y procedimientos de origen - sección a - reglas de origen - artículo 4.1 Mercancías originarias
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Alianza del Pacífico
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Capítulo 4 - reglas de origen y procedimientos relacionados con el origen - sección a - reglas de origen
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Comunidad Andina
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Decisión 416 capítulo II - de las normas para la calificación del origen
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+11
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Tratado de libre comercio entre la república de Colombia y la república de Costa Rica
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Capítulo 3 reglas de origen y procedimientos de origen - sección a reglas de origen - artículo 3.1 Mercancías originarias
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+12
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Tratado de libre comercio entre la república de Colombia y las repúblicas de El Salvador,
+ Guatemala y Honduras
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Capítulo 4 reglas de origen - artículo 4.3 Mercancía originaria
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Tratado de libre comercio entre los Estados Unidos Mexicanos y la república de Colombia (G-2) AAP No.
+ 33 – ALADI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Capítulo VI:
+ reglas de origen – artículo 6-03 bienes originarios
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Tratado de libre comercio entre la república de Colombia y el estado de Israel
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Capítulo 3 reglas de origen - artículo 3.2 Requisitos generales
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+15
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Acuerdo de alcance parcial de naturaleza comercial entre la Rep.
+ De Colombia y la Rep.
+ Bolivariana de Venezuela AAP.
+ 28 - ALADI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Anexo II - sección II criterios para la calificación de origen – artículo 3 mercancías originarias
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Acuerdo de alcance parcial No.
+ 29 Entre Colombia y Panamá - ALADI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Capítulo III normas de origen - anexo I reglamento sobre el origen de las mercancías - capítulo II:
+ de la determinación del origen
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+17
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Acuerdo de alcance parcial No.
+ 31 Sobre comercio y cooperación económica y técnica entre la Rep.
+ De Colombia y la CARICOM – ALADI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Anexo III.
+ Normas de origen - capítulo II determinación del origen del primer protocolo adicional modificatorio - normas de origen pendiente de verificar
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+18
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Acuerdo de complementación económica No.
+ 49 Entre la república de Colombia y la república de Cuba - ALADI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Anexo III del tercer protocolo adicional - régimen de origen y procedimientos para el control y verificación del origen de las mercancías - sección I:
+ reglas de origen
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+19
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Acuerdo regional relativo a la preferencia arancelaria regional No.
+ 4 (AR-PAR No.
+ 4) – ALADI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Resolución 252 del comité de representantes - anexo régimen general de origen de la ALADI - capítulo I calificación de origen
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Sistema generalizado de preferencias - S.G.P
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Régimen de origen del esquema de cada país
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none" width="100text%">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Quien expide una prueba de origen calificará la mercancía como originaria con fundamento en el “criterio” que le corresponda,
+ haciendo constar en la misma que la mercancía cumple con el conjunto de consideraciones establecidas en las respectivas normas de origen,
+ lo que permite que los productos amparados sean elegibles para el trato arancelario preferencial establecido en un acuerdo comercial.
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img22-OrigenMercancias.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Origen de las mercancías en Colombia
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+Cuadro 2.
+ Declaraciones en Materia de Origen
+\begin_inset Newline newline
+\end_inset
+
+
+\size footnotesize
+\emph on
+Fuente:
+ DIAN (2025)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="30text%">
+<column alignment="center" valignment="top" width="30text%">
+<column alignment="center" valignment="top" width="30text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Declaración Jurada de Origen del Productor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Declaración bajo la gravedad del juramento en una prueba de origen
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Declaración de Origen (o en factura) del Exportador
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Declaración jurada:
+ establecida en algunos acuerdos (ALADI) para que sirva de fundamento a la certificación de origen,
+ la presenta el productor con la información necesaria para acreditar el cumplimiento de las Reglas de Origen que declara cumplir,
+ ante las autoridades competentes del País de Exportación.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Declaración bajo la gravedad del juramento del productor,
+ el exportador o el importador,
+ del hecho que las mercancías descritas en una prueba de origen califican como originarias.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Se emite por el exportador en una factura,
+ una nota de entrega o cualquier otro documento comercial que describa los productos en cuestión con suficientes detalles para hacer posible su identificación.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img23-PruebasOrigen.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Pruebas de Origen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ DIAN (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Certificado De Origen Emitido por la Autoridad Aduanera.
+\end_layout
+
+\begin_layout Standard
+Las pruebas de origen son emitidas por la autoridad delegada por el Gobierno Nacional (en Colombia es la DIAN),
+ conforme se señala en el Acuerdo Comercial correspondiente.
+ Estas pruebas de origen requieren el trámite previo de una declaración juramentada de origen y deben diligenciarse por el exportador,
+ siguiendo las instrucciones para las mismas definidas en los acuerdos comerciales o su reglamentación en Colombia,
+ la información que se aporte en las pruebas de origen se constituye en una declaración del exportador bajo la gravedad del juramento.
+\end_layout
+
+\begin_layout Subsection
+Auto certificado.
+\end_layout
+
+\begin_layout Standard
+Se entienden como auto certificado de origen,
+ las pruebas de origen que son emitidas directamente por el productor o el exportador colombiano o el importador en el país de destino,
+ sin intervención de la DIAN (como autoridad delegada o entidad autorizada).
+\end_layout
+
+\begin_layout Standard
+En los siguientes casos aplica el auto certificado:
+\end_layout
+
+\begin_layout Itemize
+Los Certificados de Origen establecidos en los acuerdos comerciales con Canadá,
+ con Corea y con El Salvador,
+ Guatemala y Honduras que pueden emitirse por el productor o el exportador.
+\end_layout
+
+\begin_layout Itemize
+La Certificación escrita o electrónica,
+ prueba de origen establecida en el APC con los Estados Unidos de América que podrá emitirse por el productor o el exportador colombiano,
+ o el importador en los Estados Unidos de América.
+\end_layout
+
+\begin_layout Itemize
+Las declaraciones de origen y las declaraciones en factura,
+ pruebas de origen establecidas en el ALC con los Estados AELC y el AC con la UE,
+ que se emiten por el exportador (o el exportador autorizado por la DIAN).
+\end_layout
+
+\begin_layout Subsubsection
+Validez de un Certificado de Origen
+\end_layout
+
+\begin_layout Standard
+Los términos dentro de los cuales puede ser presentada una prueba están determinados en cada acuerdo comercial.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Cada Cuánto Tiempo Debe Sacarse el Certificado de Origen
+\end_layout
+
+\begin_layout Standard
+Las pruebas de origen o certificados de origen que establecen los acuerdos comerciales en vigor para Colombia se pueden clasificar en dos grupos:
+ El primero,
+ los que establecen que una prueba de origen puede ser aplicada para varios embarques y el segundo,
+ que establece que una prueba de origen ampara exclusivamente las mercancías que correspondan a un solo embarque.
+ Esto depende de cada acuerdo comercial y sus normas.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Cuál es el Procedimiento para Obtener un Certificado de Origen
+\end_layout
+
+\begin_layout Standard
+Cuando es Emitido por la Dian.
+ 
+\end_layout
+
+\begin_layout Itemize
+Presentar factura comercial.
+\end_layout
+
+\begin_layout Itemize
+Tener Declaración Juramentada de origen en donde el productor con fundamento en los procedimientos productivos de la mercancía objeto de exportación (cultivo,
+ explotación,
+ levante,
+ producción,
+ manufactura,
+ elaboración,
+ fabricación etc.),
+ señala el cumplimiento del criterio de origen del producto a exportar conforme lo establece cada Acuerdo Comercial.
+\end_layout
+
+\begin_layout Itemize
+Tener firma digital a través de alguna de las empresas autorizadas para tal fin u otorgar poder a una persona natural o jurídica que la posea para que en su nombre realice el trámite,
+ por ejemplo:
+ un agente de aduana.
+\end_layout
+
+\begin_layout Itemize
+Inscribirse en el MUISCA,
+ el cuál es el portal web que la DIAN tiene para hacer los trámites de comercio exterior.
+\end_layout
+
+\begin_layout Itemize
+Montar la declaración juramentada al MUISCA con la factura para poder obtener el certificado de origen.
+ Tener en cuenta que la declaración juramentada tiene una validez de dos años.
+\end_layout
+
+\begin_layout Itemize
+Reclamar el certificado de origen presencialmente o en algunos casos se envía online,
+ dependiendo del acuerdo.
+ La aprobación de certificado de origen puede tomar desde uno a cuatro días hábiles.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img24-DeclaracionExportador.png
+	lyxscale 50
+	width 65text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Declaración del Exportador
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ DIAN (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Auto certificado.
+\end_layout
+
+\begin_layout Itemize
+Tener la factura comercial.
+\end_layout
+
+\begin_layout Itemize
+Identificar el formato de certificado de origen establecido por el acuerdo comercial.
+\end_layout
+
+\begin_layout Itemize
+Diligenciar el auto certificado con la información importante que pide el documento:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Firmar el auto certificado.
+\end_layout
+
+\begin_layout Itemize
+Información del exportador
+\end_layout
+
+\begin_layout Itemize
+Información del importador
+\end_layout
+
+\begin_layout Itemize
+Fecha
+\end_layout
+
+\begin_layout Itemize
+Número de factura
+\end_layout
+
+\begin_layout Itemize
+Descripción de la mercancía a exportar
+\end_layout
+
+\begin_layout Itemize
+Partida arancelaria
+\end_layout
+
+\begin_layout Itemize
+Criterio para cumplir origen
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img25-AutoCerificacionExportador.png
+	width 65text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Auto certificación del Exportador (Productor o Comercializador)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ DIAN (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img26-CertificadoOrigenAladi.png
+	lyxscale 50
+	height 98theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Certificado de Origen de la ALADI – CAN
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ DIAN (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Valoración Aduanera
+\end_layout
+
+\begin_layout Standard
+El valor en aduanas de las mercancías es la base imponible para la liquidación de los derechos ad valorem.
+ Será determinado de conformidad con los métodos y procedimientos del Acuerdo sobre Valoración de la OMC,
+ en concordancia con lo establecido en la Decisión 571 y el Reglamento Comunitario de la CAN adoptado mediante Resolución 1684 de 2014.
+\end_layout
+
+\begin_layout Standard
+La técnica de valoración consiste en aplicar,
+ en su orden,
+ uno de los seis métodos de valoración de que tratan los artículos 1 a 7 del Acuerdo en conjunto con los procedimientos establecidos por el Acuerdo sobre valoración de la OMC para determinar el valor en Aduana de las mercancías.
+\end_layout
+
+\begin_layout Section
+Historia e Información Técnica
+\end_layout
+
+\begin_layout Standard
+La historia de la valoración aduanera ha evolucionado significativamente a lo largo del tiempo,
+ adaptándose a las necesidades del comercio internacional y buscando siempre mayor transparencia y equidad. 
+\end_layout
+
+\begin_layout Description
+Década
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+1920.
+ Los primeros intentos formales de sistemas de valoración aduanera comenzaron en esta época,
+ aunque eran bastante rudimentarios.
+\end_layout
+
+\begin_layout Description
+Artículo
+\begin_inset space ~
+\end_inset
+
+VII
+\begin_inset space ~
+\end_inset
+
+del
+\begin_inset space ~
+\end_inset
+
+GATT.
+ El artículo VII del Acuerdo General sobre Aranceles Aduaneros y Comercio estableció los principios generales de un sistema internacional de valoración.
+ Se disponía en él que el valor a fines aduaneros de las mercancías importadas debería basarse en el valor real de las mercancías.
+\end_layout
+
+\begin_layout Description
+Definición
+\begin_inset space ~
+\end_inset
+
+del
+\begin_inset space ~
+\end_inset
+
+valor
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Bruselas
+\begin_inset space ~
+\end_inset
+
+(DVB).
+ Década de 1950.
+ Muchos países adoptaron la Definición del Valor de Bruselas,
+ que determinaba un precio normal de mercado para calcular los derechos de aduana.
+ Sin embargo,
+ este método no reflejaba adecuadamente las variaciones de precios y las ventajas competitivas.
+\end_layout
+
+\begin_layout Description
+Código
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+valoración
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+la
+\begin_inset space ~
+\end_inset
+
+Ronda
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Tokio
+\begin_inset space ~
+\end_inset
+
+,
+\begin_inset space ~
+\end_inset
+
+1979.
+ Se concluyó el Código de Valoración de la Ronda de Tokio,
+ que introdujo el concepto de “valor de transacción”. Este método se basa en el precio realmente pagado o por pagar por las mercancías importadas,
+ proporcionando un sistema más equitativo y realista.
+\end_layout
+
+\begin_layout Description
+Acuerdo
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Valoración
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+la
+\begin_inset space ~
+\end_inset
+
+OM
+\begin_inset space ~
+\end_inset
+
+,
+\begin_inset space ~
+\end_inset
+
+1994.
+ Con la creación de la Organización Mundial del Comercio (OMC),
+ se adoptó el Acuerdo de Valoración en Aduana,
+ que consolidó y amplió los principios del Código de Valoración de la Ronda de Tokio.
+ Este acuerdo busca asegurar que la valoración aduanera sea justa,
+ uniforme y neutra.
+\end_layout
+
+\begin_layout Standard
+En el Acuerdo se dispone que la valoración en aduana debe basarse,
+ salvo en determinados casos,
+ en el precio real de las mercancías objeto de valoración,
+ que se indica por lo general en la factura.
+ Este precio,
+ más los ajustes correspondientes a determinados elementos enumerados en el artículo 8,
+ equivale al valor de transacción como principio básico,
+ que constituye el primer y principal método a que se refiere el Acuerdo.
+\end_layout
+
+\begin_layout Subsubsection
+Actualidad:
+\end_layout
+
+\begin_layout Standard
+La valoración aduanera sigue evolucionando con la implementación de nuevas tecnologías y prácticas para mejorar la precisión y eficiencia en la determinación del valor de las mercancías. Las administraciones aduaneras de todo el mundo continúan adaptándose a los cambios en el comercio global.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img27-ValoracionAduanera.png
+	width 100theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Valoración Aduanera
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Los seis métodos
+\end_layout
+
+\begin_layout Standard
+En los casos en que no exista valor de transacción o en que el valor de transacción no sea aceptable como valor en aduana por haberse distorsionado el precio como consecuencia de ciertas condiciones,
+ el Acuerdo establece otros cinco métodos de valoración en aduana,
+ que habrán de aplicarse en el orden prescrito.
+ En total,
+ en el Acuerdo se consideran los seis métodos siguientes:
+\end_layout
+
+\begin_layout Subsection
+Método 1:
+ Valor de Transacción
+\end_layout
+
+\begin_layout Standard
+El precio realmente pagado o por pagar es el pago total que por las mercancías importadas haya hecho o vaya a hacer el comprador al vendedor o en beneficio de éste e incluye todos los pagos hechos como condición de la venta de las mercancías importadas por el comprador al vendedor,
+ o por el comprador a una tercera parte para cumplir una obligación del vendedor.
+\end_layout
+
+\begin_layout Standard
+En el valor de la transacción debe existir una prueba de venta para la exportación al país de importación (es decir,
+ facturas comerciales,
+ contratos,
+ pedidos,
+ declaraciones de cambio etc.).
+\end_layout
+
+\begin_layout Subsection
+Método 2:
+ Valor de Transacción de Mercancías Idénticas
+\end_layout
+
+\begin_layout Standard
+El valor de transacción se calcula de la misma manera con respecto a mercancías idénticas,
+ que han de responder a los siguientes criterios:
+\end_layout
+
+\begin_layout Itemize
+Ser iguales en todos los aspectos,
+ con inclusión de sus características físicas,
+ calidad y prestigio comercial;
+\end_layout
+
+\begin_layout Itemize
+Haberse producido en el mismo país que las mercancías objeto de valoración;
+ 
+\end_layout
+
+\begin_layout Itemize
+Que las haya producido el productor de las mercancías objeto de valoración.
+\end_layout
+
+\begin_layout Standard
+Para que pueda aplicarse este método,
+ las mercancías deben haberse vendido al mismo país de importación que las mercancías objeto de valoración.
+ Deben también haberse exportado en el mismo momento que las mercancías objeto de valoración,
+ o en un momento aproximado.
+\end_layout
+
+\begin_layout Subsection
+Método 3:
+ Valor de Transacción de Mercancías Similares
+\end_layout
+
+\begin_layout Standard
+El valor de transacción se calcula de la misma manera con respecto a mercancías similares,
+ que han de responder a los siguientes criterios:
+\end_layout
+
+\begin_layout Itemize
+Que sean muy semejantes a las mercancías objeto de valoración en lo que se refiere a su composición y características;
+\end_layout
+
+\begin_layout Itemize
+Que puedan cumplir las mismas funciones que las mercancías objeto de valoración y ser comercialmente intercambiables;
+\end_layout
+
+\begin_layout Itemize
+Que se hayan producido en el mismo país y por el mismo productor de las mercancías objeto de valoración.
+ Para que pueda utilizarse este método,
+ las mercancías deben haberse vendido al mismo país de importación que las mercancías objeto de valoración.
+ Deben también haberse exportado en el mismo momento que las mercancías objeto de valoración,
+ o en un momento aproximado.
+\end_layout
+
+\begin_layout Subsection
+Método 4:
+ Método Deductivo
+\end_layout
+
+\begin_layout Standard
+En el Acuerdo se dispone que,
+ cuando no pueda determinarse el valor en aduana sobre la base del valor de transacción de las mercancías importadas o de mercancías idénticas o similares,
+ se determinará sobre la base del precio unitario al que se venda a un comprador no vinculado con el vendedor la mayor cantidad total de las mercancías importadas,
+ o de otras mercancías importadas que sean idénticas o similares a ellas,
+ en el país de importación.
+ El comprador y el vendedor en el país importador no deben estar vinculados y la venta debe realizarse en el momento de la importación de las mercancías objeto de valoración o en un momento aproximado.
+ Si no se han realizado ventas en el momento de la importación o en un momento aproximado,
+ podrán utilizarse como base las ventas realizadas hasta 90 días después de la importación de las mercancías objeto de valoración.
+\end_layout
+
+\begin_layout Subsection
+Método 5:
+ Método del Valor Reconstruido
+\end_layout
+
+\begin_layout Standard
+Es el método más difícil y menos utilizado,
+ el valor en aduana se determina sobre la base del costo de producción de las mercancías objeto de valoración más una cantidad por concepto de beneficios y gastos generales igual a la reflejada habitualmente en las ventas de mercancías de la misma especie o clase del país de exportación al país de importación.
+ 
+\end_layout
+
+\begin_layout Subsection
+Método 6:
+ Método de Ultima Instancia
+\end_layout
+
+\begin_layout Standard
+Determinación del valor en aduana sobre la base de “criterios razonables,
+ compatibles con los principios y las disposiciones generales de este Acuerdo y el artículo VII del GATT de 1994,
+ sobre la base de los datos disponibles” Cuando el valor en aduana no pueda determinarse por ninguno de los métodos citados anteriormente,
+ podrá determinarse según criterios razonables,
+ compatibles con los principios y las disposiciones generales del Acuerdo y del artículo VII del GATT de 1994,
+ sobre la base de los datos disponibles en el país de importación.
+ En la mayor medida posible,
+ este método deberá basarse en los valores y métodos determinados anteriormente,
+ con una flexibilidad razonable en su aplicación.
+\end_layout
+
+\begin_layout Section
+Instituciones Internacionales
+\end_layout
+
+\begin_layout Subsection
+Organización Mundial del Comercio (OMC)
+\end_layout
+
+\begin_layout Itemize
+Establece las normas y directrices para la valoración aduanera a nivel global.
+\end_layout
+
+\begin_layout Itemize
+El Acuerdo de Valoración en Aduana de la OMC proporciona un marco para la valoración de mercancías importadas.
+\end_layout
+
+\begin_layout Subsection
+Organización Mundial de Aduanas (OMA)
+\end_layout
+
+\begin_layout Itemize
+Proporciona apoyo y capacitación a las administraciones aduaneras para la implementación de las normas de valoración.
+\end_layout
+
+\begin_layout Itemize
+Desarrolla herramientas y guías para facilitar el cumplimiento de las normativas aduaneras
+\end_layout
+
+\begin_layout Section
+Instituciones Nacionales
+\end_layout
+
+\begin_layout Subsection
+Dirección de Impuestos y Aduanas Nacionales
+\end_layout
+
+\begin_layout Itemize
+Encargada de la administración y control de los impuestos y aduanas en Colombia
+\end_layout
+
+\begin_layout Itemize
+Implementa y supervisa las políticas de valoración aduanera en el país
+\end_layout
+
+\begin_layout Section
+Declaración Andina de Valor
+\end_layout
+
+\begin_layout Standard
+La DAV o Declaración del Valor es un documento soporte de la Declaración de Importación.
+ Contiene la información relativa a la transacción comercial y el detalle de los elementos de hecho y circunstancias comerciales de la negociación,
+ así como los conceptos y cálculos para la determinación de valor en aduanas de las mercancías importadas que se declaran ante la autoridad aduanera.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img28-DeclaracionAndinaValor.png
+	lyxscale 10
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Declaración Andina de Valor.
+ DAV
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ DIAN (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Procedimientos Aduaneros:
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\emph on
+Importaciones
+\end_layout
+
+\begin_layout Standard
+Decreto 1165 del 2019,
+ artículo 3º define la importación como la introducción de mercancías de procedencia extranjera al territorio aduanero nacional cumpliendo con los términos y condiciones previstos en el presente decreto.
+\end_layout
+
+\begin_layout Standard
+También se considera importación,
+ la introducción de mercancías procedentes de zona franca,
+ o de un depósito franco al resto del territorio aduanero nacional,
+ en las condiciones previstas en este decreto.
+\end_layout
+
+\begin_layout Standard
+Para adelantar actividades de importación en Colombia,
+ ya sea como persona natural o jurídica (empresa) se debe tramitar previamente el Registro Único Tributario (RUT),
+ el cual se constituye en el único mecanismo para identificar,
+ ubicar y clasificar a los sujetos de obligaciones administradas y controladas por la DIAN.
+\end_layout
+
+\begin_layout Standard
+Los trámites generales para surtir en el proceso de ingreso de mercancías al territorio aduanero nacional y su despacho corresponden a los consagrados en los artículos 140 a 297 del Decreto 1165 de 2019 y artículos 185 a 303 de la Resolución 46 de 2019 y sus modificaciones o adiciones.
+\end_layout
+
+\begin_layout Standard
+La Circular 018 del 03 de septiembre de 2020,
+ modificada por la Circular 004 del 25 de febrero de 2021 (anexos),
+ emitida por el Ministerio de Comercio,
+ Industria y Turismo,
+ dio a conocer los requisitos,
+ permisos o autorizaciones previas a la importación exigidos por las entidades vinculadas a la Ventanilla Única de Comercio Exterior (VUCE),
+ para la presentación de solicitudes de registro y licencia de importación.
+ Esto,
+ en concordancia con lo dispuesto en el Decretos 925 de 2013.
+\end_layout
+
+\begin_layout Section
+Trámite Inicial para Importar en Colombia
+\end_layout
+
+\begin_layout Standard
+Para adelantar actividades de importación en Colombia,
+ ya sea como persona natural o jurídica (empresa) se debe tramitar previamente el Registro Único Tributario (RUT),
+ el cual se constituye en el único mecanismo para identificar,
+ ubicar y clasificar a los sujetos de obligaciones administradas y controladas por la DIAN.
+\end_layout
+
+\begin_layout Section
+Obligación Aduanera
+\end_layout
+
+\begin_layout Standard
+Es el vínculo jurídico entre la administración aduanera y cualquier persona directa o indirectamente relacionada con cualquier régimen,
+ modalidad u operación aduanera,
+ derivado del cumplimiento de las obligaciones correspondientes a cada una de ellas,
+ quedando las mercancías sometidas a la potestad aduanera y los obligados,
+ al pago de los tributos aduaneros,
+ intereses,
+ tasas,
+ recargos y sanciones,
+ a que hubiere lugar.
+\end_layout
+
+\begin_layout Standard
+Es de carácter personal,
+ sin perjuicio de que pueda hacerse efectivo su cumplimiento sobre la mercancía,
+ mediante el abandono o el decomiso,
+ con preferencia sobre cualquier otra garantía u obligación que recaiga sobre ella.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img29-ObligacionAduanera.png
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Obligación aduanera
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ DIAN (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Obligación Aduanera en la Importación
+\end_layout
+
+\begin_layout Standard
+Nace con los trámites aduaneros que deben cumplirse de manera previa o posterior a la llegada de la mercancía al territorio aduanero nacional.
+ Comprende las siguientes etapas:
+\end_layout
+
+\begin_layout Enumerate
+El suministro de información y/o documentación anticipada
+\end_layout
+
+\begin_layout Enumerate
+Trámites aduaneros y requisitos que deben cumplirse al arribo de las mercancías
+\end_layout
+
+\begin_layout Enumerate
+Presentación de la mercancía a la autoridad aduanera
+\end_layout
+
+\begin_layout Enumerate
+Presentación de la declaración aduanera
+\end_layout
+
+\begin_layout Enumerate
+Pago de los tributos aduaneros causados por la importación y de los intereses
+\end_layout
+
+\begin_layout Enumerate
+Valor de rescate y las sanciones a que haya lugar
+\end_layout
+
+\begin_layout Enumerate
+La obligación de obtener y conservar los documentos que soportan la operación y presentarlos cuando los requiera la autoridad aduanera
+\end_layout
+
+\begin_layout Enumerate
+Atender las solicitudes de información y pruebas
+\end_layout
+
+\begin_layout Enumerate
+Cumplir con las exigencias,
+ requisitos y condiciones establecidos en las normas correspondientes
+\end_layout
+
+\begin_layout Standard
+Son responsables de la obligación aduanera en la importación,
+ el importador de las mercancías y los demás usuarios aduaneros respecto de las actuaciones derivadas de su intervención (transportador,
+ agente de aduana,
+ depósito,
+ etc.)
+\end_layout
+
+\begin_layout Section
+Registro de Importadores
+\end_layout
+
+\begin_layout Standard
+Antes de realizar cualquier operación de importación,
+ es necesario que el importador se registre ante la DIAN como tal,
+ obteniendo un Número de Identificación Tributaria (NIT-RUT).
+\end_layout
+
+\begin_layout Section
+Procedimientos Aduaneros de la Importación
+\end_layout
+
+\begin_layout Standard
+SYGA.
+ Sistema de Información y Gestión Aduanera.
+ Es la primera vez en más de 20 años que el sistema tecnológico que aloja el SYGA se actualiza,
+ a pesar de que sus vulnerabilidades en materia de seguridad han representado un riesgo para la seguridad nacional durante más de dos décadas.
+\end_layout
+
+\begin_layout Standard
+Esta actualización se inició el 15 de noviembre de 2023,
+ y durante la contingencia declarada el 20 de noviembre de 2023,
+ la DIAN ha respaldado a los usuarios aduaneros mediante reuniones estratégicas,
+ participación en eventos públicos y respuesta a los comunicados de usuarios y agremiaciones.
+ Además,
+ se han establecido canales de comunicación directa a través de WhatsApp y Microsoft Teams para abordar preguntas y desafíos operativos.
+\end_layout
+
+\begin_layout Standard
+Asimismo,
+ se han adecuado las instalaciones de seccionales y se ha capacitado a su personal.
+ Por otro lado,
+ se ha publicado información detallada sobre las medidas implementadas para asegurar la continuidad y calidad de los servicios aduaneros,
+ demostrando el compromiso de la entidad y brindando apoyo efectivo durante toda la contingencia.
+\end_layout
+
+\begin_layout Section
+Norma Legal para los Trámites de Importación
+\end_layout
+
+\begin_layout Standard
+Los trámites generales para surtir en el proceso de ingreso de mercancías al territorio aduanero nacional y su despacho corresponden a los consagrados en los artículos 140 a 297 del Decreto 1165 de 2019 y artículos 185 a 303 de la Resolución 46 de 2019 y sus modificaciones o adiciones.
+\end_layout
+
+\begin_layout Section
+Requisitos,
+ Permisos o Autorizaciones para Importar
+\end_layout
+
+\begin_layout Standard
+La Circular 018 del 03 de septiembre de 2020,
+ modificada por la Circular 004 del 25 de febrero de 2021 (anexos),
+ emitida por el Ministerio de Comercio,
+ Industria y Turismo,
+ dio a conocer los requisitos,
+ permisos o autorizaciones previas a la importación exigidos por las entidades vinculadas a la Ventanilla Única de Comercio Exterior (VUCE),
+ para la presentación de solicitudes de registro y licencia de importación.
+ Esto,
+ en concordancia con lo dispuesto en el Decretos 925 de 2013.
+\end_layout
+
+\begin_layout Standard
+Para determinar las autorizaciones exigibles,
+ la tarifa arancelaria,
+ IVA aplicable o preferencias arancelarias por país de origen o bloque económico,
+ es necesario contar con la clasificación arancelaria de la mercancía,
+ para lo cual puede consultar el arancel de aduanas publicado en la página web de la entidad (DIAN – Mincit).
+ No obstante,
+ el importador puede acudir al servicio de solicitud de clasificación arancelaria que presta la DIAN a través de la Coordinación de Clasificación Arancelaria de la Subdirección de Técnica Aduanera.
+\end_layout
+
+\begin_layout Standard
+Antes de realizar cualquier operación de importación,
+ es necesario que el importador se registre ante la DIAN como tal,
+ obteniendo un Número de Identificación Tributaria (NIT-RUT) y cumpliendo con otros requisitos establecidos por la entidad.
+\end_layout
+
+\begin_layout Section
+Declaración de aduanas
+\end_layout
+
+\begin_layout Standard
+La declaración de importación en Colombia es un proceso fundamental para regular y controlar el ingreso de mercancías extranjeras al país.
+ Es un trámite aduanero mediante el cual se informa a la autoridad aduanera sobre la entrada de mercancías al territorio colombiano.
+ 
+\end_layout
+
+\begin_layout Standard
+El único documento que acredita la introducción legal de una mercancía al territorio aduanero nacional es la declaración de importación en la que conste el levante de la mercancía.
+ Ningún otro documento puede entenderse habilitado para tales efectos.
+ 
+\end_layout
+
+\begin_layout Standard
+Es importante tener en cuenta que la autoridad aduanera en cualquier momento puede requerir la declaración de importación que ampara la mercancía;
+ por lo tanto,
+ se sugiere que dicha declaración la acompañe cuando ésta sea transportada o almacenada.
+ En caso de que no la acompañe,
+ se propone que en los documentos con que se conduzca la mercancía se relacione el número y fecha de la declaración de importación.
+\end_layout
+
+\begin_layout Subsection
+Obligatoriedad
+\end_layout
+
+\begin_layout Itemize
+El importador.
+ Cuando actúe de manera directa ante la Administración Aduanera.
+ por cualquier cuantía,
+ para adelantar los trámites aduaneros inherentes al régimen,
+ modalidad u operación aduanera de que se trate y quien suscribe la declaración de importación.
+\end_layout
+
+\begin_layout Itemize
+Las agencias de aduanas.
+ Quienes actúan a nombre y por encargo de los importadores.
+\end_layout
+
+\begin_layout Itemize
+Los almacenes generales de depósito.
+ Sometidos al control y vigilancia de la Superintendencia Financiera de Colombia,
+ quienes podrán actuar como agencias de aduanas respecto de las mercancías consignadas o endosadas a su nombre en el documento de transporte,
+ siempre que hubieren obtenido la autorización para ejercer dicha actividad por parte de la Unidad Administrativa Especial Dirección de Impuestos y Aduanas Nacionales (DIAN),
+ sin que se requiera • constituir una nueva sociedad dedicada a ese único fin.
+ En este caso,
+ se les aplicará el régimen de responsabilidades,
+ infracciones y sanciones previstas para las agencias de aduanas.
+ 
+\end_layout
+
+\begin_layout Itemize
+Las personas jurídicas.
+ Que actúen como importadores para realizar las operaciones y trámites aduaneros,
+ actuarán ante la administración aduanera a través de sus representantes legales o cuando éstos lo deleguen en un empleado de la respectiva empresa.
+ 
+\end_layout
+
+\begin_layout Itemize
+Los consignatarios de las entregas urgentes.
+ Que ingresen como auxilios para damnificados de catástrofes o siniestros,
+ por su especial naturaleza o porque respondan a la satisfacción de una necesidad apremiante,
+ quienes podrán actuar de manera personal y directa o a través de apoderado debidamente constituido.
+ 
+\end_layout
+
+\begin_layout Itemize
+La Nación,
+ las Entidades Territoriales y las Entidades Descentralizadas.
+ Para las importaciones,
+ respecto de las mercancías consignadas o endosadas en el documento de transporte a dichas Entidades,
+ quienes podrán actuar a través de su representante legal o apoderado debidamente constituido.
+ 
+\end_layout
+
+\begin_layout Itemize
+Los agentes diplomáticos,
+ consulares y los organismos internacionales acreditados en el país.
+ Los diplomáticos colombianos que regresen al término de su misión,
+ quienes podrán actuar de manera directa o a través de representante legal o jefe de la misión o,
+ de apoderado designado por estos.
+ 
+\end_layout
+
+\begin_layout Itemize
+Los raizales y residentes legalmente establecidos en el territorio del departamento Archipiélago de San Andrés,
+ Providencia y Santa Catalina.
+ Que no tengan la calidad de comerciantes,
+ para la presentación de la declaración especial de ingreso en la importación de mercancía en cantidades no comerciales.
+ 
+\end_layout
+
+\begin_layout Itemize
+Los usuarios de un programa especial de exportación (PEX) y los autores de obras de arte.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img30-ObligatoriedadAduanera.png
+	width 100theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Obligación aduanera en la importación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Documentos soporte de la DIM
+\end_layout
+
+\begin_layout Standard
+Los documentos soporte originales deberán obtenerse por parte del declarante antes de la presentación y aceptación de la declaración de importación,
+ por lo tanto,
+ es necesario revisar la fecha de expedición de estos,
+ a fin de evitar la sanción contemplada en el numeral 2.1 del artículo 615 del Decreto 1165 de 2019,
+ modificado por el artículo 109 del Decreto 360 de 2021.
+ Así mismo,
+ cuando el trámite sea manual se debe registrar en el original de cada uno de los documentos soporte el número y fecha de la declaración de importación a la cual corresponden,
+ salvo que el declarante sea una persona jurídica reconocida,
+ e inscrita como usuario aduanero permanente (UAP),
+ usuario altamente exportador (ALTEX) u operador económico autorizado (OEA).
+ El incumplimiento de esta obligación genera la sanción prevista en el numeral 3.1.
+ del mencionado artículo.
+ 
+\end_layout
+
+\begin_layout Standard
+Los documentos soporte acorde con lo contemplado en el artículo 177 del Decreto 1165 de 2019,
+ modificado por el artículo 57 del Decreto 360 de 2021 son:
+\end_layout
+
+\begin_layout Subsubsection
+1.
+ Registro o licencia de importación:
+\end_layout
+
+\begin_layout Standard
+Que ampare la mercancía,
+ cuando a ello hubiere lugar.
+\end_layout
+
+\begin_layout Subsubsection
+2.
+ Factura comercial:
+\end_layout
+
+\begin_layout Standard
+Cuando hubiere lugar a ella.
+ (la factura debe cumplir los requisitos del artículo 9 del Reglamento Comunitario adoptado por la Resolución 1684 de 2014 artículo 9 de la Secretaría General de la Comunidad Andina.
+\end_layout
+
+\begin_layout Standard
+A los efectos de la aplicación del primer método "Valor de Transacción de las mercancías importadas" establecido en el artículo 1 del Acuerdo sobre Valoración de la OMC,
+ la factura comercial debe:
+\end_layout
+
+\begin_layout Itemize
+Reflejar el precio realmente pagado o por pagar,
+ por el comprador al vendedor,
+ por las mercancías importadas,
+ independientemente de que la forma de pago sea directa y/o indirecta.
+\end_layout
+
+\begin_layout Itemize
+Ser un documento emitida de manera electrónica.
+ La factura comercial puede tomar la forma de un mensaje electrónico,
+ en cuyo caso deberá cumplir con los requisitos antes señalados.
+  Para efectos de control se tendrá en cuenta lo establecido en la legislación nacional sobre regulación del comercio electrónico.
+\end_layout
+
+\begin_layout Itemize
+Ser expedida por el vendedor de la mercancía.
+\end_layout
+
+\begin_layout Itemize
+Carecer de borrones,
+ enmendaduras o adulteraciones.
+\end_layout
+
+\begin_layout Itemize
+Contener como mínimo los siguientes datos:
+\end_layout
+
+\begin_layout Itemize
+Número y fecha de expedición.
+\end_layout
+
+\begin_layout Itemize
+Lugar de expedición de la factura.
+\end_layout
+
+\begin_layout Itemize
+Nombre y dirección del vendedor.
+\end_layout
+
+\begin_layout Itemize
+Nombre y dirección del comprador.
+\end_layout
+
+\begin_layout Itemize
+Descripción de la mercancía.
+\end_layout
+
+\begin_layout Itemize
+Cantidad.
+\end_layout
+
+\begin_layout Itemize
+Precio unitario y total.
+\end_layout
+
+\begin_layout Itemize
+Moneda de la transacción comercial.
+\end_layout
+
+\begin_layout Itemize
+Lugar y condiciones de entrega de la mercancía,
+ según los términos internacionales de comercio "INCOTERMS",
+ establecidos por la Cámara de Comercio Internacional.
+\end_layout
+
+\begin_layout Itemize
+Otros datos establecidos de acuerdo con la legislación de cada País Miembro.
+\end_layout
+
+\begin_layout Subsubsection
+3.
+ Documento de transporte:
+ 
+\end_layout
+
+\begin_layout Standard
+Atendiendo a criterios específicos,
+ los transportes se clasifican como sigue:
+\end_layout
+
+\begin_layout Itemize
+Terrestre (Carta de porte internacional por carretera CMR (CMR letter of transport)
+\end_layout
+
+\begin_layout Itemize
+Marítimo (Conocimiento de embarque marítimo (Maritime bill of lading)
+\end_layout
+
+\begin_layout Itemize
+Ferrocarril (Carta de porte internacional por ferrocarril CIM (CIM letter of transport)
+\end_layout
+
+\begin_layout Itemize
+Aéreo (Conocimiento aéreo (Airway bill)
+\end_layout
+
+\begin_layout Itemize
+Multimodal (Conocimiento de embarque multimodal FIATA (FIATA bill of lading)
+\end_layout
+
+\begin_layout Subsubsection
+4.
+ La prueba de origen
+\end_layout
+
+\begin_layout Standard
+Señalada en el respectivo acuerdo comercial y los documentos relativos a las condiciones de expedición directa,
+ tránsito y/o transbordo,
+ cuando a ello hubiere lugar;
+ o certificación de origen no preferencial,
+ cuando se requiera.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+5.
+ Certificado de sanidad
+\end_layout
+
+\begin_layout Standard
+Junto con aquellos otros documentos exigidos por normas especiales,
+ cuando hubiere lugar.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+6.
+ Lista de empaque
+\end_layout
+
+\begin_layout Standard
+Cuando hubiere lugar a ella.
+\end_layout
+
+\begin_layout Subsubsection
+7.
+ Mandato
+\end_layout
+
+\begin_layout Standard
+Cuando no exista endoso aduanero y la declaración de importación se presente a través de una agencia de aduanas o apoderado.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+8.
+ Declaración andina del valor
+\end_layout
+
+\begin_layout Standard
+Junto con los documentos justificativos de esta.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+9.
+ Copia de la declaración de exportación
+\end_layout
+
+\begin_layout Standard
+O el documento que acredite la operación de exportación,
+ en las modalidades de reimportación en el mismo estado y reimportación por perfeccionamiento pasivo.
+ 
+\end_layout
+
+\begin_layout Standard
+Las autorizaciones previas establecidas por la Unidad Administrativa Especial Dirección de Impuestos y Aduanas Nacionales (DIAN),
+ para la importación de determinadas mercancías.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways true
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img31-DocsSoporteDIM.png
+	width 100theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Documentos Soporte de la Declaración de Importación “DIM”
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El procedimiento para realizar la declaración de importación varía según el tipo de mercancía,
+ el medio de transporte,
+ el lugar de ingreso al país,
+ entre otros factores.
+ Sin embargo,
+ en general,
+ implica la presentación de la documentación requerida ante la DIAN y el pago de los impuestos correspondientes.
+\end_layout
+
+\begin_layout Standard
+El incumplimiento de las normas y requisitos establecidos para la declaración de importación puede conllevar sanciones económicas,
+ retención de la mercancía,
+ e incluso acciones legales por parte de la autoridad aduanera.
+\end_layout
+
+\begin_layout Standard
+Es importante destacar que las regulaciones y procedimientos aduaneros pueden estar sujetos a cambios,
+ por lo que es fundamental mantenerse actualizado con la normativa vigente en materia de importación en Colombia.
 \end_layout
 
 \end_body
