@@ -28,6 +28,9 @@
 
 % This tells the entire book engine to stop forcing text lines to touch the bottom line of the page.
 \raggedbottom
+
+% To give a border to an image in LyX, 
+\usepackage[export]{adjustbox}
 \end_preamble
 \options openright
 \use_default_options true
@@ -37,16 +40,26 @@ Format 99
 
 # 1. VISUAL LAYOUT DEFINITIONS FOR THE LYX EDITOR SCREEN
 
+#----------- Style Fuente Figura ------------------#
 Style Fuente_de_figura
     CopyStyle Standard
     LatexType Environment
     LatexName fuentedefigura
+	Align     Center
     Font
         Size Small
         Shape Italic
     EndFont
-End
 
+    Preamble
+      \newenvironment{fuentedefigura}{%
+        \par\centering\small\itshape%
+      }{%
+        \par%
+      }
+    EndPreamble
+End
+#--------------------------------------------------#
 Style Description
     LatexType             Item_Environ
     LatexName             description
@@ -60,6 +73,7 @@ Style Subsubsection
         Shape  Italic
         Series Bold
         Size   Normal
+		Color  Violet
     EndFont
 End
 
@@ -69,7 +83,6 @@ End
 
 
 # 2. UNIFIED LATEX ENGINE INSTRUCTIONS FOR THE PDF OUTPUT
-
 Preamble
     % Global Packages
     \usepackage[table,x11names]{xcolor}
@@ -84,11 +97,6 @@ Preamble
     
     % Apply slateNavy color to Subsubsections along with Bold and Italic
     \subsubsectionfont{\normalfont\normalsize\bfseries\itshape\color{slateNavy}}
-    
-    % Custom environment for Figure Source lines
-    \newenvironment{fuentedefigura}
-        {\vspace{0.3em}\par\small\itshape}
-        {\par}
         
     % FIXED VALUE: Restores proper [1] parameter mapping so LyX passes colors cleanly again
     \let\olddescription\description
@@ -11833,6 +11841,7 @@ Se debe tramitar el registro,
 \begin_inset Graphics
 	filename imagenes/_img01-QuieroImportar.png
 	width 60text%
+	special frame=1.0pt
 
 \end_inset
 
@@ -11868,6 +11877,7 @@ La clasificación arancelaria se realiza con anterioridad,
 \begin_inset Graphics
 	filename imagenes/_img02-RealiceClasificacionArancelaria.png
 	width 75text%
+	special frame=1.0pt
 
 \end_inset
 
@@ -12006,54 +12016,45 @@ Por último,
 
 \begin_layout Standard
 \align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="1" columns="3">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top" width="1cm">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "default"
+backgroundcolor "none"
+status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename imagenes/_img03-EstudioMercado.png
-	width 45text%
+	width 60text%
 
 \end_inset
 
 
 \end_layout
 
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename imagenes/_img03b-EstudioMercado.png
-	width 45text%
+	width 60text%
 
 \end_inset
 
 
 \end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
 
 \end_inset
 
@@ -12081,7 +12082,8 @@ En el documento se debe precisar el Incoterm 2020 sobre el que se está cotizand
 \align center
 \begin_inset Graphics
 	filename imagenes/_img04-ElementosCotizacion.png
-	width 50text%
+	width 75text%
+	special frame=1.5pt
 
 \end_inset
 
@@ -12938,7 +12940,9 @@ Todos los datos que figuren en la factura comercial deben coincidir con los de 
 \align center
 \begin_inset Graphics
 	filename imagenes/_img05-ReciboFacturaComercial.png
+	lyxscale 50
 	width 60text%
+	special frame=1.0pt
 
 \end_inset
 
@@ -12985,7 +12989,9 @@ Reembolsables:
 \align center
 \begin_inset Graphics
 	filename imagenes/_img06-CartaCredito.png
-	width 60text%
+	lyxscale 50
+	width 65text%
+	special frame=1.0pt
 
 \end_inset
 
@@ -12996,6 +13002,9 @@ Reembolsables:
 \align center
 \begin_inset Graphics
 	filename imagenes/_img07-CartaCredito02.png
+	lyxscale 50
+	width 65text%
+	special frame=1.0pt
 
 \end_inset
 
@@ -13006,6 +13015,9 @@ Reembolsables:
 \align center
 \begin_inset Graphics
 	filename imagenes/_img07-CartaCredito03.png
+	lyxscale 50
+	width 65text%
+	special frame=1.0pt
 
 \end_inset
 
@@ -13016,10 +13028,4426 @@ Reembolsables:
 \align center
 \begin_inset Graphics
 	filename imagenes/_img08-CartaCredito04.png
+	lyxscale 50
+	width 60text%
+	special frame=1.0pt
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+Financiación.
+\end_layout
+
+\begin_layout Standard
+Se recibe un crédito a plazos que puede ser otorgado por un intermediario del mercado cambiario,
+ proveedor o un banco del exterior.
+ Se debe tener en cuenta que si la financiación es mayor a 180 días y superior a los USD 10.000 se convierte en endeudamiento externo.
+ El no reportar endeudamiento externo genera sanción de 100 SMMLV.
+\end_layout
+
+\begin_layout Section
+Expedición del certificado de origen
+\end_layout
+
+\begin_layout Standard
+El certificado de origen es el documento expedido por una entidad competente mediante el cual se acredita que una mercancía califica como originaria de acuerdo con las normas establecidas en los diferentes acuerdos comerciales,
+ los cuales deben ser proporcionados por un fabricante,
+ exportador o incluso por el importador,
+ como es el caso de acuerdo comercial con Estados Unidos o para controlar el ingreso de mercancías que afectan la industria colombiana con una competencia desigual como es el caso de los productos a los cuales se le impuso medidas antidumping o compensatorias.
+ La certificación de origen es el documento soporte de la importación de acuerdo con el artículo 177 del Decreto 1165 de 2019.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename imagenes/_img09-CertificadoOrigen.png
+	lyxscale 60
+	width 65text%
+	special frame=1.0pt
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Contratación de Transporte y Seguro
+\end_layout
+
+\begin_layout Standard
+El transporte internacional es el conjunto de medios de transporte que actúan para trasladar mercancías de un país a otro,
+ es así como el transporte internacional incluye los medios de transporte y la infraestructura (vías,
+ rutas). 
+\end_layout
+
+\begin_layout Standard
+Para escoger el medio de transporte adecuado es necesario considerar los costos de la operación,
+ los riesgos del traslado,
+ el tipo de mercancía,
+ el empaque,
+ el embalaje,
+ la urgencia con la que se necesita la mercancía,
+ tarifas,
+ manipulación,
+ etc.  
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename imagenes/_img10-TranporteMaritimo.png
+	lyxscale 50
+	width 70text%
+	special frame=1.0pt
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename imagenes/_img10-TranporteAereo.png
+	lyxscale 50
+	width 70text%
+	special frame=1.0pt
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename imagenes/_img10-TranporteFerroviario.png
+	lyxscale 50
+	width 70text%
+	special frame=1.0pt
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+Procesos Aduaneros:
+ Régimen de Importación
+\end_layout
+
+\end_inset
+
+Procesos Aduaneros:
+ 
+\emph on
+Régimen de Importación
+\series bold
+\emph default
+ 
+\series default
+\size normal
+
+\begin_inset Newline newline
+\end_inset
+
+Decreto 1165 de julio 02 de 2019,
+ Resolución 046 de Julio 26 de 2019
+\end_layout
+
+\begin_layout Standard
+Las etapas del proceso de importación conforme a la operatividad de las citadas normas aduaneras sobre este régimen se pueden identificar de manera diferenciada así:
+\end_layout
+
+\begin_layout Itemize
+Llegada de la mercancía
+\end_layout
+
+\begin_layout Itemize
+Almacenamiento
+\end_layout
+
+\begin_layout Itemize
+Desaduanamiento
+\end_layout
+
+\begin_layout Standard
+Las etapas mencionadas contienen unos eventos que son regulados al detalle en la norma aduanera con el fin de determinar en últimas si la mercancía ingresada al territorio aduanero nacional se encuentra presentada a la autoridad aduanera y luego de los eventos descritos y a continuación se pueda testimoniar que la misma se encuentra declarada en una declaración de importación,
+ es decir que justifique su legal ingreso.
+ 
+\end_layout
+
+\begin_layout Standard
+En este punto conviene señalar en forma práctica y didáctica los eventos de cada una de las etapas.
+\end_layout
+
+\begin_layout Standard
+El Decreto 1165 de 2019 y la Resolución 046 de 2019,
+ emitidos en Colombia,
+ regulan el Régimen de Aduanas,
+ y establece los procedimientos legales de llegada,
+ almacenamiento,
+ y disposición de mercancías en el territorio aduanero.
+ 
+\end_layout
+
+\begin_layout Section
+Llegada de la Mercancía
+\end_layout
+
+\begin_layout Standard
+Se inicia en el Servicio Informático Electrónico (SIE) y Sistema de Información y Gestión Aduanera (SYGA) con la cuenta de usuario creada y habilitada para documentar la carga con la información contenida en los documentos de transporte,
+ por parte de,
+ los transportadores internacionales y transfronterizos,
+ agentes de carga internacional,
+ agentes marítimos e intermediarios de tráfico postal y envíos urgentes.
+\end_layout
+
+\begin_layout Standard
+Manifestar la carga que arriba al territorio aduanero nacional siguiendo las instrucciones del Manual de Carga - Importaciones,
+ a través del Servicio Informático Electrónico (SIE) SYGA,
+ por parte de,
+ los transportadores internacionales y transfronterizos,
+ agentes de carga internacional,
+ agentes marítimos e intermediarios de tráfico postal y envíos urgentes.
+\end_layout
+
+\begin_layout Standard
+Avisar la llegada del medio de transporte siguiendo las instrucciones del Manual de Carga - Importaciones a través del SIE SYGA por parte de los transportadores internacionales,
+ a excepción del modo terrestre,
+ caso en el cual lo realiza la DIAN,
+ para este último modo la mercancía debe ser descargada en un depósito autorizado por la DIAN.
+\end_layout
+
+\begin_layout Standard
+Medios de transporte:
+ La mercancía puede llegar a través de diferentes medios de transporte:
+ aéreo,
+ marítimo,
+ terrestre,
+ o fluvial.
+ El decreto detalla los tiempos y modos específicos en que la declaración de llegada debe ser presentada dependiendo del tipo de transporte.
+ Por ejemplo,
+ para el transporte marítimo,
+ la declaración debe presentarse antes de que se inicie la descarga de la mercancía.
+\end_layout
+
+\begin_layout Standard
+Manifiesto de Carga (formato 1165 de la DIAN).
+ Además de la declaración de llegada,
+ se debe presentar el manifiesto de carga,
+ un documento que contiene la lista de todos los bienes que están siendo transportados.
+ Este debe ser entregado a la DIAN en los tiempos estipulados según el medio de transporte.
+\end_layout
+
+\begin_layout Standard
+Seguimiento:
+ Una vez que la mercancía ha llegado y se ha presentado la declaración de llegada,
+ la DIAN puede decidir realizar un seguimiento para verificar que la mercancía coincide con los documentos y cumple con los requisitos legales.
+\end_layout
+
+\begin_layout Standard
+Zonas primarias aduaneras:
+ Al llegar al país,
+ la mercancía generalmente debe ser trasladada a una zona primaria aduanera,
+ que puede ser un puerto,
+ aeropuerto,
+ o cualquier lugar habilitado para la recepción de mercancías antes de su nacionalización o disposición final.
+\end_layout
+
+\begin_layout Standard
+Plazos para la presentación de documentos:
+ El Decreto 1165 establece plazos para la entrega de documentos como el manifiesto de carga o la declaración de llegada.
+ Si no se cumplen los plazos,
+ el importador o transportista puede estar sujeto a sanciones.
+\end_layout
+
+\begin_layout Standard
+Disposición de la mercancía:
+ Una vez la mercancía ha llegado y ha terminado el proceso de seguimiento mediante un acta,
+ el importador tiene un tiempo limitado para hacer los trámites de nacionalización o desaduanamiento,
+ que es el proceso por el cual la mercancía entra formalmente al país y se le asignan los aranceles y tributos correspondientes.
+ Si la mercancía no se nacionaliza en el tiempo establecido,
+ puede quedar en abandono.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img38-IngresoDeposito.png
+	lyxscale 60
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Ingreso a Depósito Autorizado
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+Fuente:
+ Archivo fotográfico del autor (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Almacenamiento de mercancías
+\end_layout
+
+\begin_layout Standard
+El Decreto 1165 de 2019 también establece normas claras sobre cómo deben manejarse los bienes que llegan al territorio aduanero colombiano y deben ser almacenados.
+ Este almacenamiento es necesario mientras se completan los trámites aduaneros y se decide el destino de la mercancía (nacionalización,
+ reembarque,
+ etc.).
+ 
+\end_layout
+
+\begin_layout Description
+Zonas
+\begin_inset space ~
+\end_inset
+
+primarias
+\begin_inset space ~
+\end_inset
+
+aduanera:
+ El almacenamiento inicial de la mercancía que llega al país se realiza en las zonas primarias aduaneras,
+ que pueden ser puertos,
+ aeropuertos,
+ o cualquier lugar habilitado por la DIAN para la recepción de bienes antes de que se realicen los trámites de importación.
+ Las mercancías no pueden salir de estas zonas hasta que hayan cumplido con todos los requisitos aduaneros.
+\end_layout
+
+\begin_layout Description
+Depósitos
+\begin_inset space ~
+\end_inset
+
+habilitados:
+ Las mercancías también pueden almacenarse en depósitos habilitados.
+ Estos son espacios autorizados por la DIAN para el almacenamiento de mercancías bajo control aduanero,
+ hasta que se finalicen los trámites de importación o nacionalización.
+\end_layout
+
+\begin_layout Standard
+Los depósitos pueden clasificarse como:
+\end_layout
+
+\begin_layout Itemize
+Depósitos públicos:
+ Son habilitados para almacenar mercancía de varios importadores o exportadores.
+\end_layout
+
+\begin_layout Itemize
+Depósitos privados:
+ Son usados exclusivamente por un único usuario autorizado.
+\end_layout
+
+\begin_layout Description
+Plazos
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+almacenamiento:
+ El Decreto 1165 establece plazos específicos para el almacenamiento de mercancías bajo control aduanero:
+\end_layout
+
+\begin_layout Itemize
+Generalmente,
+ la mercancía puede permanecer en depósitos habilitados por un plazo de un mes.
+ Sin embargo,
+ este plazo puede prorrogarse bajo ciertas condiciones que deben ser autorizadas por la DIAN.
+\end_layout
+
+\begin_layout Itemize
+En caso de que no se cumplan los plazos,
+ la mercancía puede declararse en abandono legal,
+ lo que implica que el Estado puede disponer de ella,
+ subastarla o destruirla,
+ según corresponda.
+\end_layout
+
+\begin_layout Description
+Abandono
+\begin_inset space ~
+\end_inset
+
+legal:
+ Si la mercancía permanece almacenada más allá del plazo permitido sin que se haya nacionalizado o resuelto su situación,
+ esta puede ser declarada en abandono legal.
+ Esto sucede,
+ por ejemplo:
+\end_layout
+
+\begin_layout Itemize
+Cuando el importador no ha completado los trámites en el tiempo estipulado.
+\end_layout
+
+\begin_layout Itemize
+Si no se retira la mercancía del depósito una vez finalizados los trámites de aduanas.
+\end_layout
+
+\begin_layout Description
+Control
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+inventarios:
+ Los depósitos habilitados están obligados a llevar un registro riguroso de los inventarios bajo control aduanero,
+ lo cual permite a la DIAN hacer seguimiento a las mercancías que están almacenadas.
+ Este control busca garantizar que la mercancía no sea retirada sin la autorización correspondiente.
+\end_layout
+
+\begin_layout Description
+Manipulación
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+conservación:
+ La mercancía almacenada en los depósitos habilitados debe mantenerse en condiciones adecuadas para evitar su deterioro.
+ El Decreto 1165 permite realizar ciertos procedimientos de manipulación o conservación mientras la mercancía está almacenada,
+ siempre y cuando no alteren su naturaleza o las condiciones bajo las cuales fue importada o declarada.
+\end_layout
+
+\begin_layout Description
+Medidas
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+seguridad:
+ Los depósitos aduaneros y las zonas primarias deben contar con medidas de seguridad para evitar el robo,
+ pérdida,
+ o deterioro de la mercancía.
+ Estas medidas incluyen vigilancia,
+ control de acceso,
+ y otras medidas tecnológicas,
+ según lo dispuesto por la DIAN.
+\end_layout
+
+\begin_layout Description
+Mercancías
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+reexportación:
+ Las mercancías que están en tránsito o que serán reexportadas también pueden ser almacenadas en depósitos bajo control aduanero mientras esperan su salida del país.
+ Este almacenamiento sigue las mismas reglas en cuanto a plazos y condiciones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img39-AlmacenamientoDeposito.png
+	lyxscale 60
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Almacenamiento en Depósito Autorizado
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+Fuente:
+ Archivo fotográfico del autor (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Desaduanamiento
+\end_layout
+
+\begin_layout Standard
+Proceso mediante el cual las mercancías que ingresan al territorio colombiano,
+ o que están en tránsito,
+ se liberan del control aduanero para su disposición o libre circulación.
+ Este proceso está regulado en el Decreto 1165 de 2019 bajo el régimen de aduanas de Colombia.
+ El desaduanamiento involucra varios pasos y requisitos que deben cumplirse para que la mercancía pueda ser nacionalizada o enviada a su destino final.
+\end_layout
+
+\begin_layout Standard
+Los procedimientos para la aplicación de los regímenes aduaneros de que trata el Decreto 1165 de 2019,
+ se deben realizar a través de la utilización del SIE.
+ Debe ingresar al SIE "SYGA-Importaciones" para continuar el trámite con la información de la importación migrada desde "Carga-Importaciones MUISCA".
+\end_layout
+
+\begin_layout Description
+Declaración
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Importación.
+ La declaración de importación debe ser presentada por parte del declarante,
+ a través del SIE "SYGA-Importaciones" teniendo en cuenta las modalidades,
+ según sea el caso.
+ En la declaración,
+ se especifican los detalles de la mercancía,
+ su valor,
+ origen,
+ clasificación arancelaria,
+ entre otros.
+ La declaración de importación es un documento clave que permite a las autoridades aduaneras conocer la naturaleza de la mercancía y aplicar los tributos correspondientes.
+ La aceptación de la declaración de importación se realiza a través del SIE "SYGA-Importaciones".
+\end_layout
+
+\begin_layout Description
+Pago
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+tributos
+\begin_inset space ~
+\end_inset
+
+aduaneros.
+ Una vez aceptada la declaración de importación,
+ a través del SIE,
+ el declarante debe proceder con el pago de los tributos aduaneros,
+ los cuales incluyen aranceles,
+ IVA y otros impuestos relacionados con la importación de bienes.
+ Proceso fundamental para solicitar el levante a través del SIE "SYGA-Importaciones".
+\end_layout
+
+\begin_layout Standard
+Antes de autorizar el desaduanamiento,
+ la DIAN puede realizar controles y verificaciones,
+ representados en las siguientes posibilidades 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Levante automático:
+ 
+\series default
+Acto por el cual la aduana permite a los interesados el retiro y disposición de las mercancías importadas
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Documental:
+ 
+\series default
+La DIAN revisa los documentos presentados (declaración de importación,
+ facturas,
+ certificados de origen,
+ etc.) para asegurarse de que toda la información sea correcta y completa.
+ |
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Inspección física:
+ 
+\series default
+En algunos casos,
+ la DIAN puede realizar una inspección física de la mercancía para verificar que coincide con lo declarado y cumple con las normativas aduaneras y comerciales.
+ Esta inspección es seleccionada mediante un sistema de gestión de riesgos.
+\end_layout
+
+\begin_layout Standard
+Para los dos últimos procesos administrativos una vez la DIAN verifica que todos los documentos están en orden y que los tributos han sido pagados,
+ autoriza la liberación de la mercancía.
+ Esto significa que las mercancías quedan en libertad de ser retiradas del depósito aduanero o de la zona primaria para su disposición final.
+\end_layout
+
+\begin_layout Standard
+Si se omite información,
+ se presentan documentos falsos o incorrectos,
+ o no se pagan los tributos debidos,
+ la DIAN puede imponer sanciones que van desde multas hasta la suspensión temporal de operaciones aduaneras,
+ e incluso la inhabilitación para operar como importador o exportador.
+\end_layout
+
+\begin_layout Standard
+El decreto también contempla mecanismos para facilitar el desaduanamiento a ciertos actores,
+ como los Operadores Económicos Autorizados (OEA).
+ Estos operadores,
+ que cumplen con altos estándares de seguridad y cumplimiento,
+ pueden beneficiarse de procedimientos aduaneros simplificados y tiempos de despacho más rápidos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img40-DesaduanizacionMercancia.png
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Desaduanización de la Mercancía
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+Fuente:
+ Archivo fotográfico del autor (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proceso aduanero de la importación
+\end_layout
+
+\begin_layout Standard
+El 
+\series bold
+Proceso Aduanero en el Régimen de Importación
+\series default
+ es el conjunto de trámites,
+ formalidades y controles que se aplican a las mercancías extranjeras que ingresan al territorio aduanero nacional.
+ Su objetivo principal es legalizar su estadía en el país,
+ garantizar el cumplimiento de las normas vigentes y asegurar el pago de los tributos aduaneros correspondientes.
+\end_layout
+
+\begin_layout Standard
+A grandes rasgos,
+ este proceso se compone de una serie de etapas secuenciales que van desde la llegada del medio de transporte hasta que la mercancía queda a libre disposición del importador.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways true
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img41-ProcesoAduaneroImportancion.png
+	width 100theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Proceso Aduanero en el Régimen de Importación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+\align center
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+Procedimientos Aduaneros:
+ Exportaciones
+\end_layout
+
+\end_inset
+
+Procedimientos Aduaneros:
+ 
+\emph on
+Exportaciones
+\begin_inset Newline newline
+\end_inset
+
+
+\size normal
+\emph default
+Decreto 1165 de Julio 02 de 2019,
+ Resolución 046 de Julio 26 de 2019
+\end_layout
+
+\begin_layout Section
+Exportación
+\end_layout
+
+\begin_layout Standard
+Exportar bienes es situar en otro territorio aduanero (por ejemplo,
+ otro país o zona franca) un producto o mercancía tangible o física.
+ Siempre existe temor por la posible complejidad del proceso o incluso mitos a la hora de exportar.
+ 
+\end_layout
+
+\begin_layout Standard
+Figura 40.
+ Normatividad Régimen de Exportación
+\end_layout
+
+\begin_layout Standard
+Fuente:
+ Esta investigación (2025)
+\end_layout
+
+\begin_layout Subsection
+Crear Empresa
+\end_layout
+
+\begin_layout Standard
+Es recomendable constituirse como empresa (si no lo han hecho aún) para legitimar la actividad de exportación de bienes colombianos.
+ Puede acercarse a la Cámara de Comercio más cercana y a través de los Servicios Empresariales,
+ le ofrecerán asesoría y apoyo para crear,
+ formalizar y consolidar su empresa.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img42-NormatividadRegimenExportacion.png
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Normatividad Régimen de Exportación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Registro Como Exportador
+\end_layout
+
+\begin_layout Standard
+En Colombia cualquier empresa o persona natural que pretenda realizar exportaciones,
+ debe tener un Registro único Tributario -RUT- que lo habilite ante la Dirección de Impuestos y Aduanas Nacionales -DIAN-;
+ si ya lo tiene debe verificar que esté registrado como exportador,
+ de lo contrario necesitará actualizarlo;
+ además,
+ al ejecutar operaciones de importación y/o exportación estará bligado a operar bajo Régimen Común,
+ por lo cual debe tramitar ante la DIAN su resolución de facturación.
+ No olvide que tendrá responsabilidad tributaria (declaración de IVA,
+ facturación,
+ retenciones,
+ exógena entre otros) estará inscrito en el Muisca y contará con una firma electrónica (DIAN).
+ Estos trámites y documentos se tramitan en las oficinas de la DIAN,
+ o vía 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+www.dian.gov.co
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Antes de Exportar
+\end_layout
+
+\begin_layout Subsubsection
+Clasificación Arancelaria
+\end_layout
+
+\begin_layout Standard
+Para continuar avanzando es indispensable que usted tenga definido su producto a exportar;
+ es necesario identificarlo dentro de la categorización internacional de mercancías encontrándolo dentro de la clasificación arancelaria.
+\end_layout
+
+\begin_layout Standard
+La clasificación arancelaria es un sistema de categorización de mercancías (Sistema Armonizado) cuyos primeros seis dígitos se denominan subpartida arancelaria e identifica un producto en cualquier país.
+ Además,
+ cada país en su Arancel de Aduanas agrega otros dígitos,
+ en general cuatro,
+ así completando 10 dígitos;
+ por ejemplo:
+ 2504.10.00.00 (Grafito natural en polvo),
+ 2515.11.00.00 (Mármol en bruto),
+ 1701.12.00.00 (Azúcar de remolacha en bruto),
+ 0905.20.00.00 (Vainilla triturada o pulverizada).
+\end_layout
+
+\begin_layout Standard
+Con la subpartida arancelaria podremos también detallar los impuestos o derechos de aduana que se cobran sobre las mercancías que ingresan en forma definitiva a un país;
+ también incluyen algunas condiciones de acceso a los mercados y las preferencias otorgadas en los acuerdos de libre comercio.
+\end_layout
+
+\begin_layout Subsubsection
+Solicitud de Vistos Buenos
+\end_layout
+
+\begin_layout Standard
+Según su producto,
+ el cumplimiento de este requisito tendrá que ver con la protección de la salud humana y animal ya que certifica la inocuidad y salubridad de los productos para uso o consumo de los seres humanos y animales;
+ así como la restricción o control por parte de nuestro país sobre ciertos materiales,
+ productos o mercancías.
+\end_layout
+
+\begin_layout Standard
+Algunos ejemplos:
+ ICA (Sanidad animal y vegetal),
+ INVIMA (Medicamentos,
+ Alimentos,
+ Productos Cosméticos),
+ Ministerio de Ambiente (Preservación Fauna y Flora Silvestre),
+ Secretaría de Ambiente (Madera y Semillas),
+ INGEOMINAS (Piedras Preciosas,
+ Esmeraldas y Metales Preciosos),
+ Ministerio de Cultura (Arte,
+ Cultura y Arqueología).
+ Algunos productos están sujetos a cuotas como el azúcar y la panela a Estados Unidos o el banano y atún a la Unión Europea,
+ entre otros.
+\end_layout
+
+\begin_layout Description
+Instituto
+\begin_inset space ~
+\end_inset
+
+Colombiana
+\begin_inset space ~
+\end_inset
+
+Agropecuario
+\begin_inset space ~
+\end_inset
+
+I.C.A.
+ Productos Vegetales,
+ Animales,
+ subproductos de origen animal,
+ subproductos de origen vegetal y requisitos para empaques de madera.
+\end_layout
+
+\begin_layout Description
+\begin_inset space ~
+\end_inset
+
+Corporación
+\begin_inset space ~
+\end_inset
+
+Autónoma
+\begin_inset space ~
+\end_inset
+
+Regional
+\begin_inset space ~
+\end_inset
+
+C.A.R.
+ Productos CITES (Convención sobre el Comercio Internacional de Especie Amenazadas de Fauna y Flora Silvestres) y productos NO CITES.
+\end_layout
+
+\begin_layout Description
+Instituto
+\begin_inset space ~
+\end_inset
+
+Nacional
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Vigilancia
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Medicamentos
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+Alimentos.
+ INVIMA.
+ Medicamentos,
+ bebidas alcohólicas,
+ alimentos,
+ productos electro médicos,
+ cosméticos y productos naturales de uso o consumo humano.
+\end_layout
+
+\begin_layout Description
+Instituto
+\begin_inset space ~
+\end_inset
+
+Geológico
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Minas
+\begin_inset space ~
+\end_inset
+
+INGEOMINAS.
+ Esmeraldas,
+ piedras preciosas,
+ productos como isótopos radioactivos agua pesada y en eneral controles que exigen por ser radioactivos.
+\end_layout
+
+\begin_layout Description
+MINCULTURA.
+ Ministerio de Cultura MINCULTURA.
+ Cuadros,
+ oleos y esculturas.,
+ piezas arqueológicas o réplicas.
+\end_layout
+
+\begin_layout Description
+Instituto
+\begin_inset space ~
+\end_inset
+
+Colombiano
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Antropología
+\begin_inset space ~
+\end_inset
+
+e
+\begin_inset space ~
+\end_inset
+
+Historia
+\begin_inset space ~
+\end_inset
+
+ICANH.
+ Piezas arqueológicas o réplicas
+\end_layout
+
+\begin_layout Description
+Industria
+\begin_inset space ~
+\end_inset
+
+Militar
+\begin_inset space ~
+\end_inset
+
+INDUMIL.
+ Insignias militares,
+ armas,
+ municiones y algunos productos químicos para fabricación de pólvora.
+\end_layout
+
+\begin_layout Description
+Fondo
+\begin_inset space ~
+\end_inset
+
+Nacional
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Estupefacientes
+\begin_inset space ~
+\end_inset
+
+F.N.E.
+ Algunos químicos controlados y materia prima controlada para la fabricación de medicamentos.
+\end_layout
+
+\begin_layout Description
+Superintendencia
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Vigilancia
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+Seguridad
+\begin_inset space ~
+\end_inset
+
+Privada SUPERVIGILANCIA.
+ Artículos de defensa personal,
+ vehículos blindados y circuitos cerrados de televisión.
+\end_layout
+
+\begin_layout Description
+ANLA.
+ Autoridad Nacional de Licencia Ambientales ANLA.
+ Exportación de Sustancias Agotadoras de la Capa de Ozono – SAOs
+\end_layout
+
+\begin_layout Description
+Ministerio
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Agricultura.
+ Los cereales y ganado en pie.
+\end_layout
+
+\begin_layout Description
+Supe
+\begin_inset space ~
+\end_inset
+
+Intendencia
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Industria
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+Comercio
+\begin_inset space ~
+\end_inset
+
+S.I.C.
+ Telas,
+ calzado,
+ neumáticos,
+ juguetes entre otros.
+\end_layout
+
+\begin_layout Description
+Autoridad
+\begin_inset space ~
+\end_inset
+
+Nacional
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Acuicultura
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+Pesca
+\begin_inset space ~
+\end_inset
+
+AUNAP.
+ Todo lo referente al sector acuícola y pesquero.
+\end_layout
+
+\begin_layout Description
+Ministerio
+\begin_inset space ~
+\end_inset
+
+del
+\begin_inset space ~
+\end_inset
+
+Transporte
+\begin_inset space ~
+\end_inset
+
+MINTRANSPORTE.
+ Vehículos de uso de carga,
+ vehículos como remolques o semirremolques y vehículos para el transporte de personas.
+\end_layout
+
+\begin_layout Section
+Selección de Mercados
+\end_layout
+
+\begin_layout Standard
+Señor/a empresario/a,
+ hasta aquí ha avanzado en la dirección correcta,
+ preparando su organización para el proceso exportador.
+ Ahora debe iniciar a perfilar los posibles mercados para su producto;
+ en este punto usted ya debe tener claro cuál o cuáles de sus productos desea exportar.
+\end_layout
+
+\begin_layout Standard
+Es fundamental conocer acerca de la potencialidad de su producto en los mercados internacionales,
+ es recomendable hacer una investigación sobre las características y aspectos del mercado externo como,
+ por ejemplo:
+ la demanda del país,
+ indicadores económicos básicos (precios,
+ tipo de cambio,
+ inflación,
+ importaciones,
+ exportaciones),
+ costumbres comerciales,
+ competencia,
+ condiciones de acceso,
+ acuerdos comerciales vigentes,
+ tendencias y gustos del mercado objetivo.
+\end_layout
+
+\begin_layout Section
+Términos de Negociación Internacional – INCOTERMS
+\end_layout
+
+\begin_layout Standard
+Previo a cualquier procedimiento aduanero (importación y/o exportación) es necesario celebrar un contrato o acuerdo de compraventa internacional con el cliente que precisa los términos y condiciones tanto para el vendedor como para el comprador.
+ En este contrato o acuerdo incluirá una de las normas de negociación internacional INCOTERMS,
+ los cuales estipulan costos,
+ punto de entrega,
+ documentación y riesgos involucrados en la distribución física de la mercancía,
+ para el importador y el exportador.
+\end_layout
+
+\begin_layout Subsection
+Cualquier Modo de Transporte
+\end_layout
+
+\begin_layout Description
+EXW
+\begin_inset space ~
+\end_inset
+
+(Ex
+\begin_inset space ~
+\end_inset
+
+Works/En
+\begin_inset space ~
+\end_inset
+
+fábrica).
+ El vendedor pone la mercancía a disposición del comprador en su local o en otro lugar convenido (fábrica,
+ almacén).
+ El comprador asume todos los costos y riesgos desde ese punto.
+\end_layout
+
+\begin_layout Description
+FCA
+\begin_inset space ~
+\end_inset
+
+(Free
+\begin_inset space ~
+\end_inset
+
+Carrier/Libre
+\begin_inset space ~
+\end_inset
+
+transportista).
+ El vendedor entrega la mercancía al transportista designado por el comprador en el lugar acordado.
+ El riesgo se transfiere al comprador cuando la mercancía se entrega al transportista.
+\end_layout
+
+\begin_layout Description
+CPT
+\begin_inset space ~
+\end_inset
+
+(Carriage
+\begin_inset space ~
+\end_inset
+
+Paid
+\begin_inset space ~
+\end_inset
+
+To/Transporte
+\begin_inset space ~
+\end_inset
+
+pagado
+\begin_inset space ~
+\end_inset
+
+hasta).
+ El vendedor paga el transporte hasta el destino acordado,
+ pero el riesgo se transfiere al comprador cuando la mercancía es entregada al transportista.
+\end_layout
+
+\begin_layout Description
+CIP
+\begin_inset space ~
+\end_inset
+
+(Carriage
+\begin_inset space ~
+\end_inset
+
+and
+\begin_inset space ~
+\end_inset
+
+Insurance
+\begin_inset space ~
+\end_inset
+
+Paid
+\begin_inset space ~
+\end_inset
+
+To/Transporte
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+seguro pagados hasta).
+ Similar al CPT,
+ pero el vendedor también contrata un seguro a favor del comprador hasta el destino acordado.
+\end_layout
+
+\begin_layout Description
+DAP
+\begin_inset space ~
+\end_inset
+
+(Delivered
+\begin_inset space ~
+\end_inset
+
+At
+\begin_inset space ~
+\end_inset
+
+Place/Entregado
+\begin_inset space ~
+\end_inset
+
+en
+\begin_inset space ~
+\end_inset
+
+lugar).
+ El vendedor entrega la mercancía en el lugar acordado,
+ asumiendo todos los costos y riesgos hasta ese punto,
+ excepto la descarga.
+\end_layout
+
+\begin_layout Description
+DPU
+\begin_inset space ~
+\end_inset
+
+(Delivered
+\begin_inset space ~
+\end_inset
+
+at
+\begin_inset space ~
+\end_inset
+
+Place
+\begin_inset space ~
+\end_inset
+
+Unloaded/Entregado
+\begin_inset space ~
+\end_inset
+
+en
+\begin_inset space ~
+\end_inset
+
+lugar
+\begin_inset space ~
+\end_inset
+
+descargado).
+ El vendedor entrega la mercancía descargada en el lugar de destino.
+ Este es el único Incoterm que incluye la obligación del vendedor de descargar la mercancía.
+\end_layout
+
+\begin_layout Description
+DDP
+\begin_inset space ~
+\end_inset
+
+(Delivered
+\begin_inset space ~
+\end_inset
+
+Duty
+\begin_inset space ~
+\end_inset
+
+Paid/Entregado
+\begin_inset space ~
+\end_inset
+
+con
+\begin_inset space ~
+\end_inset
+
+derechos
+\begin_inset space ~
+\end_inset
+
+pagados).
+ El vendedor asume todos los costos y riesgos,
+ incluyendo aranceles,
+ impuestos y trámites aduaneros,
+ hasta la entrega de la mercancía al comprador.
+\end_layout
+
+\begin_layout Subsection
+Exclusivos para transporte marítimo
+\end_layout
+
+\begin_layout Description
+FAS
+\begin_inset space ~
+\end_inset
+
+(Free
+\begin_inset space ~
+\end_inset
+
+Alongside
+\begin_inset space ~
+\end_inset
+
+Ship/Libre
+\begin_inset space ~
+\end_inset
+
+al
+\begin_inset space ~
+\end_inset
+
+costado
+\begin_inset space ~
+\end_inset
+
+del
+\begin_inset space ~
+\end_inset
+
+buque).
+ El vendedor entrega la mercancía al costado del buque (muelle) en el puerto de embarque acordado.
+ El comprador asume los costos y riesgos desde ese punto.
+\end_layout
+
+\begin_layout Description
+FOB
+\begin_inset space ~
+\end_inset
+
+(Free
+\begin_inset space ~
+\end_inset
+
+On
+\begin_inset space ~
+\end_inset
+
+Board/Libre
+\begin_inset space ~
+\end_inset
+
+a
+\begin_inset space ~
+\end_inset
+
+bordo).
+ El vendedor entrega la mercancía a bordo del buque designado por el comprador en el puerto de embarque acordado.
+ El riesgo se transfiere al comprador en ese momento.
+\end_layout
+
+\begin_layout Description
+CFR
+\begin_inset space ~
+\end_inset
+
+(Cost
+\begin_inset space ~
+\end_inset
+
+and
+\begin_inset space ~
+\end_inset
+
+Freight/Costo
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+flete).
+ El vendedor paga el costo del transporte hasta el puerto de destino,
+ pero el riesgo se transfiere al comprador cuando la mercancía se carga en el buque.
+\end_layout
+
+\begin_layout Description
+CIF
+\begin_inset space ~
+\end_inset
+
+(Cost,
+\begin_inset space ~
+\end_inset
+
+Insurance
+\begin_inset space ~
+\end_inset
+
+and
+\begin_inset space ~
+\end_inset
+
+Freight/Costo,
+\begin_inset space ~
+\end_inset
+
+seguro
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+flete).
+ Similar al CFR,
+ pero el vendedor también contrata un seguro para la mercancía hasta el puerto de destino.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img43-Incoterms.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Términos de Negociación Internacional “INCOTERMS”
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Momento de Exportar
+\end_layout
+
+\begin_layout Subsection
+Registro Ante la Ventanilla Única de Comercio Exterior –VUCE
+\end_layout
+
+\begin_layout Standard
+La Ventanilla Única de Comercio Exterior –VUCE– es la principal herramienta de facilitación del Comercio del País,
+ a través de la cual se canalizan trámites de comercio exterior de los usuarios vinculados a 21 entidades del Estado con el fin de intercambiar información,
+ eliminar redundancia de procedimientos,
+ implementar controles eficientes y promover actuaciones administrativas transparentes.
+\end_layout
+
+\begin_layout Standard
+Como exportador deberá inscribirse en la Ventanilla única de Comercio Exterior –VUCE- para lo cual deberá:
+\end_layout
+
+\begin_layout Enumerate
+Adquirir previamente su firma digital (es diferente a la firma electrónica para la DIAN);
+ realice el trámite contactando alguna de las entidades autorizadas por la ONAC (art.
+ 160 Decreto Ley 019 de 2012) para tal fin,
+ como por ejemplo Certicámara,
+ GSE - Gestión de Seguridad Electrónica S.A,
+ ANDES SCD entre otros.
+\end_layout
+
+\begin_layout Enumerate
+Cuando obtenga su firma digital,
+ ingrese a la VUCE a través de la página www.vuce.gov.co para solicitar su usuario aportando la información que la plataforma le solicite;
+ al final el sistema le otorgara un usuario y contraseña para acceder a los servicios de la VUCE.
+\end_layout
+
+\begin_layout Enumerate
+En esta ventanilla virtual,
+ mediante el Formulario único de comercio Exterior – FUCE-,
+ los exportadores pueden efectuar algunos trámites asociados a una subpartida arancelaria (Registro de Productores Nacionales,
+ trámite electrónico de autorización previa de exportación,
+ acceso a entidades gubernamentales vinculadas con la gestión de vistos buenos,
+ sistema de inspección simultánea,
+ registro ante Policía antinarcóticos entre otros).
+\end_layout
+
+\begin_layout Section
+Registro Para Determinación de Origen o Certificado de Origen (Si se requiere)
+\end_layout
+
+\begin_layout Standard
+Las exenciones o reducciones arancelarias otorgadas en las negociaciones de los acuerdos de libre comercio exigen la expedición de un Certificado de Origen para gozar de estas preferencias.
+\end_layout
+
+\begin_layout Standard
+Pero\SpecialChar ldots
+ ¿su producto necesita o no Certificado de Origen?
+ Cuando usted ha determinado su mercado o país al cual desea exportar conocerá si su mercancía necesita o no el Certificado de Origen.
+ 
+\end_layout
+
+\begin_layout Standard
+Si es su caso,
+ es decir que sí necesita este Certificado,
+ entonces debe diligenciar previamente la Declaración Juramentada de Determinación de origen (un formulario por cada producto),
+ en la página web de la DIAN en el módulo de Gestión Aduanera,
+ en este enlace:
+ 
+\end_layout
+
+\begin_layout Standard
+Es importante resaltar que se deben tener en cuenta los requerimientos tecnológicos señalados por la DIAN para la realización del proceso de manera virtual en cada equipo de cómputo.
+\end_layout
+
+\begin_layout Standard
+En el siguiente enlace encontrará el manual de cómo gestionar su Certificado de Origen y la configuración necesaria de su equipo de cómputo para evitar inconvenientes con la plataforma:
+ 
+\end_layout
+
+\begin_layout Standard
+Una vez realizada la Declaración Juramentada se procederá a solicitar el respectivo Certificado de Origen,
+ documento que exige la aduana del país de destino para acreditar las exenciones arancelarias;
+ se debe tramitar un certificado para cada despacho o envío.
+\end_layout
+
+\begin_layout Subsection
+Formas para tramitar los Certificados de Origen
+\end_layout
+
+\begin_layout Description
+Auto
+\begin_inset space ~
+\end_inset
+
+Calificación.
+ Procede a través de la página de la DIAN www.dian.gov.co,
+ para los acuerdos comerciales vigentes con América Latina y la Unión Europea.
+\end_layout
+
+\begin_layout Description
+Auto
+\begin_inset space ~
+\end_inset
+
+Certificación.
+ Pueden ser expedidos directamente por el exportador,
+ según formulario anexo en los acuerdos comerciales firmados con Estados Unidos,
+ Canadá,
+ Corea del sur,
+ triángulo del norte (Guatemala,
+ El Salvador y Honduras).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img44-ProcesoInicialRegimenExportacion.png
+	width 100theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Proceso Inicial en el Régimen de Exportación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Procedimiento Aduanero de Exportación de Bienes
+\end_layout
+
+\begin_layout Standard
+Si el monto de las mercancías que exportará es mayor a 30.000 USD (valor FOB),
+ debe realizar este procedimiento necesariamente a través de una AGENCIA DE ADUANAS que esté autorizada por la DIAN,
+ quien lo representará ante la autoridad aduanera y le guiará detalladamente en el siguiente proceso.
+\end_layout
+
+\begin_layout Standard
+Una vez esté lista la mercancía prepare los siguientes documentos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Factura comercial
+\series default
+ (escrita en inglés y español (si así se requiere),
+ valor (en moneda o divisa fuerte –USD- por ejemplo),
+ cantidad de producto,
+ subpartida arancelaria,
+ descripción del producto,
+ INCOTERM,
+ forma de pago,
+ etc.)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Lista de empaque
+\series default
+ (escrita en inglés y español (si así se requiere).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Vistos buenos o autorizaciones
+\series default
+ exigidos y emitidos por las diferentes autoridades competentes.
+ Ejemplo:
+ mineral carbón de control por la Agencia Nacional de Minería – ANM,
+ productos pesqueros controlados por la Autoridad Nacional de Acuicultura y Pesca – AUNAP,
+ entre otros.
+ Certificado de origen (si se requiere).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Otros documentos exigidos
+\series default
+ para el producto a exportar (fichas técnicas,
+ por ejemplo).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Certificado de orige
+\series default
+n (si se requiere).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Mandato
+\series default
+,
+ cuando actúe como declarante una agencia de aduanas o un apoderado.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Documentos de transporte
+\series default
+ (vía terrestre:
+ CPI y MIC)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Otros documentos exigido
+\series default
+s para el producto a exportar (fichas técnicas,
+ por ejemplo).
+\end_layout
+
+\begin_layout Section
+Etapas de la Exportación
+\end_layout
+
+\begin_layout Standard
+Aportar los documentos mencionados a la autoridad aduanera o a su agente de aduanas según le sean solicitados.
+ El trámite de exportación se presenta a través del servicio informático electrónico y consiste en:
+\end_layout
+
+\begin_layout Subsubsection
+1.
+\begin_inset space ~
+\end_inset
+
+Presentación
+\begin_inset space ~
+\end_inset
+
+y
+\begin_inset space ~
+\end_inset
+
+aceptación
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+una
+\begin_inset space ~
+\end_inset
+
+solicitud
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+autorización
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+embarque
+\begin_inset space ~
+\end_inset
+
+—
+
+\begin_inset space ~
+\end_inset
+
+SAE
+\begin_inset space ~
+\end_inset
+
+(Formato
+\begin_inset space ~
+\end_inset
+
+602):
+\end_layout
+
+\begin_layout Itemize
+El exportador o la agencia de aduanas presenta la información previa para declarar la mercancía bajo una modalidad de exportación.
+\end_layout
+
+\begin_layout Itemize
+La SAE tiene vigencia de un mes (1) contado a partir de la fecha de su aceptación por parte de la DIAN,
+ en cuyo término se debe embarcar la mercancía.
+\end_layout
+
+\begin_layout Itemize
+La SAE se entiende aceptada cuando la información ha sido entregada a través del servicio informático electrónico y se acuse el recibo satisfactorio de la misma.
+\end_layout
+
+\begin_layout Subsubsection
+2.
+\begin_inset space ~
+\end_inset
+
+Traslado
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+la
+\begin_inset space ~
+\end_inset
+
+mercancía:
+\begin_inset Newline newline
+\end_inset
+
+Fábrica hacia Zona Primaria.
+\end_layout
+
+\begin_layout Standard
+Con la SAE aceptada en el sistema,
+ se autoriza el movimiento físico de los bienes.
+ La carga se transporta desde las bodegas o plantas de producción del exportador con rumbo hacia el puerto,
+ aeropuerto,
+ cruce de frontera habilitado o una Zona Franca donde se surtirá el proceso de salida.
+\end_layout
+
+\begin_layout Subsubsection
+3.
+ Ingreso a Zona Primaria y Planilla de Recepción
+\begin_inset Newline newline
+\end_inset
+
+Control de Depósito o Puerto.
+\end_layout
+
+\begin_layout Standard
+Al llegar al punto de salida,
+ el operador del puerto,
+ aeropuerto o depósito habilitado recibe la carga y contrasta los pesos y volúmenes físicos contra lo registrado en la SAE.
+ Este operador emite electrónicamente la Planilla de Envío / Aviso de Ingreso,
+ informando formalmente a la DIAN que la mercancía ya se encuentra en zona primaria aduanera bajo su custodia.
+\end_layout
+
+\begin_layout Subsubsection
+4.
+ Autorización de embarque
+\end_layout
+
+\begin_layout Standard
+La DIAN autoriza la salida de la mercancía en forma automática o como resultado de una inspección física o documental.
+\end_layout
+
+\begin_layout Subsubsection
+5.
+ Certificación de Embarque
+\end_layout
+
+\begin_layout Standard
+El transportador internacional informa a la DIAN el total de la carga embarcada que sale del territorio aduanero colombiano en un medio de transporte marítimo,
+ aéreo o terrestre.
+\end_layout
+
+\begin_layout Subsubsection
+6.
+ Presentación de la declaración de exportación (Formato 600)
+\end_layout
+
+\begin_layout Standard
+El exportador o la agencia de aduanas presentan y firman la declaración de exportación cuando se ha efectuada la certificación de embarque.
+\end_layout
+
+\begin_layout Subsubsection
+7.
+ Análisis de Riesgo y Selectividad
+\begin_inset Newline newline
+\end_inset
+
+Inspección o Levante Automático.
+\end_layout
+
+\begin_layout Standard
+Una vez notificado el ingreso,
+ el sistema informático de la DIAN activa el módulo de selectividad basado en perfiles de riesgo.
+ El sistema determina de forma inmediata uno de tres caminos:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Levante automático
+\series default
+:
+ Autorización directa de embarque sin intervención humana.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Inspección documental
+\series default
+:
+ Revisión física y digital de los documentos soporte frente a lo declarado.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Inspección física
+\series default
+:
+ Un inspector de la DIAN (y en ocasiones la Policía Antinarcóticos) verifica presencialmente que la cantidad,
+ naturaleza y estado de la mercancía coincidan con la SAE.
+\end_layout
+
+\begin_layout Standard
+Al superar este paso con éxito,
+ la SAE pasa al estado de Autorización de Embarque.
+\end_layout
+
+\begin_layout Subsubsection
+8.
+ Embarque Físico de los Bienes
+\begin_inset Newline newline
+\end_inset
+
+Cargue al Medio de Transporte.
+\end_layout
+
+\begin_layout Standard
+La transportadora internacional procede con el cargue físico de las mercancías en el buque,
+ avión o vehículo terrestre autorizado.
+ El transportador asume la responsabilidad de la carga y genera el Manifiesto de Carga,
+ informando a la DIAN el total de bultos y peso neto que efectivamente sale del territorio aduanero nacional.
+\end_layout
+
+\begin_layout Subsubsection
+9.
+ Certificación de Embarque y DEX
+\begin_inset Newline newline
+\end_inset
+
+Formato 600
+\end_layout
+
+\begin_layout Standard
+Dentro de los siguientes cinco días hábiles al embarque de la carga,
+ el transportador transmite la información definitiva de salida.
+ El sistema de la DIAN cruza los datos de la SAE con el manifiesto real de carga.
+ Si todo coincide de forma exacta,
+ la SAE se convierte oficialmente en una Declaración de Exportación (DEX),
+ completando legalmente el proceso aduanero.
+\end_layout
+
+\begin_layout Section
+Exportación de mercancías que se rigen por normas especiales.
+\end_layout
+
+\begin_layout Subsubsection
+Celulares.
+ Decreto 2025 de 2015,
+ modificado por el Decreto 2142 de 2016
+\end_layout
+
+\begin_layout Standard
+Bajo la modalidad de exportación definitiva se podrán exportar los Residuos de Aparatos Eléctricos o Electrónicos - RAEE (teléfonos móviles inteligentes,
+ teléfonos móviles celulares o sus partes) para actividades de reacondicionamiento,
+ remanufactura o reutilización (reuso),
+ aprovechamiento,
+ valorización o dsiposición final de acuerdo a lo establecido en la ley Ley 1672 de 2013.
+\end_layout
+
+\begin_layout Standard
+La exportación de teléfonos móviles inteligentes o teléfonos móviles celulares y sus partes,
+ no está permitida por tráfico posta y envios urgentes.
+\end_layout
+
+\begin_layout Standard
+El viajero que salga del país podrá llevar hasta tres (3) unidades de teléfonos móviles inteligentes o teléfonos móviles celulares como parte de sus efectos personales.
+\end_layout
+
+\begin_layout Subsubsection
+Oro.
+ Resolución 46 de 2019,
+ modificada por la Resolución 39 de 2021.
+\end_layout
+
+\begin_layout Standard
+Para exportar piedras preciosas,
+ metales preciosos y manufacturas comprendidas en el capítulo 71 del Arancel de Aduanas,
+ exceptuando la bisutería;
+ el exportador debe estar inscrito y autorizado en el Registro Único de Comercializadores de Minerales (Rucom) de acuerdo con lo establecido en el Decreto 276 de 2015 del Ministerio de Minas y Energía,
+ y además,
+ contar con equipos de medición y herramientas necesarias para determinar la calidad y peso de la mercancía.
+\end_layout
+
+\begin_layout Standard
+Las mercancías deben ser embarcadas por la jurisdicción aduanera donde se encuentren y se acepte la SAE.
+\end_layout
+
+\begin_layout Subsubsection
+Café.
+ Decreto 1165 de 2019.
+\end_layout
+
+\begin_layout Standard
+Los exportadores de café deben estar registrados ante la Dirección de Comercio Exterior del Ministerio de Comercio Industria y Turismo.
+\end_layout
+
+\begin_layout Standard
+Los pasajeros podrán llevar hasta el equivalente de 10 kg de café tostado por persona en cada viaje.
+ 
+\end_layout
+
+\begin_layout Standard
+Los lugares habilitados para la exportación de café son los siguientes:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Marítimos
+\series default
+:
+ Barranquilla,
+ Cartagena,
+ Santa Marta y Buenaventura.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Aéreos
+\series default
+:
+ Bogotá,
+ Medellín,
+ Cali y Pereira.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Terrestres
+\series default
+:
+ Puente Internacional San Antonio - Cúcuta y Puente Rumichaca – Ipiales
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img45-ProcesoInicialRegimenExportacion.png
+	width 100theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Proceso Inicial en el Régimen de Exportación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Modalidades de Exportación
+\end_layout
+
+\begin_layout Standard
+Las modalidades de exportación son las diferentes formas para la salida de las mercancías de acuerdo con la finalidad que le quiera dar el exportador.
+ Están definidas en el Decreto 1165 de 2019 y se clasifican en tres grupos Definitiva,
+ Temporal y Especial.
+ Dichas modalidades son importantes porque a través de ellas podrás identificar la mejor manera de declarar tus exportaciones de acuerdo con las necesidades específicas y los diferentes requerimientos legales.
+\end_layout
+
+\begin_layout Subsection
+Exportación Definitiva
+\end_layout
+
+\begin_layout Standard
+El artículo 46 del Decreto 1165 del 2019 la define como la modalidad que regula la salida de mercancías nacionales o nacionalizadas,
+ del territorio aduanero nacional para uso o consumo definitivo en otro país.
+\end_layout
+
+\begin_layout Standard
+También considera exportación definitiva,
+ la salida de mercancías nacionales o nacionalizadas desde el resto del territorio aduanero nacioal a una zona franca en los términos previsto en el citado decreto.
+ 
+\end_layout
+
+\begin_layout Standard
+Para efectuar estas operaciones se debe cumplir con unos requisitos como los vistos buenos,
+ algunas exportaciones no están gravada por lo que se puede solicitar la devolución del IVA.
+\end_layout
+
+\begin_layout Subsection
+Exportación Temporal
+\end_layout
+
+\begin_layout Subsubsection
+Temporal por Perfeccionamiento Pasivo
+\end_layout
+
+\begin_layout Standard
+Salida temporal de mercancías nacionales o nacionalizadas,
+ del territorio aduanero colombiano,
+ para ser sometida a transformación,
+ elaboración o reparación en el exterior o en una zona franca,
+ debiendo ser reimportadas dentro del plazo señalado en la declaración de exportación que autorizó la salida de las mercancías.
+\end_layout
+
+\begin_layout Standard
+El exportador o declarante,
+ antes de la presentación y aceptación de la SAE,
+ debe solicitar a la DIAN la autorización del término de permanencia de la mercancía en el exterior.
+\end_layout
+
+\begin_layout Standard
+Esta modalidad termina si dentro del plazo autorizado,
+ la mercancía,
+ se reimporta en el mismo estado,
+ se reimporta por perfeccionamiento pasivo,
+ se exporta definitivamente o se destruye en el exterior;
+ situación que debe ser comprobada por la DIAN.
+\end_layout
+
+\begin_layout Subsubsection
+Temporal para Reimportación en el Mismo Estado
+\end_layout
+
+\begin_layout Standard
+Regula la salida temporal de mercancías nacionales o nacionalizadas,
+ del territorio aduanero colombiano,
+ para atender una finalidad especifica en el exterior,
+ en un plazo determinado,
+ durante el cual deberán ser reimportadas sin haber experimentado modificación alguna,
+ con excepción del deterioro normal originado en el uso que se haga de ellas.
+\end_layout
+
+\begin_layout Standard
+Esta modalidad termina si dentro del plazo autorizado,
+ la mercancía se reimporta en el mismo estado,
+ se exporta definitivamente o se destruye en el exterior;
+ situación que debe ser comprobada por la DIAN.
+\end_layout
+
+\begin_layout Standard
+En esta categoría por ejemplo se incluyen bienes que hacen parte del patrimonio cultural o productos que hacen parte de una feria en el exterior y que no se van a vender,
+ por ello no causan tributos aduaneros.
+\end_layout
+
+\begin_layout Subsection
+Reexportación
+\end_layout
+
+\begin_layout Standard
+Regula la salida definitiva del país de mercancías que ya fueron sometidas a “importación temporal” o “transformación y/o ensamble”.
+ También podrás declarar bajo esta modalidad bienes de capital o sus partes que hayan sido importados temporalmente al país y deban salir para su reparación o reemplazo,
+ ya sea en el exterior o en zonas francas.
+\end_layout
+
+\begin_layout Subsection
+Reembarque
+\end_layout
+
+\begin_layout Standard
+Es la modalidad de exportación que regula la salida efectiva del Territorio Aduanero Nacional de mercancías procedentes del exterior,
+ que se encuentran en lugar de arribo,
+ en almacenamiento en un depósito habilitado,
+ en un depósito franco o en centros de distribución logística internacional,
+ que no han sido sometidas a una modalidad de importación,
+ ni han quedado en abandono.
+\end_layout
+
+\begin_layout Standard
+El reembarque será obligatorio en los siguientes casos:
+\end_layout
+
+\begin_layout Enumerate
+Para las mercancías que hayan ingresado por lugares habilitados,
+ que tengan restricción de ingreso conforme con lo previsto en el parágrafo del artículo 75 del presente Decreto.
+ El reembarque se deberá solicitar dentro del plazo de permanencia en el lugar de arribo,
+ y deberá realizarse dentro del término de vigencia de la Solicitud de Autorización de Embarque,
+ so pena del decomiso directo.
+\end_layout
+
+\begin_layout Enumerate
+Cuando exista orden de autoridad competente.
+ El reembarque se deberá solicitar dentro del plazo de permanencia en el lugar de arribo y deberá realizarse dentro del término de vigencia de la Solicitud de Autorización de Embarque,
+ salvo que exista orden de destrucción,
+ en cuyo caso correrá por cuenta del consignatario o del destinatario.
+\end_layout
+
+\begin_layout Enumerate
+Cuando por error de despacho del transportador internacional,
+ se envía mercancía al Territorio Aduanero Nacional,
+ sin que este país sea su destino.
+\end_layout
+
+\begin_layout Enumerate
+Cuando en las diligencias de reconocimiento de carga o de inspección en el proceso de importación,
+ se encuentre mercancía diferente y se constate mediante análisis integral que se trata de un error de despacho y el importador sea un Operador Económico Autorizado.
+\end_layout
+
+\begin_layout Standard
+No procede el reembarque de las mercancías de prohibida o de restringida importación ni de sustancias químicas controladas por el Consejo Nacional de Estupefacientes.
+\end_layout
+
+\begin_layout Subsection
+Exportación por Tráfico Postal y Envíos Urgentes
+\end_layout
+
+\begin_layout Standard
+Artículo modificado por el artículo 89 del Decreto 360 de 2021.
+ El nuevo texto es el siguiente:
+ Podrán ser objeto de exportación,
+ por esta modalidad,
+ los envíos de correspondencia,
+ los envíos que salen del territorio nacional por la red oficial de correos y los envíos urgentes,
+ siempre que su valor no exceda de cinco mil dólares de los Estados Unidos de América (US$5.000) y requieran ágil entrega a su destinatario,
+ previo cumplimiento de los requisitos legales impuestos por otras autoridades.
+\end_layout
+
+\begin_layout Standard
+Las labores de recepción,
+ declaración y embarque,
+ de los envíos de correspondencia y los envíos que salen del territorio aduanero nacional por la red oficial de correos,
+ se adelantarán por la Sociedad Servicios Postales Nacionales,
+ o quien haga sus veces,
+ y las empresas legalmente autorizadas por ella;
+ las de envíos urgentes,
+ serán realizadas directamente por las empresas de transporte internacional que hubieren obtenido licencia del Ministerio de Tecnologías de la Información y las Comunicaciones,
+ como empresas de mensajería especializada y se encuentren inscritas ante la Unidad Administrativa Especial Dirección de Impuestos y Aduanas Nacionales (DIAN).
+\end_layout
+
+\begin_layout Subsection
+Exportación de muestras sin valor comercial
+\end_layout
+
+\begin_layout Standard
+La solicitud de autorización de embarque y la declaración correspondiente,
+ se tramitarán en la forma prevista en este Decreto para la exportación definitiva,
+ con embarque único y datos definitivos. 
+\end_layout
+
+\begin_layout Standard
+Para efectos del régimen de exportación se consideran muestras sin valor comercial aquellas mercancías declaradas como tales,
+ cuyo valor FOB total no sobrepase el monto que señale la Unidad Administrativa Especial Dirección de Impuestos y Aduanas Nacionales (DIAN) mediante resolución. 
+\end_layout
+
+\begin_layout Standard
+Las exportaciones de muestras sin valor comercial realizadas directamente por la Federación Nacional de Cafeteros o por Procolombia,
+ no estarán sujetas al monto establecido conforme con el inciso anterior. 
+\end_layout
+
+\begin_layout Standard
+No podrán exportarse bajo la modalidad de muestras sin valor comercial los siguientes productos: 
+\end_layout
+
+\begin_layout Enumerate
+Café.
+\end_layout
+
+\begin_layout Enumerate
+Esmeraldas.
+\end_layout
+
+\begin_layout Enumerate
+Artículos manufacturados de metales preciosos.
+\end_layout
+
+\begin_layout Enumerate
+Oro y sus aleaciones.
+\end_layout
+
+\begin_layout Enumerate
+Platino y metales del grupo platino.
+\end_layout
+
+\begin_layout Enumerate
+Cenizas de orfebrería,
+ residuos o desperdicios de oro.
+\end_layout
+
+\begin_layout Enumerate
+Productos minerales con concentrados auríferos,
+ plata y platino.
+\end_layout
+
+\begin_layout Enumerate
+Plasma humano,
+ órganos humanos,
+ estupefacientes y los productos cuya exportación está prohibida,
+ tales como los bienes que forman parte del patrimonio artístico,
+ histórico y arqueológico de la Nación.
+\end_layout
+
+\begin_layout Standard
+No quedan comprendidas en la prohibición aquí prevista,
+ las exportaciones de muestras de café efectuadas por la Federación Nacional de Cafeteros o las que de este producto se realicen mediante programas de exportación autorizados por la Federación. 
+\end_layout
+
+\begin_layout Standard
+Las exportaciones de muestras sin valor comercial de productos sujetos a vistos bueno,
+ deberán cumplir con este requisito al momento de presentar la solicitud de autorización de embarque,
+ sin perjuicio de la aplicación de lo previsto en el parágrafo 1 del artículo 349 del presente decreto.  
+\end_layout
+
+\begin_layout Subsection
+Exportaciones temporales realizadas por viajeros
+\end_layout
+
+\begin_layout Standard
+Serán objeto de esta modalidad de exportación las mercancías nacionales o nacionalizadas que lleven consigo los viajeros que salgan del país y que deseen reimportarlas a su regreso en el mismo estado,
+ sin pago de tributos. 
+\end_layout
+
+\begin_layout Standard
+No estarán comprendidos en esta modalidad y no serán objeto de declaración,
+ los efectos personales que lleven consigo los viajeros que salgan del territorio aduanero nacional. 
+\end_layout
+
+\begin_layout Standard
+Los viajeros deberán presentar ante la Autoridad Aduanera al momento de su salida del país,
+ las mercancías de que trata el artículo anterior,
+ acompañadas de la Declaración de Equipaje y Títulos representativos de Dinero - Viajeros,
+ donde aparezcan identificadas las mercancías 
+\end_layout
+
+\begin_layout Standard
+Constituyen documentos soporte de la Declaración de Equipaje y Títulos representativos de Dinero-viajeros,
+ el pasaporte y el tiquete de viaje 
+\end_layout
+
+\begin_layout Standard
+Los viajeros que deseen exportar bienes que formen parte del patrimonio histórico,
+ artístico o cultural de la Nación o de la fauna y flora colombianas,
+ deberán cumplir con los requisitos previstos para la exportación de esta clase de mercancías por las autoridades competentes. 
+\end_layout
+
+\begin_layout Subsection
+Exportación de menajes
+\end_layout
+
+\begin_layout Standard
+Serán objeto de esta modalidad de exportación los menajes de los residentes en el país,
+ que salen del territorio aduanero nacional para fijar su residencia en el exterior.
+ Para tal efecto,
+ deberán realizar el trámite de una solicitud de autorización de embarque y la declaración correspondiente,
+ en la forma prevista en este Decreto para la exportación definitiva,
+ como embarque único con datos definitivos. 
+\end_layout
+
+\begin_layout Standard
+La exportación del menaje también podrá realizarse por quien acredite ser heredero,
+ legatario,
+ representante de los herederos,
+ liquidador de la sucesión,
+ en caso de fallecimiento de residente en el país. 
+\end_layout
+
+\begin_layout Standard
+La solicitud de autorización de embarque deberá suscribirse y presentarse por propietario del menaje o la persona debidamente autorizada por este,
+ en la forma y condiciones que establezca la Unidad Administrativa Especial Dirección de Impuestos y Aduanas Nacionales (DIAN). 
+\end_layout
+
+\begin_layout Standard
+El plazo para presentar ante la aduana la solicitud de autorización de embarque,
+ para la exportación del menaje,
+ será de treinta (30) días calendario,
+ antes de la salida del propietario o de ciento veinte (120) días calendarios siguientes a la fecha de salida del mismo. 
+\end_layout
+
+\begin_layout Subsection
+Programas especiales de exportación
+\end_layout
+
+\begin_layout Standard
+Programa Especial de Exportación,
+ PEX,
+ es la operación mediante la cual,
+ en virtud de un acuerdo comercial,
+ un residente en el exterior compra materias primas,
+ insumos,
+ bienes intermedios,
+ material de empaque o envases,
+ de carácter nacional,
+ a un productor residente en Colombia,
+ disponiendo su entrega a otro productor también residente en el territorio aduanero nacional,
+ quien se obliga a elaborar y exportar los bienes manufacturados a partir de dichas materias primas,
+ insumos,
+ bienes intermedios o utilizando el material de empaque o envases según las instrucciones que reciba del comprador externo. 
+\end_layout
+
+\begin_layout Standard
+Los productores de materias primas,
+ insumos,
+ bienes intermedios,
+ envases y material de empaque,
+ de carácter nacional y los productores de bienes finales de que trata el presente artículo,
+ que deseen acceder a los Programas Especiales de Exportación (PEX) deberán inscribirse ante la Unidad Administrativa Especial Dirección de Impuestos y Aduanas Nacionales (DIAN). 
+\end_layout
+
+\begin_layout Standard
+Para efectos de la inscripción a que se refiere el inciso segundo del presente artículo,
+ los productores residentes en Colombia deberán ser personas jurídicas y no podrán tener deudas exigibles con la Unidad Administrativa Especial Dirección de Impuestos y Aduanas Nacionales (DIAN),
+ salvo que hayan celebrado y estén cumpliendo el acuerdo de pago. 
+\end_layout
+
+\begin_layout Standard
+Una misma persona jurídica podrá ser inscrita como productor de materias primas,
+ insumos,
+ bienes intermedios,
+ envases y material de empaque,
+ de carácter nacional y como productor de bienes finales para beneficiarse del Programa Especial de Exportación,
+ PEX. 
+\end_layout
+
+\begin_layout Standard
+Los beneficiarios inscritos como productor de materias primas,
+ insumos,
+ bienes intermedios,
+ envases y material de empaque y como productor de bienes finales,
+ no podrán actuar en forma simultánea con las dos calidades dentro de un mismo Programa Especial de Exportación,
+ PEX. 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img46-ModalidadesExportacion.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Modalidades de Exportación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Régimen de Tránsito Aduanero
+\end_layout
+
+\begin_layout Section
+Tránsito Aduanero
+\end_layout
+
+\begin_layout Standard
+En Colombia es un régimen aduanero que permite el transporte de mercancías,
+ bajo control aduanero,
+ desde una aduana de partida hasta una aduana de destino dentro del país o incluso fuera de él,
+ sin que estas mercancías sean objeto de impuestos o restricciones comerciales durante su transporte.
+\end_layout
+
+\begin_layout Section
+Antecedentes Históricos
+\end_layout
+
+\begin_layout Standard
+El tránsito aduanero en Colombia tiene sus raíces en las normativas internacionales y en los acuerdos comerciales que el país ha suscrito a lo largo de su historia.
+\end_layout
+
+\begin_layout Standard
+Durante el siglo XX,
+ Colombia comenzó a implementar políticas aduaneras más estructuradas,
+ especialmente con la creación de la Dirección de Impuestos y Aduanas Nacionales (DIAN) en 1993,
+ que unificó las funciones de recaudación de impuestos y control aduanero.
+\end_layout
+
+\begin_layout Section
+Aspectos Legales en Colombia
+\end_layout
+
+\begin_layout Standard
+El régimen de tránsito aduanero nacional en Colombia está regulado principalmente por el Decreto 1165 de 2019 (Régimen de Aduanas),
+ Resolución 046 de 2019,
+ circulares emitidas por la Dirección de Impuestos y Aduanas Nacionales (DIAN).
+\end_layout
+
+\begin_layout Standard
+Estas normas de igual manera establecen disposiciones para modernizar y simplificar los procesos aduaneros en Colombia,
+ su importancia radica en los siguientes aspectos:
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Simplificación de Trámites
+\end_layout
+
+\begin_layout Itemize
+Busca agilizar los procedimientos aduaneros,
+ reduciendo tiempos y costos para los operadores de comercio exterior.
+\end_layout
+
+\begin_layout Itemize
+Introduce medidas pr facilitar el tránsito aduanero,
+ tanto nacional como internacional
+\end_layout
+
+\begin_layout Subsubsection
+Fortalecimiento del Control Aduanero
+\end_layout
+
+\begin_layout Itemize
+Establece los mecanismos para mejorar la supervisión y el control de las mercancías en tránsito,
+ con el fin de prevenir el contrabando y el fraude aduanero.
+\end_layout
+
+\begin_layout Itemize
+Promueve el uso de tecnologías para el seguimiento y monitoreo de las mercancías.
+\end_layout
+
+\begin_layout Subsubsection
+Armonización con normas internacionales
+\end_layout
+
+\begin_layout Standard
+Alinea los procedimientos aduaneros colombianos con estándares internacionales,
+ como el Convenio de Kyoto revisado,
+ facilitando la integración del país en la cadena global de comercio.
+\end_layout
+
+\begin_layout Subsubsection
+Facilidades para el tránsito aduanero
+\end_layout
+
+\begin_layout Standard
+Define reglas claras para el tránsito aduanero internacional e interno,
+ incluyendo plazos,
+ responsabilidades de los actores involucrados (importadores,
+ exportadores,
+ transportadores,
+ etc.) y requisitos documentales.
+\end_layout
+
+\begin_layout Subsubsection
+Promoción del comercio exterior
+\end_layout
+
+\begin_layout Standard
+Al simplificar y modernizar los procesos,
+ el decreto busca fomentar las exportaciones e importaciones,
+ contribuyendo al crecimiento económico del país.
+\end_layout
+
+\begin_layout Standard
+En cuanto se refiere a la Resolución 046 de 2019 de la DIAN,
+ junto con sus modificaciones,
+ establecen disposiciones complementarias al Decreto 1165 de 2019 de carácter específico para la implementación del Régimen de tránsito Aduanero.
+\end_layout
+
+\begin_layout Subsubsection
+Regulación del Tránsito Aduanero
+\end_layout
+
+\begin_layout Itemize
+Define los procedimientos y requsitos para operar bajo el Régimen de tránsito Aduanero,
+ tanto para el tránsito nacional como internacional
+\end_layout
+
+\begin_layout Itemize
+Establece responsabilidades de los agentes de carga,
+ transportadores y demás actores involucrados.
+\end_layout
+
+\begin_layout Subsubsection
+Uso de Tecnologías
+\end_layout
+
+\begin_layout Standard
+Promueve la digilitación de los procesos aduaneros,
+ incluyendo la presentación electrónica de documentos y el uso de sistemas de seguimiento satelital para las mercancías en tránsito.
+\end_layout
+
+\begin_layout Subsubsection
+Plazos y Garantías
+\end_layout
+
+\begin_layout Itemize
+Establece plazos específicos para el Tránsito Aduanero,
+ dependiendo del tipo de operación (nacional o internacional)
+\end_layout
+
+\begin_layout Itemize
+Define los requisitos de garantías que deben presentar los operadores para cubrir posibles contingencias durante el transporte de las mercancías.
+\end_layout
+
+\begin_layout Standard
+Además,
+ Colombia ha adoptado normas internacionales como el Convenio de Kyoto revisado,
+ que busca simplificar y armonizar los procedimientos aduaneros a nivel global.
+\end_layout
+
+\begin_layout Section
+Objetivo principal
+\end_layout
+
+\begin_layout Standard
+Facilitar el traslado de mercancías desde:
+\end_layout
+
+\begin_layout Itemize
+Una aduana de ingreso al país hacia otra aduana donde se completará el proceso aduanero.
+\end_layout
+
+\begin_layout Itemize
+Un lugar habilitado en el país hacia el exterior,
+ sin que las mercancías sean nacionalizadas en el trayecto.
+\end_layout
+
+\begin_layout Section
+Tipos de tránsito aduanero:
+\end_layout
+
+\begin_layout Description
+Nacional:
+ Cuando las mercancías se transportan entre dos puntos dentro del territorio colombiano.
+\end_layout
+
+\begin_layout Description
+Internacional:
+ Cuando el tránsito inicia en Colombia con destino a un país extranjero o viceversa.
+\end_layout
+
+\begin_layout Description
+Cabotaje:
+ Es la modalidad del régimen de tránsito que regula el transporte de mercancías bajo control aduanero,
+ cuya circulación esté restringida por agua o por aire entre 2 puertos o aeropuertos habilitados dentro del territorio aduanero nacional.
+\end_layout
+
+\begin_layout Description
+Cabotaje
+\begin_inset space ~
+\end_inset
+
+Especial:
+ Es la modalidad del régimen de tránsito aduanero,
+ que regula el traslado de mercancías bajo control aduanero entre 2 puertos marítimos o fluviales,
+ las cuales,
+ después de ingresadas al territorio aduanero nacional,
+ se trasladarán,
+ previo cambio del medio de transporte,
+ al puerto nacional de destino,
+ debiendo tener la embarcación como ruta final un país extranjero.
+\end_layout
+
+\begin_layout Description
+Transbordo:
+ Es la modalidad del régimen de tránsito que regula el traslado de mercancías del medio de transporte utilizado para la llegada al territorio aduanero nacional,
+ a otro que efectúa la salida a país extranjero,
+ dentro de una misma aduana y bajo su control sin que se causen tributos aduaneros.
+\end_layout
+
+\begin_layout Description
+Transporte
+\begin_inset space ~
+\end_inset
+
+Multimodal:
+ Traslado de mercancías por 2 o más modos de transporte diferentes,
+ en virtud de un único contrato de transporte de este tipo,
+ desde un lugar situado en un país en que el operador de transporte toma la mercancía bajo su custodia hasta otro lugar designado para su entrega.
+\end_layout
+
+\begin_layout Section
+Operaciones Permitidas Dentro del Tránsito Aduanero
+\end_layout
+
+\begin_layout Standard
+Está permitido el tránsito para las mercancías que vayan a ser sometidas a una de las siguientes modalidades de importación y sólo podrá autorizarse para las mercancías que estén consignadas o se endosen a la nación,
+ entidades territoriales y las entidades descentralizadas,
+ a un usuario de zona franca,
+ a un titular de un depósito privado,
+ a un usuario aduanero permanente o a un usuario altamente exportador (ALTEX).
+ 
+\end_layout
+
+\begin_layout Itemize
+Importación para transformación y ensamble.
+\end_layout
+
+\begin_layout Itemize
+Importación temporal para perfeccionamiento activo de bienes de capital.
+\end_layout
+
+\begin_layout Itemize
+Importación temporal en desarrollo de sistemas especiales de importación – exportación.
+\end_layout
+
+\begin_layout Itemize
+Importación temporal para procesamiento industrial.
+\end_layout
+
+\begin_layout Standard
+La modalidad de tránsito aduanero podrá autorizarse a los usuarios industriales de las zonas francas para la salida de mercancías desde sus instalaciones con destino a un depósito de transformación y/o ensamble.
+\end_layout
+
+\begin_layout Standard
+También procederá la autorización de la modalidad de tránsito aduanero para unidades funcionales,
+ para las mercancías consignadas en el documento de transporte a los UAP,
+ ALTEX,
+ OEA tipo importador o exportador y usuarios aduaneros con trámite simplificado para cualquier modalidad de importación y en el régimen de exportación de conformidad con lo previsto en el artículo 361 del decreto 1165 de 2019 
+\end_layout
+
+\begin_layout Standard
+Para la salida de bienes de las zonas francas con destino al exterior,
+ por una aduana diferente a aquella que tenga jurisdicción sobre la respectiva zona,
+ deberá presentarse una declaración de tránsito.
+\end_layout
+
+\begin_layout Subsubsection
+Para efectos de la autorización de la operación del tránsito
+\end_layout
+
+\begin_layout Standard
+Las operaciones de tránsito se realizan mediante una declaración de tránsito,
+ solicitado para vehículos de empresas de transporte inscritas y autorizadas previamente por la aduana,
+ quienes deben constituir garantías a cargo de las mismas,
+ para respaldar el pago de tributos aduaneros y sanciones y para garantizar la finalización de la modalidad,
+ a cargo del transportador.
+\end_layout
+
+\begin_layout Standard
+El término de duración de cada operación,
+ lo fija la dirección seccional que lo autoriza en la aduana de partida,
+ con base en la tabla fijada por la Resolución 046 de 2019,
+ en su Artículo 470,
+ para cuya determinación se tuvieron en cuenta las distancias entre una y otra aduana de finalización.
+\end_layout
+
+\begin_layout Subsubsection
+Beneficios del régimen de tránsito aduanero.
+\end_layout
+
+\begin_layout Itemize
+Agiliza la logística y transporte de mercancías.
+\end_layout
+
+\begin_layout Itemize
+Permite optimizar las operaciones comerciales internacionales.
+\end_layout
+
+\begin_layout Itemize
+Reduce costos en impuestos mientras las mercancías están en tránsito.
+\end_layout
+
+\begin_layout Subsubsection
+Obligaciones y controles.
+\end_layout
+
+\begin_layout Itemize
+La mercancía en tránsito debe estar debidamente asegurada y sellada por la DIAN.
+\end_layout
+
+\begin_layout Itemize
+El transportador está obligado a cumplir con la ruta,
+ tiempos y condiciones establecidas en la declaración de tránsito.
+\end_layout
+
+\begin_layout Itemize
+Cualquier irregularidad puede derivar en sanciones administrativas o incluso el decomiso de las mercancías.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img47-RegimenTransitos.png
+	width 100theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Régimen de Tránsitos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proceso de Transito Aduanero
+\end_layout
+
+\begin_layout Subsubsection
+1.
+ Presentación de la Declaración de Transito Aduanero (DTA)
+\end_layout
+
+\begin_layout Standard
+El declarante presenta la DTA a la aduana de partida a través del sistema informático aduanero,
+ una vez descargada la mercancía sin haberla ingresado a depósito.
+\end_layout
+
+\begin_layout Subsubsection
+2.
+ Verificación
+\end_layout
+
+\begin_layout Standard
+El funcionario o el sistema informático verifica la correspondencia entra la información de la DTA y los documentos soporte y si existen causales para no aceptar la DTA.
+\end_layout
+
+\begin_layout Subsubsection
+3.
+ Aceptación de la DTA
+\end_layout
+
+\begin_layout Standard
+Si existe conformidad,
+ se asigna fecha y número de aceptación a la DTA.
+ 
+\end_layout
+
+\begin_layout Standard
+Si se detecta alguna inconsistencia o si hay una causal para no acepta la DTA que se pueda subsanar,
+ antes de que la mercancía deba ingresar a depósito,
+ se puede presentar una nueva DTA
+\end_layout
+
+\begin_layout Subsubsection
+4.
+ Revisión Documental
+\end_layout
+
+\begin_layout Standard
+El declarante entrega la DTA a la autoridad aduanera,
+ junto con los documentos soporte,
+ para revisión documental.
+\end_layout
+
+\begin_layout Subsubsection
+5.
+ Reconocimiento Externo de la Carga
+\end_layout
+
+\begin_layout Standard
+Cuando se detectan inconsistencias en la revisión documental o como resultado del proceso automático de selectividad
+\end_layout
+
+\begin_layout Subsubsection
+6.
+ Inspección Aduanera
+\end_layout
+
+\begin_layout Standard
+Si en la diligencia de reconocimiento la aduana:
+\end_layout
+
+\begin_layout Itemize
+Detecta carga en exceso:
+ aprehende los sobrantes,
+ anula la aceptación de la DTA y elabora planilla de envío,
+ asignando un depósito habilitado para que la mercancía amparada sea sometida a la aplicación de otro régimen.
+\end_layout
+
+\begin_layout Itemize
+Observa que:
+ los bultos o unidades de carga se encuentran en malas condiciones exteriores,
+ presentan diferencia de pesos frente a lo consignado en el documento de transporte,
+ o señales de violación o adulteración en los precintos o en las medidas de seguridad,
+ o cuando • la carga no sea susceptible de precintar,
+ se efectúa inspección aduanera,
+ la cual debe finalizar a más tardar dentro de las 24 horas siguientes al momento en que se detectó alguna de las inconsistencia o irregularidades dejando constancia en la DTA.
+\end_layout
+
+\begin_layout Subsubsection
+7.
+ Autorización de la Modalidad de Tránsito Aduanero (MTA)
+\end_layout
+
+\begin_layout Standard
+La aduana de partida autoriza a la MTA si las unidades de carga se encuentran debidamente selladas y precintadas.
+ Si no pueden precintar debida a condiciones de peso,
+ volumen,
+ características especiales o tamaño de los bultos,
+ la DIAN describe las mercancías en la DTA.
+\end_layout
+
+\begin_layout Standard
+La Aduana de partida asigna:
+ fecha y número de la autorización y el plazo establecido para la finalización de la MTA.
+ El itinerario y los plazos son estrictos si las unidades de carga no se pueden precintar.
+\end_layout
+
+\begin_layout Subsubsection
+8.
+ Informe a la Aduana de Destino
+\end_layout
+
+\begin_layout Standard
+Una vez autorizado el tránsito aduanero,
+ se informa a la aduana de destino y al depósito o usuario operador de la zona franca,
+ por cualquier sistema que garantice la transmisión de la información.
+\end_layout
+
+\begin_layout Subsubsection
+9.
+ Ejecución de la Operación de Tránsito Aduanero
+\end_layout
+
+\begin_layout Standard
+El transportador debe elegir la ruta entre la aduana de partida y de destino.
+ 
+\end_layout
+
+\begin_layout Standard
+Por razones debidamente justificadas,
+ el plazo se puede prorrogar sin superar:
+ 15 días calendario vía terrestre,
+ 20 días calendario vía férrea o 30 días calendario cuando se presente un cambio de ruta autorizado por bloqueo o cierre en las fronteras.
+ El administrador de la Aduana de partida puede suspender el plazo por los hechos notorios,
+ alteración del orden público o desastres naturales.
+\end_layout
+
+\begin_layout Subsubsection
+10.
+ Entrega de los Documentos Soporte
+\end_layout
+
+\begin_layout Standard
+El transportador entrega los documentos soporte de la operación al depósito habilitado o al usuario operador de la zona franca.
+\end_layout
+
+\begin_layout Subsubsection
+11.
+ Descargue de la Mercancía,
+ planilla de Recepción y Acta de Inconsistencias
+\end_layout
+
+\begin_layout Standard
+El empleado del depósito habilitado o el usuario operador de la zona franca rompe los precintos,
+ siempre y cuando sean los mismos que registra la DTA y estén en perfectas condiciones;
+ ordena el descargue de la mercancía;
+ confronta la cantidad,
+ el peso y el estado de los bultos y,
+ que la entrega se produzca dentro de los términos establecidos por la aduana de partida,
+ registrando la información requerida en la planilla de recepción.
+ Si se presentan adulteraciones o irregularidades,
+ se diligencia acta de inconsistencias,
+ pero si se detecta que los precintos se encuentran violados o con señales de adulteración,
+ o no coinciden con los señalados en la DTA,
+ se debe informar inmediatamente a la DIAN para que se hagan las verificaciones del caso a más tardar el día hábil siguiente.
+\end_layout
+
+\begin_layout Subsubsection
+12.
+ Informe a la Aduana de Partida
+\end_layout
+
+\begin_layout Standard
+El depósito o la zona franca,
+ comunica a la aduana de partida la información de la planilla de recepción.
+ Si se presentan inconsistencias,
+ estas son informadas o transmitidas en la respectiva acta de inconsistencia.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img48-TransitoAduanteroNacional.png
+	lyxscale 30
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tránsito Aduanero Nacional
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Tránsito Aduanero Internacional (TAI) 
+\end_layout
+
+\begin_layout Standard
+Es un régimen aduanero que permite el traslado de mercancías extranjeras de un punto a otro dentro del país o hacia otro país sin el pago inmediato de tributos aduaneros.
+ Se rige por normativas nacionales e internacionales para facilitar el comercio exterior y optimizar la logística del transporte internacional.
+\end_layout
+
+\begin_layout Subsection
+Características del Tránsito Aduanero Internacional en Colombia
+\end_layout
+
+\begin_layout Standard
+Regulación.
+ Está regulado por la DIAN (Dirección de Impuestos y Aduanas Nacionales) y debe cumplir con la normativa establecida en el Estatuto Aduanero (Decreto 1165 de 2019),
+ Resolución 046 de 2019 y demás normas de los acuerdos internacionales,
+ como el Convenio de Tránsito Aduanero Internacional de la CAN.
+\end_layout
+
+\begin_layout Standard
+Los artículos 3 y 104 del Acuerdo de Cartagena suscrito en 26 de mayo de 1969,
+ la Decisión 617 del 2005 sobre Tránsito aduanero Comunitario y la Resolución 2101 de 2019/10/25,
+ Reglamento de la Decisión 837 de 2019/04/29 (Transporte Internacional de mercancías por carretera);
+ Resolución 2329 May 2023 – Formatos de Declaración Tránsito Aduanero Internacional (DTAI) y Manifiesto Internacional de Carga (MIC) de la Decisión 617.
+ 
+\end_layout
+
+\begin_layout Standard
+El Acuerdo de Cartagena,
+ en su artículo 3,
+ destaca la importancia de emplear la integración física como mecanismo para alcanzar sus objetivos,
+ reconociendo además la necesidad de adelantar acciones en el campo de la integración fronteriza;
+\end_layout
+
+\begin_layout Standard
+Artículo 104 del citado Acuerdo establece que los Países Miembros desarrollarán acciones conjuntas para lograr un mejor aprovechamiento del espacio físico y el fortalecimiento de los servicios necesarios para el avance del proceso de integración económica de la Subregión en el campo de los transportes y las comunicaciones.
+\end_layout
+
+\begin_layout Standard
+En el marco de la Decisión 617 se aprobaron los formatos de Declaración de Tránsito Aduanero Internacional (DTAI) y Manifiesto de Carga Internacional (MCI);
+\end_layout
+
+\begin_layout Subsubsection
+Objetivo:
+\end_layout
+
+\begin_layout Standard
+Facilitar el paso de mercancías sin pagar tributos hasta su destino final,
+ siempre bajo control aduanero.
+\end_layout
+
+\begin_layout Section
+Aplicación del Tránsito Aduanero Internacional
+\end_layout
+
+\begin_layout Subsection
+Tránsito de entrada.
+\end_layout
+
+\begin_layout Standard
+Cuando la mercancía llega a un puerto,
+ aeropuerto o frontera terrestre de ingreso al país y debe ser trasladada hacia:
+\end_layout
+
+\begin_layout Itemize
+Otra aduana de destino para su salida del país.
+\end_layout
+
+\begin_layout Itemize
+Una zona franca para posterior exportación o procesamiento.
+\end_layout
+
+\begin_layout Itemize
+Otro modo o punto de salida internacional (por ejemplo,
+ del puerto marítimo de Buenaventura hacia la frontera terrestre con Ecuador).
+\end_layout
+
+\begin_layout Subsection
+Tránsito de salida
+\end_layout
+
+\begin_layout Itemize
+Cuando una mercancía que se encuentra en zona franca o depósito aduanero debe ser trasladada a:
+\end_layout
+
+\begin_layout Itemize
+Un punto de embarque o salida del territorio aduanero nacional,
+ con destino a otro país.
+\end_layout
+
+\begin_layout Subsubsection
+Ejemplo:
+\end_layout
+
+\begin_layout Standard
+Mercancías almacenadas en la Zona Franca de Rionegro (Antioquia) que se trasladan al aeropuerto El Dorado para exportación aérea.
+\end_layout
+
+\begin_layout Subsection
+Tránsito internacional de paso o “en tránsito por Colombia”.
+\end_layout
+
+\begin_layout Standard
+Cuando una mercancía de procedencia extranjera y con destino extranjero atraviesa el territorio colombiano sin ser importada ni transformada.
+\end_layout
+
+\begin_layout Itemize
+Se aplica comúnmente para mercancías en rutas terrestres internacionales (por ejemplo,
+ desde Ecuador hacia Panamá por territorio colombiano).
+\end_layout
+
+\begin_layout Itemize
+Estas operaciones requieren autorización expresa de la DIAN y garantías aduaneras.
+\end_layout
+
+\begin_layout Subsection
+Condiciones para aplicar el régimen
+\end_layout
+
+\begin_layout Itemize
+La operación debe ser autorizada por la DIAN mediante una Declaración de Tránsito Aduanero Internacional (DTAI).
+\end_layout
+
+\begin_layout Itemize
+El transportador debe estar habilitado por la DIAN.
+\end_layout
+
+\begin_layout Itemize
+Debe constituirse una garantía global o específica para asegurar el cumplimiento de las obligaciones aduaneras.
+\end_layout
+
+\begin_layout Itemize
+La mercancía viaja precintada y bajo control electrónico o físico hasta su destino.
+\end_layout
+
+\begin_layout Subsection
+Finalización del tránsito
+\end_layout
+
+\begin_layout Standard
+El régimen termina cuando:
+\end_layout
+
+\begin_layout Itemize
+La mercancía llega al lugar autorizado (aduana de destino,
+ zona franca o punto de salida).
+\end_layout
+
+\begin_layout Itemize
+Se realiza la verificación y levante por parte de la DIAN.
+\end_layout
+
+\begin_layout Itemize
+Se descargan los precintos y dispositivos de control.
+\end_layout
+
+\begin_layout Subsection
+Responsabilidad del Transportista
+\end_layout
+
+\begin_layout Standard
+La mercancía debe ser transportada por empresas de transporte internacional habilitadas y bajo la vigilancia de la DIAN.
+\end_layout
+
+\begin_layout Subsubsection
+Garantías:
+\end_layout
+
+\begin_layout Standard
+Se deben presentar garantías que aseguren el cumplimiento del régimen y el pago de impuestos si hay incumplimiento.
+\end_layout
+
+\begin_layout Subsection
+Tiempo de tránsito
+\end_layout
+
+\begin_layout Standard
+Existe un tiempo límite para completar el trayecto,
+ determinado según la distancia y medio de transporte.
+\end_layout
+
+\begin_layout Subsection
+Puntos de control
+\end_layout
+
+\begin_layout Standard
+Las mercancías deben seguir rutas autorizadas y someterse a inspecciones en puntos de control aduanero.
+\end_layout
+
+\begin_layout Subsection
+Beneficios del TAI
+\end_layout
+
+\begin_layout Itemize
+Facilita el comercio internacional,
+ agilizando los trámites aduaneros.
+\end_layout
+
+\begin_layout Itemize
+Reduce costos logísticos,
+ ya que no se pagan tributos hasta la nacionalización.
+\end_layout
+
+\begin_layout Itemize
+Mejora la competitividad del país como punto estratégico en rutas comerciales.
+\end_layout
+
+\begin_layout Itemize
+Mayor seguridad y trazabilidad en el transporte de mercancías.
+\end_layout
+
+\begin_layout Section
+Proceso para aplicar el Tránsito Aduanero Internacional (TAI) en Colombia
+\end_layout
+
+\begin_layout Standard
+Sigue una serie de pasos regulados por la DIAN y tratados internacionales.
+ 
+\end_layout
+
+\begin_layout Subsection
+Registro y Autorización
+\end_layout
+
+\begin_layout Itemize
+Empresas habilitadas:
+ Solo pueden operar el TAI las empresas de transporte internacional registradas ante la DIAN.
+\end_layout
+
+\begin_layout Itemize
+Garantía aduanera:
+ Se debe constituir una garantía que cubra los tributos aduaneros en caso de incumplimiento.
+\end_layout
+
+\begin_layout Itemize
+Solicitud de tránsito:
+ El declarante o transportista debe presentar la Declaración de Tránsito Aduanero (DTAI).
+\end_layout
+
+\begin_layout Subsection
+Presentación y Aceptación de la Declaración
+\end_layout
+
+\begin_layout Itemize
+Se presenta la DTAI en el sistema informático de la DIAN.
+\end_layout
+
+\begin_layout Itemize
+Se anexa la documentación soporte,
+ como el documento de transporte y la factura comercial.
+\end_layout
+
+\begin_layout Itemize
+La DIAN verifica la información y emite una autorización.
+\end_layout
+
+\begin_layout Subsection
+Inicio del Tránsito Aduanero
+\end_layout
+
+\begin_layout Itemize
+Una vez aprobada la DTAI,
+ se sella la mercancía y se asigna un plazo para su traslado.
+\end_layout
+
+\begin_layout Itemize
+La mercancía solo puede circular por rutas autorizadas y ser transportada por vehículos habilitados.
+\end_layout
+
+\begin_layout Itemize
+Se implementan dispositivos electrónicos de seguimiento en algunos casos.
+\end_layout
+
+\begin_layout Subsection
+Controles Durante el Tránsito
+\end_layout
+
+\begin_layout Itemize
+La mercancía puede ser revisada en puntos de control aduanero.
+\end_layout
+
+\begin_layout Itemize
+Si hay irregularidades,
+ la DIAN puede suspender el tránsito y aplicar sanciones.
+\end_layout
+
+\begin_layout Subsection
+Llegada y Finalización del Tránsito
+\end_layout
+
+\begin_layout Itemize
+La mercancía llega al puerto,
+ zona franca o aduana de destino.
+\end_layout
+
+\begin_layout Itemize
+Se notifica la llegada en el sistema aduanero.
+\end_layout
+
+\begin_layout Itemize
+La DIAN verifica que no haya alteraciones y procede a levantar el régimen de tránsito.
+\end_layout
+
+\begin_layout Subsection
+Posibles Destinos de la Mercancía
+\end_layout
+
+\begin_layout Itemize
+Reexportación:
+ Si la mercancía se envía fuera del país.
+\end_layout
+
+\begin_layout Itemize
+Importación:
+ Si se decide nacionalizarla en Colombia pagando tributos.
+\end_layout
+
+\begin_layout Itemize
+Otro Tránsito:
+ Si continúa su paso hacia otro país bajo otro régimen de tránsito.
+\end_layout
+
+\begin_layout Subsection
+Documentos Claves para el TAI
+\end_layout
+
+\begin_layout Itemize
+Declaración de Tránsito Aduanero Internacional (DTAI)
+\end_layout
+
+\begin_layout Itemize
+Manifiesto de carga
+\end_layout
+
+\begin_layout Itemize
+Factura comercial
+\end_layout
+
+\begin_layout Itemize
+Lista de empaque
+\end_layout
+
+\begin_layout Itemize
+Garantía aduanera
+\end_layout
+
+\begin_layout Standard
+Este proceso garantiza que la mercancía se transporte legalmente,
+ sin pagar tributos hasta su destino final.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways true
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img49-TransitoAduaneroInternacional.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tránsito Aduanero Internacional (TAI)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Zonas Francas
+\end_layout
+
+\begin_layout Standard
+1.
+ Importancia en Colombia
+\end_layout
+
+\begin_layout Standard
+En un contexto globalizado donde las empresas deben estar en busca de eficiencia productiva y de servicios,
+ encaminadas aumentar la productividad de todas las demás áreas empresariales y donde la competitividad es una exigencia del mercado,
+ genera que todas las organizaciones busquen herramientas y mecanismos que le aporten a cumplir los objetivos empresariales y de mercado,
+ siendo en este preciso momento donde las zonas francas cobran relevancia para todos los actores económicos del país.
+\end_layout
+
+\begin_layout Standard
+Por ejemplo,
+ el gobierno las determino como una fuente importante de generación de empleo,
+ inversión extranjera,
+ desarrollo regional,
+ dinamizadoras de la economía determinando que se ampliaran las concesiones entre 15 y 30 años.
+ Para los empresarios se convierten en una excelente inversión,
+ potencial de mercado e incluso fuente de reducción de costos y generador de innovación,
+ visión adaptada por grandes compañías como Uber que realizo la instalación del primer Centro de Excelencia en Colombia,
+ Amazon Web Services que instalo un Centro de Operaciones en Zona Franca de Bogotá o empresas multinacionales como Global Trainig Aviation – GTA o Virutex Ilko (chilena) que seleccionaron la Zona Franca del Cauca para desarrollar operaciones.
+\end_layout
+
+\begin_layout Standard
+Estas zonas han cobrado tal importancia en las operaciones aduaneras del país que se cataloga a la Zona Franca de Bogotá como un modelo a seguir por el desarrollo tecnológico alcanzado con la implementación de su sistema PICIZ,
+ al ser un software de última tecnología,
+ líder en el mercado nacional,
+ que garantiza la disminución de tiempos en las operaciones y que posee un enlace directo con la DIAN,
+ permitiendo aumentar la competitividad de las empresas que hacen uso de sus instalaciones.
+ Lo anterior aunado a factores de seguridad,
+ orden,
+ limpieza y confianza que se genera por los mismos requerimientos exigidos desde la normatividad aplicable,
+ junto con las diferentes ubicaciones dentro del territorio nacional como la costa atlántica,
+ pacífica y principales ciudades de nuestro territorio,
+ todo lo anterior potencializado por la ubicación estratégica de nuestro país en el continente americano,
+ como se diría coloquialmente “colocando la cereza del pastel”.
+\end_layout
+
+\begin_layout Standard
+Se debe resaltar el crecimiento obtenido por diferentes sectores como el de la salud,
+ que al hacer uso de esta herramienta gozan de beneficios como un impuesto de renta del 20%,
+ con exenciones en IVA para las compras de materias primas y el diferimiento de los tributos aduaneros a la importación,
+ fomentando la implementación de tecnología de punta,
+ acompañado de altos estándares de calidad y generación de reconocimiento a nivel internacional que trae como consecuencia un incremento en el flujo turístico destinado a la salud.
+ Por supuesto,
+ no hay que olvidar que los empresarios siempre estarán en función de inversiones rentables y con excelente retorno,
+ que se garantiza por medio de un cuidadoso y amplio estudio económico en pro del bienestar financiero de cualquier organización.
+ Lo anterior está respaldando el desarrollo de este modelo puesto que la Zona Franca de Bogotá cuenta actualmente con 113 empresas multinacionales que han invertido en dichas instalaciones otorgando un argumento adicional para determinar la importancia de esta herramienta en Colombia y otras partes del mundo.
+ 
+\end_layout
+
+\begin_layout Standard
+2.
+ Que es una Zona Franca
+\end_layout
+
+\begin_layout Standard
+Figura 47.
+ Definición de Zona Franca
+\end_layout
+
+\begin_layout Standard
+Fuente:
+ Esta investigación (2025)
+\end_layout
+
+\begin_layout Standard
+Las Zonas Francas son áreas geográficas delimitadas dentro del territorio nacional,
+ donde se desarrollan actividades industriales de bienes y servicios o actividades comerciales bajo una normatividad especial en materia tributaria,
+ aduanera y de comercio exterior.
+ Frente a operaciones con el resto del mundo,
+ las Zonas Francas se reconocen como parte del territorio nacional,
+ pero son igualmente consideradas un tercer país dentro del territorio aduanero nacional,
+ lo que significa que las operaciones de comercio internacional que se realicen en nuestro país bajo una Zona Franca se consideran como territorio extranjero para efectos de derechos de importación y exportación.
+ Estas zonas son reguladas por el Ministerio de Comercio,
+ Industria y Turismo y administradas por la Dirección de Impuestos y Aduanas Nacionales (DIAN).
+\end_layout
+
+\begin_layout Standard
+3.
+ Objetivos de las Zonas Francas
+\end_layout
+
+\begin_layout Standard
+• Servir de instrumento para la creación de empleo y para la captación de nuevas inversiones de capital.
+ 
+\end_layout
+
+\begin_layout Standard
+• Promover la competitividad en las regiones donde se establecen.
+ 
+\end_layout
+
+\begin_layout Standard
+• Desarrollar procesos industriales altamente productivos y competitivos.
+ 
+\end_layout
+
+\begin_layout Standard
+• Promover y generar economías de escala.
+ 
+\end_layout
+
+\begin_layout Standard
+• Simplificar los procedimientos del comercio de bienes y servicios,
+ con miras a facilitar su venta.
+ 
+\end_layout
+
+\begin_layout Standard
+• Atraer inversión extranjera para el desarrollo de las regiones.
+ 
+\end_layout
+
+\begin_layout Standard
+• Promover el encadenamiento con la industria radicada fuera de las Zonas Francas,
+ permitiendo que éstas,
+ puedan competir en igualdad de condiciones por el suministro de los bienes a las compañías localizadas en las zonas francas.
+\end_layout
+
+\begin_layout Standard
+• Permitir la nacionalización de algunos bienes cuando el consumidor intermedio o final así lo requieran,
+ es decir,
+ comercializar los productos sin tener fechas límites de legalización y tributación aduanera por parte del vendedor situado en la Zona Franca.
+\end_layout
+
+\begin_layout Standard
+4.
+ Normativa
+\end_layout
+
+\begin_layout Standard
+El régimen de zonas francas en Colombia está regulado por una serie de normas que establecen su funcionamiento,
+ beneficios y requisitos.
+ A continuación,
+ se detallan las principales disposiciones vigentes:
+\end_layout
+
+\begin_layout Standard
+Ley 1004 de 2005,
+ conocida como Ley Marco de Zonas Francas
+\end_layout
+
+\begin_layout Standard
+• Define los tipos de zonas francas
+\end_layout
+
+\begin_layout Standard
+• Establece los requisitos para crearlas
+\end_layout
+
+\begin_layout Standard
+• Define los beneficios tributarios,
+ aduaneros y comerciales para las empresas que se establezcan en ellas:
+\end_layout
+
+\begin_layout Standard
+• Títulos I y IV del Decreto 2147 del 2016
+\end_layout
+
+\begin_layout Standard
+◦ Actualiza y precisa varios aspectos de la Ley 1004
+\end_layout
+
+\begin_layout Standard
+◦ Facilita la operación y expansión de las zonas francas
+\end_layout
+
+\begin_layout Standard
+◦ Ajusta el régimen de las zonas francas a las dinámicas del comercio global y las prácticas internacionales
+\end_layout
+
+\begin_layout Standard
+• Título 8 del Decreto 1165 del 2019
+\end_layout
+
+\begin_layout Standard
+◦ Define las zonas primarias aduaneras,
+ que son los lugares donde se almacenan las mercancías que entran o salen del país. 
+\end_layout
+
+\begin_layout Standard
+◦ Son lugares habilitados por la Dirección de Impuestos y Aduanas Nacionales (DIAN).
+\end_layout
+
+\begin_layout Standard
+◦ En ellas se realizan las operaciones de recepción,
+ almacenamiento,
+ movilización o embarque de mercancías.
+\end_layout
+
+\begin_layout Standard
+◦ La administración aduanera ejerce su potestad de control y vigilancia en estas zonas.
+\end_layout
+
+\begin_layout Standard
+◦ El área declarada como Zona Franca también se considera Zona Primaria Aduanera.
+\end_layout
+
+\begin_layout Standard
+• Decreto 278 de 2021 
+\end_layout
+
+\begin_layout Standard
+◦ Introdujo novedades para facilitar los trámites y ampliar el rango de sectores que pueden beneficiarse de este régimen
+\end_layout
+
+\begin_layout Standard
+5.
+ Clases de Zonas Francas
+\end_layout
+
+\begin_layout Standard
+5.1.
+ Zonas Francas Permanentes (ZFP) 
+\end_layout
+
+\begin_layout Standard
+Se define como el área delimitada del territorio nacional en la que se instalan múltiples usuarios industriales o comerciales,
+ los cuales gozan de un tratamiento tributario,
+ aduanero y de comercio exterior especial,
+ según sea el caso,
+ resaltando la Zona Franca de Bogotá.
+ Decreto 2147 de 2016 Ministerio de Hacienda y Crédito Público,
+ conjunto con el Ministerio de Comercio,
+ Industria y Turismo.
+\end_layout
+
+\begin_layout Standard
+Estas zonas francas tienen como usuarios operadores:
+\end_layout
+
+\begin_layout Standard
+• Industriales de bienes
+\end_layout
+
+\begin_layout Standard
+• Industriales de servicios
+\end_layout
+
+\begin_layout Standard
+• Comerciales
+\end_layout
+
+\begin_layout Standard
+• Costa afuera:
+ Área del territorio nacional donde se pueden realizar actividades relacionadas con el sector de hidrocarburos. 
+\end_layout
+
+\begin_layout Standard
+5.2.
+ Zonas Francas Permanentes Especiales o Uniempresarial (ZFPE)
+\end_layout
+
+\begin_layout Standard
+Es el área delimitada del territorio nacional en la que se instala un único usuario industrial,
+ el cual goza de un tratamiento tributario,
+ aduanero y de comercio exterior especial,
+ haciendo énfasis en empresas instaladas en esas áreas francas y que han sido autorizas por el gobierno nacional – Ministerio de Comercio,
+ Industria y Turismo - MINCIT.
+ 
+\end_layout
+
+\begin_layout Standard
+Estas zonas francas tienen como usuarios operadores:
+\end_layout
+
+\begin_layout Standard
+• De bienes
+\end_layout
+
+\begin_layout Standard
+• De servicios
+\end_layout
+
+\begin_layout Standard
+• Agroindustriales:
+ Dedicadas exclusivamente al sector lácteo,
+ en los departamentos de Putumayo,
+ Nariño,
+ Huila,
+ Caquetá y Cauca,
+ y en el área metropolitana de Cúcuta en el departamento de Norte de Santander
+\end_layout
+
+\begin_layout Standard
+• Servicios de salud
+\end_layout
+
+\begin_layout Standard
+• De servicios portuarios:
+ declaradas a sociedades que estaban desarrollando las actividades que el proyecto planeaba promover y declaradas de conformidad con lo dispuesto en el parágrafo del artículo 39 del Decreto 2147 de 2016 (Ley 218 de 1995 y Decreto 890 de 1997)
+\end_layout
+
+\begin_layout Standard
+5.3.
+ Se establecen temporalmente para Zonas Francas Transitorias (ZFT) 
+\end_layout
+
+\begin_layout Standard
+eventos de gran magnitud:
+ ferias,
+ exposiciones,
+ congresos y seminarios de carácter internacional,
+ con el fin de facilitar la importación de bienes sin el pago de impuestos y que revistan importancia para economía y/o el comercio internacional,
+ y que gozan de un tratamiento tributario,
+ aduanero y de comercio exterior especial.
+ Denotando Corferias - Bogotá.
+\end_layout
+
+\begin_layout Standard
+Estas zonas francas tienen como usuarios operadores:
+\end_layout
+
+\begin_layout Standard
+• Administradores
+\end_layout
+
+\begin_layout Standard
+• Expositores
+\end_layout
+
+\begin_layout Standard
+6.
+ Beneficios de las Zonas Francas
+\end_layout
+
+\begin_layout Standard
+Las empresas que operan en zonas francas cuentan con ventajas clave
+\end_layout
+
+\begin_layout Standard
+6.1.
+ Tributarios
+\end_layout
+
+\begin_layout Standard
+• A partir del 1o de enero de 2017,
+ la tarifa del impuesto sobre la renta y complementarios para las personas jurídicas que sean usuarios de zona franca será del 20%.
+ 
+\end_layout
+
+\begin_layout Standard
+• No se causan,
+ ni pagan derechos de aduana,
+ para mercancías que se introduzcan a la zona franca desde el exterior.
+ 
+\end_layout
+
+\begin_layout Standard
+• Exención de IVA para materias primas,
+ insumos y bienes terminados adquiridos en el territorio aduanero nacional para el uso exclusivo de la zona franca.
+ 
+\end_layout
+
+\begin_layout Standard
+• La base gravable sobre la cual se liquida el impuesto sobre las ventas – IVA en la importación de productos terminados producidos en el exterior o en zona franca con componentes nacionales exportados,
+ serán la establecida en el inciso primero de este artículo adicionado el valor de los costos de producción y sin descontar el valor del componente nacional exportado”.
+ Ley 1943 de diciembre 28 de 2018.
+ 
+\end_layout
+
+\begin_layout Standard
+• Las exportaciones que se realicen desde Zona Franca a terceros países son susceptibles de beneficiarse de los acuerdos comerciales internacionales celebrados por Colombia.
+ 
+\end_layout
+
+\begin_layout Standard
+• Posibilidad de vender al territorio nacional los servicios o bienes sin cuotas ni restricciones,
+ previo desaduanamiento de la mercancía,
+ pago de tributos aduaneros de importación correspondientes.
+ 
+\end_layout
+
+\begin_layout Standard
+6.2.
+ Beneficios Aduaneros
+\end_layout
+
+\begin_layout Standard
+• Toda clase de bienes como materias primas o maquinaria pueden introducirse a las zonas francas,
+ estos bienes están sujetos a transito aduanero y al ingreso a Zona Franca tendrán que presentar Formulario de Movimientos de Mercancías.
+ 
+\end_layout
+
+\begin_layout Standard
+• La introducción de productos provenientes de otros países a las zonas francas no se considera un acto de importación,
+ por lo que no causa el Impuesto al Valor Agregado “IVA” (19%),
+ ni ningún tipo de gravamen arancelario (5%,
+ 10%,
+ 15%,
+ 20%,
+ 35% porcentajes que depende del bien a importar).
+ 
+\end_layout
+
+\begin_layout Standard
+• Los bienes elaborados total o parcialmente en la zona franca obtienen los mismos incentivos que se otorgan a las exportaciones desde el territorio aduanero nacional;
+ entre otros,
+ el Plan Vallejo,
+ Programas Especiales de Exportación,
+ régimen de origen.
+ 
+\end_layout
+
+\begin_layout Standard
+• Podrán nacionalizar las materias primas,
+ bienes transformados o terminados dentro de la zona franca retirándolos o no de la misma.
+\end_layout
+
+\begin_layout Standard
+• La salida de productos finales al territorio aduanero nacional corresponda a bienes elaborados en un ciento por ciento (100%) con materias primas o insumos nacionales o en libre circulación,
+ será obligatorio la elaboración y autorización del formulario de movimiento de mercancías y el certificado de integración.
+ 
+\end_layout
+
+\begin_layout Standard
+• Finalización en zona franca de los regímenes de importación temporal,
+ de transformación y/o ensamble,
+ de importación temporal de mercancías alquiladas o con contrato de arrendamiento con opción de compra "Leasing".
+ 
+\end_layout
+
+\begin_layout Standard
+Ejemplo:
+ 
+\end_layout
+
+\begin_layout Standard
+Un empresario en Colombia decide realizar una importación de una máquina que será utilizada únicamente durante 12 meses,
+ para esta operación decide realizar la importación por medio del régimen suspensivo de importación temporal para reexportación en el mismo estado,
+ según el Decreto 1165 de 2019 después de finalizados los doce meses se debe reexportar la mercancía o importarla definitivamente con pago de los impuestos de importación requeridos.
+ En aplicación a la norma y para el efecto de la reexportación,
+ no necesariamente debe salir a otro país,
+ sino por el contrario puede ser reexportarla con destino a una zona franca,
+ reduciendo así los correspondientes costos logísticos.
+ 
+\end_layout
+
+\begin_layout Standard
+6.3.
+ Beneficios logísticos y de comercio exterior
+\end_layout
+
+\begin_layout Standard
+• Los Usuarios de Zona Franca se consideran para efectos de la legislación aduanera como Operadores de Comercio Exterior.
+ 
+\end_layout
+
+\begin_layout Standard
+• Se permite el ingreso de bienes usados,
+ pero no se tienen en cuenta para cumplir compromisos de inversión.
+ 
+\end_layout
+
+\begin_layout Standard
+• Se puede modificar el plan maestro en materia de inversiones ajustándose a la realidad económica.
+ 
+\end_layout
+
+\begin_layout Standard
+• Los bienes nacionales que se exportan a las zonas francas industriales obtienen los beneficios de los incentivos otorgados a las exportaciones colombianas a terceros países.
+ 
+\end_layout
+
+\begin_layout Standard
+• Los bienes transformados,
+ manufacturados o elaborados que salen de una Zona Franca al resto del mundo se considera exportación.
+ 
+\end_layout
+
+\begin_layout Standard
+• La autorización de zonas francas permanentes especiales no podrá exceder de 30 años,
+ inferior al de las zonas francas permanentes que podrán obtener una prórroga por el mismo término inicial,
+ es decir,
+ hasta un máximo de 60 años.
+ 
+\end_layout
+
+\begin_layout Standard
+• Tratamiento de los subproductos,
+ productos defectuosos,
+ mercancías deterioradas,
+ residuos,
+ desperdicios y saldos,
+ el Usuario operador podrá autorizar la destrucción de estos sin necesidad que intervenga la DIAN.
+ 
+\end_layout
+
+\begin_layout Standard
+• Se permite el procesamiento parcial por fuera de la zona franca hasta por un 40% del costo de producción total de los bienes o servicios en el año fiscal,
+ salvo,
+ usuarios autorizados o calificados antes de la entrada en vigor del presente Decreto,
+ cuyo porcentaje puede ser superior.
+ 
+\end_layout
+
+\begin_layout Standard
+7.
+ Operaciones que se Pueden Desarrollar en Zonas Francas
+\end_layout
+
+\begin_layout Standard
+Para conocer cuáles son las operaciones que se pueden realizar en Zonas Francas,
+ es importante aclarar que cualquier movimiento de ingreso y/o salida de mercancías de la Zona Franca,
+ debe tener en cuenta dos premisas importantes:
+ 
+\end_layout
+
+\begin_layout Standard
+Autorización concedida por el usuario operador.
+ Requisito principal:
+ Formulario de Movimiento de Mercancías de ingreso o egreso,
+ donde se indique el tipo de operación a realizar y las condiciones de la misma y siempre presentando el documento de transporte consignado a un usuario de la Zona Franca.
+\end_layout
+
+\begin_layout Standard
+7.1.
+ Operaciones Desde el Resto del Mundo con Destino a Zonas Francas Permanentes
+\end_layout
+
+\begin_layout Standard
+La introducción a Zona Franca Permanente,
+ de bienes procedentes de otros países por parte de los usuarios “NO se considerará una importación”,
+ y sólo requerirá que los bienes aparezcan en el documento de transporte consignados a un usuario de la zona.
+ 
+\end_layout
+
+\begin_layout Standard
+Estos bienes deberán ser entregados por el transportador al Usuario Operador de la respectiva Zona Franca en sus instalaciones,
+ dentro de los plazos establecidos y los requisitos para cumplir para el ingreso es la presentación del documento de transporte consignado o endosado a un usuario de zona franca y el diligenciamiento del Formulario de Movimiento de Mercancías.
+ 
+\end_layout
+
+\begin_layout Standard
+Se debe mencionar que si el traslado a la Zona Franca se hace en la misma jurisdicción aduanera donde ingresaron las mercancías se hará el traslado por medio de la planilla de envió y cuando la Zona Franca se encuentra en diferente jurisdicción se deberá presentar y realizar el correspondiente transito aduanero.
+\end_layout
+
+\begin_layout Standard
+7.2.
+ Operaciones de Zonas Francas Permanentes con Destino al Resto del Mundo
+\end_layout
+
+\begin_layout Standard
+Esta operación es considerada una exportación,
+ para efectos de normas de origen,
+ de convenios internacionales,
+ del crédito para exportación y para la exención de impuestos,
+ la venta y salida a mercados externos de los bienes producidos,
+ transformados,
+ elaborados o almacenados,
+ por los Usuarios Industriales.
+ 
+\end_layout
+
+\begin_layout Standard
+Este procedimiento sólo requiere la autorización del Usuario Operador,
+ quien deberá incorporar la información correspondiente en el sistema informático aduanero.
+ 
+\end_layout
+
+\begin_layout Standard
+Estas operaciones requieren la elaboración de la factura comercio o documento soporte y NO requieren del diligenciamiento de la solicitud de autorización de embarque ni de declaración de exportación,
+ pero sí del diligenciamiento del Formulario de Movimiento de Mercancías,
+ en donde conste la salida de los bienes a mercados externos,
+ conforme lo establezca la Dirección de Impuestos y Aduanas Nacionales.
+\end_layout
+
+\begin_layout Standard
+7.3.
+ Operaciones Desde el Resto del Territorio Aduanero Nacional con Destino a Zona Franca Permanente
+\end_layout
+
+\begin_layout Standard
+Esta operación se considera exportación definitiva para efecto de los beneficios tributarios,
+ la introducción a Zona Franca Permanente desde el Territorio Aduanero Nacional,
+ de materias primas,
+ partes,
+ insumos y bienes terminados nacionales o en libre disposición,
+ necesarios para el normal desarrollo de su objeto social a favor del Usuario Operador o Industrial de Bienes y de Servicios,
+ siempre y cuando dicha mercancía sea efectivamente recibida por ellos.
+\end_layout
+
+\begin_layout Standard
+Las exportaciones temporales que se realicen desde el resto del Territorio Aduanero Nacional a Zona Franca con el objeto de someter el bien a un proceso de perfeccionamiento por un usuario no tendrán derecho a los beneficios previstos para las exportaciones definitivas.
+\end_layout
+
+\begin_layout Standard
+Los bienes sometidos a regímenes de admisión temporal o de transformación y/o ensamble de importación temporal de mercancías alquiladas.
+ o con contrato de arrendamiento con opción de compra “Leasing”,
+ podrán finalizar su régimen con la reexportación a una Zona Franca Permanente siendo el requisito documentario esencial el formulario de movimientos de mercancías.
+ 
+\end_layout
+
+\begin_layout Standard
+7.4.
+ Operaciones de Zonas Francas Permanentes con Destino al Resto del Territorio Aduanero Nacional
+\end_layout
+
+\begin_layout Standard
+La introducción al resto del Territorio Aduanero Nacional de bienes procedentes de la Zona Franca será considerada una importación y se someterá a las normas y requisitos exigidos a las importaciones.
+\end_layout
+
+\begin_layout Standard
+Cuando se importen al resto del Territorio Aduanero Nacional mercancías fabricadas,
+ producidas,
+ reparadas,
+ reacondicionadas o reconstruidas en Zona Franca,
+ los tributos aduaneros a la importación se liquidarán y pagarán sobre el valor en aduana de las mercancías importadas,
+ en el estado que se presenten al momento de la valoración,
+ deduciendo el valor agregado nacional y/o el valor de los bienes nacionalizados que se les haya incorporado en la Zona Franca teniendo presente que el derecho de aduana aplicable corresponde a la subpartida del producto final,
+ requiriendo para este tipo de operaciones que el Usuario Operador expedida el certificado de integración de las materias primas e insumos nacionales y extranjeros utilizados en el proceso de producción.
+\end_layout
+
+\begin_layout Standard
+Los desperdicios sin valor comercial resultantes en el proceso de producción podrán salir de forma definitiva al resto del Territorio Aduanero Nacional siempre y cuando el usuario operador autorice este tipo de operación,
+ en dado caso que los residuos y desperdicios tengan valor comercial,
+ en concepto del Usuario Industrial,
+ se someterán al trámite de importación ordinaria.
+ 
+\end_layout
+
+\begin_layout Standard
+El Usuario Operador podrá autorizar la salida temporal de la Zona Franca Permanente,
+ con destino al resto del Territorio Aduanero Nacional,
+ de materias primas,
+ insumos y bienes intermedios,
+ para realizar parte del proceso industrial en el resto del Territorio Aduanero Nacional.
+ 
+\end_layout
+
+\begin_layout Standard
+El Usuario Operador podrá autorizar la salida temporal de bienes de capital,
+ partes o sus repuestos de la Zona Franca Permanente,
+ con destino al resto del Territorio Aduanero Nacional,
+ para su reparación,
+ revisión o mantenimiento.
+\end_layout
+
+\begin_layout Standard
+7.5.
+ Operaciones de Usuarios Entre Zonas Francas
+\end_layout
+
+\begin_layout Standard
+Las operaciones que se realicen entre usuarios de zonas francas sean usuarios industriales de bienes,
+ de servicios y/o comerciales,
+ ubicados o no en la misma zona franca,
+ podrán celebrar entre sí negocios jurídicos relacionados según el tipo de usuario de que se trate y las actividades para las cuales fueron calificados.
+ Lo anterior,
+ sin perjuicio del tratamiento de las disposiciones que el Estatuto Tributario y el ordenamiento jurídico establezcan para este tipo de operaciones.
+\end_layout
+
+\begin_layout Standard
+La compraventa de bienes,
+ el arrendamiento de maquinaria y equipo,
+ la producción,
+ la transformación y/o ensamble de equipos son operaciones permitidas dentro de los diferentes tipos de Usuarios de la Zona Franca,
+ siempre en cumplimiento de su objeto habilitado y en el marco legal contemplado y teniendo presente que los movimientos de mercancías asociados a la ejecución de los negocios jurídicos de usuarios que se encuentren ubicados así sea dentro de la misma zona franca requieren también el diligenciamiento y autorización del Formulario de Movimiento de Mercancías.
+\end_layout
+
+\begin_layout Standard
+Cuando estas operaciones impliquen el traslado de bienes de una Zona Franca Permanente a otra que se encuentre en una jurisdicción aduanera diferente,
+ el Usuario Industrial o Comercial,
+ deberá presentar una declaración de tránsito aduanero y cuando el traslado de mercancías no implique cambio de jurisdicción aduanera,
+ el Usuario Operador elaborará en el sistema informático aduanero una planilla de envío.
+\end_layout
+
+\begin_layout Standard
+Cuando el traslado de mercancías no implique cambio de jurisdicción aduanera,
+ el Usuario Operador elaborará en el sistema informático aduanero una planilla de envío.
+\end_layout
+
+\begin_layout Standard
+Figura 48.
+ Zona Francas Régimen de Comercio Exterior
+\end_layout
+
+\begin_layout Standard
+Fuente:
+ Esta investigación (2025)
+\end_layout
+
+\begin_layout Standard
+8.
+ Papel de las Zonas Francas en el Comercio Exterior del País
+\end_layout
+
+\begin_layout Standard
+Si bien desde hace años se estableció un régimen tributario,
+ aduanero y de comercio exterior para las Zonas Francas,
+ su aporte al comercio exterior es pequeño frente al volumen total de importaciones y exportaciones. 
+\end_layout
+
+\begin_layout Standard
+Según el DANE,
+ en abril de 2023 las exportaciones de mercancías desde las Zonas Francas colombianas registraron una disminución de 22,8%,
+ al pasar de USD $295,1 millones FOB,
+ en abril 2022,
+ a USD $227,9 millones FOB en el mismo mes de 2023.
+\end_layout
+
+\begin_layout Standard
+Las exportaciones desde las Zonas Francas pasaron de 343,2 millones de dólares,
+ en abril de 2019,
+ a 227,9 en abril de 2023.
+ Por su parte,
+ sus importaciones pasaron de 152,9 a 172,0 en el mismo periodo. 
+\end_layout
+
+\begin_layout Standard
+En 2022,
+ los países de origen de la mayor parte de las importaciones a las Zonas Francas fueron Estados Unidos,
+ China,
+ Venezuela,
+ Canadá y Barbados,
+ de acuerdo con el DANE.
+\end_layout
+
+\begin_layout Standard
+Los principales países de destino de los mayores envíos desde las Zonas Francas fueron en 2022,
+ Estados Unidos,
+ Venezuela,
+ Puerto Rico,
+ Egipto,
+ los Países Bajos,
+ Surinam y China.
+\end_layout
+
+\begin_layout Standard
+De acuerdo con la Asociación de Zonas Francas de las Américas (AZFA),
+ en el mundo existen unas 3.500 Zonas Francas,
+ de las cuales 400 se encuentran en Latinoamérica,
+ el 11,4% del total.
+\end_layout
+
+\begin_layout Standard
+Colombia tiene casi el 25% de las zonas francas de Latinoamérica
+\end_layout
+
+\begin_layout Standard
+De las 400 que existen en Latinoamérica,
+ en Colombia se encuentran.
+ Esto es un poco más del 25%.120
+\end_layout
+
+\begin_layout Standard
+Sin duda,
+ Colombia es uno de los países con mayor cantidad de Zonas Francas.
+ A pesar de esto,
+ tienen un recurrente déficit comercial y un comportamiento exportador lánguido,
+ que se concentra en unos cuantos productos básicos,
+ que en su inmensa mayoría no se exportan desde ellas.
+\end_layout
+
+\begin_layout Standard
+Según el DANE,
+ las Zonas Francas en 2022 exportaron en total USD $2.787,5 millones e importaron USD $2.258,8,
+ para un superávit en ese año de USD $528 millones.
+ Las exportaciones de las Zonas Francas representan apenas el 5% de las exportaciones totales del país,
+ que en 2022 fueron de USD $56.910 millones.
+\end_layout
+
+\begin_layout Standard
+Con respecto a las importaciones del 2022,
+ que fueron de USD $77.413 millones,
+ la participación de las Zonas Francas fue de apenas el 3% del total. 
+\end_layout
+
+\begin_layout Standard
+En la última reforma tributaria se mantuvo el impuesto de renta del 20% y no el general del 35%.
+ La condición fue que presentaran un plan exportador,
+ con miras a que se cumpliera el objeto para el cual fueron creadas. 
+\end_layout
+
+\begin_layout Standard
+Según la última reforma tributaria,
+ las actividades de comercio interior serán gravadas con la tarifa general,
+ en un proceso que se realizará entre 2023 y 2024.
+\end_layout
+
+\begin_layout Standard
+Figura 49.
+ Zonas Francas en Colombia
+\end_layout
+
+\begin_layout Standard
+Fuente:
+ Elaboración propia (2025)
 \end_layout
 
 \end_body
