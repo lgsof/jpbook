@@ -187,10 +187,6 @@ Counter figure
     Within ""
 End
 
-Preamble
-    \renewcommand{\figurename}{TESTFIGURE}
-EndPreamble
-
 
 # ============================================================
 # 6. GLOBAL PDF SETTINGS
@@ -1269,7 +1265,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/image01-HistoriaComercio.pdf
+	filename imagenes/image01-HistoriaComercio.png
 	width 100theight%
 
 \end_inset
@@ -1556,7 +1552,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/image02-HistoriaComercioColombia-300dpi.pdf
+	filename imagenes/image02-HistoriaComercioColombia-300dpi.png
 	lyxscale 10
 	width 100theight%
 
@@ -1667,7 +1663,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/image03-FactoresProduccion.pdf
+	filename imagenes/image03-FactoresProduccion.png
 	width 24cm
 
 \end_inset
@@ -1826,7 +1822,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/image04-SectoresProductivos.pdf
+	filename imagenes/image04-SectoresProductivos.png
 	width 100theight%
 
 \end_inset
@@ -2766,7 +2762,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/image05-AreasAfines.pdf
+	filename imagenes/image05-AreasAfines.png
 	width 100theight%
 
 \end_inset
@@ -2982,7 +2978,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/image06-TeoriasComercio.pdf
+	filename imagenes/image06-TeoriasComercio.png
 	lyxscale 50
 	width 100text%
 
@@ -3714,7 +3710,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img07-IntroEconomiaInternacional.pdf
+	filename imagenes/img07-IntroEconomiaInternacional.png
 	width 100theight%
 
 \end_inset
@@ -3875,7 +3871,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img08-EconomiaComercioExt.pdf
+	filename imagenes/img08-EconomiaComercioExt.png
 	width 100col%
 
 \end_inset
@@ -4720,7 +4716,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img09-PoliticaComercial.pdf
+	filename imagenes/img09-PoliticaComercial.png
 	width 100theight%
 
 \end_inset
@@ -4998,7 +4994,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img10-PoliticaComercialColombiana.pdf
+	filename imagenes/img10-PoliticaComercialColombiana.png
 	width 100theight%
 
 \end_inset
@@ -5076,7 +5072,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img11-BalanzaComercial.pdf
+	filename imagenes/img11-BalanzaComercial.png
 	lyxscale 50
 	width 100col%
 
@@ -5270,7 +5266,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img12-PoliticaIntegracionComercial.pdf
+	filename imagenes/img12-PoliticaIntegracionComercial.png
 	width 100theight%
 
 \end_inset
@@ -5800,7 +5796,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img13-IntegracionComercial.pdf
+	filename imagenes/img13-IntegracionComercial.png
 	width 100theight%
 
 \end_inset
@@ -6119,7 +6115,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img14-AdministracionOrganizaciones.pdf
+	filename imagenes/img14-AdministracionOrganizaciones.png
 	width 100theight%
 
 \end_inset
@@ -6194,7 +6190,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img15-EntidadesClaveComercioExterior.pdf
+	filename imagenes/img15-EntidadesClaveComercioExterior.png
 	lyxscale 50
 	width 100text%
 
@@ -6386,7 +6382,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img16-AdministracionPulbica.pdf
+	filename imagenes/img16-AdministracionPulbica.png
 	width 100theight%
 
 \end_inset
@@ -6699,7 +6695,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img17-LegislacionAduanera.pdf
+	filename imagenes/img17-LegislacionAduanera.png
 	width 100theight%
 
 \end_inset
@@ -6975,7 +6971,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img18-LegislacionAduanera.pdf
+	filename imagenes/img18-LegislacionAduanera.png
 	width 100theight%
 
 \end_inset
@@ -7306,7 +7302,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img19-SistemaArancelario.pdf
+	filename imagenes/img19-SistemaArancelario.png
 	width 100text%
 
 \end_inset
@@ -7348,7 +7344,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img20-ClasificacionArancelaria.pdf
+	filename imagenes/img20-ClasificacionArancelaria.png
 	width 100theight%
 
 \end_inset
@@ -7768,7 +7764,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img21-ArancelesTarifas.pdf
+	filename imagenes/img21-ArancelesTarifas.png
 	width 100theight%
 
 \end_inset
@@ -9188,7 +9184,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img22-OrigenMercancias.pdf
+	filename imagenes/img22-OrigenMercancias.png
 
 \end_inset
 
@@ -9336,7 +9332,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img23-PruebasOrigen.pdf
+	filename imagenes/img23-PruebasOrigen.png
 
 \end_inset
 
@@ -9489,7 +9485,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img24-DeclaracionExportador.pdf
+	filename imagenes/img24-DeclaracionExportador.png
 	lyxscale 50
 	width 65text%
 
@@ -9582,7 +9578,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img25-AutoCerificacionExportador.pdf
+	filename imagenes/img25-AutoCerificacionExportador.png
 	width 65text%
 
 \end_inset
@@ -9624,7 +9620,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img26-CertificadoOrigenAladi.pdf
+	filename imagenes/img26-CertificadoOrigenAladi.png
 	lyxscale 50
 	height 98theight%
 
@@ -9856,7 +9852,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img27-ValoracionAduanera.pdf
+	filename imagenes/img27-ValoracionAduanera.png
 	width 100theight%
 
 \end_inset
@@ -10084,7 +10080,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img28-DeclaracionAndinaValor.pdf
+	filename imagenes/img28-DeclaracionAndinaValor.png
 	lyxscale 10
 	width 100text%
 
@@ -10209,7 +10205,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img29-ObligacionAduanera.pdf
+	filename imagenes/img29-ObligacionAduanera.png
 	lyxscale 50
 	width 100text%
 
@@ -10494,7 +10490,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img30-ObligatoriedadAduanera.pdf
+	filename imagenes/img30-ObligatoriedadAduanera.png
 	width 100theight%
 
 \end_inset
@@ -10757,7 +10753,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img31-DocsSoporteDIM.pdf
+	filename imagenes/img31-DocsSoporteDIM.png
 	width 100theight%
 
 \end_inset
@@ -10820,7 +10816,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img31-FormularioDeclaracionImportacion.pdf
+	filename imagenes/img31-FormularioDeclaracionImportacion.png
 	lyxscale 30
 	height 95theight%
 
@@ -11127,7 +11123,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img33-VigenciaTributosAduaneros.pdf
+	filename imagenes/img33-VigenciaTributosAduaneros.png
 	lyxscale 30
 	width 100text%
 
@@ -11170,7 +11166,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img34-FormularioReciboPago.pdf
+	filename imagenes/img34-FormularioReciboPago.png
 	lyxscale 30
 	height 95theight%
 
@@ -11547,7 +11543,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img35-ModalidadesRegimenImportacion.pdf
+	filename imagenes/img35-ModalidadesRegimenImportacion.png
 	width 100theight%
 
 \end_inset
@@ -11662,7 +11658,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img36-TiposDeclaracion.pdf
+	filename imagenes/img36-TiposDeclaracion.png
 	lyxscale 50
 	width 100text%
 
@@ -11950,7 +11946,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img37-RequisitosPreviosImportar.pdf
+	filename imagenes/img37-RequisitosPreviosImportar.png
 	width 100theight%
 
 \end_inset
@@ -12011,7 +12007,7 @@ Se debe tramitar el registro,
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img01-QuieroImportar.pdf
+	filename imagenes/_img01-QuieroImportar.png
 	width 60text%
 	special frame=1.0pt
 
@@ -12047,7 +12043,7 @@ La clasificación arancelaria se realiza con anterioridad,
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img02-RealiceClasificacionArancelaria.pdf
+	filename imagenes/_img02-RealiceClasificacionArancelaria.png
 	width 75text%
 	special frame=1.0pt
 
@@ -12209,7 +12205,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/_img03-EstudioMercado.pdf
+	filename imagenes/_img03-EstudioMercado.png
 	width 60text%
 
 \end_inset
@@ -12220,7 +12216,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/_img03b-EstudioMercado.pdf
+	filename imagenes/_img03b-EstudioMercado.png
 	width 60text%
 
 \end_inset
@@ -12253,7 +12249,7 @@ En el documento se debe precisar el Incoterm 2020 sobre el que se está cotizand
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img04-ElementosCotizacion.pdf
+	filename imagenes/_img04-ElementosCotizacion.png
 	width 75text%
 	special frame=1.5pt
 
@@ -13111,7 +13107,7 @@ Todos los datos que figuren en la factura comercial deben coincidir con los de 
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img05-ReciboFacturaComercial.pdf
+	filename imagenes/_img05-ReciboFacturaComercial.png
 	lyxscale 50
 	width 60text%
 	special frame=1.0pt
@@ -13160,7 +13156,7 @@ Reembolsables:
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img06-CartaCredito.pdf
+	filename imagenes/_img06-CartaCredito.png
 	lyxscale 50
 	width 65text%
 	special frame=1.0pt
@@ -13173,7 +13169,7 @@ Reembolsables:
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img07-CartaCredito02.pdf
+	filename imagenes/_img07-CartaCredito02.png
 	lyxscale 50
 	width 65text%
 	special frame=1.0pt
@@ -13186,7 +13182,7 @@ Reembolsables:
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img07-CartaCredito03.pdf
+	filename imagenes/_img07-CartaCredito03.png
 	lyxscale 50
 	width 65text%
 	special frame=1.0pt
@@ -13199,7 +13195,7 @@ Reembolsables:
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img08-CartaCredito04.pdf
+	filename imagenes/_img08-CartaCredito04.png
 	lyxscale 50
 	width 60text%
 	special frame=1.0pt
@@ -13235,7 +13231,7 @@ El certificado de origen es el documento expedido por una entidad competente med
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img09-CertificadoOrigen.pdf
+	filename imagenes/_img09-CertificadoOrigen.png
 	lyxscale 60
 	width 65text%
 	special frame=1.0pt
@@ -13270,7 +13266,7 @@ Para escoger el medio de transporte adecuado es necesario considerar los costos 
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img10-TranporteMaritimo.pdf
+	filename imagenes/_img10-TranporteMaritimo.png
 	lyxscale 50
 	width 70text%
 	special frame=1.0pt
@@ -13283,7 +13279,7 @@ Para escoger el medio de transporte adecuado es necesario considerar los costos 
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img10-TranporteAereo.pdf
+	filename imagenes/_img10-TranporteAereo.png
 	lyxscale 50
 	width 70text%
 	special frame=1.0pt
@@ -13296,7 +13292,7 @@ Para escoger el medio de transporte adecuado es necesario considerar los costos 
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img10-TranporteFerroviario.pdf
+	filename imagenes/_img10-TranporteFerroviario.png
 	lyxscale 50
 	width 70text%
 	special frame=1.0pt
@@ -13461,7 +13457,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img38-IngresoDeposito.pdf
+	filename imagenes/img38-IngresoDeposito.png
 	lyxscale 60
 	width 80text%
 
@@ -13668,7 +13664,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img39-AlmacenamientoDeposito.pdf
+	filename imagenes/img39-AlmacenamientoDeposito.png
 	lyxscale 60
 	width 70text%
 
@@ -13834,7 +13830,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img40-DesaduanizacionMercancia.pdf
+	filename imagenes/img40-DesaduanizacionMercancia.png
 	width 70text%
 
 \end_inset
@@ -13895,7 +13891,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img41-ProcesoAduaneroImportancion.pdf
+	filename imagenes/img41-ProcesoAduaneroImportancion.png
 	width 100theight%
 
 \end_inset
@@ -13984,7 +13980,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img42-NormatividadRegimenExportacion.pdf
+	filename imagenes/img42-NormatividadRegimenExportacion.png
 	lyxscale 50
 	width 100text%
 
@@ -14781,7 +14777,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img43-Incoterms.pdf
+	filename imagenes/img43-Incoterms.png
 	width 100text%
 
 \end_inset
@@ -14933,7 +14929,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img44-ProcesoInicialRegimenExportacion.pdf
+	filename imagenes/img44-ProcesoInicialRegimenExportacion.png
 	width 100theight%
 
 \end_inset
@@ -15067,8 +15063,6 @@ Aportar los documentos mencionados a la autoridad aduanera o a su agente de adua
 \end_layout
 
 \begin_layout Enumerate
-
-\series bold
 Presentación
 \begin_inset space ~
 \end_inset
@@ -15141,8 +15135,6 @@ La SAE se entiende aceptada cuando la información ha sido entregada a través d
 
 \end_deeper
 \begin_layout Enumerate
-
-\series bold
 Traslado
 \begin_inset space ~
 \end_inset
@@ -15170,8 +15162,6 @@ Con la SAE aceptada en el sistema,
 
 \end_deeper
 \begin_layout Enumerate
-
-\series bold
 Ingreso a Zona Primaria y Planilla de Recepción:
  Control de Depósito o Puerto.
 \end_layout
@@ -15187,8 +15177,6 @@ Al llegar al punto de salida,
 
 \end_deeper
 \begin_layout Enumerate
-
-\series bold
 Autorización de embarque.
 \end_layout
 
@@ -15199,8 +15187,6 @@ La DIAN autoriza la salida de la mercancía en forma automática o como resultad
 
 \end_deeper
 \begin_layout Enumerate
-
-\series bold
 Certificación de Embarque.
 \end_layout
 
@@ -15212,8 +15198,6 @@ El transportador internacional informa a la DIAN el total de la carga embarcada 
 
 \end_deeper
 \begin_layout Enumerate
-
-\series bold
 Presentación de la declaración de exportación (Formato 600).
 \end_layout
 
@@ -15224,8 +15208,6 @@ El exportador o la agencia de aduanas presentan y firman la declaración de expo
 
 \end_deeper
 \begin_layout Enumerate
-
-\series bold
 Análisis de Riesgo y Selectividad:
  Inspección o Levante Automático.
 \end_layout
@@ -15272,8 +15254,6 @@ Al superar este paso con éxito,
 
 \end_deeper
 \begin_layout Enumerate
-
-\series bold
 Embarque Físico de los Bienes:
  Cargue al Medio de Transporte.
 \end_layout
@@ -15407,7 +15387,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img45-ProcesoInicialRegimenExportacion.pdf
+	filename imagenes/img45-ProcesoInicialRegimenExportacion.png
 	width 100theight%
 
 \end_inset
@@ -15811,7 +15791,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img46-ModalidadesExportacion.pdf
+	filename imagenes/img46-ModalidadesExportacion.png
 	width 100text%
 
 \end_inset
@@ -16176,7 +16156,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img47-RegimenTransitos.pdf
+	filename imagenes/img47-RegimenTransitos.png
 	width 100theight%
 
 \end_inset
@@ -16395,7 +16375,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img48-TransitoAduanteroNacional.pdf
+	filename imagenes/img48-TransitoAduanteroNacional.png
 	lyxscale 30
 	width 100text%
 
@@ -16789,7 +16769,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img49-TransitoAduaneroInternacional.pdf
+	filename imagenes/img49-TransitoAduaneroInternacional.png
 
 \end_inset
 
@@ -16888,7 +16868,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img50-ZonaFranca.pdf
+	filename imagenes/img50-ZonaFranca.png
 	lyxscale 60
 	width 100text%
 
@@ -17541,7 +17521,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img51-ZonasFrancasRegimenComex.pdf
+	filename imagenes/img51-ZonasFrancasRegimenComex.png
 	lyxscale 30
 	width 100text%
 
@@ -17680,7 +17660,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img52-ZonasFrancasColombia.pdf
+	filename imagenes/img52-ZonasFrancasColombia.png
 	width 100theight%
 
 \end_inset
@@ -17875,7 +17855,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img53-BuquePortaContenedores.pdf
+	filename imagenes/img53-BuquePortaContenedores.png
 	lyxscale 50
 	width 100text%
 
@@ -18028,7 +18008,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img54-TiposContenedores.pdf
+	filename imagenes/img54-TiposContenedores.png
 	lyxscale 30
 	width 100text%
 
@@ -18083,7 +18063,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img55-AvionCargaPesada.pdf
+	filename imagenes/img55-AvionCargaPesada.png
 	lyxscale 40
 	width 100text%
 
@@ -18184,7 +18164,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img56-TiposAvionesCarga.pdf
+	filename imagenes/img56-TiposAvionesCarga.png
 	lyxscale 40
 	width 100text%
 
@@ -18270,7 +18250,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img57-TiposVehiculosCarga.pdf
+	filename imagenes/img57-TiposVehiculosCarga.png
 	lyxscale 40
 	width 100text%
 
@@ -18727,7 +18707,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img58-LogisticaGeneral.pdf
+	filename imagenes/img58-LogisticaGeneral.png
 	width 100theight%
 
 \end_inset
@@ -19047,7 +19027,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img59-CargaEnLogistica.pdf
+	filename imagenes/img59-CargaEnLogistica.png
 	width 100text%
 
 \end_inset
@@ -19302,7 +19282,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img60-LogisticaAlmacenamiento.pdf
+	filename imagenes/img60-LogisticaAlmacenamiento.png
 	width 100theight%
 
 \end_inset
@@ -19822,7 +19802,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img61.EmpaqueEmbalajeEtiquetado.pdf
+	filename imagenes/img61.EmpaqueEmbalajeEtiquetado.png
 	width 100theight%
 
 \end_inset
@@ -19890,7 +19870,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img62-EstibaMadera.pdf
+	filename imagenes/img62-EstibaMadera.png
 	lyxscale 30
 	width 60text%
 
@@ -19950,7 +19930,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img63-pallet.pdf
+	filename imagenes/img63-pallet.png
 	lyxscale 30
 	width 60text%
 
@@ -20046,7 +20026,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img64-PalletSegunMaterial.pdf
+	filename imagenes/img64-PalletSegunMaterial.png
 	lyxscale 30
 	width 100text%
 
@@ -20152,7 +20132,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img65-PalletSegunDiseñoEstructural.pdf
+	filename imagenes/img65-PalletSegunDiseñoEstructural.png
 	lyxscale 30
 	width 100text%
 
@@ -20238,7 +20218,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img66-PalletSegunTamano.pdf
+	filename imagenes/img66-PalletSegunTamano.png
 	lyxscale 30
 	width 100text%
 
@@ -20280,7 +20260,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img67-AlmacenamientoTransporte.pdf
+	filename imagenes/img67-AlmacenamientoTransporte.png
 	width 100theight%
 
 \end_inset
@@ -20462,7 +20442,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/img68-NuevoRegimenSancionatorio.pdf
+	filename imagenes/img68-NuevoRegimenSancionatorio.png
 	width 100theight%
 
 \end_inset

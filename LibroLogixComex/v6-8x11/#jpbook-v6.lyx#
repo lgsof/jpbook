@@ -32,9 +32,21 @@
 % To give a border to an image in LyX, 
 \usepackage[export]{adjustbox}
 
+%-----------------------------------------------------%
 % Figure number separation
 \usepackage{tocloft}
 \setlength{\cftfignumwidth}{3.5em}
+
+% Figures numbered continuously through the whole book
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+\renewcommand{\thefigure}{\arabic{figure}}
+
+% List of Figures: "Figura 1", "Figura 2", ...
+\renewcommand{\cftfigpresnum}{Figura~}
+\setlength{\cftfignumwidth}{5.5em}
+
+%----------------------------------------------------%
 
 % For annexes
 \newcounter{anexo}
@@ -187,8 +199,10 @@ Counter figure
     Within ""
 End
 
-Preamble
-    \renewcommand{\figurename}{TESTFIGURE}
+AddToPreamble
+    \usepackage{chngcntr}
+    \counterwithout{figure}{chapter}
+    \renewcommand{\thefigure}{\arabic{figure}}
 EndPreamble
 
 
