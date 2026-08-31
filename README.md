@@ -2,6 +2,8 @@
 Edición y publicación mediante Amazon KDP
 
 ## LOG
+2026/Aug/31: r1.50 : 2x Figures, chapters intro/sintesis.
+
 Aug/2r/26: r1.10 : All chapters, figures, format.
 Aug/24/26: r1.07 : Chapter 22 into lyx
 Aug/23/26: r1.06 : Chapter 18 into lyx

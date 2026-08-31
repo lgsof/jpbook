@@ -1,0 +1,230 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\options draft
+\use_default_options true
+\maintain_unincluded_children no
+\language spanish
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Propuesta de Mejoramiento Libro 
+\end_layout
+
+\begin_layout Standard
+Hola Paula,
+ con respecto al libro,
+ en mi concepto se necesitan muchas modificaciones para llevarlo a un libro más profesional.
+ Lo que se puede hacer ahora es mejorar el libro actual por etapas,
+ donde cada etapa genera una mejora significativa y un libro listo para publicar.
+ 
+\end_layout
+
+\begin_layout Standard
+Te envío de forma general el proceso de mejoramiento.
+ Cada etapa avanza de lo esencial,
+ donde se evita tocar el texto original del autor,
+ y se enfoca en reformatar el libro y las imágenes,
+ hasta lo más detallado,
+ donde ya se modifica la organización del libro y los capítulos,
+ y se mejora la redacción de algunos capitulos.
+\end_layout
+
+\begin_layout Standard
+Las etaps serían:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Mejorar presentación básica.
+ 
+\series default
+Se tiene que llevar el documento actual en WORD a una herramienta más profesional.
+ WORD se vuelve demasiado complicado y propenso a errores para documentos grandes como este libro con muchos capítulos,
+ imágenes,
+ y formatos.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Crear nuevamente las imágenes
+\series default
+.
+ Actualmente el libro tiene 80 imágenes,
+ todas con una resolución muy baja (96 DPIs) que no sirven para un libro full color que exige mínimo imágenes de 300 DPIs.
+ Al imprimir las imágenes como están ahora,
+ no van a tener suficiente nitidez en los textos y al ampliarlas se van a pixelar.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Dar una estructura básica al inicio y al final de cada capítulo
+\series default
+.
+ Los capítulos actuales se presentan sin una estructura básica:
+ muchos de estos no presentan un párrafo inicial que le diga al lector que viene o contiene,
+ y peor aún,
+ varios inician con un listado de secciones que dejan al lector sin saber porque están allí o porqué se nombran.
+ Igualmente,
+ casi en todos los capítulos se coloca al final una imagen que resume el capitulo,
+ como un mapa mental,
+ pero se coloca allí sin decirle nada al lector de qué es o como se interpreta.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Reorganizar y reestructurar capítulos
+\series default
+.
+ El libro se puede presentar por partes temáticas y dentro de cada parte,
+ los capítulos asociados,
+ solo es cuestión de definir bien las partes y sus capítulos.
+ Además,
+ varios capítulos presentan una organización poco agradable,
+ es decir,
+ listas demasiado extensas de secciones,
+ muchas muy cortas (1 o 2 párrafos).
+ que hacen del capítulo verlo extenso y poco agradable.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Reorganizar contenido de capítulos
+\series default
+.
+ Esta es la etapa más delicada,
+ porque modifica el texto del autor.
+ Pero,
+ básicamente sería agregar texto para volver la lectura más fluida y coherente.
+ Por ejemplo,
+ muchas de las listas que se presentan no dicen que son o porque se nombra.
+ Aunque el libro es un manual,
+ mostrar la lista sin decir porqué,
+ vuelve el libro sin un flujo natural y más pesado de leer.
+ Otro detalle es que en algunas partes,
+ se nota que se copió el texto de alguna fuente pero no se parafraseó,
+ por ejemple,
+ llega y dice 
+\begin_inset Quotes eld
+\end_inset
+
+...Si estás de acuerdo,
+ da click en el enlace
+\begin_inset Quotes erd
+\end_inset
+
+,
+ como si fuera una página web y no un libro.
+\end_layout
+
+\begin_layout Standard
+Ahora,
+ como serían los costos.
+ Yo te cobraría un valor de $300.000 por cada etapa,
+ el libro es bastante extenso,
+ y tiene bastantes figuras y capítulos.
+ Además,
+ toca jugar con los tiempos de tu papa y con los mios.
+ Las etapas 1 y 2 las puedo manejar yo solo.
+ La etapa 3 involucra levemente a tu papa,
+ y la 4 y 5 si toca hacerla junto con tu papa.
+ 
+\end_layout
+
+\begin_layout Standard
+Por ahora creo que podrían hacerse la 1 y 2,
+ que es lo que tu papa quiere.
+ Este fin de semana ya pasé el documento de WORD a la otra herramienta y si me autorizas empiezo con las imágenes o hacemos una prueba de ver como queda impreso con las que me dió tu papa,
+ es decir,
+ mandarlo a imprimir a Amazon y ver como queda.
+\end_layout
+
+\end_body
+\end_document

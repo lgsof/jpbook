@@ -32,19 +32,42 @@
 % To give a border to an image in LyX, 
 \usepackage[export]{adjustbox}
 
-%-----------------------------------------------------%
-% Figure number separation
-\usepackage{tocloft}
-\setlength{\cftfignumwidth}{3.5em}
+%------------------------------------------------%
+%------------- FIGURES AND TOCs -----------------%
+%------------------------------------------------%
 
-% Figures numbered continuously through the whole book
+\PassOptionsToPackage{figuresright}{rotating}
+
+\usepackage{tocloft}
 \usepackage{chngcntr}
+
+% Continuous figure numbering
 \counterwithout{figure}{chapter}
 \renewcommand{\thefigure}{\arabic{figure}}
 
-% List of Figures: "Figura 1", "Figura 2", ...
+% List of Figures: "Figura X"
 \renewcommand{\cftfigpresnum}{Figura~}
 \setlength{\cftfignumwidth}{5.5em}
+
+% No normal spacing between entries
+\setlength{\cftbeforefigskip}{0pt}
+
+% Remove automatic chapter gaps in List of Figures
+\newcommand*{\noaddvspace}{%
+    \renewcommand*{\addvspace}[1]{}%
+}
+\addtocontents{lof}{\protect\noaddvspace}
+
+% Show "Capítulo X" before chapter titles
+\renewcommand{\cftchappresnum}{Capítulo~}
+\setlength{\cftchapnumwidth}{6.5em}
+
+% Normal font for chapter title and page number
+\renewcommand{\cftchapfont}{\normalfont}
+\renewcommand{\cftchappagefont}{\normalfont}
+
+% No extra vertical space between chapters
+\setlength{\cftbeforechapskip}{0pt}
 
 %----------------------------------------------------%
 
@@ -76,7 +99,7 @@
     \markright{#1}%
 }
 \end_preamble
-\options openright
+\options openright, figuresleft
 \use_default_options true
 \begin_modules
 multicol
@@ -182,7 +205,7 @@ Style Subsubsection
 
         \subsubsectionfont{%
             \normalfont
-            \large
+            \normalsize
             \itshape
             \color{slateNavy}
             \bfseries
@@ -297,7 +320,7 @@ EndPreamble
 \rightmargin 1.5cm
 \bottommargin 2cm
 \secnumdepth 2
-\tocdepth 1
+\tocdepth 0
 \paragraph_separation skip
 \defskip medskip
 \is_math_indent 0
@@ -1018,6 +1041,20 @@ mainmatter
 Breve Historia del Comercio Exterior
 \end_layout
 
+\begin_layout Standard
+El comercio exterior es el resultado de un proceso histórico de intercambio que ha evolucionado junto con las sociedades,
+ los sistemas económicos y los medios de transporte y comunicación.
+ Desde las primeras formas de trueque y las rutas comerciales de los pueblos antiguos hasta la consolidación de los mercados internacionales,
+ esta actividad ha adquirido una importancia creciente en las relaciones económicas entre los países.
+\end_layout
+
+\begin_layout Standard
+Este capítulo presenta una breve aproximación a esa evolución histórica,
+ partiendo de los principales antecedentes del comercio exterior global y abordando posteriormente su desarrollo en Colombia.
+ Este recorrido permite reconocer algunos de los acontecimientos,
+ transformaciones e instrumentos que han contribuido a configurar el comercio exterior contemporáneo y el contexto en el que actualmente se desarrollan las operaciones internacionales.
+\end_layout
+
 \begin_layout Section
 Comercio Exterior Global
 \end_layout
@@ -1267,9 +1304,38 @@ A finales del siglo XX y principios del siglo XXI,
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
 En resumen,
  el comercio exterior global ha evolucionado a lo largo de los siglos,
  desde las antiguas rutas comerciales hasta la compleja red de intercambios que caracteriza la economía Mundial actual.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En conjunto,
+ esta evolución permite observar cómo el comercio pasó de formas elementales de intercambio entre pueblos y regiones a constituirse en una actividad de alcance global,
+ estrechamente relacionada con los cambios económicos,
+ tecnológicos,
+ políticos y sociales.
+ La Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Historia-ComExt-Global"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ presenta una síntesis de los principales acontecimientos y transformaciones que han marcado la evolución histórica del comercio exterior global.
 \end_layout
 
 \begin_layout Standard
@@ -1283,7 +1349,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/image01-HistoriaComercio.pdf
+	filename imagenes/img01-HistoriaComercio.pdf
+	lyxscale 40
 	width 100theight%
 
 \end_inset
@@ -1295,7 +1362,14 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Breve Historia del Comercio Exterior Global
+Breve Historia del Comercio Exterior Global.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Historia-ComExt-Global"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1449,7 +1523,7 @@ El comercio exterior de Colombia en el siglo XXI ha experimentado transformacion
  se presentan algunos de los hitos y tendencias más importantes.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Acuerdos Comerciales
 \end_layout
 
@@ -1461,7 +1535,7 @@ Colombia ha venido estructurando una política de integración económica abiert
  la Alianza del Pacífico y la Asociación Latinoamericana de Integración (ALADI).
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Crecimiento de Exportaciones No Tradicionales
 \end_layout
 
@@ -1473,7 +1547,7 @@ Durante la primera década del siglo XXI,
  y frutas exóticas.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Impacto de la Caída de los Precios del Petróleo (2014-2015)
 \end_layout
 
@@ -1483,7 +1557,7 @@ La caída de los precios del petróleo afectó significativamente las exportacio
  Esto obligó al país a acelerar sus esfuerzos de diversificación económica.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Fortalecimiento del Sector Agro industrial
 \end_layout
 
@@ -1493,7 +1567,7 @@ Productos como el café,
  pero también se impulsó la exportación de nuevos productos como aguacates y berries.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Inversión en Infraestructura
 \end_layout
 
@@ -1503,7 +1577,7 @@ La inversión en infraestructura,
  ha sido crucial para mejorar la competitividad de Colombia en el comercio exterior.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Impacto del COVID-19
 \end_layout
 
@@ -1514,7 +1588,7 @@ La pandemia de COVID-19 tuvo un impacto profundo en el comercio mundial,
  pero comenzaron a recuperarse en 2021 con la reactivación económica global.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Nuevas Estrategias de Diversificación
 \end_layout
 
@@ -1525,7 +1599,7 @@ Colombia ha continuado enfocándose en la diversificación de sus exportaciones.
  y el sector servicios (incluyendo BPO y TIC) han ganado relevancia.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Mercados Emergentes
 \end_layout
 
@@ -1535,7 +1609,7 @@ En los últimos años,
  buscando reducir su dependencia de Estados Unidos y Europa.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Tecnología y Sostenibilidad
 \end_layout
 
@@ -1543,7 +1617,7 @@ Tecnología y Sostenibilidad
 La adopción de tecnologías avanzadas y prácticas sostenibles está en la agenda para hacer que las exportaciones colombianas sean más competitivas y amigables con el medio ambiente.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Infraestructura y Logística
 \end_layout
 
@@ -1552,11 +1626,39 @@ El gobierno y el sector privado están invirtiendo en mejorar la infraestructura
  haciendo a Colombia un jugador más fuerte en el comercio global.
 \end_layout
 
+\begin_layout Section*
+Síntesis del capítulo
+\end_layout
+
 \begin_layout Standard
-En resumen,
- el comercio exterior de Colombia en el siglo XXI ha sido dinámico,
- enfrentando desafíos,
- pero también aprovechando oportunidades para diversificar y expandir su presencia en el mercado global.
+El recorrido histórico presentado en este capítulo permite comprender que el comercio exterior ha experimentado una transformación permanente,
+ impulsada por la evolución de las sociedades,
+ los sistemas económicos,
+ los medios de transporte,
+ las comunicaciones y las relaciones entre los países.
+ Su desarrollo global proporciona el contexto necesario para comprender posteriormente la evolución particular del comercio exterior colombiano.
+\end_layout
+
+\begin_layout Standard
+En Colombia,
+ este proceso ha estado acompañado por transformaciones económicas,
+ institucionales y comerciales que han modificado progresivamente la participación del país en los mercados internacionales.
+ Los diferentes acontecimientos expuestos muestran cómo el comercio exterior colombiano se ha adaptado a las condiciones y dinámicas del entorno internacional.
+\end_layout
+
+\begin_layout Standard
+La Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Historia-ComExt-Col"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ presenta una síntesis de los principales acontecimientos y transformaciones abordados en la evolución histórica del comercio exterior colombiano.
 \end_layout
 
 \begin_layout Standard
@@ -1570,7 +1672,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/image02-HistoriaComercioColombia-300dpi.pdf
+	filename imagenes/img02-HistoriaComercioColombia.pdf
 	lyxscale 10
 	width 100theight%
 
@@ -1583,7 +1685,15 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Breve Historia del Comercio Exterior Colombiano
+Breve Historia del Comercio Exterior Colombiano.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Historia-ComExt-Col"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1604,6 +1714,21 @@ Fuente:
 
 \begin_layout Chapter
 Factores y Sectores de Producción
+\end_layout
+
+\begin_layout Standard
+Los procesos de producción y el comercio internacional se encuentran estrechamente relacionados con los recursos disponibles y con las actividades económicas mediante las cuales estos se aprovechan.
+ En este capítulo se presentan,
+ en primer lugar,
+ los principales factores de producción —
+tierra,
+ trabajo,
+ capital y habilidades empresariales—
+ y su relación con el comercio internacional.
+ Posteriormente,
+ se describen los sectores primario,
+ secundario y terciario,
+ así como la manera en que el comercio exterior se vincula con las actividades desarrolladas en cada uno de ellos.
 \end_layout
 
 \begin_layout Section
@@ -1671,18 +1796,34 @@ Además,
 \end_layout
 
 \begin_layout Standard
+La Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Factores-de-Producción."
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ presenta de manera resumida los principales factores de producción descritos anteriormente.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement H
 alignment document
 wide false
-sideways true
+sideways false
 status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/image03-FactoresProduccion.pdf
-	width 24cm
+	filename imagenes/img03-FactoresProduccion.pdf
+	lyxscale 40
+	width 100text%
 
 \end_inset
 
@@ -1694,6 +1835,14 @@ status open
 
 \begin_layout Plain Layout
 Factores de Producción.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Factores-de-Producción."
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1824,9 +1973,57 @@ El comercio exterior se relaciona estrechamente con otros sectores productivos a
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
 En resumen,
  mientras que el comercio exterior no es un sector productivo en sí mismo,
  desempeña un papel crucial en la conexión y facilitación del intercambio de bienes y servicios entre los sectores productivos de diferentes regiones o países.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Síntesis del capítulo
+\end_layout
+
+\begin_layout Standard
+En conjunto,
+ los factores de producción y los sectores productivos permiten comprender cómo se organizan los recursos y las actividades económicas que intervienen en la producción de bienes y servicios.
+ Los sectores primario,
+ secundario y terciario se encuentran interconectados y dependen entre sí,
+ mientras que el comercio exterior facilita el intercambio de los bienes y servicios generados entre diferentes países o regiones.
+\end_layout
+
+\begin_layout Standard
+Las Figuras 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Factores-de-Producción."
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sectores-Productivos."
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ sintetizan los dos componentes centrales desarrollados en el capítulo:
+ los factores que intervienen en la producción y los sectores en los que se organizan las actividades productivas.
 \end_layout
 
 \begin_layout Standard
@@ -1840,7 +2037,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/image04-SectoresProductivos.pdf
+	filename imagenes/img04-SectoresProductivos.pdf
+	lyxscale 40
 	width 100theight%
 
 \end_inset
@@ -1853,6 +2051,13 @@ status open
 
 \begin_layout Plain Layout
 Sectores Productivos.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Sectores-Productivos."
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1876,9 +2081,34 @@ Fuente:
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
 El comercio internacional es un campo complejo que abarca diversas áreas complementarias que son fundamentales para su desarrollo.
  A continuación,
  presentamos algunas de las áreas complementarias clave:
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El comercio internacional es un campo complejo que abarca diversas áreas complementarias fundamentales para su desarrollo.
+ Su comprensión no se limita al intercambio de bienes y servicios entre países,
+ sino que requiere considerar diferentes actividades,
+ condiciones y procesos que intervienen en las operaciones internacionales.
+\end_layout
+
+\begin_layout Standard
+En este capítulo se presentan algunas de estas áreas y su relación con el intercambio internacional,
+ abordando aspectos vinculados con los negocios internacionales,
+ el comercio exterior,
+ el marketing internacional,
+ la logística internacional y la globalización.
+ Su estudio permite obtener una visión más amplia de los elementos que intervienen en el desarrollo de las actividades comerciales entre países.
 \end_layout
 
 \begin_layout Section
@@ -2769,6 +2999,25 @@ La globalización es una fuerza impulsora detrás del crecimiento de los negocio
  entender el profundo impacto de la globalización en los negocios internacionales es crucial.
 \end_layout
 
+\begin_layout Section*
+Síntesis del capítulo
+\end_layout
+
+\begin_layout Standard
+Las diferentes áreas abordadas en este capítulo muestran que el intercambio internacional comprende un conjunto de actividades que se encuentran estrechamente relacionadas.
+ Los negocios internacionales,
+ el comercio exterior,
+ el marketing y la logística internacional intervienen desde distintas perspectivas en las operaciones entre países,
+ mientras que la globalización constituye un entorno de creciente interconexión económica,
+ comercial y social.
+\end_layout
+
+\begin_layout Standard
+Consideradas en conjunto,
+ estas áreas permiten obtener una visión integral de los distintos elementos que acompañan y hacen posible el intercambio internacional.
+ La Figura 5 presenta una síntesis de las principales áreas afines al intercambio internacional desarrolladas en este capítulo.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 placement p
@@ -2780,7 +3029,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/image05-AreasAfines.pdf
+	filename imagenes/img05-AreasAfines.pdf
+	lyxscale 30
 	width 100theight%
 
 \end_inset
@@ -2816,15 +3066,41 @@ Teorías del Comercio Internacional
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
 Las teorías del comercio internacional buscan explicar las razones y los beneficios del intercambio de bienes y servicios entre países.
  A lo largo de la historia,
  estas teorías han evolucionado para adaptarse a las transformaciones económicas y políticas mundiales
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 El comercio internacional ha sido objeto de estudio por siglos,
  y sus teorías han evolucionado desde enfoques mercantilistas hasta modelos más complejos que explican la interdependencia económica global actual.
  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las teorías del comercio internacional buscan explicar las razones,
+ características y beneficios del intercambio de bienes y servicios entre países.
+ A lo largo del tiempo,
+ estos planteamientos han evolucionado desde los enfoques mercantilistas hasta modelos que consideran aspectos como la especialización,
+ la dotación de factores,
+ la demanda,
+ las economías de escala,
+ la innovación,
+ la diferenciación de productos y las características de los mercados.
+\end_layout
+
+\begin_layout Standard
+En este capítulo se presentan las principales teorías y modelos que han contribuido a explicar la evolución y las dinámicas del comercio internacional,
+ mostrando cómo diferentes enfoques han permitido interpretar las relaciones económicas entre los países.
 \end_layout
 
 \begin_layout Section
@@ -2977,6 +3253,10 @@ Se centra en las barreras comerciales,
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
 Las teorías del comercio internacional han evolucionado considerablemente a lo largo del tiempo,
  adaptándose a cambios en la economía global y en las dinámicas del comercio.
  Desde las ideas mercantilistas de acumulación de riqueza hasta los modelos modernos que consideran la innovación,
@@ -2985,18 +3265,56 @@ Las teorías del comercio internacional han evolucionado considerablemente a lo 
  el estudio del comercio internacional continúa siendo fundamental para entender las relaciones económicas globales.
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Síntesis del capítulo
+\end_layout
+
+\begin_layout Standard
+Las teorías del comercio internacional han evolucionado considerablemente a lo largo del tiempo,
+ adaptándose a los cambios en la economía global y en las dinámicas del comercio.
+ Desde las ideas mercantilistas centradas en la acumulación de riqueza hasta los modelos que consideran la especialización,
+ la dotación de factores,
+ la demanda,
+ la innovación,
+ la diferenciación de productos,
+ las economías de escala y las características de los mercados,
+ estos enfoques ofrecen distintas perspectivas para comprender el intercambio entre países.
+\end_layout
+
+\begin_layout Standard
+En conjunto,
+ las teorías y modelos presentados permiten reconocer la evolución de las explicaciones sobre el comercio internacional y los diferentes factores considerados para interpretar las relaciones económicas globales.
+ La Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Teorías-del-Comercio"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ presenta una síntesis de las principales teorías del comercio internacional desarrolladas en este capítulo.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 placement b
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename imagenes/image06-TeoriasComercio.pdf
+	filename imagenes/img06-TeoriasComercio.pdf
 	lyxscale 50
 	width 100text%
 
@@ -3009,7 +3327,15 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Teorías del Comercio Internacional
+Teorías del Comercio Internacional.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Teorías-del-Comercio"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -3717,6 +4043,23 @@ En resumen
  adaptándose a las necesidades y objetivos de las naciones involucradas.
 \end_layout
 
+\begin_layout Section*
+Síntesis del capítulo
+\end_layout
+
+\begin_layout Standard
+La economía internacional permite comprender las relaciones económicas que se establecen entre los países a través del intercambio de bienes y servicios,
+ los movimientos de capital y las demás actividades que trascienden las fronteras nacionales.
+ Estas relaciones forman parte de un entorno caracterizado por una creciente interdependencia económica y por la necesidad de cooperación entre las naciones.
+\end_layout
+
+\begin_layout Standard
+Los aspectos desarrollados en este capítulo muestran la estrecha relación entre la economía y el comercio internacional,
+ así como la importancia de los flujos comerciales y financieros,
+ las políticas económicas y los mecanismos de cooperación dentro de la dinámica económica mundial.
+ La Figura 7 presenta una síntesis de los principales elementos abordados en esta introducción a la economía internacional.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 placement p
@@ -3729,6 +4072,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img07-IntroEconomiaInternacional.pdf
+	lyxscale 30
 	width 100theight%
 
 \end_inset
@@ -3764,8 +4108,34 @@ Economía y Comercio Exterior
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
 La economía y el comercio exterior están intrínsecamente relacionados y se influyen mutuamente de diversas maneras.
  Fundamental tener en cuenta ciertas conexiones entre los dos escenarios.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La economía y el comercio exterior mantienen una relación estrecha,
+ debido a que el intercambio internacional influye en diferentes aspectos del desarrollo económico de los países.
+ Las exportaciones,
+ las importaciones,
+ la inversión extranjera,
+ las políticas económicas y los movimientos financieros forman parte de una dinámica que conecta las economías nacionales con el entorno internacional.
+\end_layout
+
+\begin_layout Standard
+En este capítulo se presentan algunos de los principales elementos que permiten comprender esta relación,
+ así como la incidencia de la política comercial,
+ la balanza de pagos,
+ los tipos de cambio,
+ la integración económica y otros factores vinculados con la participación de los países en el comercio internacional.
 \end_layout
 
 \begin_layout Section
@@ -3876,6 +4246,7 @@ En resumen,
  sino que también desempeña un papel crucial en el desarrollo económico,
  la competitividad,
  y la estabilidad de las naciones.
+ La Figura 8 presenta una síntesis de los principales elementos que relacionan la economía con el comercio exterior.
 \end_layout
 
 \begin_layout Standard
@@ -3890,6 +4261,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img08-EconomiaComercioExt.pdf
+	lyxscale 30
 	width 100col%
 
 \end_inset
@@ -4536,7 +4908,7 @@ Ejemplos:
 \end_layout
 
 \begin_layout Standard
-Cuotas de Importación como límites específicos a la cantidad de un producto que se puede importar;
+Cuotas de Importación como límites a la cantidad de un producto que se puede importar;
  licencias de importación,
  requisitos administrativos para la importación de ciertos productos;
  Normas Sanitarias y Fitosanitarias (SPS),
@@ -4544,14 +4916,14 @@ Cuotas de Importación como límites específicos a la cantidad de un producto q
  animal o vegetal;
  barreras técnicas al comercio,
  normas,
- regulaciones y procedimientos de evaluación de la conformidad que los productos deben cumplir;
+ regulaciones y procedimientos de evaluación de la conformidad;
  requisitos de contenido local,
  exigencias de que una proporción específica de un producto se produzca localmente.
 \end_layout
 
 \begin_layout Standard
 En conjunto,
- las regulaciones no arancelarias son herramientas poderosas y a menudo más sutiles que los aranceles para influir en el comercio internacional y la política económica de un país.
+ las regulaciones no arancelarias son herramientas más sutiles que los aranceles para influir en el comercio internacional y la política económica de un país.
 \end_layout
 
 \begin_layout Section
@@ -4709,18 +5081,54 @@ Internacionales.
 \begin_layout Standard
 
 \series bold
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+
+\series bold
 En resumen
 \series default
 :
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 La balanza de pagos es un instrumento crucial en la política comercial porque refleja la posición económica de un país en relación con el resto del mundo.
  A través de su análisis,
  los gobiernos pueden diseñar políticas comerciales y económicas que promuevan la estabilidad económica,
  fomenten el crecimiento,
  y gestionen de manera efectiva los flujos de comercio y capitales.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Síntesis del capítulo
+\end_layout
+
+\begin_layout Standard
+La relación entre economía y comercio exterior comprende diversos factores que influyen en la participación de los países en los mercados internacionales.
+ El crecimiento económico,
+ la inversión extranjera,
+ la política económica,
+ la balanza de pagos,
+ los tipos de cambio y los procesos de integración forman parte de un conjunto de elementos estrechamente vinculados con el intercambio internacional.
+\end_layout
+
+\begin_layout Standard
+Dentro de este contexto,
+ la política comercial constituye un instrumento mediante el cual los gobiernos pueden promover,
+ regular o restringir los flujos de comercio.
+ A su vez,
+ la balanza de pagos permite observar la posición económica de un país frente al resto del mundo y aporta información relevante para la formulación de políticas comerciales y económicas.
+\end_layout
+
+\begin_layout Standard
+La Figura 9 presenta una síntesis de los principales elementos relacionados con la política comercial desarrollados en esta parte del capítulo
 \end_layout
 
 \begin_layout Standard
@@ -4735,6 +5143,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img09-PoliticaComercial.pdf
+	lyxscale 50
 	width 100theight%
 
 \end_inset
@@ -4936,6 +5345,7 @@ La política comercial actual de Colombia busca equilibrar la apertura al comerc
  la participación en alianzas regionales,
  la diversificación de exportaciones y la modernización de la infraestructura,
  Colombia pretende posicionarse como un actor relevante en el comercio internacional.
+ La Figura 10 presenta una síntesis de los principales componentes de la política comercial colombiana desarrollados en este capítulo.
 \end_layout
 
 \begin_layout Standard
@@ -5003,16 +5413,17 @@ Colombia goza de una ubicación geográfica estratégica y privilegiada para acc
 
 \begin_layout Standard
 \begin_inset Float figure
-placement p
+placement H
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/img10-PoliticaComercialColombiana.pdf
+	lyxscale 30
 	width 100theight%
 
 \end_inset
@@ -5024,7 +5435,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Política Comercia Colombiana
+Política Comercial Colombiana
 \end_layout
 
 \end_inset
@@ -5085,7 +5496,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -5161,11 +5572,37 @@ En cuanto al país de origen,
 El comportamiento del país asiático se explicó principalmente por las mayores importaciones de computadores portátiles (28,0%) y de vehículos automotores para el transporte de personas (101,4%).
 \end_layout
 
+\begin_layout Section*
+Síntesis del capítulo
+\end_layout
+
+\begin_layout Standard
+La política comercial colombiana reúne diferentes estrategias orientadas a fortalecer la participación del país en los mercados internacionales,
+ mediante acuerdos comerciales,
+ diversificación de exportaciones,
+ atracción de inversión extranjera,
+ facilitación del comercio y mejora de la competitividad interna.
+\end_layout
+
+\begin_layout Standard
+El comportamiento de la balanza comercial permite complementar este análisis al mostrar los resultados del intercambio de bienes con el exterior.
+ Para 2024,
+ el capítulo destaca la evolución de las exportaciones e importaciones y los principales sectores y mercados que incidieron en su comportamiento.
+\end_layout
+
+\begin_layout Standard
+La Figura 11 presenta una síntesis de la balanza comercial y complementa los principales aspectos analizados en este capítulo.
+\end_layout
+
 \begin_layout Chapter
 Integración Comercial
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
 Se refiere al conjunto de estrategias,
  medidas,
  acuerdos,
@@ -5173,6 +5610,25 @@ Se refiere al conjunto de estrategias,
  promoviendo el comercio de bienes y servicios,
  la inversión extranjera,
  y la cooperación económica con otros países o bloques de países.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La integración comercial se refiere al conjunto de estrategias,
+ medidas,
+ acuerdos y normativas que un país implementa para fomentar su inserción en los mercados internacionales y regionales,
+ promoviendo el comercio de bienes y servicios,
+ la inversión extranjera y la cooperación económica con otros países o bloques de países.
+\end_layout
+
+\begin_layout Standard
+En este capítulo se presentan los diferentes niveles de integración comercial y,
+ posteriormente,
+ los principales elementos de la política de integración comercial de Colombia.
 \end_layout
 
 \begin_layout Section
@@ -5271,20 +5727,22 @@ Es el nivel más alto de integración,
 \begin_layout Standard
 Estos niveles reflejan cómo los países pueden avanzar progresivamente en la integración económica,
  con cada nivel requiriendo un mayor grado de cooperación y coordinación.
+ La Figura 12 presenta una síntesis de los principales niveles y elementos de la política de integración comercial desarrollados en esta primera parte del capítulo.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
-placement p
+placement H
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/img12-PoliticaIntegracionComercial.pdf
+	lyxscale 30
 	width 100theight%
 
 \end_inset
@@ -5799,22 +6257,56 @@ Estos acuerdos permiten a Colombia diversificar sus exportaciones,
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
 La participación de Colombia en estos organismos internacionales de carácter comercial demuestra su compromiso con la integración económica,
  la apertura comercial y el desarrollo sostenible en el ámbito global y regional.
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Síntesis del capítulo
+\end_layout
+
+\begin_layout Standard
+La integración comercial comprende diferentes niveles de cooperación económica entre países,
+ desde acuerdos preferenciales hasta formas más avanzadas de integración que requieren una mayor coordinación de políticas y mercados.
+\end_layout
+
+\begin_layout Standard
+En el caso de Colombia,
+ esta integración se desarrolla mediante acuerdos comerciales,
+ participación en organismos internacionales,
+ promoción de exportaciones,
+ atracción de inversión extranjera,
+ facilitación del comercio,
+ modernización de infraestructura y fortalecimiento de la competitividad.
+ La participación del país en estos mecanismos refleja su orientación hacia una mayor inserción en los mercados regionales y globales.
+\end_layout
+
+\begin_layout Standard
+La Figura 13 presenta una síntesis de los principales elementos de la integración comercial de Colombia desarrollados en este capítulo.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
-placement p
+placement H
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/img13-IntegracionComercial.pdf
+	lyxscale 30
 	width 100theight%
 
 \end_inset
@@ -5850,16 +6342,43 @@ Administración de Organizaciones y Comercio Exterior
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
 El comercio exterior influye significativamente en la administración de las organizaciones,
  ya que determina cómo las empresas interactúan y compiten en un entorno global.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 A continuación,
  se destacan algunos puntos clave sobre su incidencia
 \end_layout
 
-\begin_layout Section
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El comercio exterior influye significativamente en la administración de las organizaciones,
+ ya que determina cómo las empresas interactúan,
+ compiten y se adaptan a un entorno global.
+ Su participación en mercados internacionales exige tomar decisiones relacionadas con la estrategia,
+ la estructura organizacional,
+ la logística,
+ las finanzas,
+ el cumplimiento normativo y la gestión de riesgos.
+\end_layout
+
+\begin_layout Standard
+A su vez,
+ la administración de las organizaciones establece las estrategias,
+ estructuras y procesos necesarios para desenvolverse eficazmente en el comercio exterior.
+ En este capítulo se presentan los principales aspectos que muestran esta relación y su incidencia en la competitividad y sostenibilidad de las empresas en los mercados internacionales.
+\end_layout
+
+\begin_layout Subsubsection
 Ampliación de Mercados
 \end_layout
 
@@ -5869,7 +6388,7 @@ Permite a las empresas acceder a mercados internacionales,
  Esto conlleva a un crecimiento potencial en las ventas y una mayor estabilidad financiera.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsubsection
 Competitividad y Eficiencia
 \end_layout
 
@@ -5880,7 +6399,7 @@ La apertura al comercio exterior expone a las empresas a estándares internacion
  Las organizaciones se ven obligadas a optimizar sus procesos productivos y operativos para mantenerse competitivas.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsubsection
 Diversificación de Proveedores
 \end_layout
 
@@ -5891,7 +6410,7 @@ Facilita el acceso a una gama más amplia de insumos,
  las empresas pueden reducir costos y mitigar riesgos relacionados con la dependencia de un solo proveedor.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsubsection
 Gestión de Riesgos
 \end_layout
 
@@ -5901,7 +6420,7 @@ La participación en el comercio exterior también implica enfrentar riesgos com
  Esto exige a las organizaciones implementar estrategias de gestión de riesgos que aseguren su estabilidad en el mercado global.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsubsection
 Cumplimiento Normativo y Adaptación
 \end_layout
 
@@ -5918,7 +6437,7 @@ La administración de organizaciones tiene un impacto significativo en el éxito
  se señalan algunas áreas clave en las que la administración influye en el comercio exterior:
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsubsection
 Planeación Estratégica Internacional
 \end_layout
 
@@ -5930,7 +6449,7 @@ La administración de organizaciones define los objetivos estratégicos relacion
  estudios de viabilidad y la elaboración de planes de negocio adaptados a diferentes regiones y culturas.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsubsection
 Estructura Organizacional y Logística
 \end_layout
 
@@ -5943,7 +6462,7 @@ La administración decide la estructura adecuada para gestionar operaciones inte
  asegurando el flujo eficiente de bienes y servicios a través de fronteras.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsubsection
 Gestión Financiera y Control de Costos
 \end_layout
 
@@ -5954,7 +6473,7 @@ La administración se encarga de la planificación y control financiero en el á
  También aborda el financiamiento de proyectos internacionales y la gestión de riesgos financieros.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsubsection
 Cumplimiento Normativo y Gestión de Riesgos
 \end_layout
 
@@ -5966,7 +6485,7 @@ La administración de organizaciones establece políticas y procedimientos para 
  como cambios en regulaciones o conflictos comerciales entre naciones.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsubsection
 Desarrollo del Talento y Competencias Globales
 \end_layout
 
@@ -5976,7 +6495,7 @@ La administración también influye en la formación y desarrollo de talento con
  lingüísticos y comerciales internacionales es esencial para que el personal pueda manejar las complejidades del comercio exterior.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsubsection
 Innovación y Adaptación Tecnológica
 \end_layout
 
@@ -5992,7 +6511,7 @@ Existen otros factores que la administración organizacional puede influir en el
  los cuales a continuación nos permitimos presentar
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsubsection
 Cultura Organizacional y Adaptación Cultural
 \end_layout
 
@@ -6005,7 +6524,7 @@ La administración debe promover una cultura organizacional orientada a la inter
  proveedores y socios de negocios.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsubsection
 Gestión de Alianzas y Redes Globales
 \end_layout
 
@@ -6017,7 +6536,7 @@ La administración también desempeña un papel crucial en la formación de alia
  aprovechar las fortalezas de socios locales y adquirir conocimientos específicos del mercado.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsubsection
 Innovación en Modelos de Negocio Internacionales
 \end_layout
 
@@ -6028,7 +6547,7 @@ La administración de organizaciones puede fomentar la creación y adaptación d
  Un modelo de negocio flexible y adaptado es más efectivo y permite una mayor penetración en mercados extranjeros.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsubsection
 Gestión del Conocimiento y Transferencia de Aprendizaje
 \end_layout
 
@@ -6039,7 +6558,7 @@ Las organizaciones que participan en el comercio exterior tienen la oportunidad 
  garantizando que estas experiencias se compartan internamente y se traduzcan en mejores prácticas organizacionales que se repliquen en diferentes filiales o países.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsubsection
 Adaptación de Productos y Estrategias de Marketing Internacional
 \end_layout
 
@@ -6052,7 +6571,7 @@ La administración organiza y lidera los esfuerzos de adaptación de productos y
  Una estrategia de marketing global bien ejecutada puede ser determinante para el éxito en el comercio exterior.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsubsection
 Sostenibilidad y Responsabilidad Social Empresarial (RSE) Global
 \end_layout
 
@@ -6066,7 +6585,7 @@ En el contexto internacional,
  lo que exige a las empresas una adaptación constante y una administración proactiva para cumplir con estas normas.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsubsection
 Digitalización y Comercio Electrónico Internacional
 \end_layout
 
@@ -6078,7 +6597,7 @@ La administración también impulsa la adopción de tecnologías y plataformas d
  y plataformas digitales de comercio pueden transformar las estrategias de comercio exterior de la organización.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsubsection
 Liderazgo y Gestión del Cambio
 \end_layout
 
@@ -6088,7 +6607,7 @@ El liderazgo de la administración organizacional es fundamental para guiar a la
  culturales y estratégicas para asegurar que la empresa pueda adaptarse y prosperar en nuevos entornos comerciales.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsubsection
 Desarrollo de Capacidades en Compliance Internacional
 \end_layout
 
@@ -6102,13 +6621,17 @@ El cumplimiento de las normativas internacionales (compliance) es cada vez más 
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
 El comercio exterior impacta de manera integral en la administración de las organizaciones,
  ya que afecta su estrategia comercial,
  operativa y financiera,
  obligándolas a adaptarse continuamente para aprovechar las oportunidades y mitigar los desafíos del entorno global.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 La administración de organizaciones define las estrategias,
  estructuras y procesos que permiten a las empresas operar eficazmente en mercados internacionales.
  Una administración eficiente se traduce en la capacidad de la organización para identificar oportunidades,
@@ -6116,24 +6639,50 @@ La administración de organizaciones define las estrategias,
  garantizando así su competitividad y sostenibilidad global.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 En conclusión,
  la administración organizacional tiene un impacto multifacético en el comercio exterior,
  y su capacidad para gestionar estos diversos factores determina el éxito o fracaso de una empresa en su incursión en mercados internacionales.
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Síntesis del capítulo
+\end_layout
+
+\begin_layout Standard
+El comercio exterior y la administración de las organizaciones mantienen una relación estrecha y recíproca.
+ La participación en mercados internacionales incide en la estrategia,
+ la estructura,
+ los procesos,
+ la gestión financiera,
+ la logística y el cumplimiento normativo de las empresas,
+ al tiempo que exige una capacidad permanente de adaptación frente a los cambios del entorno global.
+\end_layout
+
+\begin_layout Standard
+Una administración eficiente permite identificar oportunidades,
+ gestionar riesgos y establecer las condiciones necesarias para que la organización pueda operar y competir en mercados internacionales.
+ La Figura 14 presenta una síntesis de los principales aspectos que relacionan la administración de las organizaciones con el comercio exterior.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
-placement p
+placement H
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/img14-AdministracionOrganizaciones.pdf
+	lyxscale 40
 	width 100theight%
 
 \end_inset
@@ -6178,7 +6727,24 @@ Incidencia de la Administración Pública en el Comercio Exterior de Colombia
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
 La incidencia de la administración pública en el comercio exterior de Colombia es un tema clave para entender cómo las decisiones y acciones del Estado influyen en la manera en que el país se integra a los mercados internacionales.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La incidencia de la administración pública en el comercio exterior de Colombia es un tema clave para entender cómo las decisiones y acciones del Estado influyen en la manera en que el país se integra a los mercados internacionales.
+ Su intervención comprende funciones de regulación,
+ facilitación,
+ promoción,
+ control y apoyo a las operaciones de comercio exterior.
 \end_layout
 
 \begin_layout Section
@@ -6198,12 +6764,19 @@ Entidades Clave del Comercio Exterior
 \end_layout
 
 \begin_layout Standard
+En el comercio exterior colombiano intervienen diversas entidades públicas encargadas de formular políticas,
+ ejercer control,
+ facilitar los trámites y apoyar las operaciones internacionales.
+ La Figura 15 presenta algunas de las principales entidades que participan en estas funciones y su incidencia en el comercio exterior.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
-placement h
+placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -6389,18 +6962,39 @@ Atraer inversión extranjera.
 Generar empleo y desarrollo regional.
 \end_layout
 
+\begin_layout Section*
+Síntesis del capítulo
+\end_layout
+
+\begin_layout Standard
+La administración pública desempeña un papel fundamental en el comercio exterior colombiano mediante la regulación,
+ facilitación y promoción de las operaciones internacionales.
+ Su actuación se refleja en la formulación de políticas públicas,
+ la aplicación de acuerdos comerciales,
+ la modernización de los procedimientos y la participación de diferentes entidades vinculadas con el comercio exterior.
+\end_layout
+
+\begin_layout Standard
+Al mismo tiempo,
+ la eficiencia de la gestión pública influye en la capacidad del país para incrementar sus exportaciones,
+ diversificar su economía,
+ atraer inversión extranjera y generar empleo y desarrollo regional.
+ La Figura 16 presenta una síntesis de la incidencia de la administración pública en el comercio exterior colombiano y de los principales aspectos desarrollados en este capítulo.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
-placement p
+placement H
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/img16-AdministracionPulbica.pdf
+	lyxscale 40
 	width 100theight%
 
 \end_inset
@@ -6451,8 +7045,12 @@ La Aduana es el organismo público que se encarga de controlar la entrada y sali
  Su función es controlar los flujos de entrada y salida a través de la frontera y la aplicación de los impuestos que determine la ley.
 \end_layout
 
-\begin_layout Standard
-Sus características son:
+\begin_layout Section
+Características y Formas Básicas del Comercio Exterior
+\end_layout
+
+\begin_layout Subsubsection
+Características:
 \end_layout
 
 \begin_layout Itemize
@@ -6472,20 +7070,30 @@ Los países suelen tener acuerdos comerciales
 \end_layout
 
 \begin_layout Subsubsection
-Formas Básicas
+Formas Básicas:
 \end_layout
 
-\begin_layout Description
-Importación.
+\begin_layout Itemize
+
+\series bold
+Importación
+\series default
+:
  Conjunto de bienes y servicios comprados por un país en territorio extranjero para utilizarlos en territorio nacional.
 \end_layout
 
-\begin_layout Description
-Exportación.
+\begin_layout Itemize
+
+\series bold
+Exportación
+\series default
+:
  Conjunto de bienes y servicios vendidos por un país a un territorio extranjero.
 \end_layout
 
-\begin_layout Description
+\begin_layout Itemize
+
+\series bold
 Comercio
 \begin_inset space ~
 \end_inset
@@ -6494,7 +7102,9 @@ de
 \begin_inset space ~
 \end_inset
 
-tránsito.
+tránsito
+\series default
+:
  Cuando el individuo que realiza la operación no tiene domicilio social en el país exportador ni importador.
 \end_layout
 
@@ -6522,6 +7132,10 @@ El comercio exterior permite que las empresas puedan acceder a bienes y servicio
 \begin_layout Standard
 En ocasiones,
  también sirve para complementar la producción interna del país cuando esta es insuficiente para satisfacer la demanda.
+\end_layout
+
+\begin_layout Section
+Legislación Aduanera
 \end_layout
 
 \begin_layout Standard
@@ -6702,9 +7316,30 @@ Es fundamental tener en cuenta que la legislación aduanera puede cambiar,
  y la información actualizada debe obtenerse directamente de las autoridades aduaneras de cada país o de fuentes especializadas.
 \end_layout
 
+\begin_layout Section*
+Síntesis del capítulo
+\end_layout
+
+\begin_layout Standard
+El comercio exterior comprende operaciones que se desarrollan dentro de un marco normativo y administrativo específico,
+ en el que intervienen las autoridades aduaneras y diferentes disposiciones destinadas a regular el ingreso,
+ salida y tránsito de mercancías.
+\end_layout
+
+\begin_layout Standard
+Los aspectos abordados en este capítulo muestran que la legislación aduanera comprende elementos como la clasificación arancelaria,
+ los aranceles y tarifas,
+ el origen de las mercancías,
+ la valoración aduanera,
+ las declaraciones,
+ las prohibiciones y restricciones,
+ así como las sanciones derivadas del incumplimiento de las normas.
+ La Figura 17 presenta una síntesis de los principales componentes de la legislación aduanera desarrollados en este capítulo.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
-placement p
+placement H
 alignment document
 wide false
 sideways true
@@ -6714,6 +7349,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img17-LegislacionAduanera.pdf
+	lyxscale 40
 	width 100theight%
 
 \end_inset
@@ -6746,6 +7382,19 @@ Fuente:
 
 \begin_layout Chapter
 Evolución de la Legislación Aduanera Colombiana
+\end_layout
+
+\begin_layout Standard
+La legislación aduanera colombiana ha experimentado un proceso continuo de transformación,
+ en respuesta a los cambios económicos,
+ institucionales y comerciales del país.
+ A lo largo de este proceso se han expedido diferentes leyes,
+ decretos y resoluciones que han definido la estructura y funcionamiento del régimen aduanero.
+\end_layout
+
+\begin_layout Standard
+En este capítulo se presenta una secuencia de los principales hitos normativos señalados en esta evolución,
+ desde las disposiciones expedidas durante el siglo XX hasta las reformas más recientes.
 \end_layout
 
 \begin_layout Standard
@@ -6793,6 +7442,15 @@ El numeral 25 del artículo 189 establece las competencias correlativas del ejec
  tarifas y demás disposiciones concernientes al régimen de aduanas
 \end_layout
 
+\begin_layout Section
+Evolución normativa de la legislación aduanera colombiana
+\end_layout
+
+\begin_layout Subsubsection
+1931 —
+ Ley 79 de 1931
+\end_layout
+
 \begin_layout Standard
 En el año de 1931 en la presidencia de Enrique Olaya Herrera,
  se da la Ley 79 de 1931 por recomendaciones dadas por la misión Kemmerer la cual estructura la regulación aduanera de la época y que últimamente se la llamo ley orgánica dando como resultado Ley de Timbre con la se replanteó el funcionamiento aduanero y se estableció la recaudación de Rentas Nacionales.
@@ -6806,11 +7464,21 @@ Con la ley 79 de 1931 se creó en Colombia la Dirección General de Aduanas,
  aforo y valoración de mercancías objeto de Importación y Exportación
 \end_layout
 
+\begin_layout Subsubsection
+1967 —
+ Decreto Ley 444 de 1967
+\end_layout
+
 \begin_layout Standard
 En 1967 durante el gobierno del doctor Carlos Lleras Restrepo se expidió el Decreto Ley 444 de 1967,
  llamado Estatuto Cambiario,
  pero también incluían los sistemas especiales de importación y exportación llamados el Plan Vallejo que fue un gran aporte al desarrollo industrial de nuestro país.
  
+\end_layout
+
+\begin_layout Subsubsection
+1971 —
+ Ley 6 Marco de Aduanas
 \end_layout
 
 \begin_layout Standard
@@ -6823,21 +7491,37 @@ En el año 1971 durante el gobierno de Misael Pastrana Borrero se expidió la Le
  
 \end_layout
 
+\begin_layout Subsubsection
+1984 —
+ Decreto 2666 de 1984,
+ Estatuto Aduanero
+\end_layout
+
 \begin_layout Standard
 En el año 1984 durante la presidencia de Belisario Betancourt Cuartas se expide el Decreto 2666 de 1984 como Estatuto Aduanero que reemplazó la Ley Orgánica de Aduanas 79 de 1931,
  Con este decreto se pretendía lograr obligar a los empresarios a desarrollar y consumir los productos y materias primas nacionales u originarios de los países miembros de la CEPAL.
 \end_layout
 
+\begin_layout Subsubsection
+1991 —
+ Constitución Política de Colombia
+\end_layout
+
 \begin_layout Standard
 En 1990 en el gobierno del Sr.
  Cesar Gaviria Trujillo se expide la nueva constitución de 1991,
- la cual fija en el artículo 150 numerales 16 y 19 las facultades del congreso en lo tiene que ver con la regulación del comercio exterior,
+ la cual fija en el artículo 150 numerales 16 y 19 las facultades del congreso en lo que tiene que ver con la regulación del comercio exterior,
  modificar aranceles y las demás disposiciones del régimen aduanero.
  
 \end_layout
 
 \begin_layout Standard
 Se revistió al presidente de facultades para dictar normas de regulación de comercio exterior y demás aspectos del régimen aduanero.
+\end_layout
+
+\begin_layout Subsubsection
+1991 —
+ Ley 7 de 1991
 \end_layout
 
 \begin_layout Standard
@@ -6848,6 +7532,11 @@ También en el año de 1991 se expide por parte del congreso la Ley 7 de 1991 po
  se confieren unas autorizaciones y se dictan otras disposiciones
 \end_layout
 
+\begin_layout Subsubsection
+1992 —
+ Decreto 1909 de 1992
+\end_layout
+
 \begin_layout Standard
 En 1992 el ejecutivo promulgó el decreto 1909 de 1992 el cual modificó el decreto 2666 de 1984,
  con fines de impulsar un nuevo modelo de desarrollo basado en la internacionalización de la economía y la modernización del Estado,
@@ -6855,6 +7544,12 @@ En 1992 el ejecutivo promulgó el decreto 1909 de 1992 el cual modificó el decr
  la readecuación de las distintas entidades públicas,
  y en especial,
  las involucradas en el comercio exterior.
+\end_layout
+
+\begin_layout Subsubsection
+1999 —
+ Decreto 2685 de 1999,
+ Estatuto Aduanero
 \end_layout
 
 \begin_layout Standard
@@ -6869,12 +7564,23 @@ Para efectos de su aplicación,
  requisitos y términos establecidos en el citado decreto.
 \end_layout
 
+\begin_layout Subsubsection
+2000 —
+ Resolución 4240 de 2000
+\end_layout
+
 \begin_layout Standard
 En mérito de lo expuesto,
  la Dirección General de Impuestos y Aduanas Nacionales,
  expidió la Resolución 4240 de 2000,
  la misma que reglamenta el decreto en mención.
  
+\end_layout
+
+\begin_layout Subsubsection
+2013 —
+ Ley 1609 de 2013,
+ Ley Marco de Aduanas
 \end_layout
 
 \begin_layout Standard
@@ -6893,12 +7599,22 @@ Esta nueva ley Marco es de gran importancia regula principios,
  y desarrollando las facultades constitucionales del Congreso como representación popular democráticamente elegida por el Pueblo.
 \end_layout
 
+\begin_layout Subsubsection
+2019 —
+ Decreto 1165 de 2019
+\end_layout
+
 \begin_layout Standard
 Durante el gobierno de Iván Duque Márquez se expide el Decreto 1165 de 2019 el cual compiló y armonizó la legislación aduanera contenida en los decretos 2685 de 1999,
  390 de 2016,
  los títulos II y III del 2147 de 2016 y 349 de 2018,
  consolidando las normas hasta entonces vigentes en materia aduanera.
  
+\end_layout
+
+\begin_layout Subsubsection
+2019 —
+ Resolución 46 de 2019
 \end_layout
 
 \begin_layout Standard
@@ -6913,11 +7629,21 @@ Con la expedición de este decreto se logró un avance en seguridad jurídica pa
  
 \end_layout
 
+\begin_layout Subsubsection
+2021 —
+ Decreto 360 de 2021
+\end_layout
+
 \begin_layout Standard
 Con el fin de corregir las inexactitudes que quedaron en el Decreto 1165 de 2019,
  facilitar algunas operaciones de comercio exterior y ajustar normas frente a necesidades originadas por la emergencia sanitaria generada por el covid-19,
  en abril 07 fue expedido el Decreto 360 de 2021 que introdujo cambios fundamentales a la normatividad aduanera en lo sustantivo,
  procedimental y sancionatorio.
+\end_layout
+
+\begin_layout Subsubsection
+2021 —
+ Decreto 572 de 2021
 \end_layout
 
 \begin_layout Standard
@@ -6931,10 +7657,20 @@ En lo relativo al tema de garantías de cumplimiento de disposiciones legales,
  
 \end_layout
 
+\begin_layout Subsubsection
+2021 —
+ Resolución 55 de 2021
+\end_layout
+
 \begin_layout Standard
 La expedición del Decreto 572 de 2021 hizo necesario desarrollar y precisar los procedimientos,
  trámites,
  requisitos y términos establecidos para las garantías globales y específicas mediante la Resolución 55 de 2021.
+\end_layout
+
+\begin_layout Subsubsection
+2023 —
+ Decreto 920 de 2023
 \end_layout
 
 \begin_layout Standard
@@ -6952,11 +7688,16 @@ En el gobierno de Gustavo Petro Urrego expidió el Decreto 920 de 2023,
  con el objetivo de incentivar el cumplimiento voluntario de las obligaciones aduaneras.
 \end_layout
 
+\begin_layout Subsubsection
+2023 —
+ Resolución 000095 de 2023
+\end_layout
+
 \begin_layout Standard
 El 21 de junio de 2023,
  la DIAN expidió la Resolución No.
  000095,
- “Por medio de la cual se dictan disposiciones que desarrollan el Decreto Ley 920 del 6 de junio de 2023.” 
+ por medio de la cual se dictan disposiciones que desarrollan el Decreto Ley 920 del 6 de junio de 2023.
 \end_layout
 
 \begin_layout Standard
@@ -6978,18 +7719,38 @@ Para dar cumplimiento a lo previsto en el Decreto Ley 920 de 2023 y precisar alg
  y 6) Recurso de Reconsideración y Revocatoria Directa.
 \end_layout
 
+\begin_layout Section*
+Síntesis del capítulo
+\end_layout
+
+\begin_layout Standard
+La evolución de la legislación aduanera colombiana muestra un proceso progresivo de actualización normativa orientado a responder a los cambios del comercio exterior y a las necesidades de regulación,
+ control y facilitación de las operaciones aduaneras.
+ A lo largo del tiempo,
+ diferentes leyes,
+ decretos y resoluciones han modificado la estructura institucional,
+ los procedimientos y las responsabilidades aplicables a los usuarios del régimen aduanero.
+\end_layout
+
+\begin_layout Standard
+Las reformas más recientes han buscado consolidar y armonizar la normativa,
+ fortalecer la seguridad jurídica y adaptar los procedimientos a las nuevas condiciones del comercio exterior.
+ La Figura 18 presenta una síntesis de la estructura y evolución de la legislación aduanera colombiana desarrollada en este capítulo.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
-placement p
+placement H
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/img18-LegislacionAduanera.pdf
+	lyxscale 50
 	width 100theight%
 
 \end_inset
@@ -7022,6 +7783,18 @@ Fuente:
 
 \begin_layout Chapter
 Clasificación Arancelaria
+\end_layout
+
+\begin_layout Standard
+La clasificación arancelaria constituye un elemento fundamental en las operaciones de comercio exterior,
+ ya que permite identificar las mercancías mediante una nomenclatura uniforme y determinar el tratamiento arancelario y regulatorio que les corresponde.
+\end_layout
+
+\begin_layout Standard
+En este capítulo se presentan los principales fundamentos de la clasificación arancelaria,
+ su propósito e importancia,
+ así como el Sistema Armonizado de Designación y Codificación de Mercancías,
+ su estructura y el proceso utilizado para identificar y clasificar los productos dentro del comercio internacional.
 \end_layout
 
 \begin_layout Section
@@ -7097,7 +7870,7 @@ La clasificación arancelaria determina el arancel aplicable a un producto espec
 \end_layout
 
 \begin_layout Subsubsection
-Cumplimiento Normativo
+Cumplimiento Normativo:
 \end_layout
 
 \begin_layout Standard
@@ -7105,7 +7878,7 @@ Los productos están sujetos a diferentes regulaciones y requisitos clasificaci�
 \end_layout
 
 \begin_layout Subsubsection
-Facilitación del Comercio
+Facilitación del Comercio:
 \end_layout
 
 \begin_layout Standard
@@ -7115,7 +7888,7 @@ Una clasificación arancelaria precisa ayuda a facilitar el comercio internacion
 \end_layout
 
 \begin_layout Subsubsection
-Determinación de la Competencia
+Determinación de la Competencia:
 \end_layout
 
 \begin_layout Standard
@@ -7127,7 +7900,7 @@ La clasificación arancelaria puede afectar la competitividad de un producto en 
 \end_layout
 
 \begin_layout Subsubsection
-Resolución de Disputas Comerciales
+Resolución de Disputas Comerciales:
 \end_layout
 
 \begin_layout Standard
@@ -7150,11 +7923,11 @@ Sistema de Clasificación Arancelaria
 \end_layout
 
 \begin_layout Subsection
-El Sistema Armonizado de Designación y Codificación de Mercancías (SA)
+El Sistema Armonizado de Designación y Codificación de Mercancías
 \end_layout
 
 \begin_layout Standard
-El SA es un marco internacionalmente reconocido para la clasificación de mercancías que se utiliza en el comercio internacional.
+El El Sistema Armonizado de Designación y Codificación de Mercancías (SA) es un marco internacionalmente reconocido para la clasificación de mercancías que se utiliza en el comercio internacional.
  Su importancia y preponderancia se derivan de varios factores:
 \end_layout
 
@@ -7195,7 +7968,7 @@ El SA se utiliza ampliamente en la compilación de estadísticas comerciales a n
 \end_layout
 
 \begin_layout Subsection
-Estructura del Sistema Armonizado (SA)
+Estructura del Sistema Armonizado
 \end_layout
 
 \begin_layout Description
@@ -7310,25 +8083,30 @@ Legislación:
 \end_layout
 
 \begin_layout Standard
+El Sistema Armonizado proporciona una estructura común para identificar y clasificar las mercancías utilizadas en el comercio internacional,
+ mediante capítulos,
+ partidas y subpartidas que permiten avanzar progresivamente hacia una identificación más precisa de los productos.
+ La Figura 19 presenta una síntesis de los principales componentes del Sistema Armonizado desarrollados en esta sección.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
-placement h
+placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/img19-SistemaArancelario.pdf
+	lyxscale 50
 	width 100text%
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -7351,9 +8129,27 @@ Fuente:
 
 \end_layout
 
+\begin_layout Section*
+Síntesis del capítulo
+\end_layout
+
+\begin_layout Standard
+La clasificación arancelaria permite identificar de manera uniforme las mercancías objeto de comercio internacional y constituye la base para determinar los aranceles,
+ requisitos y demás disposiciones aplicables a cada producto.
+ Una clasificación adecuada facilita el cumplimiento normativo,
+ el despacho aduanero y la gestión eficiente de las operaciones de comercio exterior.
+\end_layout
+
+\begin_layout Standard
+El Sistema Armonizado proporciona el marco internacional para esta clasificación mediante una estructura organizada en capítulos,
+ partidas y subpartidas,
+ acompañada de reglas y criterios que permiten asignar el código correspondiente a cada mercancía.
+ La Figura 20 presenta una síntesis de los principales elementos relacionados con la clasificación arancelaria desarrollados en este capítulo.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
-placement p
+placement H
 alignment document
 wide false
 sideways true
@@ -7363,14 +8159,12 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img20-ClasificacionArancelaria.pdf
+	lyxscale 50
 	width 100theight%
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -7398,15 +8192,34 @@ Aranceles y tarifas en Colombia
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
 La política arancelaria de Colombia se enfoca en la regulación de los impuestos que se aplican a las importaciones y exportaciones de bienes y servicios.
  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La política arancelaria de Colombia se enfoca en la regulación de los impuestos que se aplican a las operaciones de comercio exterior y constituye uno de los instrumentos utilizados para regular el intercambio de mercancías con otros países.
+\end_layout
+
+\begin_layout Standard
+En este capítulo se presentan los principales aspectos de la política arancelaria colombiana,
+ las características de los derechos de aduana,
+ los niveles arancelarios aplicables a diferentes tipos de bienes y algunas medidas de defensa comercial.
 \end_layout
 
 \begin_layout Section
 Aspectos importantes
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Aranceles
 \end_layout
 
@@ -7416,7 +8229,7 @@ Colombia establece aranceles a la importación de productos para proteger la ind
  el cual sigue las directrices de la Organización Mundial del Comercio (OMC).
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Clasificación Arancelaria
 \end_layout
 
@@ -7425,7 +8238,7 @@ Los productos se clasifican bajo el Sistema Armonizado de Designación y Codific
  lo que permite determinar el arancel correspondiente para cada tipo de mercancía.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Acuerdos Comerciales
 \end_layout
 
@@ -7437,7 +8250,7 @@ Colombia participa en varios acuerdos comerciales,
  reduciendo o eliminando aranceles para ciertos productos provenientes de los países firmantes.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Política de Protección
 \end_layout
 
@@ -7447,7 +8260,7 @@ La política arancelaria busca proteger a sectores sensibles de la economía col
  imponiendo aranceles más altos a productos que compiten directamente con la producción nacional.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Facilitación del Comercio
 \end_layout
 
@@ -7457,7 +8270,7 @@ Con el fin de fomentar el comercio exterior,
  como la simplificación de trámites aduaneros y la reducción de costos logísticos.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Modificaciones y Actualizaciones
 \end_layout
 
@@ -7471,6 +8284,10 @@ En resumen,
  la política arancelaria de Colombia es una herramienta clave para el manejo de la economía,
  que busca proteger la producción nacional,
  promover la competitividad y cumplir con los compromisos internacionales.
+\end_layout
+
+\begin_layout Section
+Derechos de Aduana
 \end_layout
 
 \begin_layout Standard
@@ -7549,36 +8366,53 @@ En temas de comercio exterior,
 Tipo de Aranceles
 \end_layout
 
-\begin_layout Description
+\begin_layout Subsubsection
 Arancel
 \begin_inset space ~
 \end_inset
 
-Ad-valorem:
- Este consiste en un porcentaje del valor que tiene el producto importado,
+Ad-valorem.
+\end_layout
+
+\begin_layout Standard
+Consiste en un porcentaje del valor que tiene el producto importado,
  incluyendo el costo,
  seguro y flete.
 \end_layout
 
-\begin_layout Description
+\begin_layout Subsubsection
 Arancel
 \begin_inset space ~
 \end_inset
 
-Específico:
- Se calcula como una determinada cantidad de unidades monetarias por unidad de volumen de importación.
-\end_layout
-
-\begin_layout Description
-Arancel
-\begin_inset space ~
-\end_inset
-
-Mixto:
- Se compone de las dos modalidades anteriormente enunciadas (Arancel Ad-valorem y Arancel Específico).
+Específico.
 \end_layout
 
 \begin_layout Standard
+Se calcula como una determinada cantidad de unidades monetarias por unidad de volumen de importación.
+\end_layout
+
+\begin_layout Subsubsection
+Arancel
+\begin_inset space ~
+\end_inset
+
+Mixto.
+\end_layout
+
+\begin_layout Standard
+Se compone de las dos modalidades anteriormente enunciadas (Arancel Ad-valorem y Arancel Específico).
+\end_layout
+
+\begin_layout Section
+Política y Estructura Arancelaria en Colombia
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
 Por otro lado,
  las partidas arancelarias son las designaciones numéricas encargadas de describir y codificar cada mercancía,
  diferenciado cada elemento de la partida que está siendo clasificada.
@@ -7587,7 +8421,7 @@ Por otro lado,
  ya que los segundos son derechos aduaneros mientras que las partidas son clasificaciones numéricas.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Así las cosas,
  la determinación de estos derechos aduaneros depende así mismo del producto que se esté pretendiendo ingresar al mercado,
  es por eso que la tarifa a la que se ven sometidos puede variar entre los distintos bienes,
@@ -7597,7 +8431,7 @@ Así las cosas,
  a la necesidad que tenga el Gobierno de proteger determinado mercado nacional.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Es por lo anterior que,
  en Colombia,
  los bienes que pagan más aranceles actualmente son los vehículos para el transporte de mercancías y personas,
@@ -7607,7 +8441,7 @@ Es por lo anterior que,
  de acuerdo con los listados emitidos en materia por la Dirección de Impuestos y Aduanas Nacionales (DIAN).
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Así pues,
  la política arancelaria es una herramienta mediante la cual el Estado,
  en este caso el colombiano,
@@ -7616,13 +8450,13 @@ Así pues,
  tanto nacional como internacionalmente.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 En el caso particular de Colombia,
  desde 1990 se implementó una política de apertura económica la cual produjo la disminución de aranceles a lo largo de una década,
  por factores tales como Nación Más Favorecida (NMF) y por los acuerdos comerciales con países vecinos cuyas economías eran y son similares.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Frente a esto es pertinente recordar que la Nación Más Favorecida (NMF),
  es un principio de no discriminación que se encuentra consagrado en el artículo 1 del Acuerdo General sobre Aranceles Aduaneros y Comercio (GATT),
  en donde cualquier concesión concedida por parte de un contratante a otro,
@@ -7631,7 +8465,7 @@ Frente a esto es pertinente recordar que la Nación Más Favorecida (NMF),
  esto con el fin de evitar tratados desiguales entre las economías más fuertes en desmejora de las economías en desarrollo.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Gracias al principio de la Nación Más Favorecida (NMF),
  el promedio arancelario en Colombia paso de ser en 1989 del 40% para reducirse a aproximadamente un 11% en 1996,
  generando efectos económicos muy favorables para el comercio interno del país.
@@ -7639,14 +8473,14 @@ Gracias al principio de la Nación Más Favorecida (NMF),
  la cual supone un nivel bastante bajo.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Por otro lado,
  en la Organización Mundial del Comercio (OMC) fue negociada la eliminación de los aranceles-molestia,
  reconociéndoles un nivel inferior al 2%,
  arancel que no tiene una mayor relevancia fiscal ni un impacto económico significante.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 En materia de política arancelaria,
  bajar los aranceles,
  según expertos es una estrategia ideal para mejorar las condiciones del comercio exterior,
@@ -7656,14 +8490,14 @@ En materia de política arancelaria,
  lo que dificulta la implementación de la mencionada política.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Así mismo,
  cuando los aranceles son insignificantes,
  otras problemáticas son las que comienzan a surgir al momento de determinar las relaciones de comercio exterior,
  dificultades de consideración económica tales como los costos de transporte de las importaciones.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Otro factor relevante son las altas imposiciones de tipo tributario como el Impuesto sobre las Ventas,
  el cual ha sido incrementado de manera progresiva con el paso de los años mediante distintas reformas tributarias,
  como la reforma de la ley 1819 de 2016 que entro a regir a partir del primero de enero de 2017,
@@ -7673,7 +8507,7 @@ Otro factor relevante son las altas imposiciones de tipo tributario como el Impu
  Actualmente el IVA tiene diez veces mayor incidencia en el mercado colombiano que el que tiene el arancel.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Es posible afirmar que,
  en materia arancelaria,
  Colombia se posiciona como un país abierto al comercio exterior debido a la progresiva rebaja arancelaria y el hecho que Colombia no se destaque por la utilización de esta herramienta,
@@ -7684,17 +8518,78 @@ Es posible afirmar que,
  que ponen en duda la apertura de Colombia a nuevos mercados.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 En Colombia,
  la política arancelaria está regulada principalmente por la Dirección de Impuestos y Aduanas Nacionales (DIAN).
  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las partidas arancelarias son las designaciones numéricas encargadas de describir y codificar cada mercancía.
+ Estas se diferencian de los aranceles,
+ pues mientras las partidas corresponden a una clasificación numérica de los productos,
+ los aranceles constituyen derechos de aduana aplicados a las mercancías que ingresan al país.
+\end_layout
+
+\begin_layout Standard
+La determinación de los derechos aduaneros depende del producto que se pretenda ingresar al mercado,
+ por lo cual las tarifas pueden variar de acuerdo con la necesidad de proteger determinados sectores de la producción nacional.
+ En algunos casos,
+ los productos considerados sensibles pueden estar sujetos a niveles arancelarios más altos.
+\end_layout
+
+\begin_layout Standard
+En Colombia,
+ la política arancelaria constituye una herramienta mediante la cual el Estado establece la estructura aplicable al comercio exterior de mercancías.
+ A partir de 1990,
+ con el proceso de apertura económica,
+ se produjo una disminución progresiva de los niveles arancelarios,
+ lo que permitió una mayor inserción del país en los mercados internacionales.
+\end_layout
+
+\begin_layout Standard
+Este proceso también estuvo influido por los acuerdos comerciales y por el principio de Nación Más Favorecida (NMF),
+ según el cual cualquier ventaja,
+ favor,
+ privilegio o inmunidad concedida por un país a otro debe extenderse a las demás partes del acuerdo comercial.
+ Este principio busca evitar prácticas discriminatorias entre los países participantes.
+\end_layout
+
+\begin_layout Standard
+Como resultado de la apertura económica,
+ el promedio arancelario colombiano se redujo considerablemente.
+ De igual manera,
+ en el marco de la Organización Mundial del Comercio se promovió la eliminación de los denominados aranceles-molestia,
+ caracterizados por generar poca importancia fiscal o económica frente a los costos administrativos asociados con su aplicación.
+\end_layout
+
+\begin_layout Standard
+En la actualidad,
+ nuevas reducciones de los aranceles tienen un margen limitado de incidencia sobre el comercio exterior,
+ mientras que otros factores adquieren mayor importancia,
+ como los costos de transporte y las cargas tributarias.
+ Entre estas últimas se encuentra el Impuesto sobre las Ventas (IVA),
+ cuya tarifa general se estableció en el 19 %,
+ además de existir productos excluidos,
+ exentos y con tarifas especiales.
+\end_layout
+
+\begin_layout Standard
+En consecuencia,
+ Colombia presenta una estructura arancelaria relativamente baja como resultado del proceso de apertura comercial y de los compromisos adquiridos mediante acuerdos internacionales.
+ La política arancelaria está regulada principalmente por la Dirección de Impuestos y Aduanas Nacionales (DIAN).
 \end_layout
 
 \begin_layout Section
 Principales Niveles Arancelarios
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Bienes de Capital.
 \end_layout
 
@@ -7702,7 +8597,7 @@ Bienes de Capital.
 Estos pueden tener aranceles reducidos o exentos para fomentar la inversión en maquinaria y tecnología.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Materias Primas
 \end_layout
 
@@ -7711,7 +8606,7 @@ En general,
  tienen aranceles bajos o están exentas para apoyar la producción nacional.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Productos Intermedios
 \end_layout
 
@@ -7719,7 +8614,7 @@ Productos Intermedios
 Tienen aranceles que varían según el grado de procesamiento y la necesidad de proteger la industria nacional.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Productos Finales
 \end_layout
 
@@ -7727,7 +8622,7 @@ Productos Finales
 Tienen aranceles más altos para proteger a los productores nacionales de la competencia extranjera.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Aranceles Preferenciales
 \end_layout
 
@@ -7746,7 +8641,7 @@ Además de los aranceles convencionales,
  Colombia también puede aplicar:
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Medidas de Salvaguardias
 \end_layout
 
@@ -7754,7 +8649,7 @@ Medidas de Salvaguardias
 Medidas temporales para proteger a una industria nacional específica de un aumento en las importaciones.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Derechos Antidumping
 \end_layout
 
@@ -7763,7 +8658,7 @@ Derechos adicionales sobre productos que se importan a un precio inferior al val
  causando daño a la industria nacional.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Derechos Compensatorios
 \end_layout
 
@@ -7771,18 +8666,42 @@ Derechos Compensatorios
 Derechos adicionales para contrarrestar subsidios otorgados en el país exportador.
 \end_layout
 
+\begin_layout Section*
+Síntesis del capítulo
+\end_layout
+
+\begin_layout Standard
+Los aranceles y tarifas constituyen instrumentos importantes de la política comercial colombiana,
+ tanto para regular el ingreso de mercancías como para proteger determinados sectores de la producción nacional y atender los compromisos derivados de los acuerdos comerciales.
+\end_layout
+
+\begin_layout Standard
+Su aplicación depende de aspectos como la clasificación arancelaria,
+ el tipo de mercancía y las preferencias comerciales vigentes.
+ Además de los aranceles convencionales,
+ Colombia puede aplicar medidas de defensa comercial,
+ como salvaguardias,
+ derechos antidumping y derechos compensatorios,
+ cuando las condiciones del comercio así lo requieren.
+\end_layout
+
+\begin_layout Standard
+La Figura 21 presenta una síntesis de los principales elementos relacionados con los aranceles y tarifas en Colombia desarrollados en este capítulo.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
-placement p
+placement H
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/img21-ArancelesTarifas.pdf
+	lyxscale 50
 	width 100theight%
 
 \end_inset
@@ -10134,10 +11053,6 @@ Fuente:
 \begin_layout Chapter
 Procedimientos Aduaneros:
  
-\begin_inset Newline newline
-\end_inset
-
-
 \emph on
 Importaciones
 \end_layout
@@ -12025,7 +12940,7 @@ Se debe tramitar el registro,
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img01-QuieroImportar.pdf
+	filename imagenes/ximg01-QuieroImportar.pdf
 	width 60text%
 	special frame=1.0pt
 
@@ -12061,7 +12976,7 @@ La clasificación arancelaria se realiza con anterioridad,
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img02-RealiceClasificacionArancelaria.pdf
+	filename imagenes/ximg02-RealiceClasificacionArancelaria.pdf
 	width 75text%
 	special frame=1.0pt
 
@@ -12202,45 +13117,22 @@ Por último,
 
 \begin_layout Standard
 \align center
-\begin_inset Box Boxed
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "100col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "3pt"
-shadowsize "4pt"
-framecolor "default"
-backgroundcolor "none"
-status open
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Graphics
-	filename imagenes/_img03-EstudioMercado.pdf
+	filename imagenes/ximg03-EstudioMercado.pdf
 	width 60text%
+	special frame=1.0pt
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img03b-EstudioMercado.pdf
+	filename imagenes/ximg03b-EstudioMercado.pdf
 	width 60text%
-
-\end_inset
-
-
-\end_layout
+	special frame=1.0pt
 
 \end_inset
 
@@ -12267,7 +13159,7 @@ En el documento se debe precisar el Incoterm 2020 sobre el que se está cotizand
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img04-ElementosCotizacion.pdf
+	filename imagenes/ximg04-ElementosCotizacion.pdf
 	width 75text%
 	special frame=1.5pt
 
@@ -13125,7 +14017,7 @@ Todos los datos que figuren en la factura comercial deben coincidir con los de 
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img05-ReciboFacturaComercial.pdf
+	filename imagenes/ximg05-ReciboFacturaComercial.pdf
 	lyxscale 50
 	width 60text%
 	special frame=1.0pt
@@ -13174,7 +14066,7 @@ Reembolsables:
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img06-CartaCredito.pdf
+	filename imagenes/ximg06-CartaCredito.pdf
 	lyxscale 50
 	width 65text%
 	special frame=1.0pt
@@ -13187,9 +14079,9 @@ Reembolsables:
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img07-CartaCredito02.pdf
+	filename imagenes/ximg07-CartaCredito02.pdf
 	lyxscale 50
-	width 65text%
+	width 60text%
 	special frame=1.0pt
 
 \end_inset
@@ -13200,9 +14092,9 @@ Reembolsables:
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img07-CartaCredito03.pdf
+	filename imagenes/ximg07-CartaCredito03.pdf
 	lyxscale 50
-	width 65text%
+	width 60text%
 	special frame=1.0pt
 
 \end_inset
@@ -13213,7 +14105,7 @@ Reembolsables:
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img08-CartaCredito04.pdf
+	filename imagenes/ximg08-CartaCredito04.pdf
 	lyxscale 50
 	width 60text%
 	special frame=1.0pt
@@ -13249,7 +14141,7 @@ El certificado de origen es el documento expedido por una entidad competente med
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img09-CertificadoOrigen.pdf
+	filename imagenes/ximg09-CertificadoOrigen.pdf
 	lyxscale 60
 	width 65text%
 	special frame=1.0pt
@@ -13284,7 +14176,7 @@ Para escoger el medio de transporte adecuado es necesario considerar los costos 
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img10-TranporteMaritimo.pdf
+	filename imagenes/ximg10-TranporteMaritimo.pdf
 	lyxscale 50
 	width 70text%
 	special frame=1.0pt
@@ -13297,7 +14189,7 @@ Para escoger el medio de transporte adecuado es necesario considerar los costos 
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img10-TranporteAereo.pdf
+	filename imagenes/ximg10-TranporteAereo.pdf
 	lyxscale 50
 	width 70text%
 	special frame=1.0pt
@@ -13310,7 +14202,7 @@ Para escoger el medio de transporte adecuado es necesario considerar los costos 
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename imagenes/_img10-TranporteFerroviario.pdf
+	filename imagenes/ximg10-TranporteFerroviario.pdf
 	lyxscale 50
 	width 70text%
 	special frame=1.0pt
@@ -13993,7 +14885,7 @@ placement document
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -14790,7 +15682,7 @@ placement document
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -14936,47 +15828,6 @@ Certificación.
  El Salvador y Honduras).
 \end_layout
 
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-alignment document
-wide false
-sideways true
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename imagenes/img44-ProcesoInicialRegimenExportacion.pdf
-	width 100theight%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Proceso Inicial en el Régimen de Exportación
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Fuente de figura
-Fuente:
- Elaboración propia (2025)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Procedimiento Aduanero de Exportación de Bienes
 \end_layout
@@ -15069,6 +15920,48 @@ Otros documentos exigido
 \series default
 s para el producto a exportar (fichas técnicas,
  por ejemplo).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/img44-ProcedimientoAduaneroExportacionBienes.pdf
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Procedimiento aduanero de exportación de bienes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fuente de figura
+Fuente:
+ Elaboración propia (2025)
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -15416,7 +16309,7 @@ placement H
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -20179,7 +21072,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Pallet según el material
+Pallet según el diseño estructural
 \end_layout
 
 \end_inset
@@ -22707,7 +23600,7 @@ status open
 
 \backslash
 addcontentsline{toc}{section}{Anexo B:
- Definiciones Aduaneras Colombianas}
+ Glosario de Términos de Comercio Exterior}
 \end_layout
 
 \end_inset
