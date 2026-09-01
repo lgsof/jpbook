@@ -9,6 +9,7 @@
 % To ensure automatically inserted blank pages have no header/page number
 \usepackage{emptypage}
 
+
 % For avoid chapter number in sections/subsections
 \renewcommand{\thesection}{\arabic{section}}
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
@@ -70,6 +71,8 @@
 \setlength{\cftbeforechapskip}{0pt}
 
 %----------------------------------------------------%
+%---------------- ANNEXES ---------------------------%
+%----------------------------------------------------%
 
 % For annexes
 \newcounter{anexo}
@@ -91,9 +94,15 @@
 
 \renewcommand{\headrulewidth}{0.4pt}
 
+% To add "Capítulo " to header
 \renewcommand{\chaptermark}[1]{%
-    \markboth{#1}{}%
+  \markboth{Capítulo \thechapter:  #1}{}%
 }
+
+
+%\renewcommand{\chaptermark}[1]{%
+%    \markboth{#1}{}%
+%}
 
 \renewcommand{\sectionmark}[1]{%
     \markright{#1}%
@@ -200,6 +209,10 @@ Style Subsubsection
         Series Bold
     EndFont
 
+    # This controls the vertical spacing inside the LyX editor win
+    TopSep 0.8
+    BottomSep 0.05
+
     Preamble
         \usepackage{sectsty}
 
@@ -210,6 +223,11 @@ Style Subsubsection
             \color{slateNavy}
             \bfseries
         }
+
+        % This controls the PDF output spacing using LaTeX's \titlespacing
+        \usepackage[compact]{titlesec}
+        \titlespacing*{\subsubsection}{0pt}{12pt}{3pt}
+		
     EndPreamble
 End
 
@@ -244,8 +262,8 @@ Preamble
     \raggedbottom
 
     % Tables
-    \rowcolors{2}{white}{gray!12}
-    \renewcommand{\arraystretch}{1.3}
+%    \rowcolors{2}{white}{gray!12}
+%    \renewcommand{\arraystretch}{1.3}
 EndPreamble
 \end_local_layout
 \language spanish
@@ -505,6 +523,13 @@ Autor:
  
 \series default
 Jaime Armando Pérez
+\begin_inset Newline newline
+\end_inset
+
+Administrador Público (ESAP),
+ Especialista en Administración Pública Contemporánea (ESAP),
+ Especialista en Comercio Exterior y Economía Internacional (Universidad de Barcelona),
+ Magíster en Administración de Organizaciones (UNAD).
 \end_layout
 
 \begin_layout Standard
@@ -3305,7 +3330,7 @@ nolink "false"
 
 \begin_layout Standard
 \begin_inset Float figure
-placement b
+placement H
 alignment document
 wide false
 sideways false
@@ -3315,8 +3340,8 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img06-TeoriasComercio.pdf
-	lyxscale 50
-	width 100text%
+	lyxscale 30
+	width 95text%
 
 \end_inset
 
@@ -8291,6 +8316,10 @@ Derechos de Aduana
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
 Los aranceles son derechos de aduana que impone un Estado a las importaciones recibidas por este,
  es decir,
  es una tarifa a pagar por parte de la persona o empresa,
@@ -8298,13 +8327,13 @@ Los aranceles son derechos de aduana que impone un Estado a las importaciones re
  que se encuentra realizando actividades de importación a través de las aduanas de la República para poder ingresar los productos que este comercializa a una jurisdicción distinta.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Los derechos aduaneros son gravámenes externos puesto que recaen sobre actividades de comercio exterior,
  solo existen en la medida en que una mercancía ingrese a un territorio aduanero,
  por lo que necesariamente se presenta el fenómeno de la importación.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Los derechos de aduanas tienen las siguientes características:
 \end_layout
 
@@ -8324,7 +8353,7 @@ Son de contenido impositivo sobre actos jurídicos de comercio exterior.
 Su modificación se da mediante negociaciones de carácter multilateral.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Los derechos aduaneros cumplen con el principio de protección arancelaria exclusiva,
  el cual tiene sustento en el artículo XI del GATTM de 1994,
  consagrando que el comercio de mercancías debía encontrarse protegido mediante arancel aduanero por lo que no se podría recurrir a otro tipo de restricciones económicas,
@@ -8332,7 +8361,7 @@ Los derechos aduaneros cumplen con el principio de protección arancelaria exclu
  Es una forma de protección del comercio globalmente.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Las finalidades perseguidas por los aranceles son principalmente dos,
  la primera consiste en dar una ventaja,
  en materia de precios,
@@ -8352,7 +8381,7 @@ Las finalidades perseguidas por los aranceles son principalmente dos,
  con el sustento que se han ingresado unos productos a una jurisdicción distinta a donde estos han sido producidos.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 En temas de comercio exterior,
  el establecimiento de aranceles es de gran importancia a la hora de entablar relaciones comerciales entre países,
  por lo que es común que al escuchar hablar de aranceles también se haga mención a los acuerdos comerciales o tratados de libre comercio,
@@ -8360,6 +8389,67 @@ En temas de comercio exterior,
  ese país está estableciendo una tarifa para la entrada de mis productos a la jurisdicción extranjera,
  por lo que el sistema arancelario,
  determina en gran medida la amplitud del mercado internacional que tenga un determinado país.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los aranceles son derechos de aduana que impone un Estado a las importaciones,
+ es decir,
+ una tarifa que debe pagar la persona o empresa que realiza actividades de importación para ingresar sus productos a una jurisdicción distinta.
+\end_layout
+
+\begin_layout Standard
+Los derechos aduaneros son gravámenes externos que recaen sobre actividades de comercio exterior y existen cuando una mercancía ingresa a un territorio aduanero mediante una importación.
+\end_layout
+
+\begin_layout Standard
+Los derechos de aduana tienen las siguientes características:
+\end_layout
+
+\begin_layout Itemize
+Recaen sobre el tráfico internacional de mercancías.
+\end_layout
+
+\begin_layout Itemize
+Se encuentran generalizados a nivel global y están bajo la regulación de la Organización Mundial del Comercio (OMC).
+\end_layout
+
+\begin_layout Itemize
+Tienen contenido impositivo sobre actos jurídicos de comercio exterior.
+\end_layout
+
+\begin_layout Itemize
+Su modificación se realiza mediante negociaciones de carácter multilateral.
+\end_layout
+
+\begin_layout Standard
+Los derechos aduaneros cumplen con el principio de protección arancelaria exclusiva,
+ sustentado en el artículo XI del GATT de 1994,
+ según el cual el comercio de mercancías debe protegerse mediante aranceles aduaneros y no mediante otras restricciones económicas,
+ como licencias o monopolios.
+\end_layout
+
+\begin_layout Standard
+Los aranceles persiguen principalmente dos finalidades.
+ La primera es dar una ventaja en materia de precios al producto nacional,
+ pues el producto importado está sometido a un gravamen adicional frente al producido localmente;
+ de esta manera,
+ el arancel busca fortalecer los mercados locales frente a los extranjeros.
+ La segunda es generar ingresos para sufragar los gastos del Estado,
+ al igual que otros tributos como el impuesto sobre la renta,
+ el impuesto de industria y comercio (ICA) o el impuesto sobre las ventas (IVA).
+\end_layout
+
+\begin_layout Standard
+En comercio exterior,
+ los aranceles son importantes para establecer relaciones comerciales entre países y están estrechamente vinculados con los acuerdos comerciales y tratados de libre comercio.
+ Las tarifas aplicadas a la entrada de productos extranjeros determinan,
+ en gran medida,
+ la amplitud del mercado internacional de un país.
 \end_layout
 
 \begin_layout Section
@@ -8532,8 +8622,8 @@ En Colombia,
 \begin_layout Standard
 Las partidas arancelarias son las designaciones numéricas encargadas de describir y codificar cada mercancía.
  Estas se diferencian de los aranceles,
- pues mientras las partidas corresponden a una clasificación numérica de los productos,
- los aranceles constituyen derechos de aduana aplicados a las mercancías que ingresan al país.
+ ya que las partidas corresponden a una clasificación numérica de los productos,
+ mientras que los aranceles constituyen derechos de aduana aplicados a las mercancías que ingresan al país.
 \end_layout
 
 \begin_layout Standard
@@ -8746,32 +8836,79 @@ Origen de las Mercancías en el Comercio Exterior Colombiano
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
 El origen de las mercancías es uno de los factores (junto con la clasificación arancelaria y el valor en aduana – para el caso del arancel ad valorem-) más importantes para determinar la política comercial y,
  por tanto,
  el tratamiento aduanero que se va a aplicar a una mercancía en una operación de comercio exterior,
  principalmente en el momento de la importación.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 La normativa aduanera de importación de cualquier país (o acuerdo comercial) aplica diferentes medidas de política comercial (protección arancelaria,
  restricciones a la importación,
  controles y requisitos técnicos,
  etc.) a una misma mercancía según cuál sea su país de origen.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Hay que diferenciar entre origen y procedencia:
  el origen será el país donde han sido fabricadas o elaboradas unas mercancías (algo equivalente similar a la nacionalidad en el caso de las personas) mientras que la procedencia alude exclusivamente al punto de origen del transporte que ha traído las mercancías a un a país.
  A efectos aduaneros lo relevante es el país de origen.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 En el comercio internacional,
  el origen de las mercancías es un aspecto fundamental para determinar el tratamiento arancelario,
  la aplicación de medidas comerciales y el cumplimiento de normas internacionales.
  En Colombia,
  el origen de las mercancías cobra especial relevancia debido a su participación en múltiples acuerdos comerciales,
  tratados de libre comercio (TLC) y su vinculación a organismos como la Comunidad Andina (CAN) y la Organización Mundial del Comercio (OMC).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El origen de las mercancías es uno de los factores,
+ junto con la clasificación arancelaria y el valor en aduana —
+para el caso del arancel ad valorem—
+,
+ más importantes para determinar la política comercial y,
+ por tanto,
+ el tratamiento aduanero que se aplica a una mercancía en una operación de comercio exterior,
+ principalmente en el momento de la importación.
+\end_layout
+
+\begin_layout Standard
+La normativa aduanera de importación de cada país,
+ así como los acuerdos comerciales,
+ puede aplicar diferentes medidas de política comercial —
+protección arancelaria,
+ restricciones a la importación,
+ controles y requisitos técnicos,
+ entre otras—
+ a una misma mercancía según su país de origen.
+\end_layout
+
+\begin_layout Standard
+Es importante diferenciar entre origen y procedencia.
+ El origen corresponde al país donde las mercancías han sido fabricadas o elaboradas,
+ mientras que la procedencia se refiere exclusivamente al punto desde el cual fueron transportadas.
+ Para efectos aduaneros,
+ lo relevante es el país de origen.
+\end_layout
+
+\begin_layout Standard
+En el comercio internacional,
+ el origen de las mercancías es fundamental para determinar el tratamiento arancelario,
+ la aplicación de medidas comerciales y el cumplimiento de normas internacionales.
+ En Colombia adquiere especial relevancia por la participación del país en acuerdos comerciales,
+ tratados de libre comercio y organismos como la Comunidad Andina (CAN) y la Organización Mundial del Comercio (OMC).
 \end_layout
 
 \begin_layout Section
@@ -8822,7 +8959,7 @@ Origen No Preferencial
 \end_layout
 
 \begin_layout Standard
-Es el que se utiliza en ausencia de acuerdos comerciales preferenciales.
+Se utiliza en ausencia de acuerdos comerciales preferenciales.
  Se basa en criterios generales establecidos por la OMC,
  como la transformación sustancial o el cambio de clasificación arancelaria.
 \end_layout
@@ -9187,11 +9324,11 @@ Nomenclatura internacional establecida por la Organización Mundial de Aduanas,
 \end_layout
 
 \begin_layout Section
-Sistema Generalizado de Preferencias
+Sistema Generalizado de Preferencias (SGP)
 \end_layout
 
 \begin_layout Standard
-el Sistema Generalizado de Preferencias (SGP) concede arancel cero o aranceles reducidos a los países beneficiarios.
+El SGP concede arancel cero o aranceles reducidos a los países beneficiarios.
  Los países menos desarrollados generalmente reciben tratamiento preferencial para ciertos productos y reducciones arancelarias significativas.
 \end_layout
 
@@ -9262,38 +9399,41 @@ Fuente:
 \size footnotesize
 \begin_inset Tabular
 <lyxtabular version="3" rows="23" columns="3">
-<features islongtable="true" tabularwidth="100text%" longtabularalignment="center">
-<column alignment="center" valignment="top" width="0.5cm">
-<column alignment="center" valignment="top" width="48text%">
-<column alignment="center" valignment="top" width="48text%">
+<features islongtable="true" tabularwidth="100col%" longtabularalignment="center">
+<column alignment="center" valignment="top" width="1.5text%">
+<column alignment="left" valignment="top" width="46text%">
+<column alignment="left" valignment="top" width="45text%">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 No
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
-Acuerdos de libre comercio en vigor para Colombia
+Acuerdos de libre comercio vigentes para Colombia
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 Regimen de origen y criterios
 \end_layout
@@ -9313,26 +9453,26 @@ Regimen de origen y criterios
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
 Acuerdo comercial entre Colombia,
- Perú y la república del Ecuador por una parte y la Unión Europea y sus estados miembros,
- por otra
+ Perú,
+ Ecuador y la Unión Europea y sus estados miembros.
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
-Anexo II - sección II definición del concepto de «productos originarios».
+Anexo II -  II definición del concepto de «productos originarios».
  Artículo II requisitos generales
 \end_layout
 
@@ -9351,25 +9491,25 @@ Anexo II - sección II definición del concepto de «productos originarios».
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
-Acuerdo comercial entre el Reino Unido de Gran Bretaña e Irlanda del Norte por una parte y la república de Colombia,
- la república del Ecuador y la república del Perú por otra
+Acuerdo comercial entre el Reino Unido de Gran Bretaña e Irlanda del Norte por una parte y Colombia,
+ Ecuador y Perú por otra
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
-Anexo II - sección II definición del concepto de «productos originarios».
+Anexo II -  II definición del concepto de «productos originarios».
  Artículo II requisitos generales y las modificaciones realizadas al anexo II
 \end_layout
 
@@ -9388,7 +9528,7 @@ Anexo II - sección II definición del concepto de «productos originarios».
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9396,18 +9536,18 @@ Anexo II - sección II definición del concepto de «productos originarios».
 \size footnotesize
 Acuerdo de complementación económica No.
  59 Entre MERCOSUR,
- la CAN y la República Bolivariana de Venezuela – ALADI
+ la CAN y Venezuela – ALADI
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
-Anexo IV régimen de origen - sección I:
+Anexo IV régimen de origen -  I:
  criterios para la calificación del origen
 \end_layout
 
@@ -9426,25 +9566,25 @@ Anexo IV régimen de origen - sección I:
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
 Acuerdo de complementación económica No.
- 72 Entre los estados parte del MERCOSUR y la república de Colombia
+ 72 Entre los estados parte del MERCOSUR y Colombia
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
-Anexo IV régimen de origen - sección I:
+Anexo IV régimen de origen -  I:
  criterios para la calificación del origen
 \end_layout
 
@@ -9463,18 +9603,18 @@ Anexo IV régimen de origen - sección I:
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
-Acuerdo de libre comercio entre Canadá y la república de Colombia
+Acuerdo de libre comercio entre Canadá y Colombia
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9498,20 +9638,20 @@ Capítulo 3 reglas de origen - artículo 301 - mercancías originarias
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
-Acuerdo de libre comercio entre la república de Colombia y los estados AELC (Islandia,
+Acuerdo de libre comercio entre Colombia y los estados AELC (Islandia,
  Liechtenstein,
  Noruega y Suiza)
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9535,25 +9675,25 @@ Anexo V - título II definición del concepto de 'productos originarios' - artí
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
-Acuerdo de libre comercio entre la república de Colombia LADI
+Acuerdo de libre comercio entre Colombia LADI
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
 Capítulo 4.
- Régimen de origen - sección a - reglas de origen - artículo 4.1 Mercancías originarias
+ Régimen de origen - sección A - reglas de origen - artículo 4.1 Mercancías originarias
 \end_layout
 
 \end_inset
@@ -9571,7 +9711,7 @@ Capítulo 4.
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9582,13 +9722,13 @@ Acuerdo de libre comercio entre la república de Colombia y la República de Cor
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
-Capítulo tres - reglas de origen y procedimientos de origen - sección a - reglas de origen - artículo 3.1 Mercancías originarias
+Capítulo tres - reglas de origen y procedimientos de origen - sección A - reglas de origen - artículo 3.1 Mercancías originarias
 \end_layout
 
 \end_inset
@@ -9606,7 +9746,7 @@ Capítulo tres - reglas de origen y procedimientos de origen - sección a - regl
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9617,7 +9757,7 @@ Acuerdo de promoción comercial entre la república de Colombia y los Estados Un
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9629,7 +9769,7 @@ Capítulo tres - textiles y vestido
 \begin_layout Plain Layout
 
 \size footnotesize
-capítulo cuatro - reglas de origen y procedimientos de origen - sección a - reglas de origen - artículo 4.1 Mercancías originarias
+capítulo cuatro - reglas de origen y procedimientos de origen - sección A - reglas de origen - artículo 4.1 Mercancías originarias
 \end_layout
 
 \end_inset
@@ -9647,7 +9787,7 @@ capítulo cuatro - reglas de origen y procedimientos de origen - sección a - re
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9658,13 +9798,13 @@ Alianza del Pacífico
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
-Capítulo 4 - reglas de origen y procedimientos relacionados con el origen - sección a - reglas de origen
+Capítulo 4 - reglas de origen y procedimientos relacionados con el origen - sección A - reglas de origen
 \end_layout
 
 \end_inset
@@ -9682,7 +9822,7 @@ Capítulo 4 - reglas de origen y procedimientos relacionados con el origen - sec
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9693,7 +9833,7 @@ Comunidad Andina
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9717,7 +9857,7 @@ Decisión 416 capítulo II - de las normas para la calificación del origen
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9728,13 +9868,13 @@ Tratado de libre comercio entre la república de Colombia y la república de Cos
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
-Capítulo 3 reglas de origen y procedimientos de origen - sección a reglas de origen - artículo 3.1 Mercancías originarias
+Capítulo 3 reglas de origen y procedimientos de origen - sección A reglas de origen - artículo 3.1 Mercancías originarias
 \end_layout
 
 \end_inset
@@ -9752,19 +9892,19 @@ Capítulo 3 reglas de origen y procedimientos de origen - sección a reglas de o
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
-Tratado de libre comercio entre la república de Colombia y las repúblicas de El Salvador,
+Tratado de libre comercio entre Colombia y las repúblicas de El Salvador,
  Guatemala y Honduras
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9788,19 +9928,19 @@ Capítulo 4 reglas de origen - artículo 4.3 Mercancía originaria
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
-Tratado de libre comercio entre los Estados Unidos Mexicanos y la república de Colombia (G-2) AAP No.
+Tratado de libre comercio entre los Estados Unidos Mexicanos y Colombia (G-2) AAP No.
  33 – ALADI
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9825,7 +9965,7 @@ Capítulo VI:
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9836,7 +9976,7 @@ Tratado de libre comercio entre la república de Colombia y el estado de Israel
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9860,7 +10000,7 @@ Capítulo 3 reglas de origen - artículo 3.2 Requisitos generales
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9874,7 +10014,7 @@ Acuerdo de alcance parcial de naturaleza comercial entre la Rep.
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9898,7 +10038,7 @@ Anexo II - sección II criterios para la calificación de origen – artículo 3
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9910,7 +10050,7 @@ Acuerdo de alcance parcial No.
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9935,7 +10075,7 @@ Capítulo III normas de origen - anexo I reglamento sobre el origen de las merca
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9948,7 +10088,7 @@ Acuerdo de alcance parcial No.
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9973,19 +10113,19 @@ Anexo III.
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
 Acuerdo de complementación económica No.
- 49 Entre la república de Colombia y la república de Cuba - ALADI
+ 49 Entre Colombia y la república de Cuba - ALADI
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -10010,7 +10150,7 @@ Anexo III del tercer protocolo adicional - régimen de origen y procedimientos p
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -10023,7 +10163,7 @@ Acuerdo regional relativo a la preferencia arancelaria regional No.
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -10047,7 +10187,7 @@ Resolución 252 del comité de representantes - anexo régimen general de origen
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -10058,7 +10198,7 @@ Sistema generalizado de preferencias - S.G.P
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -10076,7 +10216,7 @@ Régimen de origen del esquema de cada país
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Quien expide una prueba de origen calificará la mercancía como originaria con fundamento en el “criterio” que le corresponda,
  haciendo constar en la misma que la mercancía cumple con el conjunto de consideraciones establecidas en las respectivas normas de origen,
  lo que permite que los productos amparados sean elegibles para el trato arancelario preferencial establecido en un acuerdo comercial.
@@ -10108,6 +10248,18 @@ Quien expide una prueba de origen calificará la mercancía como originaria con 
 \end_inset
 
 
+\size scriptsize
+
+\begin_inset VSpace 0bp
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Estos elementos permiten comprender cómo se determina el origen de las mercancías y su importancia para la aplicación de preferencias arancelarias,
+ medidas comerciales y demás disposiciones asociadas a los acuerdos internacionales.
+ La Figura 22 presenta una síntesis de los principales aspectos relacionados con el origen de las mercancías en Colombia.
 \end_layout
 
 \begin_layout Standard
@@ -10116,12 +10268,14 @@ placement H
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/img22-OrigenMercancias.pdf
+	lyxscale 50
+	width 100theight%
 
 \end_inset
 
@@ -10260,16 +10414,18 @@ Se emite por el exportador en una factura,
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/img23-PruebasOrigen.pdf
+	lyxscale 50
+	width 65text%
 
 \end_inset
 
@@ -10413,7 +10569,7 @@ Reclamar el certificado de origen presencialmente o en algunos casos se envía o
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement H
 alignment document
 wide false
 sideways false
@@ -10423,7 +10579,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img24-DeclaracionExportador.pdf
-	lyxscale 50
+	lyxscale 30
 	width 65text%
 
 \end_inset
@@ -10506,7 +10662,7 @@ Criterio para cumplir origen
 \end_deeper
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement H
 alignment document
 wide false
 sideways false
@@ -10516,6 +10672,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img25-AutoCerificacionExportador.pdf
+	lyxscale 50
 	width 65text%
 
 \end_inset
@@ -10546,20 +10703,52 @@ Fuente:
 
 \end_layout
 
+\begin_layout Section*
+Síntesis del capítulo
+\end_layout
+
+\begin_layout Standard
+El origen de las mercancías constituye un elemento esencial para determinar el tratamiento aplicable a los productos dentro del comercio internacional.
+ Su correcta determinación permite establecer el acceso a preferencias arancelarias,
+ verificar el cumplimiento de las reglas previstas en los acuerdos comerciales y aplicar los procedimientos de control correspondientes.
+\end_layout
+
+\begin_layout Standard
+En Colombia,
+ la acreditación del origen se realiza mediante diferentes declaraciones,
+ pruebas y certificados,
+ cuya utilización depende de las condiciones establecidas en cada acuerdo comercial.
+ Estos procedimientos pueden involucrar la intervención de la DIAN o,
+ en determinados casos,
+ mecanismos de autocertificación por parte del productor,
+ exportador o importador.
+\end_layout
+
+\begin_layout Standard
+La aplicación adecuada de estas reglas y procedimientos permite sustentar el carácter originario de las mercancías y acceder a los beneficios comerciales que correspondan.
+\end_layout
+
+\begin_layout Standard
+Las pruebas de origen pueden materializarse mediante distintos documentos,
+ según lo establecido en cada acuerdo comercial y el procedimiento aplicable.
+ A continuacion,
+ en la Figura 26 se presenta un ejemplo del certificado de origen utilizado en este tipo de operaciones.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/img26-CertificadoOrigenAladi.pdf
-	lyxscale 50
-	height 98theight%
+	lyxscale 20
+	width 100text%
 
 \end_inset
 
@@ -10772,10 +10961,10 @@ Actualidad:
 
 \begin_layout Standard
 La valoración aduanera sigue evolucionando con la implementación de nuevas tecnologías y prácticas para mejorar la precisión y eficiencia en la determinación del valor de las mercancías. Las administraciones aduaneras de todo el mundo continúan adaptándose a los cambios en el comercio global.
-\begin_inset Newpage pagebreak
-\end_inset
+\end_layout
 
-
+\begin_layout Standard
+La Figura 27 presenta una síntesis de los principales elementos relacionados con la valoración aduanera y sirve como referencia para los métodos y procedimientos que se desarrollan a continuación.
 \end_layout
 
 \begin_layout Standard
@@ -10790,6 +10979,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img27-ValoracionAduanera.pdf
+	lyxscale 50
 	width 100theight%
 
 \end_inset
@@ -10832,7 +11022,7 @@ En los casos en que no exista valor de transacción o en que el valor de transac
  en el Acuerdo se consideran los seis métodos siguientes:
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Método 1:
  Valor de Transacción
 \end_layout
@@ -10850,7 +11040,7 @@ En el valor de la transacción debe existir una prueba de venta para la exportac
  declaraciones de cambio etc.).
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Método 2:
  Valor de Transacción de Mercancías Idénticas
 \end_layout
@@ -10882,7 +11072,7 @@ Para que pueda aplicarse este método,
  o en un momento aproximado.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Método 3:
  Valor de Transacción de Mercancías Similares
 \end_layout
@@ -10908,7 +11098,7 @@ Que se hayan producido en el mismo país y por el mismo productor de las mercanc
  o en un momento aproximado.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Método 4:
  Método Deductivo
 \end_layout
@@ -10924,7 +11114,7 @@ En el Acuerdo se dispone que,
  podrán utilizarse como base las ventas realizadas hasta 90 días después de la importación de las mercancías objeto de valoración.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Método 5:
  Método del Valor Reconstruido
 \end_layout
@@ -10935,7 +11125,7 @@ Es el método más difícil y menos utilizado,
  
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Método 6:
  Método de Ultima Instancia
 \end_layout
@@ -10956,7 +11146,7 @@ Determinación del valor en aduana sobre la base de “criterios razonables,
 Instituciones Internacionales
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Organización Mundial del Comercio (OMC)
 \end_layout
 
@@ -10968,7 +11158,7 @@ Establece las normas y directrices para la valoración aduanera a nivel global.
 El Acuerdo de Valoración en Aduana de la OMC proporciona un marco para la valoración de mercancías importadas.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Organización Mundial de Aduanas (OMA)
 \end_layout
 
@@ -10984,7 +11174,7 @@ Desarrolla herramientas y guías para facilitar el cumplimiento de las normativa
 Instituciones Nacionales
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Dirección de Impuestos y Aduanas Nacionales
 \end_layout
 
@@ -11004,6 +11194,28 @@ Declaración Andina de Valor
 La DAV o Declaración del Valor es un documento soporte de la Declaración de Importación.
  Contiene la información relativa a la transacción comercial y el detalle de los elementos de hecho y circunstancias comerciales de la negociación,
  así como los conceptos y cálculos para la determinación de valor en aduanas de las mercancías importadas que se declaran ante la autoridad aduanera.
+ La Figura 28 muestra el formato de la Declaración Andina de Valor (DAV),
+ utilizado como documento soporte dentro del proceso de valoración aduanera.
+\end_layout
+
+\begin_layout Section*
+Síntesis del capítulo
+\end_layout
+
+\begin_layout Standard
+La valoración aduanera permite determinar el valor en aduana de las mercancías importadas y constituye la base para la liquidación de los derechos ad valorem.
+ Su aplicación se fundamenta en las disposiciones del Acuerdo sobre Valoración de la OMC y en la normativa comunitaria aplicable.
+\end_layout
+
+\begin_layout Standard
+El procedimiento contempla seis métodos de valoración que deben aplicarse en el orden establecido,
+ comenzando por el valor de transacción y recurriendo a los métodos siguientes cuando este no pueda utilizarse.
+ En este proceso intervienen organismos internacionales y nacionales encargados de establecer,
+ aplicar y supervisar las normas de valoración.
+\end_layout
+
+\begin_layout Standard
+La Declaración Andina de Valor complementa este procedimiento al registrar la información de la transacción comercial y los elementos necesarios para sustentar la determinación del valor en aduana.
 \end_layout
 
 \begin_layout Standard
@@ -11012,7 +11224,7 @@ placement h
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -11128,12 +11340,16 @@ Es de carácter personal,
 \end_layout
 
 \begin_layout Standard
+La Figura 29 presenta una síntesis de los principales elementos que conforman la obligación aduanera.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement h
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -11402,14 +11618,7 @@ Los usuarios de un programa especial de exportación (PEX) y los autores de obra
 \end_layout
 
 \begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
+La Figura 30 resume las principales obligaciones que surgen en una operación de importación y los responsables de su cumplimiento.
 \end_layout
 
 \begin_layout Standard
@@ -11418,12 +11627,13 @@ placement H
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/img30-ObligatoriedadAduanera.pdf
+	lyxscale 30
 	width 100theight%
 
 \end_inset
@@ -11676,17 +11886,22 @@ Las autorizaciones previas establecidas por la Unidad Administrativa Especial Di
 \end_layout
 
 \begin_layout Standard
+La Figura 31 presenta los principales documentos soporte requeridos para la Declaración de Importación.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement H
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/img31-DocsSoporteDIM.pdf
+	lyxscale 30
 	width 100theight%
 
 \end_inset
@@ -11739,12 +11954,16 @@ Es importante destacar que las regulaciones y procedimientos aduaneros pueden es
 \end_layout
 
 \begin_layout Standard
+La Figura 32 muestra el formulario utilizado para la Declaración de Importación (DIM).
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -12007,42 +12226,18 @@ En la modalidad de viajeros,
 \begin_layout Itemize
 Cuando la DIAN imponga una sanción con base en valor FOB de la mercancía,
  la tasa de cambio aplicable será la vigente a la fecha de expedición del requerimiento especial aduanero.
-\end_layout
-
-\begin_layout Section
-Formas de pago
-\end_layout
-
-\begin_layout Description
-En
-\begin_inset space ~
+\begin_inset Newpage pagebreak
 \end_inset
 
-forma
-\begin_inset space ~
-\end_inset
 
-presencial:
- El pago se realiza en efectivo o mediante cheque de gerencia o cheque girado sobre la misma plaza de la oficina que lo recibe y únicamente a la orden de la entidad financiera receptora (según políticas de la entidad financiera),
- en las entidades autorizadas por la DIAN para recaudar impuestos nacionales.
-\end_layout
-
-\begin_layout Description
-Por
-\begin_inset space ~
-\end_inset
-
-medios
-\begin_inset space ~
-\end_inset
-
-electrónicos:
- Si se dispone de firma electrónica,
- se podrá ingresar al botón de pagos y realizar el pago por este canal con cargo a su cuenta débito de su banco (ahorros o corriente).
 \end_layout
 
 \begin_layout Section
 Vigencia de los Tributos Aduaneros
+\end_layout
+
+\begin_layout Standard
+La Figura 33 presenta de forma resumida los criterios relacionados con la vigencia de los tributos aduaneros.
 \end_layout
 
 \begin_layout Standard
@@ -12088,13 +12283,49 @@ Fuente:
 
 \end_layout
 
+\begin_layout Section
+Formas de pago
+\end_layout
+
+\begin_layout Description
+En
+\begin_inset space ~
+\end_inset
+
+forma
+\begin_inset space ~
+\end_inset
+
+presencial:
+ El pago se realiza en efectivo o mediante cheque de gerencia o cheque girado sobre la misma plaza de la oficina que lo recibe y únicamente a la orden de la entidad financiera receptora (según políticas de la entidad financiera),
+ en las entidades autorizadas por la DIAN para recaudar impuestos nacionales.
+\end_layout
+
+\begin_layout Description
+Por
+\begin_inset space ~
+\end_inset
+
+medios
+\begin_inset space ~
+\end_inset
+
+electrónicos:
+ Si se dispone de firma electrónica,
+ se podrá ingresar al botón de pagos y realizar el pago por este canal con cargo a su cuenta débito de su banco (ahorros o corriente).
+\end_layout
+
+\begin_layout Standard
+La Figura 34 muestra el formato del Recibo Oficial de Pago (ROP) utilizado para el pago de obligaciones aduaneras.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -12466,17 +12697,22 @@ Conjunto de muebles,
 \end_layout
 
 \begin_layout Standard
+La Figura 35 presenta una síntesis de las modalidades que conforman el régimen de importación.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement H
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/img35-ModalidadesRegimenImportacion.pdf
+	lyxscale 30
 	width 100theight%
 
 \end_inset
@@ -12516,7 +12752,7 @@ En Colombia existen diferentes tipos de declaraciones de importación.
  La elección del tipo de declaración dependerá de diversos factores y razones.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Declaración Inicial
 \end_layout
 
@@ -12524,7 +12760,7 @@ Declaración Inicial
 Es aquella que no está precedida de una declaración anterior la cual se debe presentar dentro del término de permanencia en un depósito autorizado para su nacionalización y con autorización de levante
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Declaración Anticipada
 \end_layout
 
@@ -12533,7 +12769,7 @@ Es aquella que se presenta con una antelación antes de la llegada de la mercanc
  Procede para cualquier modalidad del régimen de importación
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Declaración de Corrección
 \end_layout
 
@@ -12541,7 +12777,7 @@ Declaración de Corrección
 Se utiliza para subsanar errores contemplados por la legislación aduanera y que se hayan cometido al momento de diligenciar la declaración inicial.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Declaración de Legalización
 \end_layout
 
@@ -12549,7 +12785,7 @@ Declaración de Legalización
 Es aquella declaración que se presenta ante la autoridad aduanera para legalizar el ingreso de una mercancía al TAN cuando su arribo no cumpla con todos los requisitos exigidos.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Declaración de Modificación
 \end_layout
 
@@ -12581,6 +12817,10 @@ En aquellas Direcciones Seccionales de Aduanas,
 \end_layout
 
 \begin_layout Standard
+La Figura 36 resume los principales tipos de declaraciones aplicables dentro del régimen de importación.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement h
 alignment document
@@ -12592,7 +12832,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img36-TiposDeclaracion.pdf
-	lyxscale 50
+	lyxscale 30
 	width 100text%
 
 \end_inset
@@ -12869,6 +13109,29 @@ Tener claros los plazos para la presentación de la declaración de importación
 \end_layout
 
 \begin_layout Standard
+Los requisitos previos permiten verificar que el importador y la mercancía cumplen las condiciones legales,
+ tributarias,
+ técnicas y documentales necesarias antes de iniciar la operación.
+ La Figura 37 presenta una síntesis de los principales requisitos previos que deben considerarse para importar a Colombia.
+\end_layout
+
+\begin_layout Section*
+Síntesis del capítulo
+\end_layout
+
+\begin_layout Standard
+Los procedimientos aduaneros de importación comprenden una secuencia de obligaciones,
+ documentos,
+ declaraciones,
+ pagos y modalidades que deben cumplirse conforme a la normativa vigente.
+ Su correcta aplicación permite desarrollar el ingreso de mercancías al territorio aduanero nacional dentro de las condiciones legales y operativas establecidas.
+\end_layout
+
+\begin_layout Standard
+La Figura 37 presenta una síntesis de los principales requisitos previos que deben considerarse para importar a Colombia.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement H
 alignment document
@@ -12880,6 +13143,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img37-RequisitosPreviosImportar.pdf
+	lyxscale 30
 	width 100theight%
 
 \end_inset
@@ -12917,6 +13181,13 @@ Pasos para una Importación Ordinaria
 \begin_layout Standard
 Los trámites generales para surtir en el proceso de ingreso de mercancías al territorio aduanero nacional y su despacho corresponden a los consagrados en los artículos 140 a 297 del Decreto 1165 de 2019 y artículos 185 a 303 de la Resolución 46 de 2019 y sus modificaciones o adiciones.
  
+\end_layout
+
+\begin_layout Standard
+Este capítulo presenta de manera secuencial los principales pasos que deben considerarse para realizar una importación ordinaria,
+ desde los trámites iniciales del importador y la identificación de la mercancía hasta los aspectos comerciales,
+ documentales,
+ financieros y logísticos necesarios para desarrollar la operación.
 \end_layout
 
 \begin_layout Section
@@ -13176,6 +13447,15 @@ Una vez determinada la Factibilidad Económica de la Importación,
 \end_layout
 
 \begin_layout Section
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+Registro o Licencia de Importación a través de la VUCE
+\end_layout
+
+\end_inset
+
 Registro o Licencia de Importación a través de la VUCE
 \begin_inset Newline newline
 \end_inset
@@ -14019,7 +14299,7 @@ Todos los datos que figuren en la factura comercial deben coincidir con los de 
 \begin_inset Graphics
 	filename imagenes/ximg05-ReciboFacturaComercial.pdf
 	lyxscale 50
-	width 60text%
+	width 75text%
 	special frame=1.0pt
 
 \end_inset
@@ -14067,8 +14347,8 @@ Reembolsables:
 \align center
 \begin_inset Graphics
 	filename imagenes/ximg06-CartaCredito.pdf
-	lyxscale 50
-	width 65text%
+	lyxscale 75
+	width 75text%
 	special frame=1.0pt
 
 \end_inset
@@ -14080,8 +14360,8 @@ Reembolsables:
 \align center
 \begin_inset Graphics
 	filename imagenes/ximg07-CartaCredito02.pdf
-	lyxscale 50
-	width 60text%
+	lyxscale 75
+	width 75text%
 	special frame=1.0pt
 
 \end_inset
@@ -14093,8 +14373,8 @@ Reembolsables:
 \align center
 \begin_inset Graphics
 	filename imagenes/ximg07-CartaCredito03.pdf
-	lyxscale 50
-	width 60text%
+	lyxscale 75
+	width 75text%
 	special frame=1.0pt
 
 \end_inset
@@ -14106,8 +14386,8 @@ Reembolsables:
 \align center
 \begin_inset Graphics
 	filename imagenes/ximg08-CartaCredito04.pdf
-	lyxscale 50
-	width 60text%
+	lyxscale 75
+	width 75text%
 	special frame=1.0pt
 
 \end_inset
@@ -14212,6 +14492,24 @@ Para escoger el medio de transporte adecuado es necesario considerar los costos 
 
 \end_layout
 
+\begin_layout Subsection*
+Síntesis del capítulo
+\end_layout
+
+\begin_layout Standard
+La importación ordinaria comprende una secuencia de actividades que deben planificarse y ejecutarse de forma coordinada,
+ desde los registros iniciales y la clasificación arancelaria de la mercancía hasta la evaluación de costos,
+ el cumplimiento de requisitos,
+ la obtención de documentos y la contratación de los servicios necesarios para la operación.
+\end_layout
+
+\begin_layout Standard
+Cada una de estas etapas interviene en la viabilidad y correcta ejecución de la importación,
+ por lo que resulta necesario considerar de manera previa los aspectos comerciales,
+ aduaneros,
+ financieros y logísticos asociados al ingreso de las mercancías al territorio aduanero nacional.
+\end_layout
+
 \begin_layout Chapter
 \begin_inset Argument 1
 status collapsed
@@ -14241,6 +14539,10 @@ Decreto 1165 de julio 02 de 2019,
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
 Las etapas del proceso de importación conforme a la operatividad de las citadas normas aduaneras sobre este régimen se pueden identificar de manera diferenciada así:
 \end_layout
 
@@ -14256,17 +14558,17 @@ Almacenamiento
 Desaduanamiento
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Las etapas mencionadas contienen unos eventos que son regulados al detalle en la norma aduanera con el fin de determinar en últimas si la mercancía ingresada al territorio aduanero nacional se encuentra presentada a la autoridad aduanera y luego de los eventos descritos y a continuación se pueda testimoniar que la misma se encuentra declarada en una declaración de importación,
  es decir que justifique su legal ingreso.
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 En este punto conviene señalar en forma práctica y didáctica los eventos de cada una de las etapas.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 El Decreto 1165 de 2019 y la Resolución 046 de 2019,
  emitidos en Colombia,
  regulan el Régimen de Aduanas,
@@ -14274,6 +14576,29 @@ El Decreto 1165 de 2019 y la Resolución 046 de 2019,
  almacenamiento,
  y disposición de mercancías en el territorio aduanero.
  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El Decreto 1165 de 2019 y la Resolución 046 de 2019 regulan los procedimientos aduaneros aplicables al régimen de importación en Colombia.
+ Conforme a la operatividad establecida en estas normas,
+ el proceso puede identificarse en tres etapas principales:
+ llegada de la mercancía,
+ almacenamiento y desaduanamiento.
+\end_layout
+
+\begin_layout Standard
+Cada una de estas etapas comprende diferentes eventos regulados por la normativa aduanera,
+ cuyo cumplimiento permite establecer que la mercancía ha sido presentada ante la autoridad aduanera y posteriormente declarada,
+ justificando así su legal ingreso al territorio aduanero nacional.
+\end_layout
+
+\begin_layout Standard
+En este capítulo se presentan de manera práctica los principales eventos que conforman cada una de estas etapas.
 \end_layout
 
 \begin_layout Section
@@ -14354,11 +14679,16 @@ Disposición de la mercancía:
  que es el proceso por el cual la mercancía entra formalmente al país y se le asignan los aranceles y tributos correspondientes.
  Si la mercancía no se nacionaliza en el tiempo establecido,
  puede quedar en abandono.
+ 
+\end_layout
+
+\begin_layout Standard
+La Figura 38 ilustra el ingreso de la mercancía a un depósito autorizado.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
-placement document
+placement H
 alignment document
 wide false
 sideways false
@@ -14564,8 +14894,12 @@ reexportación:
 \end_layout
 
 \begin_layout Standard
+La Figura 39 muestra el almacenamiento de la mercancía en un depósito autorizado.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
-placement document
+placement H
 alignment document
 wide false
 sideways false
@@ -14730,17 +15064,22 @@ El decreto también contempla mecanismos para facilitar el desaduanamiento a cie
 \end_layout
 
 \begin_layout Standard
+La Figura 40 ilustra la etapa de desaduanización de la mercancía.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
-placement document
+placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/img40-DesaduanizacionMercancia.pdf
+	lyxscale 70
 	width 70text%
 
 \end_inset
@@ -14790,6 +15129,28 @@ A grandes rasgos,
  este proceso se compone de una serie de etapas secuenciales que van desde la llegada del medio de transporte hasta que la mercancía queda a libre disposición del importador.
 \end_layout
 
+\begin_layout Section*
+Síntesis del capítulo
+\end_layout
+
+\begin_layout Standard
+El proceso aduanero en el régimen de importación comprende una secuencia de etapas que inicia con la llegada de la mercancía al territorio aduanero nacional,
+ continúa con su almacenamiento y culmina con el proceso de desaduanamiento.
+ Cada etapa involucra actuaciones,
+ documentos y controles específicos orientados a garantizar el cumplimiento de las disposiciones aduaneras.
+\end_layout
+
+\begin_layout Standard
+El desarrollo adecuado de estos procedimientos permite acreditar la presentación y declaración de la mercancía ante la autoridad aduanera y,
+ finalmente,
+ su legal ingreso al país.
+ 
+\end_layout
+
+\begin_layout Standard
+La Figura 41 presenta una visión integrada de las principales etapas que conforman el proceso aduanero en el régimen de importación.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 placement H
@@ -14802,6 +15163,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img41-ProcesoAduaneroImportancion.pdf
+	lyxscale 30
 	width 100theight%
 
 \end_inset
@@ -14857,31 +15219,27 @@ Decreto 1165 de Julio 02 de 2019,
  Resolución 046 de Julio 26 de 2019
 \end_layout
 
-\begin_layout Section
-Exportación
+\begin_layout Standard
+La exportación de mercancías comprende un conjunto de procedimientos aduaneros,
+ comerciales y documentales que deben cumplirse para autorizar su salida del territorio aduanero nacional.
+ Estos procedimientos se desarrollan dentro del marco normativo vigente y requieren la participación coordinada del exportador,
+ el declarante,
+ el transportador y la autoridad aduanera.
 \end_layout
 
 \begin_layout Standard
-Exportar bienes es situar en otro territorio aduanero (por ejemplo,
- otro país o zona franca) un producto o mercancía tangible o física.
- Siempre existe temor por la posible complejidad del proceso o incluso mitos a la hora de exportar.
- 
-\end_layout
-
-\begin_layout Subsection
-Crear Empresa
+En este capítulo se presentan los principales elementos que intervienen en el régimen de exportación,
+ desde la normativa y los términos de negociación internacional hasta el procedimiento aduanero,
+ las actuaciones iniciales y las diferentes modalidades mediante las cuales puede efectuarse la salida de mercancías del país.
 \end_layout
 
 \begin_layout Standard
-Es recomendable constituirse como empresa (si no lo han hecho aún) para legitimar la actividad de exportación de bienes colombianos.
- Puede acercarse a la Cámara de Comercio más cercana y a través de los Servicios Empresariales,
- le ofrecerán asesoría y apoyo para crear,
- formalizar y consolidar su empresa.
+La Figura 42 presenta de manera gráfica la normatividad que sirve de referencia para los procedimientos aduaneros de exportación desarrollados en este capítulo.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
-placement document
+placement H
 alignment document
 wide false
 sideways false
@@ -14892,7 +15250,7 @@ status open
 \begin_inset Graphics
 	filename imagenes/img42-NormatividadRegimenExportacion.pdf
 	lyxscale 50
-	width 100text%
+	width 90text%
 
 \end_inset
 
@@ -14919,6 +15277,28 @@ Fuente:
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+Exportación
+\end_layout
+
+\begin_layout Standard
+Exportar bienes es situar en otro territorio aduanero (por ejemplo,
+ otro país o zona franca) un producto o mercancía tangible o física.
+ Siempre existe temor por la posible complejidad del proceso o incluso mitos a la hora de exportar.
+ 
+\end_layout
+
+\begin_layout Subsection
+Crear Empresa
+\end_layout
+
+\begin_layout Standard
+Es recomendable constituirse como empresa (si no lo han hecho aún) para legitimar la actividad de exportación de bienes colombianos.
+ Puede acercarse a la Cámara de Comercio más cercana y a través de los Servicios Empresariales,
+ le ofrecerán asesoría y apoyo para crear,
+ formalizar y consolidar su empresa.
 \end_layout
 
 \begin_layout Subsection
@@ -15031,9 +15411,6 @@ I.C.A.
 \end_layout
 
 \begin_layout Description
-\begin_inset space ~
-\end_inset
-
 Corporación
 \begin_inset space ~
 \end_inset
@@ -15120,8 +15497,19 @@ INGEOMINAS.
 \end_layout
 
 \begin_layout Description
+Ministerio
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Cultura,
+\begin_inset space ~
+\end_inset
+
 MINCULTURA.
- Ministerio de Cultura MINCULTURA.
  Cuadros,
  oleos y esculturas.,
  piezas arqueológicas o réplicas.
@@ -15219,8 +15607,27 @@ Privada SUPERVIGILANCIA.
 \end_layout
 
 \begin_layout Description
+Autoridad
+\begin_inset space ~
+\end_inset
+
+Nacional
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+Licencia
+\begin_inset space ~
+\end_inset
+
+Ambientales
+\begin_inset space ~
+\end_inset
+
 ANLA.
- Autoridad Nacional de Licencia Ambientales ANLA.
  Exportación de Sustancias Agotadoras de la Capa de Ozono – SAOs
 \end_layout
 
@@ -15678,7 +16085,7 @@ flete).
 
 \begin_layout Standard
 \begin_inset Float figure
-placement document
+placement H
 alignment document
 wide false
 sideways false
@@ -15920,6 +16327,10 @@ Otros documentos exigido
 \series default
 s para el producto a exportar (fichas técnicas,
  por ejemplo).
+\end_layout
+
+\begin_layout Standard
+La Figura 44 presenta de forma gráfica las principales etapas que conforman el procedimiento aduanero para la exportación de bienes.
 \end_layout
 
 \begin_layout Standard
@@ -16304,6 +16715,10 @@ Terrestres
 \end_layout
 
 \begin_layout Standard
+La Figura 45 sintetiza las principales actuaciones que conforman el proceso inicial dentro del régimen de exportación.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement H
 alignment document
@@ -16315,6 +16730,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img45-ProcesoInicialRegimenExportacion.pdf
+	lyxscale 30
 	width 100theight%
 
 \end_inset
@@ -16625,6 +17041,10 @@ Exportación de menajes
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
 Serán objeto de esta modalidad de exportación los menajes de los residentes en el país,
  que salen del territorio aduanero nacional para fijar su residencia en el exterior.
  Para tal efecto,
@@ -16633,7 +17053,7 @@ Serán objeto de esta modalidad de exportación los menajes de los residentes en
  como embarque único con datos definitivos. 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 La exportación del menaje también podrá realizarse por quien acredite ser heredero,
  legatario,
  representante de los herederos,
@@ -16641,16 +17061,45 @@ La exportación del menaje también podrá realizarse por quien acredite ser her
  en caso de fallecimiento de residente en el país. 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 La solicitud de autorización de embarque deberá suscribirse y presentarse por propietario del menaje o la persona debidamente autorizada por este,
  en la forma y condiciones que establezca la Unidad Administrativa Especial Dirección de Impuestos y Aduanas Nacionales (DIAN). 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 El plazo para presentar ante la aduana la solicitud de autorización de embarque,
  para la exportación del menaje,
  será de treinta (30) días calendario,
  antes de la salida del propietario o de ciento veinte (120) días calendarios siguientes a la fecha de salida del mismo. 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta modalidad aplica a la exportación de menajes de residentes en Colombia que salen del territorio aduanero nacional para fijar su residencia en el exterior.
+ Para ello,
+ deberá tramitarse la solicitud de autorización de embarque y la declaración correspondiente,
+ conforme al procedimiento de exportación definitiva,
+ como embarque único con datos definitivos.
+\end_layout
+
+\begin_layout Standard
+En caso de fallecimiento del residente,
+ la exportación del menaje podrá realizarla quien acredite ser heredero,
+ legatario,
+ representante de los herederos o liquidador de la sucesión.
+\end_layout
+
+\begin_layout Standard
+La solicitud de autorización de embarque deberá ser presentada por el propietario del menaje o por una persona debidamente autorizada,
+ en las condiciones establecidas por la DIAN.
+\end_layout
+
+\begin_layout Standard
+El plazo para presentarla será de treinta (30) días calendario antes de la salida del propietario o dentro de los ciento veinte (120) días calendario siguientes a dicha salida.
 \end_layout
 
 \begin_layout Subsection
@@ -16658,6 +17107,10 @@ Programas especiales de exportación
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
 Programa Especial de Exportación,
  PEX,
  es la operación mediante la cual,
@@ -16674,7 +17127,7 @@ Programa Especial de Exportación,
  bienes intermedios o utilizando el material de empaque o envases según las instrucciones que reciba del comprador externo. 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Los productores de materias primas,
  insumos,
  bienes intermedios,
@@ -16683,13 +17136,13 @@ Los productores de materias primas,
  que deseen acceder a los Programas Especiales de Exportación (PEX) deberán inscribirse ante la Unidad Administrativa Especial Dirección de Impuestos y Aduanas Nacionales (DIAN). 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Para efectos de la inscripción a que se refiere el inciso segundo del presente artículo,
  los productores residentes en Colombia deberán ser personas jurídicas y no podrán tener deudas exigibles con la Unidad Administrativa Especial Dirección de Impuestos y Aduanas Nacionales (DIAN),
  salvo que hayan celebrado y estén cumpliendo el acuerdo de pago. 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Una misma persona jurídica podrá ser inscrita como productor de materias primas,
  insumos,
  bienes intermedios,
@@ -16698,7 +17151,7 @@ Una misma persona jurídica podrá ser inscrita como productor de materias prima
  PEX. 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Los beneficiarios inscritos como productor de materias primas,
  insumos,
  bienes intermedios,
@@ -16707,18 +17160,80 @@ Los beneficiarios inscritos como productor de materias primas,
  PEX. 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El Programa Especial de Exportación (PEX) es la operación mediante la cual,
+ en virtud de un acuerdo comercial,
+ un residente en el exterior compra materias primas,
+ insumos,
+ bienes intermedios,
+ material de empaque o envases nacionales a un productor residente en Colombia y dispone su entrega a otro productor ubicado en el territorio aduanero nacional,
+ quien se obliga a elaborar y exportar los bienes manufacturados conforme a las instrucciones del comprador externo.
+\end_layout
+
+\begin_layout Standard
+Los productores nacionales de materias primas,
+ insumos,
+ bienes intermedios,
+ envases y material de empaque,
+ así como los productores de bienes finales que deseen acceder a los PEX,
+ deberán inscribirse ante la Dirección de Impuestos y Aduanas Nacionales (DIAN).
+\end_layout
+
+\begin_layout Standard
+Para ello,
+ los productores residentes en Colombia deberán ser personas jurídicas y no tener deudas exigibles con la DIAN,
+ salvo que hayan celebrado y estén cumpliendo un acuerdo de pago.
+\end_layout
+
+\begin_layout Standard
+Una misma persona jurídica podrá inscribirse como productor de materias primas,
+ insumos,
+ bienes intermedios,
+ envases y material de empaque y como productor de bienes finales.
+ Sin embargo,
+ no podrá actuar simultáneamente en ambas calidades dentro de un mismo PEX.
+\end_layout
+
+\begin_layout Section*
+Síntesis del capítulo
+\end_layout
+
+\begin_layout Standard
+Los procedimientos aduaneros de exportación comprenden una serie de actuaciones destinadas a garantizar la salida legal de las mercancías del territorio aduanero nacional.
+ Su desarrollo exige considerar el marco normativo aplicable,
+ los términos de negociación,
+ los documentos requeridos y las diferentes etapas que intervienen desde la preparación de la operación hasta su culminación aduanera.
+\end_layout
+
+\begin_layout Standard
+Las modalidades de exportación permiten adaptar el procedimiento a la finalidad específica de la salida de las mercancías,
+ diferenciando operaciones definitivas,
+ temporales y especiales.
+ La correcta identificación de la modalidad correspondiente resulta fundamental para cumplir los requisitos y obligaciones establecidos en la normativa.
+\end_layout
+
+\begin_layout Standard
+La Figura 46 presenta una síntesis de las principales modalidades de exportación desarrolladas en este capítulo.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 placement H
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/img46-ModalidadesExportacion.pdf
+	lyxscale 30
 	width 100text%
 
 \end_inset
@@ -16750,6 +17265,17 @@ Fuente:
 
 \begin_layout Chapter
 Régimen de Tránsito Aduanero
+\end_layout
+
+\begin_layout Standard
+El régimen de tránsito aduanero permite el traslado de mercancías bajo control de la autoridad aduanera entre una aduana de partida y una aduana de destino,
+ sin que durante el trayecto se produzca su nacionalización definitiva.
+\end_layout
+
+\begin_layout Standard
+En este capítulo se presentan los fundamentos,
+ antecedentes y aspectos legales del régimen,
+ así como las principales condiciones y procedimientos aplicables al tránsito aduanero nacional e internacional en Colombia.
 \end_layout
 
 \begin_layout Section
@@ -17073,17 +17599,25 @@ Cualquier irregularidad puede derivar en sanciones administrativas o incluso el 
 \end_layout
 
 \begin_layout Standard
+Los aspectos anteriores permiten identificar las condiciones generales bajo las cuales opera el régimen de tránsito,
+ así como sus beneficios,
+ obligaciones y mecanismos de control.
+ La Figura 47 presenta una síntesis de los principales elementos que conforman el régimen de tránsitos.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement H
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/img47-RegimenTransitos.pdf
+	lyxscale 30
 	width 100theight%
 
 \end_inset
@@ -17292,12 +17826,17 @@ El depósito o la zona franca,
 \end_layout
 
 \begin_layout Standard
+La operación de tránsito aduanero nacional comprende una secuencia de actuaciones que se inicia con la autorización de la modalidad y concluye con la recepción de la mercancía y la comunicación correspondiente entre las aduanas involucradas.
+ La Figura 48 presenta de forma gráfica las principales etapas del tránsito aduanero nacional.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
-placement document
+placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -17554,8 +18093,9 @@ Sigue una serie de pasos regulados por la DIAN y tratados internacionales.
  
 \end_layout
 
-\begin_layout Subsection
-Registro y Autorización
+\begin_layout Subsubsection
+1.
+ Registro y Autorización
 \end_layout
 
 \begin_layout Itemize
@@ -17573,8 +18113,9 @@ Solicitud de tránsito:
  El declarante o transportista debe presentar la Declaración de Tránsito Aduanero (DTAI).
 \end_layout
 
-\begin_layout Subsection
-Presentación y Aceptación de la Declaración
+\begin_layout Subsubsection
+2.
+ Presentación y Aceptación de la Declaración
 \end_layout
 
 \begin_layout Itemize
@@ -17590,8 +18131,9 @@ Se anexa la documentación soporte,
 La DIAN verifica la información y emite una autorización.
 \end_layout
 
-\begin_layout Subsection
-Inicio del Tránsito Aduanero
+\begin_layout Subsubsection
+3.
+ Inicio del Tránsito Aduanero
 \end_layout
 
 \begin_layout Itemize
@@ -17607,8 +18149,9 @@ La mercancía solo puede circular por rutas autorizadas y ser transportada por v
 Se implementan dispositivos electrónicos de seguimiento en algunos casos.
 \end_layout
 
-\begin_layout Subsection
-Controles Durante el Tránsito
+\begin_layout Subsubsection
+4.
+ Controles Durante el Tránsito
 \end_layout
 
 \begin_layout Itemize
@@ -17620,8 +18163,9 @@ Si hay irregularidades,
  la DIAN puede suspender el tránsito y aplicar sanciones.
 \end_layout
 
-\begin_layout Subsection
-Llegada y Finalización del Tránsito
+\begin_layout Subsubsection
+5.
+ Llegada y Finalización del Tránsito
 \end_layout
 
 \begin_layout Itemize
@@ -17637,8 +18181,9 @@ Se notifica la llegada en el sistema aduanero.
 La DIAN verifica que no haya alteraciones y procede a levantar el régimen de tránsito.
 \end_layout
 
-\begin_layout Subsection
-Posibles Destinos de la Mercancía
+\begin_layout Subsubsection
+5.
+ Posibles Destinos de la Mercancía
 \end_layout
 
 \begin_layout Itemize
@@ -17656,8 +18201,9 @@ Otro Tránsito:
  Si continúa su paso hacia otro país bajo otro régimen de tránsito.
 \end_layout
 
-\begin_layout Subsection
-Documentos Claves para el TAI
+\begin_layout Subsubsection
+6.
+ Documentos Claves para el TAI
 \end_layout
 
 \begin_layout Itemize
@@ -17683,6 +18229,33 @@ Garantía aduanera
 \begin_layout Standard
 Este proceso garantiza que la mercancía se transporte legalmente,
  sin pagar tributos hasta su destino final.
+ 
+\end_layout
+
+\begin_layout Section*
+Síntesis del capítulo
+\end_layout
+
+\begin_layout Standard
+El régimen de tránsito aduanero permite movilizar mercancías bajo control aduanero entre diferentes puntos autorizados,
+ manteniendo suspendido el pago de los tributos correspondientes mientras se cumple la operación.
+ Su aplicación exige el cumplimiento de condiciones,
+ plazos,
+ rutas,
+ garantías y controles establecidos por la autoridad aduanera.
+\end_layout
+
+\begin_layout Standard
+El tránsito nacional y el tránsito aduanero internacional comparten principios de control,
+ seguridad y trazabilidad,
+ aunque cada modalidad responde a procedimientos y alcances específicos.
+ En el caso del TAI,
+ la operación incorpora además la participación de empresas de transporte habilitadas,
+ documentación internacional y mecanismos de coordinación entre las autoridades involucradas.
+\end_layout
+
+\begin_layout Standard
+La Figura 49 presenta una síntesis de las principales etapas y requisitos para aplicar el Tránsito Aduanero Internacional (TAI) en Colombia.
 \end_layout
 
 \begin_layout Standard
@@ -17697,6 +18270,8 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img49-TransitoAduaneroInternacional.pdf
+	lyxscale 30
+	width 100theight%
 
 \end_inset
 
@@ -17727,6 +18302,19 @@ Fuente:
 
 \begin_layout Chapter
 Zonas Francas
+\end_layout
+
+\begin_layout Standard
+Las zonas francas constituyen áreas delimitadas del territorio nacional en las que se desarrollan actividades industriales,
+ comerciales y de servicios bajo un régimen especial en materia tributaria,
+ aduanera y de comercio exterior.
+\end_layout
+
+\begin_layout Standard
+En este capítulo se presentan sus principales características,
+ clases,
+ beneficios y operaciones,
+ así como el papel que desempeñan dentro del comercio exterior colombiano.
 \end_layout
 
 \begin_layout Section
@@ -17796,7 +18384,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img50-ZonaFranca.pdf
-	lyxscale 60
+	lyxscale 50
 	width 100text%
 
 \end_inset
@@ -18438,6 +19026,13 @@ Cuando el traslado de mercancías no implique cambio de jurisdicción aduanera,
 \end_layout
 
 \begin_layout Standard
+Las operaciones desarrolladas en zonas francas comprenden diferentes movimientos de ingreso,
+ salida y traslado de mercancías,
+ sujetos a las condiciones y procedimientos establecidos para cada caso.
+ La Figura 51 presenta una síntesis de las principales operaciones del régimen de comercio exterior aplicables a las zonas francas.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement H
 alignment document
@@ -18576,13 +19171,36 @@ Según la última reforma tributaria,
  en un proceso que se realizará entre 2023 y 2024.
 \end_layout
 
+\begin_layout Section*
+Síntesis del capítulo
+\end_layout
+
+\begin_layout Standard
+Las zonas francas constituyen un instrumento especial de comercio exterior que permite desarrollar actividades productivas,
+ comerciales y de servicios bajo condiciones tributarias y aduaneras particulares.
+ Su funcionamiento comprende diferentes tipos de usuarios,
+ beneficios y operaciones de ingreso,
+ salida y traslado de mercancías.
+\end_layout
+
+\begin_layout Standard
+En Colombia,
+ las zonas francas tienen una presencia importante dentro de la estructura productiva y logística del país,
+ aunque su participación en el volumen total de exportaciones e importaciones continúa siendo limitada frente al comercio exterior nacional.
+ Su papel está relacionado tanto con la atracción de inversión como con la generación de actividad económica y el desarrollo de operaciones orientadas a los mercados internacionales.
+\end_layout
+
+\begin_layout Standard
+La Figura 52 presenta una síntesis de los principales aspectos relacionados con las zonas francas en Colombia desarrollados en este capítulo.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 placement H
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -18737,8 +19355,7 @@ Logística del Transporte en el Comercio Internacional
 \end_layout
 
 \begin_layout Subsection
-4.1.
- Transporte Marítimo
+Transporte Marítimo
 \end_layout
 
 \begin_layout Standard
@@ -18817,7 +19434,13 @@ Fuente:
 Tipo de Contenedores
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
+
+\series bold
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
 
 \series bold
 Contenedor Dry Van (Estándar)
@@ -18924,20 +19547,127 @@ Contenedor Ventilado
  pequeñas aberturas en las paredes permiten el flujo de aire sin comprometer la seguridad de la carga.
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Contenedor Dry Van (Estándar).
+
+\series default
+ De 20 y 40 pies,
+ se utiliza para carga seca general,
+ como cajas,
+ pallets y mercancías no perecederas.
+ Es una estructura metálica cerrada,
+ sin ventilación ni refrigeración.
+\end_layout
+
+\begin_layout Itemize
+C
+\series bold
+ontenedor High Cube (HC).
+ 
+\series default
+De 40 y 45 pies,
+ tiene un uso similar al Dry Van,
+ pero con aproximadamente un pie adicional de altura,
+ adecuado para mercancías voluminosas.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Contenedor Refrigerado (Reefer).
+ 
+\series default
+De 20 y 40 pies,
+ se emplea para productos perecederos,
+ como alimentos,
+ medicamentos o flores.
+ Incorpora un sistema de refrigeración para controlar la temperatura interna.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Contenedor Open Top.
+
+\series default
+ De 20 y 40 pies,
+ se destina a cargas de gran altura o difíciles de manipular por puertas estándar.
+ Su techo abierto,
+ cubierto con lona,
+ facilita la carga y descarga con grúas.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Contenedor Flat Rack.
+ 
+\series default
+De 20 y 40 pies,
+ se utiliza para carga pesada o sobredimensionada,
+ como maquinaria,
+ vehículos o estructuras metálicas.
+ No posee paredes laterales ni techo.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Contenedor Open Side.
+ 
+\series default
+De 20 y 40 pies,
+ se emplea para cargas que requieren acceso lateral,
+ como materiales de construcción o maquinaria.
+ Posee una o ambas paredes laterales abatibles.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Contenedor Tank (Isotanque).
+
+\series default
+ De 20 pies,
+ se utiliza para líquidos,
+ gases y productos químicos peligrosos o no peligrosos.
+ Consiste en un tanque cilíndrico de acero inoxidable protegido por una estructura metálica.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Contenedor Ventilado.
+
+\series default
+ De 20 y 40 pies,
+ se emplea para mercancías que requieren ventilación natural,
+ como café,
+ cacao y otros productos agrícolas.
+ Sus aberturas permiten el flujo de aire sin comprometer la seguridad de la carga.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/img54-TiposContenedores.pdf
 	lyxscale 30
-	width 100text%
+	width 95text%
 
 \end_inset
 
@@ -18985,7 +19715,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -19127,6 +19857,10 @@ Transporte Terrestre
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
 Es un componente esencial de la cadena de suministro y desempeña un papel crucial en la distribución de mercancías a nivel local,
  regional,
  nacional e internacional,
@@ -19137,7 +19871,7 @@ Es un componente esencial de la cadena de suministro y desempeña un papel cruci
   
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Para transportar mercancías sin empaquetar o en presentaciones individuales,
  como sacos,
  cajas,
@@ -19152,7 +19886,7 @@ Para transportar mercancías sin empaquetar o en presentaciones individuales,
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 En Colombia mediante el Ministerio de Transporte se han promulgado diferentes normas que regulan el tránsito de vehículos grandes con mercancía por las diferentes carreteras.
  Entre las más conocidas por los diferentes actores involucrados en el transporte de carga,
  desde los conductores hasta los clientes,
@@ -19164,6 +19898,43 @@ En Colombia mediante el Ministerio de Transporte se han promulgado diferentes no
  El tamaño,
  el peso y la designación según el tipo de camión.
  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El transporte terrestre es un componente esencial de la cadena de suministro y cumple un papel clave en la distribución de mercancías a nivel local,
+ regional,
+ nacional e internacional,
+ así como en operaciones multimodales.
+ Permite movilizar una amplia variedad de cargas,
+ desde productos manufacturados y alimentos hasta materias primas y productos a granel.
+\end_layout
+
+\begin_layout Standard
+Para el transporte de mercancías sin empaquetar o en presentaciones individuales,
+ como sacos,
+ cajas,
+ bidones,
+ tubos y materiales de construcción,
+ en Colombia se emplean principalmente camiones rígidos y articulados o semirremolques.
+ Dentro de estas categorías existen diferentes tipos de vehículos,
+ según su capacidad de carga y las necesidades del sector industrial.
+\end_layout
+
+\begin_layout Standard
+El Ministerio de Transporte ha expedido diversas normas para regular la circulación de vehículos de carga por las carreteras del país.
+ Entre las más conocidas se encuentran la Resolución 2498 de 2018,
+ que establece límites de peso y criterios técnicos para determinar la carga aproximada según el tipo de vehículo,
+ y la Resolución 4100 del 28 de diciembre de 2004,
+ que regula sus características técnicas,
+ entre ellas la carrocería,
+ el tipo de camión,
+ el tamaño,
+ el peso y su designación.
 \end_layout
 
 \begin_layout Standard
@@ -19624,17 +20395,24 @@ Mejora la competitividad:
 \end_layout
 
 \begin_layout Standard
+Los elementos desarrollados hasta este punto muestran la relación entre la logística,
+ los servicios asociados y los distintos modos de transporte utilizados para movilizar mercancías dentro del comercio internacional.
+ La Figura 58 presenta una visión general de los principales componentes de la logística abordados en esta primera parte del capítulo.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement H
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/img58-LogisticaGeneral.pdf
+	lyxscale 30
 	width 100theight%
 
 \end_inset
@@ -19944,17 +20722,22 @@ Usa varios medios de transporte sin abrir la unidad de carga.
 \end_layout
 
 \begin_layout Standard
+La Figura 59 presenta una síntesis de los principales tipos de carga considerados en las operaciones logísticas y de transporte.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement H
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/img59-CargaEnLogistica.pdf
+	lyxscale 30
 	width 100text%
 
 \end_inset
@@ -20199,6 +20982,12 @@ Permite responder de manera ágil a cambios en la demanda global.
 \end_layout
 
 \begin_layout Standard
+Las funciones,
+ tipos de instalaciones e importancia del almacenamiento muestran su papel dentro de la cadena de suministro internacional.
+ La Figura 60 sintetiza los principales elementos de la logística de almacenamiento en el comercio internacional.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement H
 alignment document
@@ -20210,6 +20999,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img60-LogisticaAlmacenamiento.pdf
+	lyxscale 30
 	width 100theight%
 
 \end_inset
@@ -20719,6 +21509,11 @@ Mejora la experiencia del consumidor con información clara y detallada.
 \end_layout
 
 \begin_layout Standard
+La Figura 61 integra los principales aspectos relacionados con el empaque,
+ el embalaje y el etiquetado de las mercancías en el comercio internacional.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement H
 alignment document
@@ -20800,6 +21595,8 @@ status open
 	filename imagenes/img62-EstibaMadera.pdf
 	lyxscale 30
 	width 60text%
+	BoundingBox 0bp 100bp 1536bp 838bp
+	clip
 
 \end_inset
 
@@ -20955,7 +21752,7 @@ status open
 \begin_inset Graphics
 	filename imagenes/img64-PalletSegunMaterial.pdf
 	lyxscale 30
-	width 100text%
+	width 90text%
 
 \end_inset
 
@@ -21054,14 +21851,14 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/img65-PalletSegunDiseñoEstructural.pdf
 	lyxscale 30
-	width 100text%
+	width 90text%
 
 \end_inset
 
@@ -21147,7 +21944,7 @@ status open
 \begin_inset Graphics
 	filename imagenes/img66-PalletSegunTamano.pdf
 	lyxscale 30
-	width 100text%
+	width 90text%
 
 \end_inset
 
@@ -21176,6 +21973,29 @@ Fuente:
 
 \end_layout
 
+\begin_layout Section*
+Síntesis del capítulo
+\end_layout
+
+\begin_layout Standard
+La logística integra diferentes actividades necesarias para planificar,
+ movilizar,
+ almacenar,
+ proteger y distribuir las mercancías dentro de la cadena de suministro.
+ Su adecuada gestión requiere coordinar los medios de transporte,
+ las características de la carga,
+ el almacenamiento,
+ el empaque,
+ el embalaje,
+ el etiquetado y los elementos utilizados para facilitar su manipulación.
+\end_layout
+
+\begin_layout Standard
+Estos componentes deben articularse para conservar las mercancías,
+ optimizar los tiempos y costos de las operaciones y facilitar su desplazamiento desde el origen hasta el destino.
+ La Figura 67 presenta una visión integrada de la relación entre el almacenamiento y el transporte dentro de las operaciones logísticas.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 placement H
@@ -21188,6 +22008,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename imagenes/img67-AlmacenamientoTransporte.pdf
+	lyxscale 30
 	width 100theight%
 
 \end_inset
@@ -21236,13 +22057,32 @@ Nuevo Régimen Sancionatorio Aduanero
 Ley 2586 del 19 de junio de 2026
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
 \begin_layout Section
 Resumen
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 La norma que acaba de transformar por completo el tablero del comercio exterior en Colombia al adoptar el nuevo Régimen Sancionatorio y de Decomiso de Mercancías en materia aduanera.
  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La Ley 2586 del 19 de junio de 2026 adoptó un nuevo Régimen Sancionatorio y de Decomiso de Mercancías en materia aduanera en Colombia,
+ introduciendo modificaciones relevantes frente al régimen anterior.
+\end_layout
+
+\begin_layout Standard
+En este capítulo se presentan los antecedentes que dieron origen a esta reforma,
+ sus principales cambios y los aspectos relacionados con su entrada en vigencia y aplicación para los usuarios del comercio exterior.
 \end_layout
 
 \begin_layout Section
@@ -21347,9 +22187,10 @@ La ley entró en vigor inmediatamente tras su sanción el 19 de junio de 2026.
  Las empresas (importadores,
  exportadores,
  agencias de aduanas y operadores logísticos) deben reajustar sus matrices de cumplimiento normativo (compliance) para adaptarse al nuevo catálogo de infracciones y aprovechar los esquemas de corrección voluntaria.
-\end_layout
+\begin_inset Note Comment
+status open
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Puedes profundizar en los aspectos de la transición y los alivios de esta norma en el siguiente video explicativo sobre la 
 \bar under
 Oportunidad para importadores y exportadores en la Ley 2586.
@@ -21358,18 +22199,45 @@ Oportunidad para importadores y exportadores en la Ley 2586.
  En él se analiza de forma práctica el impacto que tiene este nuevo marco de debida diligencia para el sector logístico y aduanero de Colombia.
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Síntesis del capítulo
+\end_layout
+
+\begin_layout Standard
+El nuevo régimen sancionatorio aduanero introduce cambios orientados a reducir y reorganizar las conductas sancionables,
+ diferenciar los errores subsanables de las actuaciones fraudulentas y establecer criterios de proporcionalidad en la aplicación de las sanciones.
+\end_layout
+
+\begin_layout Standard
+Entre sus principales modificaciones se destacan la reducción del número de infracciones y causales de aprehensión,
+ la posibilidad de corrección voluntaria,
+ la aplicación de sanciones por operación,
+ la acumulación de determinados beneficios económicos y la delimitación de las medidas cautelares.
+ Su entrada en vigencia exige que los usuarios del comercio exterior ajusten sus procedimientos y mecanismos de cumplimiento a las nuevas disposiciones.
+\end_layout
+
+\begin_layout Standard
+La Figura 68 presenta una síntesis de los principales cambios introducidos por el nuevo
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 placement H
 alignment document
 wide false
 sideways true
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename imagenes/img68-NuevoRegimenSancionatorio.pdf
+	lyxscale 30
 	width 100theight%
 
 \end_inset
@@ -21415,8 +22283,11 @@ La logística aduanera y el comercio exterior colombiano avanzan hacia un modelo
  atraiga inversión y se posicione de manera estratégica en el comercio global.
 \end_layout
 
-\begin_layout Section
-La logística aduanera como eje estratégico para la competitividad del país.
+\begin_layout Subsubsection
+
+\size large
+1.
+ La logística aduanera como eje estratégico para la competitividad del país.
 \end_layout
 
 \begin_layout Standard
@@ -21430,8 +22301,11 @@ El estudio de la logística aduanera en Colombia es esencial para comprender los
  segura y ajustada a la legalidad.
 \end_layout
 
-\begin_layout Section
-El marco normativo colombiano ha avanzado hacia la modernización y la facilitación del comercio.
+\begin_layout Subsubsection
+
+\size large
+2.
+ El marco normativo colombiano ha avanzado hacia la modernización y la facilitación del comercio.
 \end_layout
 
 \begin_layout Standard
@@ -21446,8 +22320,11 @@ Colombia ha implementado reformas relevantes como el Decreto 1165 de 2019,
  interoperabilidad y simplificación documental.
 \end_layout
 
-\begin_layout Section
-La articulación entre entidades públicas y privadas sigue siendo un reto clave
+\begin_layout Subsubsection
+
+\size large
+3.
+ La articulación entre entidades públicas y privadas sigue siendo un reto clave
 \end_layout
 
 \begin_layout Standard
@@ -21465,8 +22342,11 @@ DIAN,
  Una mayor articulación fortalecería la transparencia y reduciría cuellos de botella.
 \end_layout
 
-\begin_layout Section
-Las zonas francas y los regímenes especiales son herramientas esenciales de atracción de inversión
+\begin_layout Subsubsection
+
+\size large
+4.
+ Las zonas francas y los regímenes especiales son herramientas esenciales de atracción de inversión
 \end_layout
 
 \begin_layout Standard
@@ -21476,8 +22356,11 @@ El régimen franco colombiano continúa siendo un pilar para el desarrollo indus
  Su consolidación como plataformas de nearshoring y comercio internacional depende de la certificación y del fortalecimiento de su infraestructura y conectividad.
 \end_layout
 
-\begin_layout Section
-La digitalización y la gestión del riesgo son fundamentales para la facilitación del comercio
+\begin_layout Subsubsection
+
+\size large
+5.
+ La digitalización y la gestión del riesgo son fundamentales para la facilitación del comercio
 \end_layout
 
 \begin_layout Standard
@@ -21489,8 +22372,11 @@ La evolución hacia procesos electrónicos,
  agilizar operaciones y aumentar la eficiencia en las fronteras.
 \end_layout
 
-\begin_layout Section
-El capital humano especializado es determinante para la calidad de la operación aduanera
+\begin_layout Subsubsection
+
+\size large
+6.
+ El capital humano especializado es determinante para la calidad de la operación aduanera
 \end_layout
 
 \begin_layout Standard
@@ -21503,8 +22389,11 @@ La logística aduanera requiere profesionales capacitados en normativa,
  mejorar la planeación logística y garantizar el cumplimiento integral de los requisitos legales.
 \end_layout
 
-\begin_layout Section
-El comercio exterior colombiano sigue dependiendo de la diversificación y la innovación logística
+\begin_layout Subsubsection
+
+\size large
+7.
+ El comercio exterior colombiano sigue dependiendo de la diversificación y la innovación logística
 \end_layout
 
 \begin_layout Standard
@@ -21516,8 +22405,11 @@ La estructura exportadora,
  el uso de puertos inteligentes y la integración con cadenas globales de valor.
 \end_layout
 
-\begin_layout Section
-El futuro del comercio internacional exige sostenibilidad y logística verde
+\begin_layout Subsubsection
+
+\size large
+8.
+ El futuro del comercio internacional exige sostenibilidad y logística verde
 \end_layout
 
 \begin_layout Standard
@@ -21529,6 +22421,24 @@ Colombia enfrenta el reto de integrar prácticas sostenibles en transporte,
 
 \begin_layout Chapter
 ANEXOS
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength{
+\backslash
+leftmargini}{1em}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -27236,10 +28146,7 @@ Sistema
 \end_inset
 
 SWIFT:
-\begin_inset space ~
-\end_inset
-
-Sistema
+ Sistema
 \begin_inset space ~
 \end_inset
 

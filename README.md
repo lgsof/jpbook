@@ -2,6 +2,8 @@
 Edición y publicación mediante Amazon KDP
 
 ## LOG
+2026/Aug/31: r2.00 : jpbook-v7. Improved 150dpi images. Intro/Sintesis. Reorganization.
+
 2026/Aug/31: r1.50 : 2x Figures, chapters intro/sintesis.
 
 Aug/2r/26: r1.10 : All chapters, figures, format.
